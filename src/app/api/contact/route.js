@@ -50,6 +50,7 @@ export async function POST(request) {
       template: "services.contact_confirmation",
       to: email,
       variables: {
+        serviceType: service,
         userName: name,
       },
     });
