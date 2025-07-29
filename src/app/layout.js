@@ -53,11 +53,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} overflow-x-hidden`}>
         <ThemeProvider>
-          <div className="flex flex-col min-h-[100dvh] bg-background text-foreground">
+          <div className="flex flex-col h-full overflow-y-auto scrollbar-transparent min-h-[100dvh] bg-background text-foreground">
             <ServiceHeader />
-            <main className="flex-1 relative overflow-y-auto scrollbar-transparent">
-              {children}
-            </main>
+            <main className="flex-1 relative">{children}</main>
             <ServiceFooter />
             <CookieConsent />
           </div>

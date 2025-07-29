@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import CodeProfile from "@/components/home/code.profile";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -151,7 +152,10 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={item} className="block ml-4 md:ml-0">
+        <div className="min-h-full">
+          <CodeProfile />
+        </div>
+        {/*<motion.div variants={item} className="block ml-4 md:ml-0">
           <div className="relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -198,7 +202,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div>*/}
       </div>
     </motion.section>
   );
