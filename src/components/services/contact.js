@@ -72,16 +72,13 @@ export const ContactSection = () => {
     const metadata = collectUserMetadata();
     try {
       const body = JSON.stringify({ ...data, metadata });
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SITE_URL_BASE}/api/services/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body,
-        }
-      );
+      const response = await fetch(`/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      });
 
       if (!response.ok) {
         // Try to get error message from response
