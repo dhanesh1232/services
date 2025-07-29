@@ -27,10 +27,7 @@ export const FaqSection = () => {
   ];
 
   return (
-    <section
-      className="py-20 px-4 sm:px-6 md:px-12 bg-white dark:bg-gray-900"
-      id="faq"
-    >
+    <section className="py-20 px-4 sm:px-6 md:px-12 bg-background" id="faq">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,10 +36,10 @@ export const FaqSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Everything you need to know about working with us
           </p>
         </motion.div>
@@ -63,7 +60,7 @@ export const FaqSection = () => {
                     });
                   }
                 }}
-                className="px-4 py-2 text-sm font-medium rounded-full bg-indigo-50 dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-gray-700 transition-colors"
+                className="px-4 py-2 text-sm font-medium rounded-full bg-background text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-gray-700 transition-colors"
               >
                 {category.name}
               </button>
@@ -78,7 +75,7 @@ export const FaqSection = () => {
                 id={`category-${catIndex}`}
                 className="scroll-mt-16"
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+                <h3 className="text-xl font-semibold text-foreground mb-4 pb-2 border-b border-border">
                   {category.name}
                 </h3>
 
@@ -96,14 +93,19 @@ export const FaqSection = () => {
                         hidden: { opacity: 0, y: 10 },
                         visible: { opacity: 1, y: 0 },
                       }}
-                      className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden hover:shadow-sm transition-shadow"
+                      transition={{ duration: 0.3 }}
+                      className="bg-background rounded-xl border border-border overflow-hidden hover:shadow-sm transition-shadow"
                     >
                       <button
                         onClick={() => toggle(faq.id)}
-                        className="w-full text-left flex items-center justify-between p-5 focus:outline-none"
+                        className={`w-full text-left flex hover:bg-blue-200/10 items-center justify-between p-5 focus:outline-none ${
+                          activeIndex === faq.id
+                            ? "border-b border border-border"
+                            : ""
+                        }`}
                         aria-expanded={activeIndex === faq.id}
                       >
-                        <span className="text-base font-medium text-gray-900 dark:text-white text-left">
+                        <span className="text-base font-medium text-foreground text-left">
                           {faq.question}
                         </span>
                         <ChevronDown
@@ -120,7 +122,7 @@ export const FaqSection = () => {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="px-5 pb-5 text-gray-600 dark:text-gray-300 space-y-3"
+                            className="px-5 pb-5 text-muted-foreground space-y-3"
                           >
                             {faq.answer.split("\n").map((paragraph, pIndex) => (
                               <p key={pIndex}>{paragraph}</p>
@@ -157,8 +159,8 @@ export const FaqSection = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="bg-indigo-50 dark:bg-gray-800 inline-block px-6 py-4 rounded-xl">
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+          <div className="bg-backgruond inline-block px-6 py-4 rounded-xl">
+            <p className="text-muted-foreground mb-4">
               {`Didn't find what you're looking for?`}
             </p>
             <a

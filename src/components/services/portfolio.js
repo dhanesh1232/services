@@ -28,10 +28,7 @@ export const PortfolioSection = () => {
   };
 
   return (
-    <section
-      id="work"
-      className="py-20 px-6 md:px-12 bg-white dark:bg-gray-900"
-    >
+    <section id="work" className="py-20 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,10 +37,10 @@ export const PortfolioSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Recent Work
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Examples of projects delivered to satisfied clients
           </p>
         </motion.div>

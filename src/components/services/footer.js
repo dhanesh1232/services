@@ -51,7 +51,7 @@ export const ServiceFooter = () => {
 
   return (
     <>
-      <footer className="w-full border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+      <footer className="w-full border-t border-border bg-background">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {/* Brand Info */}
@@ -61,7 +61,7 @@ export const ServiceFooter = () => {
                   ECODrIx
                 </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-muted-foreground">
                 Professional web development services to help your business
                 thrive online.
               </p>
@@ -70,7 +70,7 @@ export const ServiceFooter = () => {
                   <a
                     key={social.name}
                     href={social.href}
-                    className="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     aria-label={social.name}
                   >
                     <svg
@@ -89,7 +89,7 @@ export const ServiceFooter = () => {
             {/* Footer Links */}
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
+                <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
                   {category}
                 </h4>
                 <ul className="space-y-3">
@@ -97,7 +97,7 @@ export const ServiceFooter = () => {
                     <li key={link.name}>
                       <button
                         onClick={() => setModal(link.href)}
-                        className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                        className="text-gmuted-foreground hover:text-indigo-600 hover:underline dark:hover:text-indigo-400 transition-colors"
                       >
                         {link.name}
                       </button>
@@ -109,13 +109,13 @@ export const ServiceFooter = () => {
           </div>
 
           {/* Copyright */}
-          <div className="pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+          <div className="pt-4 border-t border-border flex flex-col sm:flex-row justify-between items-center text-sm text-gmuted-foreground">
             <p className="text-center sm:text-left">
               &copy; {currentYear}{" "}
               <strong className="font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent">
                 ECODrIx
               </strong>{" "}
-              Web Development. All rights reserved.
+              All rights reserved.
             </p>
             <div className="mt-4 sm:mt-0 flex space-x-6">
               <button

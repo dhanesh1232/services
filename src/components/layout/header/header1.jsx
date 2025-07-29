@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ThemeSwitcher from "../themeSwicther";
+import ThemeSwitcher from "@/components/themeSwicther";
+import { CloseIcon, MenuIcon } from "@/components/icons";
 
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -91,22 +92,22 @@ export const ServiceHeader = () => {
 
   if (!mounted) {
     return (
-      <header className="w-full border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-6 md:px-12 sticky top-0 z-50">
+      <header className="w-full bg-background px-6 md:px-12 sticky top-0 z-50">
         <div className="flex justify-between items-center max-w-7xl mx-auto h-16">
           <div className="flex items-center space-x-6">
-            <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+            <div className="h-8 w-24 bg-background rounded animate-pulse" />
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {[...Array(5)].map((_, i) => (
                 <div
                   key={i}
-                  className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"
+                  className="h-6 w-16 bg-background rounded animate-pulse"
                 />
               ))}
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse" />
-            <div className="md:hidden h-8 w-8 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse" />
+            <div className="h-8 w-8 bg-background rounded-full animate-pulse" />
+            <div className="md:hidden h-8 w-8 bg-background rounded-lg animate-pulse" />
           </div>
         </div>
       </header>
@@ -117,7 +118,7 @@ export const ServiceHeader = () => {
     <AnimatePresence>
       {mounted && (
         <header
-          className={`w-full border-b border-border transition-all duration-300 ${
+          className={`w-full transition-all duration-300 ${
             scrolled
               ? "bg-background/70 py-3 backdrop-blur-sm shadow-sm"
               : "bg-background/80 py-4 backdrop-blur-md"
@@ -169,7 +170,7 @@ export const ServiceHeader = () => {
             <div className="flex items-center gap-2">
               <ThemeSwitcher />
               <button
-                className="md:hidden text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 p-1 rounded-lg hover:bg-background transition"
+                className="md:hidden text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 p-1 rounded-lg hover:bg-background transition"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
                 ref={toggleButtonRef}
@@ -181,21 +182,7 @@ export const ServiceHeader = () => {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    {mobileMenuOpen ? (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    ) : (
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16M4 18h16"
-                      />
-                    )}
+                    {!mobileMenuOpen ? <MenuIcon /> : <CloseIcon />}
                   </svg>
                 </motion.div>
               </button>

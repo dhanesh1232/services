@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ServiceHeader } from "@/components/services/header";
 import { ServiceFooter } from "@/components/services/footer";
 import CookieConsent from "@/components/services/overlay/cookies";
 import { ThemeProvider } from "@/components/theme.provider";
+import { ServiceHeader } from "@/components/layout/header/header1";
 
 const inter = Inter({ subsets: ["latin"] });
 

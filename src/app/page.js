@@ -10,6 +10,7 @@ import { PortfolioSection } from "@/components/services/portfolio";
 import { TestimonialsSection } from "@/components/services/testimonials";
 import { FaqSection } from "@/components/services/faq";
 import { useEffect } from "react";
+import Why from "@/components/home/why";
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -77,12 +78,15 @@ export default function ServicesPage() {
           }}
         />
       </Head>
-      <div className="bg-background text-foreground transition-colors duration-300">
+      <div className="bg-background z-0 text-foreground transition-colors duration-300">
         {/* Hero Section */}
         <Hero />
 
         {/* Stats Section */}
         <ServicesStats />
+
+        {/*why section */}
+        <Why />
 
         {/* Services Section */}
         <ServiceSection />

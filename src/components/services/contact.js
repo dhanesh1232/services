@@ -106,10 +106,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-4 sm:px-6 md:px-12 bg-white dark:bg-gray-900"
-    >
+    <section id="contact" className="py-20 px-4 sm:px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -123,7 +120,7 @@ export const ContactSection = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
             >
               {`Let's Work Together`}
             </motion.h2>
@@ -131,7 +128,7 @@ export const ContactSection = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-gray-600 dark:text-gray-300 mb-8"
+              className="text-lg text-muted-foreground mb-8"
             >
               Have a project in mind? Get in touch to discuss how I can help
               bring your vision to life.
@@ -144,16 +141,14 @@ export const ContactSection = () => {
                 transition={{ delay: 0.3 }}
                 className="flex items-start"
               >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
+                <div className="flex-shrink-0 bg-background/30 p-3 rounded-lg mr-4">
                   <Mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">
-                    Email
-                  </h3>
+                  <h3 className="font-medium text-foreground mb-1">Email</h3>
                   <a
                     href="mailto:contact@ecodrix.com"
-                    className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     contact@ecodrix.com
                   </a>
@@ -166,13 +161,11 @@ export const ContactSection = () => {
                 transition={{ delay: 0.4 }}
                 className="flex items-start"
               >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
+                <div className="flex-shrink-0 bg-background/30 p-3 rounded-lg mr-4">
                   <Phone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">
-                    Phone
-                  </h3>
+                  <h3 className="font-medium text-foreground mb-1">Phone</h3>
                   <a
                     href="tel:+918143963821"
                     className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -192,10 +185,8 @@ export const ContactSection = () => {
                   <MapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900 dark:text-white mb-1">
-                    Location
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h3 className="font-medium text-foreground mb-1">Location</h3>
+                  <p className="text-muted-foreground">
                     Tirupati, Andhra Pradesh, India
                   </p>
                 </div>
@@ -207,15 +198,15 @@ export const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow"
+            className="bg-background/70 rounded-xl p-8 border border-border shadow-sm hover:shadow-md transition-shadow"
           >
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+            <h3 className="text-xl font-bold text-foreground mb-6">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name" className="flex items-center gap-1">
-                  Name<span className="text-red-500">*</span>
+                  Name<span className="text-destructive">*</span>
                 </Label>
                 <Input
                   type="text"
@@ -223,16 +214,18 @@ export const ContactSection = () => {
                   placeholder="Your name"
                   {...register("name")}
                   className={`${
-                    errors.name ? "border-red-500" : ""
+                    errors.name ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
                 {errors.name && (
-                  <p className="text-sm text-red-500">{errors.name.message}</p>
+                  <p className="text-sm text-destructive">
+                    {errors.name.message}
+                  </p>
                 )}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email" className="flex items-center gap-1">
-                  Email<span className="text-red-500">*</span>
+                  Email<span className="text-destructive">*</span>
                 </Label>
                 <Input
                   type="email"
@@ -240,11 +233,13 @@ export const ContactSection = () => {
                   placeholder="your.email@example.com"
                   {...register("email")}
                   className={`${
-                    errors.email ? "border-red-500" : ""
+                    errors.email ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
                 {errors.email && (
-                  <p className="text-sm text-red-500">{errors.email.message}</p>
+                  <p className="text-sm text-destructive">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
               <div className="space-y-2">
@@ -260,19 +255,21 @@ export const ContactSection = () => {
                       onChange={field.onChange}
                       className={`${
                         errors.phone
-                          ? "border-red-500 focus-within:ring-red-500"
+                          ? "border-destructive focus-within:ring-destructive"
                           : ""
                       }`}
                     />
                   )}
                 />
                 {errors.phone && (
-                  <p className="text-sm text-red-500">{errors.phone.message}</p>
+                  <p className="text-sm text-destructive">
+                    {errors.phone.message}
+                  </p>
                 )}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="service" className="flex items-center gap-1">
-                  Service Needed<span className="text-red-500">*</span>
+                  Service Needed<span className="text-destructive">*</span>
                 </Label>
                 <Controller
                   name="service"
@@ -295,7 +292,7 @@ export const ContactSection = () => {
                   )}
                 />
                 {errors.service && (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-destructive">
                     {errors.service.message}
                   </p>
                 )}
@@ -303,7 +300,7 @@ export const ContactSection = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="flex items-center gap-1">
-                  Message<span className="text-red-500">*</span>
+                  Message<span className="text-destructive">*</span>
                 </Label>
                 <Textarea
                   id="message"
@@ -311,11 +308,11 @@ export const ContactSection = () => {
                   placeholder="Tell me about your project (minimum 100 characters)..."
                   {...register("message")}
                   className={`${
-                    errors.message ? "border-red-500" : ""
+                    errors.message ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
                 {errors.message ? (
-                  <p className="text-sm text-red-500">
+                  <p className="text-sm text-destructive">
                     {errors.message.message}
                   </p>
                 ) : (

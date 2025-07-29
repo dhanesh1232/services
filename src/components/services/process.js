@@ -127,7 +127,7 @@ export const ProcessSection = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 md:px-12 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 px-4 sm:px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export const ProcessSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             My Development{" "}
             <span className="bg-gradient-to-r relative from-blue-500 to-purple-500 bg-clip-text text-transparent">
               Process
@@ -157,7 +157,7 @@ export const ProcessSection = () => {
               </svg>
             </span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             A structured approach to ensure quality and efficiency
           </p>
         </motion.div>
@@ -190,17 +190,17 @@ export const ProcessSection = () => {
                     variants={item}
                     className="w-full flex-shrink-0 px-2 z-20"
                   >
-                    <div className="bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full">
+                    <div className="bg-background border border-border rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full">
                       <div className="p-6 pb-12 relative flex-1 flex flex-col">
                         <div className="flex items-start gap-4">
                           <div className="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                             {step.icon}
                           </div>
                           <div>
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                            <h3 className="text-xl font-semibold text-foreground mb-2">
                               {step.title}
                             </h3>
-                            <p className="text-gray-600 dark:text-gray-300 mb-4">
+                            <p className="text-muted-foreground mb-4">
                               {step.description}
                             </p>
                           </div>
@@ -209,7 +209,7 @@ export const ProcessSection = () => {
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start">
                               <ArrowRight className="text-indigo-500 mt-1 mr-2 flex-shrink-0" />
-                              <span className="text-gray-600 dark:text-gray-300 text-sm">
+                              <span className="text-muted-foreground text-sm">
                                 {detail}
                               </span>
                             </li>
@@ -231,7 +231,7 @@ export const ProcessSection = () => {
                 prevSlide();
                 pauseAutoPlay();
               }}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-background border-border border sh p-2 rounded-full shadow-md z-10"
               aria-label="Previous step"
             >
               <svg
@@ -254,7 +254,7 @@ export const ProcessSection = () => {
                 nextSlide();
                 pauseAutoPlay();
               }}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-background border border-border p-2 rounded-full shadow-md z-10"
               aria-label="Next step"
             >
               <svg
@@ -302,8 +302,7 @@ export const ProcessSection = () => {
               <motion.div
                 key={index}
                 variants={item}
-                whileHover={{ y: -5 }}
-                className="bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col"
+                className="bg-background border border-border rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
               >
                 <div className="p-6 pb-12 relative flex-1 flex flex-col">
                   <div className="flex items-start gap-4">
@@ -311,10 +310,10 @@ export const ProcessSection = () => {
                       {step.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                      <h3 className="text-xl font-semibold text-foreground mb-2">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      <p className="text-muted-foreground mb-4">
                         {step.description}
                       </p>
                     </div>
@@ -323,7 +322,7 @@ export const ProcessSection = () => {
                     {step.details.map((detail, i) => (
                       <li key={i} className="flex items-start">
                         <ArrowRight className="text-indigo-500 mt-1 mr-2 flex-shrink-0" />
-                        <span className="text-gray-600 dark:text-gray-300 text-sm">
+                        <span className="text-muted-foreground text-sm">
                           {detail}
                         </span>
                       </li>

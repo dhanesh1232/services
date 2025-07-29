@@ -54,7 +54,7 @@ export const ServicesStats = () => {
   };
 
   return (
-    <section className="py-16 px-6 md:px-12 bg-white dark:bg-gray-800">
+    <section className="py-16 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -67,8 +67,7 @@ export const ServicesStats = () => {
             <motion.div
               key={index}
               variants={item}
-              whileHover={{ y: -5 }}
-              className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="bg-indigo-100 dark:bg-indigo-900/30 w-14 h-14 rounded-full flex items-center justify-center mb-4">
@@ -77,10 +76,10 @@ export const ServicesStats = () => {
                 <h3 className="text-3xl md:text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
                   {stat.value}
                 </h3>
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                <h4 className="text-lg font-semibold text-foreground mb-2">
                   {stat.label}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-muted-foreground text-sm">
                   {stat.description}
                 </p>
               </div>

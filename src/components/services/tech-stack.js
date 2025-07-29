@@ -81,10 +81,7 @@ export const TechStackSection = () => {
   };
 
   return (
-    <section
-      id="tech"
-      className="py-16 px-4 sm:px-6 md:px-8 bg-white dark:bg-gray-900"
-    >
+    <section id="tech" className="py-16 px-4 sm:px-6 md:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -93,10 +90,10 @@ export const TechStackSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Technology Stack
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Modern tools and frameworks I use to build high-quality applications
           </p>
         </motion.div>
@@ -112,9 +109,9 @@ export const TechStackSection = () => {
             <motion.div
               key={catIndex}
               variants={categoryItem}
-              className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 sm:p-6 border border-gray-200 dark:border-gray-700"
+              className="bg-background/50 rounded-xl p-4 sm:p-6 border border-border"
             >
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+              <h3 className="text-xl font-semibold text-foreground mb-4">
                 {category.name}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 z-20 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -123,8 +120,9 @@ export const TechStackSection = () => {
                     key={techIndex}
                     variants={techItem}
                     whileHover={{ y: -4, scale: 1.05 }}
+                    transition={{ ease: "easeInOut", duration: 0.2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex flex-col items-center p-3 rounded-lg bg-white dark:bg-gray-700 shadow-sm hover:shadow-md transition-all duration-200"
+                    className="flex flex-col items-center p-3 rounded-lg shadow-inner bg-white dark:bg-gray-700 hover:shadow-md transition-all duration-200"
                   >
                     <tech.icon
                       className="w-8 h-8 mb-2"
@@ -147,7 +145,7 @@ export const TechStackSection = () => {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-muted-foreground">
             And many more tools in my development toolkit
           </p>
         </motion.div>

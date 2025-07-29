@@ -37,7 +37,7 @@ export const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 px-6 md:px-12 bg-indigo-50 dark:bg-gray-800 overflow-hidden"
+      className="py-20 px-6 md:px-12 bg-background overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -47,10 +47,10 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Client Testimonials
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             What my clients say about working with me
           </p>
         </motion.div>
@@ -72,12 +72,12 @@ export const TestimonialsSection = () => {
                     scale: currentIndex === index ? 1 : 0.95,
                   }}
                   transition={{ duration: 0.5 }}
-                  className={`bg-white dark:bg-gray-700 rounded-xl p-8 shadow-md border border-gray-200 dark:border-gray-600 transition-all duration-300 ${
+                  className={`bg-white dark:bg-gray-700 rounded-xl p-8 shadow-md border border-border transition-all duration-300 ${
                     currentIndex === index ? "scale-100" : "scale-95"
                   }`}
                 >
                   <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 rounded-full relative overflow-hidden mr-4 border-2 border-indigo-100 dark:border-gray-600">
+                    <div className="w-14 h-14 rounded-full relative overflow-hidden mr-4 border-2 border-border">
                       <Image
                         fill
                         src={testimonial.avatar}
