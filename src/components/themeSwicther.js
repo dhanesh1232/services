@@ -21,8 +21,8 @@ export default function ThemeSwitcher() {
 
   return (
     <Button
-      variant="outline"
-      className="rounded-full border-none"
+      variant="ghost"
+      className="rounded-full"
       size="icon"
       onClick={toggleTheme}
     >

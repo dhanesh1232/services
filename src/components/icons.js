@@ -1,4 +1,5 @@
 import {
+  AlignRight,
   BarChart2,
   Bot,
   ChevronLeft,
@@ -27,6 +28,7 @@ import {
   Puzzle,
   Shield,
   Users,
+  X,
   Zap,
 } from "lucide-react";
 import { BsLinkedin, BsTelegram, BsWhatsapp } from "react-icons/bs";
@@ -84,6 +86,8 @@ export const Icons = {
   shield: Shield,
   users: Users,
   integration: Puzzle,
+  alignRight: AlignRight,
+  cross: X,
 };
 
 export const RenderChannelIcons = ({ className, channels }) => {

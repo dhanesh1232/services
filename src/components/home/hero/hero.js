@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import CodeProfile from "@/components/home/code.profile";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -143,66 +144,19 @@ export default function Hero() {
               </svg>
               Get Your Free Demo
             </a>
-            <Link
-              href="#work"
-              className="border border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-800 font-medium py-3 px-6 rounded-lg transition duration-300 text-center"
+            <Button
+              asChild
+              variant="outline"
+              className="border border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-800 font-medium transition duration-300 text-center"
             >
-              See More...
-            </Link>
+              <Link href="#work">See More...</Link>
+            </Button>
           </motion.div>
         </motion.div>
 
         <div className="min-h-full">
           <CodeProfile />
         </div>
-        {/*<motion.div variants={item} className="block ml-4 md:ml-0">
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-              className="absolute -top-6 -left-6 w-full h-full border-2 border-indigo-300 dark:border-indigo-600 rounded-xl"
-            ></motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="relative bg-background p-2 rounded-xl shadow-lg border border-border"
-            >
-              <div className="bg-gray-800 rounded-lg overflow-hidden">
-                <div className="flex gap-1 p-3 bg-gray-700">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div className="p-4 text-gray-300 font-mono text-sm">
-                  <span className="text-purple-400">const</span>{" "}
-                  <span className="text-blue-400">developer</span> = {"{"}{" "}
-                  <br />
-                  <span className="ml-4 text-green-400">name:</span>{" "}
-                  <span className="text-yellow-300">{`'ECODrIx'`}</span>, <br />
-                  <span className="ml-4 text-green-400">specialty:</span>{" "}
-                  <span className="text-yellow-300">{`'React & Next.js'`}</span>
-                  , <br />
-                  <span className="ml-4 text-green-400">experience:</span>{" "}
-                  <span className="text-amber-500">3+</span>{" "}
-                  <span className="text-gray-500">years</span> <br />
-                  {"}"}; <br />
-                  <br />
-                  <span className="text-purple-400">function</span>{" "}
-                  <span className="text-blue-400">buildProject</span>() {"{"}{" "}
-                  <br />
-                  <span className="ml-4 text-purple-400">return</span>{" "}
-                  <span className="text-yellow-300">
-                    {`'Your Amazing Website'`}
-                  </span>
-                  ; <br />
-                  {"}"}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>*/}
       </div>
     </motion.section>
   );

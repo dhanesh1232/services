@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeSwitcher from "@/components/themeSwicther";
-import { CloseIcon, MenuIcon } from "@/components/icons";
+import { CloseIcon, Icons, MenuIcon } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -169,23 +170,23 @@ export const ServiceHeader = () => {
             {/* Mobile menu button */}
             <div className="flex items-center gap-2">
               <ThemeSwitcher />
-              <button
-                className="md:hidden text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 p-1 rounded-lg hover:bg-background transition"
+              <Button
+                variant="ghost"
+                className="md:hidden text-xl"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
+                size="icon"
                 ref={toggleButtonRef}
               >
-                <motion.div animate={mobileMenuOpen ? "open" : "closed"}>
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {!mobileMenuOpen ? <MenuIcon /> : <CloseIcon />}
-                  </svg>
-                </motion.div>
-              </button>
+                {!mobileMenuOpen ? (
+                  <Icons.alignRight
+                    size={18}
+                    className="text-foreground text-xl"
+                  />
+                ) : (
+                  <Icons.cross className="text-foreground text-xl" size={18} />
+                )}
+              </Button>
             </div>
           </div>
 

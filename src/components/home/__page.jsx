@@ -2,7 +2,7 @@
 
 import { ContactSection } from "@/components/services/contact";
 import Head from "next/head";
-import Hero from "@/components/services/hero/hero";
+import Hero from "@/components/home/hero/hero";
 import { ServicesStats } from "@/components/services/stats";
 import { ServiceSection } from "@/components/services/services";
 import { ProcessSection } from "@/components/services/process";
@@ -79,7 +79,7 @@ export default function ServicesPage() {
           }}
         />
       </Head>
-      <div className="bg-background z-0 text-foreground transition-colors duration-300">
+      <>
         {/* Hero Section */}
         <Hero />
 
@@ -109,7 +109,7 @@ export default function ServicesPage() {
 
         {/* Contact Section */}
         <ContactSection />
-      </div>
+      </>
     </>
   );
 }

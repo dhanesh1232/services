@@ -1,7 +1,7 @@
 import React from "react";
 export default function CodeProfile() {
   return (
-    <div className="flex items-center justify-center p-4 font-sans bg-white dark:bg-zinc-950">
+    <div className="flex items-center justify-center p-4 font-sans bg-transparent">
       <CoderProfileCard />
     </div>
   );
