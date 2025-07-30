@@ -4,12 +4,11 @@ import { allBlogs } from "@/lib/client/blog";
 
 export async function GET() {
   const baseUrl =
-    ProcessingInstruction.env.NEXT_PUBLIC_SITE_URL ||
-    "https://services.ecodrix.com";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://services.ecodrix.com";
 
   const routes = ["", "/contact", "/services", "/blog"];
 
-  const blogs = allBlogs();
+  const blogs = await allBlogs();
   const blogRoutes = blogs.map((each) => `/blog/${each.slug}`);
   const allRoutes = [...routes, ...blogRoutes];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
