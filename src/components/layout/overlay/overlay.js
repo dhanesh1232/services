@@ -9,7 +9,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { RocketIcon, ConstructionIcon, CalendarIcon } from "@/components/icons"; // You'll need to create or import these icons
-import { footerLinks } from "../footer";
+import { footerLinks } from "@/components/layout/footer/footer";
 
 export default function Overlay({ modal, onClose }) {
   function formatSlugToTitle(slug) {

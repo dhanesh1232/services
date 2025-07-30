@@ -28,7 +28,7 @@ const coderData = {
 };
 const CoderProfileCard = () => {
   return (
-    <div className="max-w-2xl w-full mx-auto bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-[#000000] dark:to-[#0a0d37] border-zinc-300 dark:border-[#1b2c68a0] relative rounded-lg border shadow-lg">
+    <div className="max-w-2xl w-full mx-auto bg-gradient-to-r text-left from-zinc-100 to-zinc-200 dark:from-[#000000] dark:to-[#0a0d37] border-zinc-300 dark:border-[#1b2c68a0] relative rounded-lg border shadow-lg">
       <div className="flex flex-row">
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
         <div className="h-[2px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>

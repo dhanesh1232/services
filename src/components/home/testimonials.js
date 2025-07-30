@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
 import { useRef, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,24 +73,25 @@ export const TestimonialsSection = () => {
                     scale: currentIndex === index ? 1 : 0.95,
                   }}
                   transition={{ duration: 0.5 }}
-                  className={`bg-white dark:bg-gray-700 rounded-xl p-8 shadow-md border border-border transition-all duration-300 ${
+                  className={`bg-background rounded-xl p-8 shadow-md border border-border transition-all duration-300 ${
                     currentIndex === index ? "scale-100" : "scale-95"
                   }`}
                 >
-                  <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 rounded-full relative overflow-hidden mr-4 border-2 border-border">
-                      <Image
-                        fill
+                  <div className="flex items-center gap-2 mb-6">
+                    <Avatar>
+                      <AvatarImage
                         src={testimonial.avatar}
                         alt={testimonial.name}
-                        className="object-cover"
                       />
-                    </div>
+                      <AvatarFallback>
+                        {testimonial.name.split(" ")[0][0]}
+                      </AvatarFallback>
+                    </Avatar>
                     <div>
-                      <h4 className="font-bold text-gray-900 dark:text-white">
+                      <h4 className="font-bold text-foreground">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                      <p className="text-sm text-muted-foreground">
                         {testimonial.role} · {testimonial.company}
                       </p>
                     </div>
@@ -97,7 +99,7 @@ export const TestimonialsSection = () => {
 
                   <FaQuoteLeft className="text-indigo-300 dark:text-indigo-400 mb-4 text-xl" />
 
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 relative pl-6">
+                  <p className="text-muted-foreground mb-6 relative pl-6">
                     {testimonial.quote}
                   </p>
 
@@ -121,14 +123,14 @@ export const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={goToPrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-inner z-10"
             aria-label="Previous testimonial"
           >
             <FiChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-inner z-10"
             aria-label="Next testimonial"
           >
             <FiChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
@@ -141,9 +143,7 @@ export const TestimonialsSection = () => {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
-                  currentIndex === index
-                    ? "bg-indigo-600 w-6"
-                    : "bg-gray-300 dark:bg-gray-600"
+                  currentIndex === index ? "bg-indigo-600 w-6" : "bg-muted"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -182,23 +182,23 @@ export const TestimonialsSection = () => {
                   },
                 },
               }}
-              whileHover={{ y: -5 }}
-              className="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-600 transition-all duration-300"
+              className="bg-background rounded-xl p-8 shadow-sm hover:shadow-md border border-border transition-all duration-300"
             >
-              <div className="flex items-center mb-6">
-                <div className="w-14 h-14 rounded-full relative overflow-hidden mr-4 border-2 border-indigo-100 dark:border-gray-600">
-                  <Image
-                    fill
+              <div className="flex items-center gap-3 mb-6">
+                <Avatar>
+                  <AvatarImage
                     src={testimonial.avatar}
                     alt={testimonial.name}
-                    className="object-cover"
                   />
-                </div>
+                  <AvatarFallback>
+                    {testimonial.name.split(" ")[0][0]}
+                  </AvatarFallback>
+                </Avatar>
                 <div>
-                  <h4 className="font-bold text-gray-900 dark:text-white">
+                  <h4 className="font-bold text-foreground">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-muted-foreground">
                     {testimonial.role} · {testimonial.company}
                   </p>
                 </div>
@@ -206,7 +206,7 @@ export const TestimonialsSection = () => {
 
               <FaQuoteLeft className="text-indigo-300 dark:text-indigo-400 mb-4 text-xl" />
 
-              <p className="text-gray-600 dark:text-gray-300 mb-6 relative pl-6">
+              <p className="text-muted-foreground mb-6 relative pl-6">
                 {testimonial.quote}
               </p>
 

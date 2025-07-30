@@ -1,0 +1,117 @@
+.floatButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #25D366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .floatButton {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .whatsappIcon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .floatButton {
+        width: 45px;
+        height: 45px;
+        bottom: 18px;
+        right: 18px;
+    }
+
+    .whatsappIcon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 769px) {
+    .floatButton:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.circleWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle circle {
+    transition: stroke-dashoffset 1s linear;
+}
+
+.circle.animate circle {
+    stroke-dashoffset: 0;
+}
+
+.whatsappIcon {
+    z-index: 2;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .floatButton {
+        transition: none;
+    }
+
+    .circle.animate circle {
+        transition: none;
+    }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .floatButton {
+        border: 2px solid ButtonText;
+    }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+    .floatButton {
+        bottom: max(20px, env(safe-area-inset-bottom));
+        right: max(20px, env(safe-area-inset-right));
+    }
+
+    @media (max-width: 480px) {
+        .floatButton {
+            bottom: max(15px, env(safe-area-inset-bottom));
+            right: max(15px, env(safe-area-inset-right));
+        }
+    }
+}

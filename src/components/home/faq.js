@@ -46,7 +46,7 @@ export const FaqSection = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Category tabs */}
-          <div className="flex flex-wrap gap-2 justify-center mb-8">
+          <div className="flex flex-wrap sticky top-16 z-10 gap-2 justify-center mb-8">
             {faqCategories.map((category, i) => (
               <button
                 key={i}

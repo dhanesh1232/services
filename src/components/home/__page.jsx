@@ -1,15 +1,15 @@
 "use client";
 
-import { ContactSection } from "@/components/services/contact";
+import { ContactSection } from "@/components/home/contact";
 import Head from "next/head";
 import Hero from "@/components/home/hero/hero";
-import { ServicesStats } from "@/components/services/stats";
-import { ServiceSection } from "@/components/services/services";
-import { ProcessSection } from "@/components/services/process";
-import { TechStackSection } from "@/components/services/tech-stack";
-import { PortfolioSection } from "@/components/services/portfolio";
-import { TestimonialsSection } from "@/components/services/testimonials";
-import { FaqSection } from "@/components/services/faq";
+import { ServicesStats } from "@/components/home/stats";
+import { ServiceSection } from "@/components/home/services";
+import { ProcessSection } from "@/components/home/process";
+import { TechStackSection } from "@/components/home/tech-stack";
+import { PortfolioSection } from "@/components/home/portfolio";
+import { TestimonialsSection } from "@/components/home/testimonials";
+import { FaqSection } from "@/components/home/faq";
 import { useEffect } from "react";
 import Why from "@/components/home/why";
 

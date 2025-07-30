@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Overlay from "./overlay/overlay";
+import Overlay from "../overlay/overlay";
+
 export const footerLinks = {
   services: [
     { name: "Web Development", href: "web-development" },
@@ -70,7 +71,7 @@ export const ServiceFooter = () => {
                   <a
                     key={social.name}
                     href={social.href}
-                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-blue-600 transition-colors"
                     aria-label={social.name}
                   >
                     <svg
@@ -97,7 +98,7 @@ export const ServiceFooter = () => {
                     <li key={link.name}>
                       <button
                         onClick={() => setModal(link.href)}
-                        className="text-gmuted-foreground hover:text-indigo-600 hover:underline dark:hover:text-indigo-400 transition-colors"
+                        className="text-gmuted-foreground hover:text-indigo-600 hover:underline dark:hover:blue-indigo-600 transition-colors"
                       >
                         {link.name}
                       </button>
@@ -121,13 +122,13 @@ export const ServiceFooter = () => {
               <button
                 type="button"
                 onClick={() => setModal("privacy-policy")}
-                className="hover:text-indigo-600 hover:underline dark:hover:text-indigo-400 transition-colors"
+                className="hover:text-indigo-600 hover:underline hover:cursor-pointer dark:hover:text-blue-600 transition-colors"
               >
                 Privacy
               </button>
               <a
                 onClick={() => setModal("terms-and-conditions")}
-                className="hover:text-indigo-600 hover:underline dark:hover:text-indigo-400 transition-colors"
+                className="hover:text-indigo-600 hover:underline hover:cursor-pointer dark:hover:text-blue-600 transition-colors"
               >
                 Terms
               </a>

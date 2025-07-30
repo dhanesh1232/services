@@ -4,13 +4,22 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeSwitcher from "@/components/themeSwicther";
-import { CloseIcon, Icons, MenuIcon } from "@/components/icons";
+import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
+const navLinks = [
+  { id: "services", label: "Services" },
+  { id: "work", label: "Work" },
+  { id: "tech", label: "Tech" },
+  { id: "testimonials", label: "Clients" },
+  { id: "contact", label: "Contact" },
+];
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+
   const [activeSection, setActiveSection] = useState("");
   const mobileMenuRef = useRef(null);
   const toggleButtonRef = useRef(null);
@@ -23,20 +32,37 @@ export const ServiceHeader = () => {
 
   // Scroll effect with debounce
   useEffect(() => {
+    // Initial check for page load with scroll position
+    const initialCheck = () => {
+      const isScrolled = window.scrollY > 40;
+      setScrolled(isScrolled);
+    };
+
+    // Run initial check
+    initialCheck();
+
     let timeoutId;
     const handleScroll = () => {
+      // Clear previous timeout to debounce
       clearTimeout(timeoutId);
+
+      // Set immediate visual feedback
+      const isScrolled = window.scrollY > 40;
+      setScrolled(isScrolled);
+
+      // Additional debounced check (optional)
       timeoutId = setTimeout(() => {
-        setScrolled(window.scrollY > 10);
+        const currentScrolled = window.scrollY > 40;
+        setScrolled(currentScrolled);
       }, 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, []); // Empty dependency array
 
   // Click outside handler with cleanup
   useEffect(() => {
@@ -63,7 +89,6 @@ export const ServiceHeader = () => {
         let visibleSections = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
         if (visibleSections.length > 0) {
           setActiveSection(visibleSections[0].target.id);
         } else {
@@ -83,32 +108,21 @@ export const ServiceHeader = () => {
     };
   }, []);
 
-  const navLinks = [
-    { id: "services", label: "Services" },
-    { id: "work", label: "Work" },
-    { id: "tech", label: "Tech" },
-    { id: "testimonials", label: "Clients" },
-    { id: "contact", label: "Contact" },
-  ];
-
   if (!mounted) {
     return (
       <header className="w-full bg-background px-6 md:px-12 sticky top-0 z-50">
         <div className="flex justify-between items-center max-w-7xl mx-auto h-16">
           <div className="flex items-center space-x-6">
-            <div className="h-8 w-24 bg-background rounded animate-pulse" />
+            <Skeleton className="h-8 w-24 rounded animate-pulse" />
             <div className="hidden md:flex space-x-6 lg:space-x-8">
               {[...Array(5)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-6 w-16 bg-background rounded animate-pulse"
-                />
+                <Skeleton key={i} className="h-6 w-16 rounded animate-pulse" />
               ))}
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 bg-background rounded-full animate-pulse" />
-            <div className="md:hidden h-8 w-8 bg-background rounded-lg animate-pulse" />
+            <Skeleton className="h-8 w-8 rounded-full animate-pulse" />
+            <Skeleton className="md:hidden h-8 w-8 rounded-lg animate-pulse" />
           </div>
         </div>
       </header>
@@ -117,19 +131,29 @@ export const ServiceHeader = () => {
 
   return (
     <AnimatePresence>
-      {mounted && (
-        <header
-          className={`w-full transition-all duration-300 ${
-            scrolled
-              ? "bg-background/70 py-3 backdrop-blur-sm shadow-sm"
-              : "bg-background/80 py-4 backdrop-blur-md"
-          } px-6 md:px-12 sticky top-0 z-50`}
-        >
-          <div className="flex justify-between items-center max-w-7xl mx-auto">
+      <motion.header
+        initial={false}
+        animate={{
+          paddingTop: scrolled ? 5 : 10,
+          paddingBottom: scrolled ? 5 : 10,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className={`w-full ${
+          scrolled
+            ? mobileMenuOpen
+              ? "bg-background backdrop-blur-md"
+              : "bg-background/50 backdrop-blur-md"
+            : mobileMenuOpen
+            ? "bg-background backdrop-blur-md shadow-xl"
+            : "bg-transparent"
+        } fixed top-0 z-50`}
+      >
+        <div className="w-full relative">
+          <div className="flex px-4 md:px-8 justify-between items-center max-w-7xl mx-auto">
             <div className="flex items-center justify-start space-x-6">
               <Link href="/" className="flex items-center group">
                 <motion.span
-                  className="text-2xl font-bold tracking-tight text-transparent bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-500 bg-clip-text hover:opacity-90 transition"
+                  className="text-2xl font-bold tracking-tight text-transparent bg-gradient-to-r from-indigo-50 via-blue-500 to-purple-500 bg-clip-text hover:opacity-90 transition"
                   whileHover={{ scale: 1.05 }}
                 >
                   ECODrIx
@@ -152,15 +176,6 @@ export const ServiceHeader = () => {
                       }`}
                     >
                       {link.label}
-
-                      {/* Underline animation */}
-                      <motion.div
-                        layout
-                        className="absolute bottom-0 left-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 origin-left scale-x-0 group-hover:scale-x-100"
-                        animate={{ scaleX: isActive ? 1 : 0 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        style={{ width: "100%", transformOrigin: "left" }}
-                      />
                     </Link>
                   );
                 })}
@@ -180,11 +195,14 @@ export const ServiceHeader = () => {
               >
                 {!mobileMenuOpen ? (
                   <Icons.alignRight
-                    size={18}
-                    className="text-foreground text-xl"
+                    size={15}
+                    className="text-foreground font-normal"
                   />
                 ) : (
-                  <Icons.cross className="text-foreground text-xl" size={18} />
+                  <Icons.cross
+                    className="text-foreground font-normal"
+                    size={15}
+                  />
                 )}
               </Button>
             </div>
@@ -199,9 +217,9 @@ export const ServiceHeader = () => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="md:hidden overflow-hidden"
+                className={`md:hidden w-full overflow-hidden absolute bg-background backdrop-blur-md`}
               >
-                <div className="pt-4 pb-6 space-y-4 px-2">
+                <div className="pt-4 pb-6 space-y-2 px-2">
                   {navLinks.map((link) => (
                     <motion.div
                       key={link.id}
@@ -211,7 +229,7 @@ export const ServiceHeader = () => {
                     >
                       <Link
                         href={`#${link.id}`}
-                        className={`block px-4 py-2 rounded-lg transition font-medium ${
+                        className={`block px-2 py-2 rounded-lg transition font-medium ${
                           activeSection === link.id
                             ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
                             : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -226,8 +244,8 @@ export const ServiceHeader = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </header>
-      )}
+        </div>
+      </motion.header>
     </AnimatePresence>
   );
 };

@@ -1,10 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ServiceFooter } from "@/components/services/footer";
-import CookieConsent from "@/components/services/overlay/cookies";
+import { ServiceFooter } from "@/components/layout/footer/footer";
 import { ThemeProvider } from "@/components/theme.provider";
 import { ServiceHeader } from "@/components/layout/header/header1";
 import { defaultMeta } from "@/lib/client/seo";
+import CookieConsent from "@/components/layout/overlay/cookies";
+import FloatButton from "@/components/layout/overlay/floa-button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,14 +29,13 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden`}>
+      <body className={`${inter.className} overflow-x-hidden min-h-full`}>
         <ThemeProvider>
-          <div className="flex flex-col h-full overflow-y-auto scrollbar-transparent min-h-[100dvh] bg-background text-foreground">
-            <ServiceHeader />
-            <main className="flex-1 relative">{children}</main>
-            <ServiceFooter />
-            <CookieConsent />
-          </div>
+          <ServiceHeader />
+          <main className="flex-1 relative">{children}</main>
+          <ServiceFooter />
+          <CookieConsent />
+          <FloatButton />
         </ThemeProvider>
       </body>
     </html>

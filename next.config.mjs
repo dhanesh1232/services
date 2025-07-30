@@ -6,13 +6,6 @@ const nextConfig = {
   },
   images: {
     domains: ["randomuser.me", "images.unsplash.com"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "randomuser.me",
-        pathname: "/api/portraits/**",
-      },
-    ],
   },
   onWarning: (warning) => {
     if (
