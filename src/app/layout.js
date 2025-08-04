@@ -6,6 +6,7 @@ import { ServiceHeader } from "@/components/layout/header/header1";
 import { defaultMeta } from "@/lib/client/seo";
 import CookieConsent from "@/components/layout/overlay/cookies";
 import FloatButton from "@/components/layout/overlay/floa-button";
+import WebWidgetLoader from "@/components/widget/compo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
           <ServiceFooter />
           <CookieConsent />
           <FloatButton />
+          <WebWidgetLoader botId="ECODrIx_test_botId" />
         </ThemeProvider>
       </body>
     </html>
