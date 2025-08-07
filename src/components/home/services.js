@@ -1,8 +1,12 @@
 import { FiCheckCircle } from "react-icons/fi";
 import { MdDesignServices } from "react-icons/md";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 export const ServiceSection = () => {
   return (
-    <section id="services" className="py-20 px-6 md:px-12 bg-background">
+    <section id="services" className="py-12 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -15,7 +19,7 @@ export const ServiceSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8">
-          {services.map((service, index) => (
+          {services.slice(0, 4).map((service, index) => (
             <div
               key={index}
               className="bg-background/80 shadow-inner rounded-xl p-8 border border-border hover:border-indigo-300 dark:hover:border-indigo-500 transition duration-300"
@@ -43,12 +47,22 @@ export const ServiceSection = () => {
             </div>
           ))}
         </div>
+        <div className="flex items-center justify-center mt-4">
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/services" className="group">
+              <span className="group-hover:text-indigo-600 group-hover:underline underline-offset-1">
+                Explore
+              </span>
+              <ArrowRight className="w-6 h-6 ml-0.5 group-hover:translate-x-2 transform transition-all ease-in-out duration-300" />
+            </Link>
+          </Button>
+        </div>
       </div>
     </section>
   );
 };
 
-const services = [
+export const services = [
   {
     title: "Custom Web Development",
     description:

@@ -279,7 +279,7 @@ export const ContactSection = () => {
                       <SelectTrigger className="w-full focus:ring-2 focus:ring-indigo-500">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-background">
                         <SelectItem value="web-development">
                           Web Development
                         </SelectItem>

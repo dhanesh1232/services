@@ -9,11 +9,12 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const navLinks = [
-  { id: "services", label: "Services" },
+  { id: "services", label: "Services", href: "/services" },
   { id: "work", label: "Work" },
   { id: "tech", label: "Tech" },
   { id: "testimonials", label: "Clients" },
-  { id: "contact", label: "Contact" },
+  { id: "blog", label: "Blog", href: "/blog" },
+  { id: "contact", label: "Contact", href: "/contact" },
 ];
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -164,11 +165,11 @@ export const ServiceHeader = () => {
               <nav className="hidden md:flex space-x-6 lg:space-x-8">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.id;
-
+                  const href = link.href ? link.href : `#${link.id}`;
                   return (
                     <Link
                       key={link.id}
-                      href={`#${link.id}`}
+                      href={href}
                       className={`relative text-base font-medium px-2 py-1 transition-colors group ${
                         isActive
                           ? "text-indigo-600 dark:text-indigo-400"
@@ -220,26 +221,29 @@ export const ServiceHeader = () => {
                 className={`md:hidden w-full overflow-hidden absolute bg-background backdrop-blur-md`}
               >
                 <div className="pt-4 pb-6 space-y-2 px-2">
-                  {navLinks.map((link) => (
-                    <motion.div
-                      key={link.id}
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Link
-                        href={`#${link.id}`}
-                        className={`block px-2 py-2 rounded-lg transition font-medium ${
-                          activeSection === link.id
-                            ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
-                            : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800"
-                        }`}
-                        onClick={() => setMobileMenuOpen(false)}
+                  {navLinks.map((link) => {
+                    const href = link.href ? link.href : `#${link.id}`;
+                    return (
+                      <motion.div
+                        key={link.id}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
                       >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={href}
+                          className={`block px-2 py-2 rounded-lg transition font-medium ${
+                            activeSection === link.id
+                              ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
+                              : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                          }`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
             )}

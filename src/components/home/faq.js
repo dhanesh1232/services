@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export const FaqSection = () => {
@@ -163,13 +164,13 @@ export const FaqSection = () => {
             <p className="text-muted-foreground mb-4">
               {`Didn't find what you're looking for?`}
             </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-lg transition duration-300"
+            <Link
+              href="/contact"
+              className="inline-flex group gap-2 items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-lg transition duration-300"
             >
               Contact our team
               <svg
-                className="w-4 h-4 ml-2"
+                className="w-4 h-4 group-hover:translate-x-2 ease-in-out duration-200 transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -180,7 +181,7 @@ export const FaqSection = () => {
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

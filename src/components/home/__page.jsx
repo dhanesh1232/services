@@ -1,6 +1,5 @@
 "use client";
 
-import { ContactSection } from "@/components/home/contact";
 import Head from "next/head";
 import Hero from "@/components/home/hero/hero";
 import { ServicesStats } from "@/components/home/stats";
@@ -43,9 +42,9 @@ export default function ServicesPage() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "ECODrIx",
-              image: "https://ecodrix.com/og-image.png",
-              "@id": "https://ecodrix.com",
-              url: "https://ecodrix.com/",
+              image: "https://services.ecodrix.com/og-image.png",
+              "@id": "https://services.ecodrix.com",
+              url: "https://services.ecodrix.com/",
               telephone: "+91-8143963821",
               address: {
                 "@type": "PostalAddress",
@@ -74,6 +73,9 @@ export default function ServicesPage() {
                 "AI Chatbots",
                 "WhatsApp Automation",
                 "SaaS Development",
+                "SEO & Marketing",
+                "Digital Marketing",
+                "Web Design",
               ],
             }),
           }}
@@ -106,9 +108,6 @@ export default function ServicesPage() {
 
         {/* FAQ Section */}
         <FaqSection />
-
-        {/* Contact Section */}
-        <ContactSection />
       </>
     </>
   );

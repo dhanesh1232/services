@@ -52,7 +52,7 @@ export const ServiceFooter = () => {
 
   return (
     <>
-      <footer className="w-full border-t border-border bg-background">
+      <footer className="w-full border-t border-border bg-background relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {/* Brand Info */}

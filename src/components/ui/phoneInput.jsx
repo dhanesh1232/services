@@ -11,7 +11,7 @@ const CustomPhoneInputField = React.forwardRef(
       {...inputProps}
       ref={inputRef}
       className={cn(
-        "w-full py-2 px-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none",
+        "w-full py-2 px-3 bg-transparent text-foreground placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none",
         inputProps.size === "sm" && "py-1.5 text-xs",
         inputProps.size === "lg" && "py-3 text-base"
       )}
@@ -38,7 +38,7 @@ export const StyledPhoneInput = React.forwardRef(
     ref
   ) => {
     const baseClasses =
-      "flex w-full items-center rounded-md border ring-offset-background transition-colors focus-within:outline-none disabled:cursor-not-allowed disabled:opacity-50";
+      "flex w-full items-center rounded border ring-offset-background transition-colors focus-within:outline-none disabled:cursor-not-allowed disabled:opacity-50";
 
     const sizeClasses = {
       sm: "h-8 px-2.5 text-xs",

@@ -14,7 +14,6 @@
     cursor: pointer;
     z-index: 1000;
     transition: all 0.3s ease;
-    overflow: hidden;
 }
 
 /* Small mobile devices */
@@ -112,6 +111,92 @@
         .floatButton {
             bottom: max(15px, env(safe-area-inset-bottom));
             right: max(15px, env(safe-area-inset-right));
+        }
+    }
+}
+
+/* ============ Core Styles ============ */
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.buttonContainer:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.circleWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    pointer-events: none;
+}
+
+.circle circle {
+    transition: stroke-dashoffset 1s linear;
+}
+
+.whatsappIcon {
+    z-index: 2;
+    pointer-events: none;
+}
+
+.pulseCircle {
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ============ Responsive Sizing ============ */
+@media (max-width: 640px) {
+    .buttonContainer {
+        width: 44px;
+        height: 44px;
+    }
+
+    .whatsappIcon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ============ Accessibility Enhancements ============ */
+@media (prefers-reduced-motion: reduce) {
+
+    .buttonContainer,
+    .circle circle {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ============ Safe Area Inset (for iOS Notches) ============ */
+@supports (padding: max(0px)) {
+    .floatButton {
+        bottom: max(20px, env(safe-area-inset-bottom));
+        left: max(20px, env(safe-area-inset-left));
+    }
+
+    @media (max-width: 480px) {
+        .floatButton {
+            bottom: max(15px, env(safe-area-inset-bottom));
+            left: max(15px, env(safe-area-inset-left));
         }
     }
 }
