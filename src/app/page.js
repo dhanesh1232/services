@@ -1,4 +1,4 @@
-import ServicesPage from "@/components/home/__page";
+import ServicesPage from "@/components/pages/home/__page";
 import { metadataForPath } from "@/lib/client/seo";
 
 export async function generateMetadata() {

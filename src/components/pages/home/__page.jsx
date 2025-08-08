@@ -1,16 +1,16 @@
 "use client";
 
 import Head from "next/head";
-import Hero from "@/components/home/hero/hero";
-import { ServicesStats } from "@/components/home/stats";
-import { ServiceSection } from "@/components/home/services";
-import { ProcessSection } from "@/components/home/process";
-import { TechStackSection } from "@/components/home/tech-stack";
-import { PortfolioSection } from "@/components/home/portfolio";
-import { TestimonialsSection } from "@/components/home/testimonials";
-import { FaqSection } from "@/components/home/faq";
+import Hero from "@/components/pages/home/hero/hero";
+import { ServicesStats } from "@/components/pages/home/stats";
+import { ServiceSection } from "@/components/pages/home/services";
+import { ProcessSection } from "@/components/pages/home/process";
+import { TechStackSection } from "@/components/pages/home/tech-stack";
+import { PortfolioSection } from "@/components/pages/home/portfolio";
+import { TestimonialsSection } from "@/components/pages/home/testimonials";
+import { FaqSection } from "@/components/pages/home/faq";
 import { useEffect } from "react";
-import Why from "@/components/home/why";
+import { Why } from "@/components/pages/home/why";
 
 export default function ServicesPage() {
   useEffect(() => {

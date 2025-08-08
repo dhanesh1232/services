@@ -1,17 +1,16 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
 import { useRef, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
+import { FeedbackDialog } from "../../layout/overlay/feedback";
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
 
-  // Auto-rotate carousel
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -36,11 +35,13 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section
-      id="testimonials"
-      className="py-20 px-6 md:px-12 bg-background overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,11 +49,11 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-600 bg-clip-text text-transparent mb-4">
             Client Testimonials
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            What my clients say about working with me
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
+            What our clients say about working with us
           </p>
         </motion.div>
 
@@ -73,12 +74,10 @@ export const TestimonialsSection = () => {
                     scale: currentIndex === index ? 1 : 0.95,
                   }}
                   transition={{ duration: 0.5 }}
-                  className={`bg-background rounded-xl p-8 shadow-md border border-border transition-all duration-300 ${
-                    currentIndex === index ? "scale-100" : "scale-95"
-                  }`}
+                  className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-2 mb-6">
-                    <Avatar>
+                  <div className="flex items-center gap-3 mb-6">
+                    <Avatar className="border-2 border-indigo-500/20">
                       <AvatarImage
                         src={testimonial.avatar}
                         alt={testimonial.name}
@@ -88,18 +87,20 @@ export const TestimonialsSection = () => {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h4 className="font-bold text-foreground">
+                      <h4 className="font-bold text-gray-900 dark:text-slate-200">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-600 dark:text-slate-400">
                         {testimonial.role} · {testimonial.company}
                       </p>
                     </div>
                   </div>
 
-                  <FaQuoteLeft className="text-indigo-300 dark:text-indigo-400 mb-4 text-xl" />
+                  <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-inner dark:shadow-indigo-500/30">
+                    <FaQuoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
+                  </div>
 
-                  <p className="text-muted-foreground mb-6 relative pl-6">
+                  <p className="text-gray-600 dark:text-slate-400 mb-6">
                     {testimonial.quote}
                   </p>
 
@@ -120,30 +121,30 @@ export const TestimonialsSection = () => {
             ))}
           </div>
 
-          {/* Navigation Arrows */}
           <button
             onClick={goToPrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-inner z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-indigo-500/20 border border-gray-200 dark:border-slate-700/50 z-10"
             aria-label="Previous testimonial"
           >
-            <FiChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            <FiChevronLeft className="w-5 h-5 text-gray-900 dark:text-slate-200" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-700 p-2 rounded-full shadow-inner z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-indigo-500/20 border border-gray-200 dark:border-slate-700/50 z-10"
             aria-label="Next testimonial"
           >
-            <FiChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            <FiChevronRight className="w-5 h-5 text-gray-900 dark:text-slate-200" />
           </button>
 
-          {/* Indicators */}
           <div className="flex justify-center mt-6 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
-                  currentIndex === index ? "bg-indigo-600 w-6" : "bg-muted"
+                  currentIndex === index
+                    ? "bg-indigo-600 dark:bg-indigo-500 w-6"
+                    : "bg-gray-300 dark:bg-slate-700"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -182,10 +183,10 @@ export const TestimonialsSection = () => {
                   },
                 },
               }}
-              className="bg-background rounded-xl p-8 shadow-sm hover:shadow-md border border-border transition-all duration-300"
+              className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
-                <Avatar>
+                <Avatar className="border-2 border-indigo-500/20">
                   <AvatarImage
                     src={testimonial.avatar}
                     alt={testimonial.name}
@@ -195,18 +196,20 @@ export const TestimonialsSection = () => {
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <h4 className="font-bold text-foreground">
+                  <h4 className="font-bold text-gray-900 dark:text-slate-200">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-600 dark:text-slate-400">
                     {testimonial.role} · {testimonial.company}
                   </p>
                 </div>
               </div>
 
-              <FaQuoteLeft className="text-indigo-300 dark:text-indigo-400 mb-4 text-xl" />
+              <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-inner dark:shadow-indigo-500/30">
+                <FaQuoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
+              </div>
 
-              <p className="text-muted-foreground mb-6 relative pl-6">
+              <p className="text-gray-600 dark:text-slate-400 mb-6">
                 {testimonial.quote}
               </p>
 
@@ -231,15 +234,21 @@ export const TestimonialsSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center"
         >
-          <div className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-gray-700 px-4 py-2 rounded-full">
-            <span className="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+          <div className="inline-flex mt-4 items-center gap-3 bg-indigo-100 dark:bg-indigo-500/10 px-4 py-1.5 md:py-2 rounded-full border border-indigo-200 dark:border-indigo-500/20">
+            <span className="w-2.5 h-2.5 bg-indigo-600 dark:bg-indigo-500 rounded-full animate-pulse"></span>
+            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
               Trusted by companies worldwide
             </span>
           </div>
         </motion.div>
+        <div className="w-full flex flex-col items-center justify-center my-5">
+          <p className="text-center text-gray-600 dark:text-slate-400 my-2">
+            Please share your valuable feedback with us
+          </p>
+          <FeedbackDialog />
+        </div>
       </div>
     </section>
   );

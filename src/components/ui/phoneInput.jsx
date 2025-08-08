@@ -48,7 +48,7 @@ export const StyledPhoneInput = React.forwardRef(
 
     const variantClasses = {
       default:
-        "bg-background border-border focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
+        "bg-background border-border focus-within:ring-0 focus-within:ring-ring focus-within:ring-offset-0",
       ghost:
         "bg-transparent border-transparent focus-within:bg-background focus-within:border-input",
       filled:

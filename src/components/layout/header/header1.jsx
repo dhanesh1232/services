@@ -7,21 +7,22 @@ import ThemeSwitcher from "@/components/themeSwicther";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
+  { id: "home", label: "Home", href: "/" },
   { id: "services", label: "Services", href: "/services" },
-  { id: "work", label: "Work" },
-  { id: "tech", label: "Tech" },
-  { id: "testimonials", label: "Clients" },
   { id: "blog", label: "Blog", href: "/blog" },
+  { id: "disclaimer", label: "Disclaimer", href: "/disclaimer" },
   { id: "contact", label: "Contact", href: "/contact" },
 ];
+
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
-  const [activeSection, setActiveSection] = useState("");
   const mobileMenuRef = useRef(null);
   const toggleButtonRef = useRef(null);
 
@@ -82,33 +83,6 @@ export const ServiceHeader = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
-        } else {
-          setActiveSection(""); // No active section = nothing highlighted
-        }
-      },
-      {
-        root: null,
-        threshold: 0.3,
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
-
   if (!mounted) {
     return (
       <header className="w-full bg-background px-6 md:px-12 sticky top-0 z-50">
@@ -143,7 +117,7 @@ export const ServiceHeader = () => {
           scrolled
             ? mobileMenuOpen
               ? "bg-background backdrop-blur-md"
-              : "bg-background/50 backdrop-blur-md"
+              : "bg-background/50 backdrop-blur-md border-b border-border/50"
             : mobileMenuOpen
             ? "bg-background backdrop-blur-md shadow-xl"
             : "bg-transparent"
@@ -151,37 +125,34 @@ export const ServiceHeader = () => {
       >
         <div className="w-full relative">
           <div className="flex px-4 md:px-8 justify-between items-center max-w-7xl mx-auto">
-            <div className="flex items-center justify-start space-x-6">
-              <Link href="/" className="flex items-center group">
-                <motion.span
-                  className="text-2xl font-bold tracking-tight text-transparent bg-gradient-to-r from-indigo-50 via-blue-500 to-purple-500 bg-clip-text hover:opacity-90 transition"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  ECODrIx
-                </motion.span>
-              </Link>
+            <Link href="/" className="flex items-center group">
+              <motion.span
+                className="text-2xl font-bold tracking-tight text-transparent bg-gradient-to-r from-indigo-50 via-blue-500 to-purple-500 bg-clip-text hover:opacity-90 transition"
+                whileHover={{ scale: 1.05 }}
+              >
+                ECODrIx
+              </motion.span>
+            </Link>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex space-x-6 lg:space-x-8">
-                {navLinks.map((link) => {
-                  const isActive = activeSection === link.id;
-                  const href = link.href ? link.href : `#${link.id}`;
-                  return (
-                    <Link
-                      key={link.id}
-                      href={href}
-                      className={`relative text-base font-medium px-2 py-1 transition-colors group ${
-                        isActive
-                          ? "text-indigo-600 dark:text-indigo-400"
-                          : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-4 lg:space-x-6">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.id}
+                    href={link.href}
+                    className={`relative text-base font-medium px-2 py-1 transition-colors group ${
+                      isActive
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
 
             {/* Mobile menu button */}
             <div className="flex items-center gap-2">
@@ -222,7 +193,6 @@ export const ServiceHeader = () => {
               >
                 <div className="pt-4 pb-6 space-y-2 px-2">
                   {navLinks.map((link) => {
-                    const href = link.href ? link.href : `#${link.id}`;
                     return (
                       <motion.div
                         key={link.id}
@@ -231,9 +201,9 @@ export const ServiceHeader = () => {
                         transition={{ duration: 0.3 }}
                       >
                         <Link
-                          href={href}
+                          href={link.href}
                           className={`block px-2 py-2 rounded-lg transition font-medium ${
-                            activeSection === link.id
+                            pathname === link.href
                               ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
                               : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800"
                           }`}

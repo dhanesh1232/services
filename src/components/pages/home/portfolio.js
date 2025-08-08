@@ -15,21 +15,13 @@ export const PortfolioSection = () => {
     },
   };
 
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
-    <section id="work" className="py-20 px-6 md:px-12 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,10 +29,10 @@ export const PortfolioSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-600 bg-clip-text text-transparent mb-4">
             Recent Work
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-gray-600 dark:text-slate-400 text-lg max-w-3xl mx-auto">
             Examples of projects delivered to satisfied clients
           </p>
         </motion.div>
@@ -56,7 +48,7 @@ export const PortfolioSection = () => {
             <motion.div
               key={index}
               variants={item}
-              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-lg dark:hover:shadow-gray-700/50 transition duration-300"
+              className="group bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-slate-700/50 shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300 overflow-hidden"
             >
               <div className="aspect-video overflow-hidden">
                 <Image
@@ -69,44 +61,22 @@ export const PortfolioSection = () => {
                   blurDataURL={item.blurData}
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
-                <div className="translate-y-4 group-hover:translate-y-0 transition duration-300">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4">{item.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {item.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="text-xs bg-indigo-600/90 text-white px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  {/*<div className="flex gap-3">
-                    {item.demoLink && (
-                      <Link
-                        href={item.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm text-white hover:text-indigo-300 transition"
-                      >
-                        <FiExternalLink /> Live Demo
-                      </Link>
-                    )}
-                    {item.codeLink && (
-                      <Link
-                        href={item.codeLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm text-white hover:text-indigo-300 transition"
-                      >
-                        <FiGithub /> View Code
-                      </Link>
-                    )}
-                  </div>*/}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 dark:text-slate-400 mb-4">
+                  {item.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {item.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-xs bg-indigo-100 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -118,21 +88,28 @@ export const PortfolioSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="mt-20 text-center"
         >
-          <Link
-            href="#contact"
-            className="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300"
-          >
-            Start Your Project
-          </Link>
+          <div className="inline-flex items-center gap-3 bg-indigo-100 dark:bg-indigo-500/10 px-6 py-3 rounded-full border border-indigo-200 dark:border-indigo-500/20 mb-8">
+            <span className="w-2.5 h-2.5 bg-indigo-600 dark:bg-indigo-500 rounded-full animate-pulse"></span>
+            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
+              Ready to start your project?
+            </span>
+          </div>
+          <div>
+            <Link
+              href="/contact"
+              className="inline-block bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300"
+            >
+              Get Started
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 };
 
-// Enhanced portfolio data with blurData and links
 const portfolioItems = [
   {
     title: "E-commerce Platform",

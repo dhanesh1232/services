@@ -11,7 +11,6 @@ export const FaqSection = () => {
     setActiveIndex(i === activeIndex ? null : i);
   };
 
-  // Group FAQs by category
   const faqCategories = [
     {
       name: "General",
@@ -28,8 +27,12 @@ export const FaqSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 md:px-12 bg-background" id="faq">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900" id="faq">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,16 +40,15 @@ export const FaqSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-600 bg-clip-text text-transparent mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
             Everything you need to know about working with us
           </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Category tabs */}
           <div className="flex flex-wrap sticky top-16 z-10 gap-2 justify-center mb-8">
             {faqCategories.map((category, i) => (
               <button
@@ -61,22 +63,21 @@ export const FaqSection = () => {
                     });
                   }
                 }}
-                className="px-4 py-2 text-sm font-medium rounded-full bg-background text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-gray-700 transition-colors"
+                className="px-4 py-2 text-sm font-medium rounded-full bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/10 transition-colors border border-gray-200 dark:border-slate-700/50"
               >
                 {category.name}
               </button>
             ))}
           </div>
 
-          {/* FAQ content */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {faqCategories.map((category, catIndex) => (
               <div
                 key={catIndex}
                 id={`category-${catIndex}`}
                 className="scroll-mt-16"
               >
-                <h3 className="text-xl font-semibold text-foreground mb-4 pb-2 border-b border-border">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-6 pb-2 border-b border-gray-200 dark:border-slate-700/50">
                   {category.name}
                 </h3>
 
@@ -95,24 +96,22 @@ export const FaqSection = () => {
                         visible: { opacity: 1, y: 0 },
                       }}
                       transition={{ duration: 0.3 }}
-                      className="bg-background rounded-xl border border-border overflow-hidden hover:shadow-sm transition-shadow"
+                      className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300"
                     >
                       <button
                         onClick={() => toggle(faq.id)}
-                        className={`w-full text-left flex hover:bg-blue-200/10 items-center justify-between p-5 focus:outline-none ${
-                          activeIndex === faq.id
-                            ? "border-b border border-border"
-                            : ""
-                        }`}
+                        className={`w-full text-left flex items-center justify-between p-6 focus:outline-none ${activeIndex === faq.id
+                          ? "border-b border-gray-200 dark:border-slate-700/50"
+                          : ""
+                          }`}
                         aria-expanded={activeIndex === faq.id}
                       >
-                        <span className="text-base font-medium text-foreground text-left">
+                        <span className="text-base font-medium text-gray-900 dark:text-slate-200">
                           {faq.question}
                         </span>
                         <ChevronDown
-                          className={`w-5 h-5 text-indigo-600 dark:text-indigo-400 transition-transform duration-200 ${
-                            activeIndex === faq.id ? "rotate-180" : ""
-                          }`}
+                          className={`w-5 h-5 text-indigo-600 dark:text-indigo-400 transition-transform duration-200 ${activeIndex === faq.id ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
 
@@ -123,7 +122,7 @@ export const FaqSection = () => {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="px-5 pb-5 text-muted-foreground space-y-3"
+                            className="px-6 pb-6 text-gray-600 dark:text-slate-400 space-y-3"
                           >
                             {faq.answer.split("\n").map((paragraph, pIndex) => (
                               <p key={pIndex}>{paragraph}</p>
@@ -135,10 +134,10 @@ export const FaqSection = () => {
                                   href={faq.link.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline text-sm font-medium"
+                                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium"
                                 >
-                                  {faq.link.text}{" "}
-                                  <ExternalLink className="ml-1.5" />
+                                  {faq.link.text}
+                                  <ExternalLink className="ml-1.5 w-4 h-4" />
                                 </a>
                               </div>
                             )}
@@ -158,12 +157,15 @@ export const FaqSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-20"
         >
-          <div className="bg-backgruond inline-block px-6 py-4 rounded-xl">
-            <p className="text-muted-foreground mb-4">
+          <div className="inline-flex items-center gap-3 bg-indigo-100 dark:bg-indigo-500/10 px-6 py-3 rounded-full border border-indigo-200 dark:border-indigo-500/20">
+            <span className="w-2.5 h-2.5 bg-indigo-600 dark:bg-indigo-500 rounded-full animate-pulse"></span>
+            <p className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
               {`Didn't find what you're looking for?`}
             </p>
+          </div>
+          <div className="mt-6">
             <Link
               href="/contact"
               className="inline-flex group gap-2 items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-lg transition duration-300"

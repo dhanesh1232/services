@@ -82,7 +82,7 @@ export const ProcessSection = () => {
     if (isMobile && autoPlay) {
       intervalRef.current = setInterval(() => {
         nextSlide();
-      }, 3000); // Change slide every 3 seconds
+      }, 3000);
 
       return () => {
         if (intervalRef.current) {
@@ -127,8 +127,15 @@ export const ProcessSection = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 md:px-12 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="process"
+      className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900"
+    >
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,28 +143,13 @@ export const ProcessSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             My Development{" "}
-            <span className="bg-gradient-to-r relative from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-600 bg-clip-text text-transparent relative">
               Process
-              <svg
-                className="absolute left-0 right-0 bottom-0"
-                width="100%"
-                height="20"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0,70 C25,50 75,50 100,70"
-                  stroke="blue"
-                  strokeWidth="5"
-                  fill="none"
-                />
-              </svg>
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
             A structured approach to ensure quality and efficiency
           </p>
         </motion.div>
@@ -190,33 +182,33 @@ export const ProcessSection = () => {
                     variants={item}
                     className="w-full flex-shrink-0 px-2 z-20"
                   >
-                    <div className="bg-background border border-border rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full">
-                      <div className="p-6 pb-12 relative flex-1 flex flex-col">
+                    <div className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-slate-700/50 shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300 overflow-hidden flex flex-col h-full">
+                      <div className="p-8 relative flex-1 flex flex-col">
                         <div className="flex items-start gap-4">
-                          <div className="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="bg-indigo-100 dark:bg-indigo-500/10 w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner dark:shadow-indigo-500/30">
                             {step.icon}
                           </div>
                           <div>
-                            <h3 className="text-xl font-semibold text-foreground mb-2">
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-2">
                               {step.title}
                             </h3>
-                            <p className="text-muted-foreground mb-4">
+                            <p className="text-gray-600 dark:text-slate-400">
                               {step.description}
                             </p>
                           </div>
                         </div>
-                        <ul className="space-y-2 mt-4 flex-1">
+                        <ul className="space-y-2 mt-6 flex-1">
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start">
-                              <ArrowRight className="text-indigo-500 mt-1 mr-2 flex-shrink-0" />
-                              <span className="text-muted-foreground text-sm">
+                              <ArrowRight className="text-indigo-600 dark:text-indigo-400 mt-1 mr-2 flex-shrink-0" />
+                              <span className="text-gray-600 dark:text-slate-400 text-sm">
                                 {detail}
                               </span>
                             </li>
                           ))}
                         </ul>
-                        <div className="bg-gray-50 absolute bottom-0 left-0 right-0 dark:bg-gray-600/30 px-6 py-2 border-t border-gray-100 dark:border-gray-600">
-                          <span className="text-xs font-medium text-indigo-600 text-center dark:text-indigo-400">
+                        <div className="mt-6 pt-4 border-t border-gray-200 dark:border-slate-700/50">
+                          <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                             Phase {index + 1} of {processSteps.length}
                           </span>
                         </div>
@@ -231,7 +223,7 @@ export const ProcessSection = () => {
                 prevSlide();
                 pauseAutoPlay();
               }}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-background border-border border sh p-2 rounded-full shadow-md z-10"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-2 rounded-full shadow-xl hover:shadow-indigo-500/10 z-10"
               aria-label="Previous step"
             >
               <svg
@@ -254,7 +246,7 @@ export const ProcessSection = () => {
                 nextSlide();
                 pauseAutoPlay();
               }}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-background border border-border p-2 rounded-full shadow-md z-10"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-2 rounded-full shadow-xl hover:shadow-indigo-500/10 z-10"
               aria-label="Next step"
             >
               <svg
@@ -272,7 +264,7 @@ export const ProcessSection = () => {
                 />
               </svg>
             </button>
-            <div className="flex justify-center mt-4 space-x-2">
+            <div className="flex justify-center mt-6 space-x-2">
               {processSteps.map((_, index) => (
                 <button
                   key={index}
@@ -296,40 +288,40 @@ export const ProcessSection = () => {
             whileInView="show"
             variants={container}
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
                 variants={item}
-                className="bg-background border border-border rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+                className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-slate-700/50 shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300"
               >
-                <div className="p-6 pb-12 relative flex-1 flex flex-col">
+                <div className="p-8 relative flex flex-col h-full">
                   <div className="flex items-start gap-4">
-                    <div className="bg-indigo-100 dark:bg-indigo-900/30 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="bg-indigo-100 dark:bg-indigo-500/10 w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner dark:shadow-indigo-500/30">
                       {step.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-2">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-2">
                         {step.title}
                       </h3>
-                      <p className="text-muted-foreground mb-4">
+                      <p className="text-gray-600 dark:text-slate-400">
                         {step.description}
                       </p>
                     </div>
                   </div>
-                  <ul className="space-y-2 mt-4 flex-1">
+                  <ul className="space-y-2 mt-6 flex-1">
                     {step.details.map((detail, i) => (
                       <li key={i} className="flex items-start">
-                        <ArrowRight className="text-indigo-500 mt-1 mr-2 flex-shrink-0" />
-                        <span className="text-muted-foreground text-sm">
+                        <ArrowRight className="text-indigo-600 dark:text-indigo-400 mt-1 mr-2 flex-shrink-0" />
+                        <span className="text-gray-600 dark:text-slate-400 text-sm">
                           {detail}
                         </span>
                       </li>
                     ))}
                   </ul>
-                  <div className="bg-gray-50 absolute bottom-0 left-0 right-0 dark:bg-gray-600/30 px-6 py-2 border-t border-gray-100 dark:border-gray-600">
-                    <span className="text-xs font-medium text-indigo-600 text-center dark:text-indigo-400">
+                  <div className="mt-6 pt-4 border-t border-gray-200 dark:border-slate-700/50">
+                    <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                       Phase {index + 1} of {processSteps.length}
                     </span>
                   </div>
@@ -344,11 +336,11 @@ export const ProcessSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-12 md:mt-16 text-center"
+          className="mt-20 text-center"
         >
-          <div className="inline-flex items-center gap-2 bg-indigo-50 dark:bg-gray-700 px-4 py-2 rounded-full">
-            <span className="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+          <div className="inline-flex items-center gap-3 bg-indigo-100 dark:bg-indigo-500/10 px-6 py-3 rounded-full border border-indigo-200 dark:border-indigo-500/20">
+            <span className="w-2.5 h-2.5 bg-indigo-600 dark:bg-indigo-500 rounded-full animate-pulse"></span>
+            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
               Client reviews at each phase
             </span>
           </div>

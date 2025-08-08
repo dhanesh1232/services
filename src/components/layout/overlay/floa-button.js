@@ -18,7 +18,7 @@ const FloatButton = () => {
       className="fixed bottom-6 left-4 sm:bottom-8 sm:left-8 z-50"
     >
       <Link
-        href={`https://wa.me/918143963821?text=${message}`}
+        href={`https://wa.me/918790063821?text=${message}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact on WhatsApp"

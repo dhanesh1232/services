@@ -7,6 +7,7 @@ import { defaultMeta } from "@/lib/client/seo";
 import CookieConsent from "@/components/layout/overlay/cookies";
 import FloatButton from "@/components/layout/overlay/floa-button";
 import WebWidgetLoader from "@/components/widget/compo";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,9 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden min-h-full`}>
+      <body
+        className={`${inter.className} overflow-x-hidden overflow-y-auto min-h-full`}
+      >
         <ThemeProvider>
           <ServiceHeader />
           <main className="flex-1 relative">{children}</main>
@@ -39,6 +42,7 @@ export default function RootLayout({ children }) {
           <FloatButton />
           <WebWidgetLoader botId="ECODrIx_test_botId" />
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
