@@ -102,3 +102,16 @@ export const services = [
     icon: ({ className }) => <Settings className={className} />,
   },
 ];
+
+export const navLinks = [
+  { id: "home", label: "Home", href: "/" },
+  { id: "services", label: "Services", href: "/services" },
+  //{ id: "blog", label: "Blog", href: "/blog" },
+  { id: "disclaimer", label: "Disclaimer", href: "/disclaimer" },
+  { id: "contact", label: "Contact", href: "/contact" },
+];
+export const legal = [
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms of Service", href: "/terms-and-conditions" },
+  { name: "Disclaimer", href: "/disclaimer" },
+];

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Overlay from "../overlay/overlay";
 import Link from "next/link";
+import { legal } from "@/lib/client/data";
 
 export const footerLinks = {
   services: [
@@ -16,11 +17,7 @@ export const footerLinks = {
     { name: "About", href: "/about" },
     { name: "Process", href: "/#process" },
   ],
-  legal: [
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms of Service", href: "/terms-and-conditions" },
-    { name: "Disclaimer", href: "/disclaimer" },
-  ],
+  legal: legal,
 };
 
 const socialLinks = [

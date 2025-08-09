@@ -8,14 +8,8 @@ import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePathname } from "next/navigation";
-
-const navLinks = [
-  { id: "home", label: "Home", href: "/" },
-  { id: "services", label: "Services", href: "/services" },
-  { id: "blog", label: "Blog", href: "/blog" },
-  { id: "disclaimer", label: "Disclaimer", href: "/disclaimer" },
-  { id: "contact", label: "Contact", href: "/contact" },
-];
+import Image from "next/image";
+import { navLinks } from "@/lib/client/data";
 
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,6 +25,10 @@ export const ServiceHeader = () => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
+  useEffect(() => {
+    const links = navLinks.map((each) => each.href);
+    console.log(links);
+  });
 
   // Scroll effect with debounce
   useEffect(() => {
@@ -126,12 +124,14 @@ export const ServiceHeader = () => {
         <div className="w-full relative">
           <div className="flex px-4 md:px-8 justify-between items-center max-w-7xl mx-auto">
             <Link href="/" className="flex items-center group">
-              <motion.span
-                className="text-2xl font-bold tracking-tight text-transparent bg-gradient-to-r from-indigo-50 via-blue-500 to-purple-500 bg-clip-text hover:opacity-90 transition"
-                whileHover={{ scale: 1.05 }}
-              >
-                ECODrIx
-              </motion.span>
+              <Image
+                src="/logo.png"
+                width={100}
+                height={30}
+                className="h-10 w-16 object-cover"
+                alt="ECODrix Logo"
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}

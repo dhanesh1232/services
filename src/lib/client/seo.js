@@ -39,13 +39,12 @@ export const defaultMeta = {
     "SaaS development",
     "Next.js services",
     "ECODrIx services",
+    "erix",
   ],
   alternates: {
     canonical: "/",
     languages: {
       "en-US": "/en",
-      "hi-IN": "/hi",
-      "te-IN": "/te",
     },
   },
   openGraph: {

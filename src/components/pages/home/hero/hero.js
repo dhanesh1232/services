@@ -145,7 +145,7 @@ export default function Hero() {
                 <h3 className="text-lg font-semibold text-foreground">
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm truncate text-muted-foreground mt-1">
                   {item.desc}
                 </p>
               </motion.div>
