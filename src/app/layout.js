@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme.provider";
 import { defaultMeta } from "@/lib/client/seo";
 import { Toaster } from "@/components/ui/sonner";
 import ServicesLayout from "@/layout/layout";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,18 @@ export default function RootLayout({ children }) {
           <ServicesLayout>{children}</ServicesLayout>
         </ThemeProvider>
         <Toaster />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MY2BTJCYHJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MY2BTJCYHJ');
+          `}
+        </Script>
       </body>
     </html>
   );
