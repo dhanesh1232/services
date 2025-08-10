@@ -27,7 +27,6 @@ export const ServiceHeader = () => {
   }, []);
   useEffect(() => {
     const links = navLinks.map((each) => each.href);
-    console.log(links);
   });
 
   // Scroll effect with debounce

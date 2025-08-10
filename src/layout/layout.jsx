@@ -17,7 +17,7 @@ export default function ServicesLayout({ children }) {
           <ServiceFooter />
           <CookieConsent />
           <FloatButton />
-          <WebWidgetLoader botId="ECODrIx_test_botId" />
+          {/*<WebWidgetLoader botId="ECODrIx_test_botId" />*/}
         </>
       ) : (
         <main className="flex-1 relative">{children}</main>
