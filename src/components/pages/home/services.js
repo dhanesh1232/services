@@ -131,7 +131,7 @@ export const ServiceSection = () => {
                 Explore All Services
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-2 transform transition-all duration-300" />
+              <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-2 group-hover:text-white transform transition-all duration-300" />
             </Link>
           </Button>
         </motion.div>

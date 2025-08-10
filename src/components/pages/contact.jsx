@@ -106,7 +106,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 md:px-12 bg-background">
+    <section id="contact" className="py-20 px-4 sm:px-6 md:px-12 bg-erix">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -198,7 +198,7 @@ export const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-background/70 rounded-xl p-8 border border-border shadow-sm hover:shadow-md transition-shadow"
+            className="bg-erix/70 rounded-xl p-8 border border-border shadow-sm hover:shadow-md transition-shadow"
           >
             <h3 className="text-xl font-bold text-foreground mb-6">
               Send a Message
@@ -213,7 +213,7 @@ export const ContactSection = () => {
                   id="name"
                   placeholder="Your name"
                   {...register("name")}
-                  className={`${
+                  className={`bg-erix ${
                     errors.name ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
@@ -232,7 +232,7 @@ export const ContactSection = () => {
                   id="email"
                   placeholder="your.email@example.com"
                   {...register("email")}
-                  className={`${
+                  className={`bg-erix ${
                     errors.email ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
@@ -253,7 +253,7 @@ export const ContactSection = () => {
                       placeholder="+91 9876543210"
                       value={field.value}
                       onChange={field.onChange}
-                      className={`${
+                      className={`bg-erix ${
                         errors.phone
                           ? "border-destructive focus-within:ring-destructive"
                           : ""
@@ -276,7 +276,7 @@ export const ContactSection = () => {
                   control={control}
                   render={({ field }) => (
                     <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className="w-full focus:ring-2 focus:ring-indigo-500">
+                      <SelectTrigger className="w-full focus:ring-2 bg-erix focus:ring-indigo-500">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent className="bg-background">
@@ -307,7 +307,7 @@ export const ContactSection = () => {
                   rows={5}
                   placeholder="Tell me about your project (minimum 100 characters)..."
                   {...register("message")}
-                  className={`${
+                  className={`bg-erix ${
                     errors.message ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />

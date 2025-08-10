@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import Overlay from "../overlay/overlay";
 import Link from "next/link";
-import { legal } from "@/lib/client/data";
+import { legal, services } from "@/lib/client/data";
 
 export const footerLinks = {
   services: [
-    { name: "Web Development", href: "web-development" },
-    { name: "UI/UX Design", href: "ui-ux-design" },
-    { name: "E-commerce", href: "e-commerce" },
-    { name: "SEO Optimization", href: "seo-optimization" },
-    { name: "Web Maintenance", href: "web-maintenance" },
+    ...services.map((each) => {
+      return {
+        id: each.id,
+        name: each.title,
+        href: "/services",
+      };
+    }),
   ],
   company: [
     { name: "About", href: "/about" },
@@ -36,8 +36,8 @@ const socialLinks = [
     ),
   },
 ];
+
 export const ServiceFooter = () => {
-  const [modal, setModal] = useState(null);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -87,23 +87,14 @@ export const ServiceFooter = () => {
                 </h4>
                 <ul className="space-y-2 flex flex-col">
                   {links.map((link) => {
-                    return link.href.startsWith("/") ? (
+                    return (
                       <Link
                         key={link.name}
                         href={link.href}
-                        className="text-gmuted-foreground hover:text-indigo-600 hover:underline dark:hover:blue-indigo-600 transition-colors"
+                        className={`text-gmuted-foreground hover:text-indigo-500 hover:underline dark:hover:blue-indigo-600 transition-colors`}
                       >
                         {link.name}
                       </Link>
-                    ) : (
-                      <li key={link.name}>
-                        <button
-                          onClick={() => setModal(link.href)}
-                          className="text-gmuted-foreground hover:text-indigo-600 hover:underline dark:hover:blue-indigo-600 transition-colors"
-                        >
-                          {link.name}
-                        </button>
-                      </li>
                     );
                   })}
                 </ul>
@@ -143,7 +134,6 @@ export const ServiceFooter = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
         </div>
       </footer>
-      {modal && <Overlay modal={modal} onClose={() => setModal(null)} />}{" "}
     </>
   );
 };

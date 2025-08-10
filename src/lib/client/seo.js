@@ -5,9 +5,9 @@ export const defaultMeta = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "ECODrIx – All-in-One AI Platform for Marketing, Web development, CRM, and Customer Support",
+      "ECODrIx – Services All-in-One AI Platform for Marketing, Web development, CRM, and Customer Support",
     template:
-      "%s | ECODrIx – AI Automation & Web development & CRM SaaS Platform",
+      "%s | ECODrIx – Services | AI Automation & Web development & CRM SaaS Platform",
   },
   description:
     "ECODrIx is an all-in-one AI-powered SaaS platform offering multichannel automation, CRM integration, marketing campaigns, customer support, real-time conversations, analytics, and intelligent workflows for growing businesses. professional services in web development, AI-powered chatbot solutions, and marketing automation. We help businesses scale with smart, reliable, and scalable digital solutions.",
@@ -48,7 +48,7 @@ export const defaultMeta = {
     },
   },
   openGraph: {
-    title: "ECODrIx – Web & AI Chatbot Development Services",
+    title: "ECODrIx – Services | Web & AI Chatbot Development Services",
     description:
       "Explore top-notch services including AI chatbots, multi-platform integrations, and custom website development with ECODrIx.",
     url: SITE_URL,
@@ -66,7 +66,7 @@ export const defaultMeta = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ECODrIx | Web & AI Chatbot Development Services",
+    title: "ECODrIx | Services - Web & AI Chatbot Development Services",
     description:
       "Boost customer engagement and automate business workflows with ECODrIx — an all-in-one AI-powered platform for modern web development, CRM, campaigns, chatbots, and support.",
     creator: "@ecodrix",
@@ -86,7 +86,7 @@ export const defaultMeta = {
     },
   },
   category: "business",
-  applicationName: "ECODrIx",
+  applicationName: "ECODrIx Services",
   creator: "ECODrIx Team",
   publisher: "ECODrIx Technologies Pvt. Ltd.",
 };

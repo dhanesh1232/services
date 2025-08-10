@@ -82,7 +82,7 @@ export const ServiceHeader = () => {
 
   if (!mounted) {
     return (
-      <header className="w-full bg-background px-6 md:px-12 sticky top-0 z-50">
+      <header className="w-full bg-transparent px-6 md:px-12 sticky top-0 z-50">
         <div className="flex justify-between items-center max-w-7xl mx-auto h-16">
           <div className="flex items-center space-x-6">
             <Skeleton className="h-8 w-24 rounded animate-pulse" />
