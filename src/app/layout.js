@@ -27,6 +27,15 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MY2BTJCYHJ"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-MY2BTJCYHJ');
+        </script>
       </head>
       <body
         className={`${inter.className} overflow-x-hidden overflow-y-auto min-h-full`}
