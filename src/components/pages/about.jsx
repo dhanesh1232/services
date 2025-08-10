@@ -1,15 +1,7 @@
 "use client";
-import {
-  CheckCircle,
-  Lightbulb,
-  RefreshCcw,
-  Shield,
-  Target,
-  TrendingUp,
-  Users,
-} from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { Icons } from "../icons";
 
 const message = encodeURIComponent(
   "Hi, I'm interested in your web development services. I need a website. Please share more details or a free demo."
@@ -87,7 +79,7 @@ export default function About() {
                 "Data Analytics",
               ].map((service, index) => (
                 <li key={index} className="flex items-start group">
-                  <CheckCircle className="text-emerald-400 group-hover:text-emerald-300 mt-1 mr-3 flex-shrink-0 transition-colors" />
+                  <Icons.checkCircle className="text-emerald-400 group-hover:text-emerald-300 mt-1 mr-3 flex-shrink-0 transition-colors" />
                   <span className="text-slate-100 group-hover:text-white transition-colors">
                     {service}
                   </span>
@@ -112,17 +104,17 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Users className="w-8 h-8 text-emerald-400" />,
+                icon: <Icons.users className="w-8 h-8 text-emerald-400" />,
                 title: "Collaborative Discovery",
                 desc: "We begin by deeply understanding your business, audience, and objectives through workshops and data analysis.",
               },
               {
-                icon: <Target className="w-8 h-8 text-emerald-400" />,
+                icon: <Icons.target className="w-8 h-8 text-emerald-400" />,
                 title: "Strategic Planning",
                 desc: "Our customized roadmaps align technical solutions with business goals for maximum impact.",
               },
               {
-                icon: <TrendingUp className="w-8 h-8 text-emerald-400" />,
+                icon: <Icons.trendingUp className="w-8 h-8 text-emerald-400" />,
                 title: "Agile Execution",
                 desc: "We implement solutions in iterative phases, allowing for continuous optimization and quick wins.",
               },
@@ -156,25 +148,25 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: <Shield className="w-6 h-6" />,
+                icon: <Icons.shield className="w-6 h-6" />,
                 title: "Integrity",
                 desc: "We build trust through transparency and ethical practices",
                 gradient: "from-emerald-600 to-teal-500",
               },
               {
-                icon: <Lightbulb className="w-6 h-6" />,
+                icon: <Icons.lightbulb className="w-6 h-6" />,
                 title: "Innovation",
                 desc: "We challenge conventions to deliver breakthrough solutions",
                 gradient: "from-blue-600 to-indigo-500",
               },
               {
-                icon: <Users className="w-6 h-6" />,
+                icon: <Icons.users className="w-6 h-6" />,
                 title: "Partnership",
                 desc: "Your success is our success - we're invested in your growth",
                 gradient: "from-purple-600 to-pink-500",
               },
               {
-                icon: <RefreshCcw className="w-6 h-6" />,
+                icon: <Icons.refresh className="w-6 h-6" />,
                 title: "Continuous Learning",
                 desc: "We stay ahead through constant skill development",
                 gradient: "from-rose-600 to-red-500",
@@ -223,7 +215,7 @@ export default function About() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-start group">
                     <div className="bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full p-2 mr-4 mt-1 group-hover:scale-110 transition-transform">
-                      <CheckCircle className="text-white w-4 h-4" />
+                      <Icons.checkCircle className="text-white w-4 h-4" />
                     </div>
                     <div>
                       <h4 className="font-medium text-emerald-400 group-hover:text-emerald-300 transition-colors">

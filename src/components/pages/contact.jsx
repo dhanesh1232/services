@@ -15,7 +15,6 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
-import { CheckCircle, Mail, Phone, MapPin } from "lucide-react";
 import { collectUserMetadata } from "@/lib/client/metadata";
 import {
   Select,
@@ -26,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { StyledPhoneInput } from "@/components/ui/phoneInput";
 import { cn } from "@/lib/utils";
+import { Icons } from "../icons";
 
 // Form validation schema
 const formSchema = z.object({
@@ -142,7 +142,7 @@ export const ContactSection = () => {
                 className="flex items-start"
               >
                 <div className="flex-shrink-0 bg-background/30 p-3 rounded-lg mr-4">
-                  <Mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  <Icons.mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="font-medium text-foreground mb-1">Email</h3>
@@ -162,7 +162,7 @@ export const ContactSection = () => {
                 className="flex items-start"
               >
                 <div className="flex-shrink-0 bg-background/30 p-3 rounded-lg mr-4">
-                  <Phone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  <Icons.phone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="font-medium text-foreground mb-1">Phone</h3>
@@ -182,7 +182,7 @@ export const ContactSection = () => {
                 className="flex items-start"
               >
                 <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
-                  <MapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  <Icons.mapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="font-medium text-foreground mb-1">Location</h3>
@@ -390,7 +390,7 @@ export const ContactSection = () => {
               transition={{ type: "spring", stiffness: 200 }}
               className="flex justify-center mb-4"
             >
-              <CheckCircle className="w-16 h-16 text-green-500" />
+              <Icons.checkCircle className="w-16 h-16 text-green-500" />
             </motion.div>
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white mb-2">

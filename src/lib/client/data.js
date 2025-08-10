@@ -1,17 +1,17 @@
 import {
   Code2,
   ShoppingCart,
-  Palette,
   Search,
   Megaphone,
   MessageSquare,
   Settings,
-  LineChart,
 } from "lucide-react";
 
 export const services = [
   {
-    title: "Custom Web Development",
+    title: "Web Development",
+    href: "custom-web-development",
+    id: "custom-web-development",
     description:
       "Tailored solutions built from scratch to meet your specific business requirements.",
     features: [
@@ -21,12 +21,15 @@ export const services = [
       "Ongoing support",
       "SEO-friendly structure",
       "Cross-browser compatibility",
+      "CMS",
     ],
     image: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg",
     icon: ({ className }) => <Code2 className={className} />,
   },
   {
     title: "E-Commerce Development",
+    href: "e-commerce-development",
+    id: "e-commerce-development",
     description:
       "Full-featured online store solutions with secure payments and advanced product management.",
     features: [
@@ -36,12 +39,15 @@ export const services = [
       "Custom cart & checkout",
       "Multi-language & multi-currency support",
       "SEO-optimized product pages",
+      "CMS",
     ],
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
     icon: ({ className }) => <ShoppingCart className={className} />,
   },
   {
     title: "SEO Optimization",
+    id: "seo-optimization",
+    href: "seo-optimization",
     description:
       "Boost your search engine rankings with proven optimization techniques.",
     features: [
@@ -58,6 +64,8 @@ export const services = [
   },
   {
     title: "Advertising",
+    id: "advertising",
+    href: "advertising",
     description:
       "Reach the right audience and grow your brand with targeted marketing campaigns.",
     features: [
@@ -73,6 +81,8 @@ export const services = [
   },
   {
     title: "Chatbot Agent & Automation",
+    href: "chatbot-agent-automation",
+    id: "chatbot-agent-automation",
     description:
       "AI-powered chatbots for websites, WhatsApp, Facebook, and Instagram to automate communication.",
     features: [
@@ -87,7 +97,9 @@ export const services = [
     icon: ({ className }) => <MessageSquare className={className} />,
   },
   {
-    title: "Website Maintenance & Support",
+    title: "Website Maintenance",
+    id: "website-maintenance-support",
+    href: "website-maintenance-support",
     description:
       "Keep your site updated, secure, and running smoothly with regular maintenance.",
     features: [
@@ -114,4 +126,56 @@ export const legal = [
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms of Service", href: "/terms-and-conditions" },
   { name: "Disclaimer", href: "/disclaimer" },
+];
+
+// Testimonials data
+export const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "CEO",
+    company: "TechStart Inc.",
+    description:
+      "ECODrIx transformed our online presence with a stunning website that perfectly represents our brand. The attention to detail and communication throughout the project was exceptional. We saw a 150% increase in leads within the first month!",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    name: "Michael Chen",
+    role: "Marketing Director",
+    company: "Global Corp",
+    description:
+      "The e-commerce solution delivered exceptional results, with a 40% increase in conversions. Their technical expertise and problem-solving skills are truly impressive. The team went above and beyond to meet our tight deadline.",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    name: "David Wilson",
+    role: "Founder",
+    company: "Startup Ventures",
+    description:
+      "Reliable, professional, and delivered beyond our expectations. Will definitely work with them again for our future projects. The support after launch has been outstanding with 24/7 availability for critical issues.",
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Product Manager",
+    company: "Digital Solutions",
+    description:
+      "The mobile app they developed has been downloaded over 500k times with 4.9-star ratings. Their clean code and documentation made future updates extremely easy for our team to handle.",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+  },
+  {
+    name: "James Peterson",
+    role: "CTO",
+    company: "Enterprise Systems",
+    description:
+      "We hired ECODrIx to modernize our legacy system and the results were phenomenal. 60% performance improvement and 80% reduction in server costs. Their architectural recommendations saved us thousands.",
+    avatar: "https://randomuser.me/api/portraits/men/81.jpg",
+  },
+  {
+    name: "Olivia Smith",
+    role: "Creative Director",
+    company: "Brand Agency",
+    description:
+      "As a design-focused agency, we're extremely particular about our digital presence. ECODrIx not only met but exceeded our aesthetic expectations while delivering blazing fast performance.",
+    avatar: "https://randomuser.me/api/portraits/women/33.jpg",
+  },
 ];

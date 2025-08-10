@@ -1,4 +1,4 @@
-import { Verified } from "lucide-react";
+import { Icons } from "@/components/icons";
 import { motion } from "framer-motion";
 export function Why() {
   const container = {
@@ -67,7 +67,7 @@ export function Why() {
             >
               <div className="flex items-start">
                 <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center shadow-inner dark:shadow-indigo-500/30">
-                  <Verified className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                  <Icons.verified className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <p className="ml-4 text-lg text-gray-700 dark:text-slate-300">
                   <span className="font-semibold text-indigo-700 dark:text-indigo-400">

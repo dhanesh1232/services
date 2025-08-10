@@ -58,7 +58,7 @@ export const ServiceSection = () => {
             <motion.div
               key={index}
               variants={item}
-              className="group bg-white dark:bg-slate-800/50 backdrop-blur-xl p-4 rounded-xl border border-gray-100 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/20 dark:hover:shadow-indigo-500/10 transition-all duration-500 relative overflow-hidden"
+              className="group select-none bg-white dark:bg-slate-800/50 backdrop-blur-xl p-4 rounded-xl border border-gray-100 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/20 dark:hover:shadow-indigo-500/10 transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -70,7 +70,23 @@ export const ServiceSection = () => {
                 <div className="absolute -right-4 -top-4 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
                   <service.icon className="w-24 h-24 text-indigo-600 dark:text-indigo-400" />
                 </div>
-
+                <div className="relative mb-6 overflow-hidden rounded-xl">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                    priority={true}
+                    quality={90}
+                    placeholder="blur"
+                    blurDataURL={service.image}
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-70"
+                    aria-hidden="true"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   {service.title}
                 </h3>

@@ -1,19 +1,44 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaQuoteLeft } from "react-icons/fa";
 import { useRef, useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
 import { FeedbackDialog } from "../../layout/overlay/feedback";
+import { testimonials } from "@/lib/client/data";
+import { Icons } from "@/components/icons";
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
+  const [feedbacks, setFeedbacks] = useState(testimonials);
+
+  /*useEffect(() => {
+    const fetchFeedback = async () => {
+      const res = await fetch("/api/feedback", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      const newFeedbacks = data?.data?.feedback || [];
+      console.log(newFeedbacks);
+      setFeedbacks((prev) => {
+        const merged = [...prev, ...newFeedbacks];
+        const unique = merged.filter(
+          (item, index, self) =>
+            index === self.findIndex((t) => t.id === item.id)
+        );
+        return unique;
+      });
+    };
+    fetchFeedback();
+  }, []);*/
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      setCurrentIndex((prev) => (prev + 1) % feedbacks.length);
     }, 5000);
     return () => clearInterval(intervalRef.current);
   }, []);
@@ -22,16 +47,16 @@ export const TestimonialsSection = () => {
     clearInterval(intervalRef.current);
     setCurrentIndex(index);
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+      setCurrentIndex((prev) => (prev + 1) % feedbacks.length);
     }, 5000);
   };
 
   const goToPrev = () => {
-    goToSlide((currentIndex - 1 + testimonials.length) % testimonials.length);
+    goToSlide((currentIndex - 1 + feedbacks.length) % feedbacks.length);
   };
 
   const goToNext = () => {
-    goToSlide((currentIndex + 1) % testimonials.length);
+    goToSlide((currentIndex + 1) % feedbacks.length);
   };
 
   return (
@@ -64,7 +89,7 @@ export const TestimonialsSection = () => {
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {testimonials.map((testimonial, index) => (
+            {feedbacks.map((testimonial, index) => (
               <div key={index} className="w-full flex-shrink-0 px-2">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -97,11 +122,11 @@ export const TestimonialsSection = () => {
                   </div>
 
                   <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-inner dark:shadow-indigo-500/30">
-                    <FaQuoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
+                    <Icons.quoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
                   </div>
 
                   <p className="text-gray-600 dark:text-slate-400 mb-6">
-                    {testimonial.quote}
+                    {testimonial.description}
                   </p>
 
                   <div className="flex text-amber-400">
@@ -137,7 +162,7 @@ export const TestimonialsSection = () => {
           </button>
 
           <div className="flex justify-center mt-6 space-x-2">
-            {testimonials.map((_, index) => (
+            {feedbacks.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
@@ -169,7 +194,7 @@ export const TestimonialsSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {testimonials.map((testimonial, index) => (
+          {feedbacks.map((testimonial, index) => (
             <motion.div
               key={index}
               variants={{
@@ -206,11 +231,11 @@ export const TestimonialsSection = () => {
               </div>
 
               <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-inner dark:shadow-indigo-500/30">
-                <FaQuoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
+                <Icons.quoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
               </div>
 
               <p className="text-gray-600 dark:text-slate-400 mb-6">
-                {testimonial.quote}
+                {testimonial.description}
               </p>
 
               <div className="flex text-amber-400">
@@ -253,55 +278,3 @@ export const TestimonialsSection = () => {
     </section>
   );
 };
-
-// Testimonials data
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "CEO",
-    company: "TechStart Inc.",
-    quote:
-      "ECODrIx transformed our online presence with a stunning website that perfectly represents our brand. The attention to detail and communication throughout the project was exceptional. We saw a 150% increase in leads within the first month!",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-  },
-  {
-    name: "Michael Chen",
-    role: "Marketing Director",
-    company: "Global Corp",
-    quote:
-      "The e-commerce solution delivered exceptional results, with a 40% increase in conversions. Their technical expertise and problem-solving skills are truly impressive. The team went above and beyond to meet our tight deadline.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-  },
-  {
-    name: "David Wilson",
-    role: "Founder",
-    company: "Startup Ventures",
-    quote:
-      "Reliable, professional, and delivered beyond our expectations. Will definitely work with them again for our future projects. The support after launch has been outstanding with 24/7 availability for critical issues.",
-    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Product Manager",
-    company: "Digital Solutions",
-    quote:
-      "The mobile app they developed has been downloaded over 500k times with 4.9-star ratings. Their clean code and documentation made future updates extremely easy for our team to handle.",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-  },
-  {
-    name: "James Peterson",
-    role: "CTO",
-    company: "Enterprise Systems",
-    quote:
-      "We hired ECODrIx to modernize our legacy system and the results were phenomenal. 60% performance improvement and 80% reduction in server costs. Their architectural recommendations saved us thousands.",
-    avatar: "https://randomuser.me/api/portraits/men/81.jpg",
-  },
-  {
-    name: "Olivia Smith",
-    role: "Creative Director",
-    company: "Brand Agency",
-    quote:
-      "As a design-focused agency, we're extremely particular about our digital presence. ECODrIx not only met but exceeded our aesthetic expectations while delivering blazing fast performance.",
-    avatar: "https://randomuser.me/api/portraits/women/33.jpg",
-  },
-];

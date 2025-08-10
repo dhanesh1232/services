@@ -1,6 +1,6 @@
 "use client";
+import { Icons } from "@/components/icons";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -27,7 +27,10 @@ export const FaqSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900" id="faq">
+    <section
+      className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900"
+      id="faq"
+    >
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
@@ -100,18 +103,20 @@ export const FaqSection = () => {
                     >
                       <button
                         onClick={() => toggle(faq.id)}
-                        className={`w-full text-left flex items-center justify-between p-6 focus:outline-none ${activeIndex === faq.id
-                          ? "border-b border-gray-200 dark:border-slate-700/50"
-                          : ""
-                          }`}
+                        className={`w-full text-left flex items-center justify-between p-6 focus:outline-none ${
+                          activeIndex === faq.id
+                            ? "border-b border-gray-200 dark:border-slate-700/50"
+                            : ""
+                        }`}
                         aria-expanded={activeIndex === faq.id}
                       >
                         <span className="text-base font-medium text-gray-900 dark:text-slate-200">
                           {faq.question}
                         </span>
-                        <ChevronDown
-                          className={`w-5 h-5 text-indigo-600 dark:text-indigo-400 transition-transform duration-200 ${activeIndex === faq.id ? "rotate-180" : ""
-                            }`}
+                        <Icons.chevronDown
+                          className={`w-5 h-5 text-indigo-600 dark:text-indigo-400 transition-transform duration-200 ${
+                            activeIndex === faq.id ? "rotate-180" : ""
+                          }`}
                         />
                       </button>
 
@@ -137,7 +142,7 @@ export const FaqSection = () => {
                                   className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium"
                                 >
                                   {faq.link.text}
-                                  <ExternalLink className="ml-1.5 w-4 h-4" />
+                                  <Icons.external className="ml-1.5 w-4 h-4" />
                                 </a>
                               </div>
                             )}

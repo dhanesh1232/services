@@ -1,32 +1,38 @@
 "use client";
+import { Icons } from "@/components/icons";
 import { motion } from "framer-motion";
-import { Award, Clock, Headphones, Heart } from "lucide-react";
 
 export const ServicesStats = () => {
   const stats = [
     {
       value: "100+",
       label: "Projects Delivered",
-      icon: <Award className="text-3xl dark:text-indigo-400 text-indigo-600" />,
+      icon: (
+        <Icons.award className="text-3xl dark:text-indigo-400 text-indigo-600" />
+      ),
       description: "Successful projects across various industries",
     },
     {
       value: "3+",
       label: "Years Experience",
-      icon: <Clock className="text-3xl dark:text-indigo-400 text-indigo-600" />,
+      icon: (
+        <Icons.clock className="text-3xl dark:text-indigo-400 text-indigo-600" />
+      ),
       description: "Building modern web applications since 2022",
     },
     {
       value: "95%",
       label: "Client Satisfaction",
-      icon: <Heart className="text-3xl dark:text-indigo-400 text-indigo-600" />,
+      icon: (
+        <Icons.heart className="text-3xl dark:text-indigo-400 text-indigo-600" />
+      ),
       description: "Dedicated to exceeding client expectations",
     },
     {
       value: "24/7",
       label: "Support Available",
       icon: (
-        <Headphones className="text-3xl dark:text-indigo-400 text-indigo-600" />
+        <Icons.Headphones className="text-3xl dark:text-indigo-400 text-indigo-600" />
       ),
       description: "Reliable maintenance and support",
     },

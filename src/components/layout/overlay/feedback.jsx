@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,12 +16,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Send, Loader2, Star } from "lucide-react";
 import { toast } from "sonner";
+import { collectUserMetadata } from "@/lib/client/metadata";
 
 export function FeedbackDialog() {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
+  const [isFormValid, setIsFormValid] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,6 +31,17 @@ export function FeedbackDialog() {
     role: "",
     description: "",
   });
+
+  useEffect(() => {
+    const isValid =
+      rating > 0 &&
+      formData.name.trim() !== "" &&
+      formData.email.trim() !== "" &&
+      formData.company.trim() !== "" &&
+      formData.role.trim() !== "" &&
+      formData.description.trim() !== "";
+    setIsFormValid(isValid);
+  }, [rating, formData]);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({
@@ -39,7 +52,7 @@ export function FeedbackDialog() {
 
   const handleStarClick = (selectedRating) => {
     if (rating === selectedRating) {
-      setRating(0); // Clear rating if clicking the same star
+      setRating(0);
     } else {
       setRating(selectedRating);
     }
@@ -59,11 +72,26 @@ export function FeedbackDialog() {
       return;
     }
     setIsSubmitting(true);
-
     try {
+      const metadata = collectUserMetadata();
+      const body = {
+        rating: rating,
+        ...formData,
+        metadata,
+      };
       // Simulated API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      toast.success("Thank you for your feedback!");
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      if (!res.ok && res.status) {
+        throw new Error(data.message);
+      }
+      toast.success(data.message || "Thank you for your feedback!");
       setOpen(false);
       setFormData({
         name: "",
@@ -74,7 +102,9 @@ export function FeedbackDialog() {
       });
       setRating(0);
     } catch (error) {
-      toast.error("Failed to submit feedback. Please try again.");
+      toast.error(
+        error.message || "Failed to submit feedback. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -85,6 +115,13 @@ export function FeedbackDialog() {
     return hoveredRating || rating
       ? labels[hoveredRating || rating]
       : "Select Rating";
+  };
+
+  const getRatingColor = (currentRating) => {
+    if (currentRating === 0) return "text-gray-600 dark:text-gray-400";
+    if (currentRating <= 2) return "text-red-600 dark:text-red-400";
+    if (currentRating === 3) return "text-yellow-600 dark:text-yellow-400";
+    return "text-green-600 dark:text-green-400";
   };
 
   return (
@@ -103,7 +140,7 @@ export function FeedbackDialog() {
           </span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] p-6">
+      <DialogContent className="sm:max-w-[500px] bg-gray-100 dark:bg-slate-900 p-6">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
             Share Your Feedback
@@ -113,7 +150,7 @@ export function FeedbackDialog() {
             grow.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="mt-4">
+        <form onSubmit={handleSubmit} className="mt-2">
           <div className="space-y-2">
             <div className="grid grid-cols-1 gap-2">
               <Label>Rating *</Label>
@@ -122,7 +159,7 @@ export function FeedbackDialog() {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star
                       key={star}
-                      className={`h-8 w-8 cursor-pointer outline-none ring-0 transition-all duration-200 ${
+                      className={`h-6 w-6 cursor-pointer outline-none ring-0 transition-all duration-200 ${
                         star <= (hoveredRating || rating)
                           ? "fill-yellow-400 text-yellow-400 scale-110"
                           : "text-gray-300 hover:text-gray-400"
@@ -138,15 +175,9 @@ export function FeedbackDialog() {
                   ))}
                 </div>
                 <span
-                  className={`text-sm ${
-                    rating === 0
-                      ? "text-gray-600 dark:text-gray-400"
-                      : rating <= 2
-                      ? "text-red-600 dark:text-red-400"
-                      : rating === 3
-                      ? "text-yellow-600 dark:text-yellow-400"
-                      : "text-green-600 dark:text-green-400"
-                  }`}
+                  className={`text-sm ${getRatingColor(
+                    hoveredRating || rating
+                  )}`}
                 >
                   {getRatingLabel()}
                 </span>
@@ -159,7 +190,7 @@ export function FeedbackDialog() {
                 value={formData.name}
                 onChange={(e) => handleChange("name", e.target.value)}
                 placeholder="Enter your name"
-                className="focus:ring-2 focus:ring-indigo-500"
+                className="focus:ring-2 text-sm focus:ring-indigo-500 bg-transparent"
                 required
               />
             </div>
@@ -171,7 +202,7 @@ export function FeedbackDialog() {
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
                 placeholder="your@email.com"
-                className="focus:ring-2 focus:ring-indigo-500"
+                className="focus:ring-2 text-sm focus:ring-indigo-500 bg-transparent"
                 required
               />
             </div>
@@ -183,7 +214,8 @@ export function FeedbackDialog() {
                   value={formData.company}
                   onChange={(e) => handleChange("company", e.target.value)}
                   placeholder="Your company"
-                  className="focus:ring-2 focus:ring-indigo-500"
+                  className="focus:ring-2 text-sm focus:ring-indigo-500 bg-transparent"
+                  required
                 />
               </div>
               <div className="grid gap-2">
@@ -191,8 +223,10 @@ export function FeedbackDialog() {
                 <Input
                   id="role"
                   value={formData.role}
+                  className="focus:ring-2 text-sm focus:ring-indigo-500 bg-transparent"
                   placeholder="Enter role"
                   onChange={(e) => handleChange("role", e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -203,7 +237,7 @@ export function FeedbackDialog() {
                 value={formData.description}
                 onChange={(e) => handleChange("description", e.target.value)}
                 placeholder="Please share your thoughts, suggestions, or concerns..."
-                className="min-h-[120px] focus:ring-2 focus:ring-indigo-500"
+                className="min-h-[120px] text-sm focus:ring-2 focus:ring-indigo-500 bg-transparent"
                 required
               />
             </div>
@@ -212,7 +246,7 @@ export function FeedbackDialog() {
             <Button
               type="submit"
               className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white"
-              disabled={isSubmitting || !rating}
+              disabled={isSubmitting || !isFormValid}
             >
               {isSubmitting ? (
                 <>

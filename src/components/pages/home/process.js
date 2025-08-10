@@ -1,21 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Code,
-  Layout,
-  LifeBuoy,
-  MapPin,
-  Rocket,
-  Search,
-} from "lucide-react";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useMediaQuery } from "@/hooks/mediaQuery";
+import { Icons } from "@/components/icons";
 
 export const ProcessSection = () => {
   const processSteps = [
     {
-      icon: <Search className="text-2xl" />,
+      icon: <Icons.search className="text-2xl" />,
       title: "Discovery",
       description: "Deep dive into your business goals and requirements",
       details: [
@@ -25,31 +17,31 @@ export const ProcessSection = () => {
       ],
     },
     {
-      icon: <MapPin className="text-2xl" />,
+      icon: <Icons.mapPin className="text-2xl" />,
       title: "Planning",
       description: "Create detailed project roadmap with milestones",
       details: ["Project timeline", "Tech stack selection", "Risk assessment"],
     },
     {
-      icon: <Layout className="text-2xl" />,
+      icon: <Icons.layout className="text-2xl" />,
       title: "Design",
       description: "Craft intuitive user experiences with pixel-perfect UIs",
       details: ["Wireframing", "UI prototyping", "User testing"],
     },
     {
-      icon: <Code className="text-2xl" />,
+      icon: <Icons.code className="text-2xl" />,
       title: "Development",
       description: "Agile implementation with continuous testing",
       details: ["Sprint planning", "Code reviews", "QA testing"],
     },
     {
-      icon: <Rocket className="text-2xl" />,
+      icon: <Icons.rocket className="text-2xl" />,
       title: "Launch",
       description: "Seamless deployment with performance optimization",
       details: ["CI/CD pipeline", "Load testing", "SEO optimization"],
     },
     {
-      icon: <LifeBuoy className="text-2xl" />,
+      icon: <Icons.lifeBuoy className="text-2xl" />,
       title: "Support",
       description: "Ongoing maintenance and feature enhancements",
       details: ["Bug fixes", "Security updates", "Performance monitoring"],
