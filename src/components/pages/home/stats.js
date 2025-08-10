@@ -32,7 +32,7 @@ export const ServicesStats = () => {
       value: "24/7",
       label: "Support Available",
       icon: (
-        <Icons.Headphones className="text-3xl dark:text-indigo-400 text-indigo-600" />
+        <Icons.headPhones className="text-3xl dark:text-indigo-400 text-indigo-600" />
       ),
       description: "Reliable maintenance and support",
     },

@@ -37,6 +37,7 @@ import {
   Plus,
   Puzzle,
   RefreshCcw,
+  Rocket,
   Search,
   Shield,
   Target,
@@ -58,6 +59,7 @@ import {
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
+  phone: Phone,
   search: Search,
   whatsapp: BsWhatsapp,
   twitter: FaXTwitter,
@@ -71,6 +73,7 @@ export const Icons = {
   sms: MessageCircle,
   slack: FaSlack,
   voice: Phone,
+  rocket: Rocket,
   customSDK: Code,
   checkCircle: CheckCircle,
   cheveronUp: ChevronUp,
@@ -118,7 +121,8 @@ export const Icons = {
   mapPin: MapPin,
   verified: Verified,
   award: Award,
-  headPhone: Headphones,
+  headPhones: Headphones,
+  headPhones: Headphones, // Add this line to support both cases
   heart: Heart,
   quoteLeft: FaQuoteLeft,
   lifeBuoy: LifeBuoy,

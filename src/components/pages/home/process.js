@@ -192,7 +192,7 @@ export const ProcessSection = () => {
                         <ul className="space-y-2 mt-6 flex-1">
                           {step.details.map((detail, i) => (
                             <li key={i} className="flex items-start">
-                              <ArrowRight className="text-indigo-600 dark:text-indigo-400 mt-1 mr-2 flex-shrink-0" />
+                              <Icons.arrowRight className="text-indigo-600 dark:text-indigo-400 mt-1 mr-2 flex-shrink-0" />
                               <span className="text-gray-600 dark:text-slate-400 text-sm">
                                 {detail}
                               </span>
@@ -305,7 +305,7 @@ export const ProcessSection = () => {
                   <ul className="space-y-2 mt-6 flex-1">
                     {step.details.map((detail, i) => (
                       <li key={i} className="flex items-start">
-                        <ArrowRight className="text-indigo-600 dark:text-indigo-400 mt-1 mr-2 flex-shrink-0" />
+                        <Icons.arrowRight className="text-indigo-600 dark:text-indigo-400 mt-1 mr-2 flex-shrink-0" />
                         <span className="text-gray-600 dark:text-slate-400 text-sm">
                           {detail}
                         </span>
