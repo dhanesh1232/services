@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export default function BlogPage() {
-  return <div>BlogPage</div>;
+  return redirect("/not-found");
 }

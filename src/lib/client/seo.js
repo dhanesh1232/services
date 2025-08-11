@@ -1,54 +1,26 @@
+import { keywords } from "./keywords";
+
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://services.ecodrix.com";
 const SITE_NAME = "ECODrIx";
 export const defaultMeta = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "ECODrIx – Services All-in-One AI Platform for Marketing, Web development, CRM, and Customer Support",
+    default: "ECODrIx – Website Development & SEO Services",
     template:
       "%s | ECODrIx – Services | AI Automation & Web development & CRM SaaS Platform",
   },
   description:
-    "ECODrIx is an all-in-one AI-powered SaaS platform offering multichannel automation, CRM integration, marketing campaigns, customer support, real-time conversations, analytics, and intelligent workflows for growing businesses. professional services in web development, AI-powered chatbot solutions, and marketing automation. We help businesses scale with smart, reliable, and scalable digital solutions.",
-  keywords: [
-    "AI chatbot platform",
-    "CRM automation",
-    "customer support software",
-    "sales automation",
-    "marketing campaigns",
-    "lead generation",
-    "business automation SaaS",
-    "WhatsApp chatbot",
-    "Instagram automation",
-    "Facebook Messenger bot",
-    "web chat widget",
-    "multi-channel engagement",
-    "real-time chat",
-    "workflow automation",
-    "conversation analytics",
-    "broadcast messages",
-    "message templates",
-    "web development",
-    "AI chatbot development",
-    "WhatsApp chatbot",
-    "Instagram chatbot",
-    "Facebook chatbot",
-    "custom websites",
-    "marketing automation",
-    "SaaS development",
-    "Next.js services",
-    "ECODrIx services",
-    "erix",
-  ],
+    "Build fast, modern, and SEO-friendly websites with ECODrix. Affordable development services for businesses and startups.",
+  keywords: [...keywords],
   alternates: {
     canonical: "/",
     languages: {
-      "en-US": "/en",
+      "en-US": "/",
     },
   },
   openGraph: {
-    title: "ECODrIx – Services | Web & AI Chatbot Development Services",
+    title: "ECODrIx – Website Development & SEO Services",
     description:
       "Explore top-notch services including AI chatbots, multi-platform integrations, and custom website development with ECODrIx.",
     url: SITE_URL,
@@ -66,7 +38,7 @@ export const defaultMeta = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ECODrIx | Services - Web & AI Chatbot Development Services",
+    title: "ECODrIx | Website Development & SEO Services",
     description:
       "Boost customer engagement and automate business workflows with ECODrIx — an all-in-one AI-powered platform for modern web development, CRM, campaigns, chatbots, and support.",
     creator: "@ecodrix",

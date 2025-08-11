@@ -26,6 +26,7 @@ import {
 import { StyledPhoneInput } from "@/components/ui/phoneInput";
 import { cn } from "@/lib/utils";
 import { Icons } from "../icons";
+import Link from "next/link";
 
 // Form validation schema
 const formSchema = z.object({
@@ -116,14 +117,14 @@ export const ContactSection = () => {
           className="grid md:grid-cols-2 gap-12 items-center"
         >
           <div>
-            <motion.h2
+            <motion.h1
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
               className="text-3xl md:text-4xl font-bold text-foreground mb-4"
             >
               {`Let's Work Together`}
-            </motion.h2>
+            </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -141,17 +142,19 @@ export const ContactSection = () => {
                 transition={{ delay: 0.3 }}
                 className="flex items-start"
               >
-                <div className="flex-shrink-0 bg-background/30 p-3 rounded-lg mr-4">
+                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
                   <Icons.mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="font-medium text-foreground mb-1">Email</h3>
-                  <a
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferer"
                     href="mailto:contact@ecodrix.com"
                     className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     contact@ecodrix.com
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
 
@@ -161,17 +164,18 @@ export const ContactSection = () => {
                 transition={{ delay: 0.4 }}
                 className="flex items-start"
               >
-                <div className="flex-shrink-0 bg-background/30 p-3 rounded-lg mr-4">
+                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
                   <Icons.phone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
                   <h3 className="font-medium text-foreground mb-1">Phone</h3>
-                  <a
+                  <Link
+                    target="_blank"
                     href="tel:+918143963821"
                     className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     +91 8143963821
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
 
