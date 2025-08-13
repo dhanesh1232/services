@@ -6,6 +6,7 @@ import {
   MessageSquare,
   Settings,
 } from "lucide-react";
+import { FaTooth } from "react-icons/fa";
 
 export const services = [
   {
@@ -25,6 +26,27 @@ export const services = [
     ],
     image: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg",
     icon: ({ className }) => <Code2 className={className} />,
+  },
+  {
+    title: "Dental Website Demo",
+    href: "/demo/dental-website-demo/index.html",
+    id: "dental-website-demo",
+    description:
+      "Specialized website solutions tailored for dental practices to showcase services and attract new patients.",
+    features: [
+      "Online appointment booking",
+      "Patient testimonials",
+      "Service catalog",
+      "Before/after gallery",
+      "Staff profiles",
+      "Treatment information",
+      "Contact forms",
+    ],
+    image:
+      "https://res.cloudinary.com/ddqz4s18g/image/upload/v1755084499/Screenshot_2025-08-13_165721_agebz1.png",
+    icon: ({ className }) => (
+      <FaTooth className={className} size={24} color="white" />
+    ),
   },
   {
     title: "E-Commerce Development",

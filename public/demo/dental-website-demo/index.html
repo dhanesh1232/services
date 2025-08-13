@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modern Dental Care - Professional dental services with cutting-edge technology and compassionate care. Book appointments online, meet our specialists, and access dental resources."
+    />
+    <title>Modern Dental Care | Comprehensive Dental Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <style>
+      .dentist-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .testimonial-card {
+        transition: all 0.3s ease;
+      }
+      .testimonial-card:hover {
+        transform: scale(1.02);
+      }
+      .time-slot {
+        transition: all 0.2s ease;
+      }
+      .time-slot:hover {
+        background-color: #3b82f6;
+        color: white;
+      }
+      .time-slot.selected {
+        background-color: #3b82f6;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-gray-50">
+    <!-- Top Announcement Bar -->
+    <div class="bg-blue-600 text-white text-center py-2 px-4">
+      <p class="text-sm md:text-base">
+        Emergency dental care available 24/7 - Call now:
+        <a href="tel:+18005551234" class="font-bold underline"
+          >1-800-555-1234</a
+        >
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="#" class="flex flex-col items-start justify-center gap-0">
+              <img
+                src="https://placehold.co/200x50/2563eb/ffffff?text=Modern+Dental+Care&font=montserrat"
+                alt="Modern Dental Care Logo"
+                class="h-8 w-auto mr-2"
+              />
+              <span class="text-xl font-bold text-blue-600"
+                >Modern Dental Care</span
+              >
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >Home</a
+            >
+            <a
+              href="#services"
+              class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >Services</a
+            >
+            <a
+              href="#dentists"
+              class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >Our Dentists</a
+            >
+            <a
+              href="#testimonials"
+              class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >Testimonials</a
+            >
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >About Us</a
+            >
+            <button
+              onclick="openModal()"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Book Appointment
+            </button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-700 hover:text-blue-600"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#home"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+            >Home</a
+          >
+          <a
+            href="#services"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+            >Services</a
+          >
+          <a
+            href="#dentists"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+            >Our Dentists</a
+          >
+          <a
+            href="#testimonials"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+            >Testimonials</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+            >About Us</a
+          >
+          <button
+            onclick="openModal()"
+            class="w-full text-left px-3 py-2 text-base font-medium text-blue-600 hover:bg-blue-50 rounded-md"
+          >
+            Book Appointment
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="dentist-bg text-white py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-center md:justify-between">
+          <div class="md:w-1/2" data-aos="fade-right">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+              Your Smile Deserves the Best Care
+            </h1>
+            <p class="text-xl mb-8">
+              Experience pain-free dentistry with our state-of-the-art
+              technology and compassionate dental professionals.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                onclick="openModal()"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors"
+              >
+                Book Appointment
+              </button>
+              <a
+                href="tel:+18005551234"
+                class="bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-lg text-lg font-medium text-center transition-colors"
+              >
+                <i class="fas fa-phone mr-2"></i> Call Now
+              </a>
+            </div>
+          </div>
+          <div class="hidden md:block md:w-1/2" data-aos="fade-left">
+            <img
+              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+              alt="Happy patient with dentist"
+              class="rounded-lg shadow-2xl w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="p-4" data-aos="fade-up">
+            <div class="text-4xl font-bold text-blue-600 mb-2">
+              <span class="counter" data-target="15" data-suffix="+">0</span>
+              <i class="fas fa-calendar-alt hidden"></i>
+            </div>
+            <div class="text-gray-600">Years Experience</div>
+          </div>
+          <div class="p-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-4xl font-bold text-blue-600 mb-2">
+              <span class="counter" data-target="10" data-suffix="K+">0</span>
+              <i class="fas fa-smile hidden"></i>
+            </div>
+            <div class="text-gray-600">Happy Patients</div>
+          </div>
+          <div class="p-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-4xl font-bold text-blue-600 mb-2">
+              <span class="counter" data-target="50" data-suffix="+">0</span>
+              <i class="fas fa-tooth hidden"></i>
+            </div>
+            <div class="text-gray-600">Dental Procedures</div>
+          </div>
+          <div class="p-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="text-4xl font-bold text-blue-600 mb-2">
+              <span class="counter" data-target="24" data-suffix="/7">0</span>
+              <i class="fas fa-clock hidden"></i>
+            </div>
+            <div class="text-gray-600">Emergency Care</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".counter");
+
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-target"));
+          const suffix = counter.getAttribute("data-suffix") || "";
+          const icon = counter.nextElementSibling; // Get the next sibling which is the icon
+          const duration = 2000; // 2 seconds
+          const steps = 50;
+          const increment = target / steps;
+          let current = 0;
+
+          // Clear initial content
+          counter.textContent = "0";
+
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              setTimeout(updateCounter, duration / steps);
+            } else {
+              counter.textContent = target + suffix;
+              if (icon && icon.classList.contains("hidden")) {
+                icon.classList.remove("hidden");
+              }
+            }
+          };
+
+          // Start counter when element comes into view
+          const observer = new IntersectionObserver(
+            (entries) => {
+              if (entries[0].isIntersecting) {
+                updateCounter();
+                observer.unobserve(counter);
+              }
+            },
+            { threshold: 0.5 }
+          ); // Trigger when 50% of element is visible
+
+          observer.observe(counter);
+        });
+      });
+    </script>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+            Our Dental Services
+          </h2>
+          <p
+            class="text-lg text-gray-600 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Comprehensive dental care for the whole family. We use the latest
+            technology to ensure your comfort and the best results.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden service-card transition-all duration-300"
+            data-aos="fade-up"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                  <i class="fas fa-tooth text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  General Dentistry
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Regular check-ups, cleanings, and preventive care to maintain
+                optimal oral health.
+              </p>
+              <ul class="space-y-2 text-gray-600 mb-4">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Dental Exams
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Teeth Cleaning
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Fillings
+                </li>
+              </ul>
+              <button
+                onclick="openServiceModal('General Dentistry')"
+                class="text-blue-600 font-medium hover:text-blue-800 transition-colors"
+              >
+                Learn More <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden service-card transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                  <i class="fas fa-teeth text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Cosmetic Dentistry
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Enhance your smile with our cosmetic procedures designed to
+                improve aesthetics.
+              </p>
+              <ul class="space-y-2 text-gray-600 mb-4">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Teeth
+                  Whitening
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Veneers
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Smile
+                  Makeovers
+                </li>
+              </ul>
+              <button
+                onclick="openServiceModal('Cosmetic Dentistry')"
+                class="text-blue-600 font-medium hover:text-blue-800 transition-colors"
+              >
+                Learn More <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden service-card transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                  <i class="fas fa-implant text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Dental Implants
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Permanent solution for missing teeth that look and function like
+                natural teeth.
+              </p>
+              <ul class="space-y-2 text-gray-600 mb-4">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Single Tooth
+                  Implants
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i>
+                  Implant-Supported Bridges
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> All-on-4
+                  Implants
+                </li>
+              </ul>
+              <button
+                onclick="openServiceModal('Dental Implants')"
+                class="text-blue-600 font-medium hover:text-blue-800 transition-colors"
+              >
+                Learn More <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden service-card transition-all duration-300"
+            data-aos="fade-up"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                  <i class="fas fa-braces text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Orthodontics
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Straighten your teeth and correct your bite with our orthodontic
+                solutions.
+              </p>
+              <ul class="space-y-2 text-gray-600 mb-4">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Traditional
+                  Braces
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Invisalign
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Retainers
+                </li>
+              </ul>
+              <button
+                onclick="openServiceModal('Orthodontics')"
+                class="text-blue-600 font-medium hover:text-blue-800 transition-colors"
+              >
+                Learn More <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden service-card transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                  <i class="fas fa-syringe text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Oral Surgery
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Expert surgical procedures including extractions, wisdom teeth
+                removal, and more.
+              </p>
+              <ul class="space-y-2 text-gray-600 mb-4">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Wisdom Teeth
+                  Removal
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Tooth
+                  Extractions
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Bone Grafting
+                </li>
+              </ul>
+              <button
+                onclick="openServiceModal('Oral Surgery')"
+                class="text-blue-600 font-medium hover:text-blue-800 transition-colors"
+              >
+                Learn More <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden service-card transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                  <i class="fas fa-child text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800">
+                  Pediatric Dentistry
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Gentle dental care designed specifically for children and young
+                patients.
+              </p>
+              <ul class="space-y-2 text-gray-600 mb-4">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Child Exams
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Fluoride
+                  Treatments
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-blue-500 mr-2"></i> Sealants
+                </li>
+              </ul>
+              <button
+                onclick="openServiceModal('Pediatric Dentistry')"
+                class="text-blue-600 font-medium hover:text-blue-800 transition-colors"
+              >
+                Learn More <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-blue-600 text-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">
+            Why Choose Modern Dental Care?
+          </h2>
+          <p
+            class="text-lg max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            We're committed to providing exceptional dental care with a personal
+            touch.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm"
+            data-aos="fade-up"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-white bg-opacity-20 h-10 w-10 p-4 flex items-center justify-center rounded-full mr-4"
+              >
+                <i class="fas fa-shield-alt text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Sterilization & Safety</h3>
+            </div>
+            <p>
+              We follow strict sterilization protocols and use disposable
+              materials to ensure your safety.
+            </p>
+          </div>
+
+          <div
+            class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-white bg-opacity-20 h-10 w-10 p-4 flex items-center justify-center rounded-full mr-4"
+              >
+                <i class="fas fa-clock text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Flexible Scheduling</h3>
+            </div>
+            <p>
+              We offer early morning, evening, and weekend appointments to
+              accommodate your busy schedule.
+            </p>
+          </div>
+
+          <div
+            class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-white bg-opacity-20 h-10 w-10 p-4 flex items-center justify-center rounded-full mr-4"
+              >
+                <i class="fas fa-comments-dollar text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Payment Options</h3>
+            </div>
+            <p>
+              We accept most insurance plans and offer flexible payment options
+              including financing.
+            </p>
+          </div>
+
+          <div
+            class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm"
+            data-aos="fade-up"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-white bg-opacity-20 h-10 w-10 p-4 flex items-center justify-center rounded-full mr-4"
+              >
+                <i class="fas fa-procedures text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Advanced Technology</h3>
+            </div>
+            <p>
+              Digital X-rays, intraoral cameras, and laser dentistry for more
+              precise and comfortable treatment.
+            </p>
+          </div>
+
+          <div
+            class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-white bg-opacity-20 h-10 w-10 p-4 flex items-center justify-center rounded-full mr-4"
+              >
+                <i class="fas fa-heart text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Compassionate Care</h3>
+            </div>
+            <p>
+              We understand dental anxiety and provide a calming environment
+              with sedation options.
+            </p>
+          </div>
+
+          <div
+            class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <div
+                class="bg-white bg-opacity-20 h-10 w-10 p-4 flex items-center justify-center rounded-full mr-4"
+              >
+                <i class="fas fa-award text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold">Experienced Team</h3>
+            </div>
+            <p>
+              Our dentists have extensive training and stay current with
+              continuing education.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dentists Section -->
+    <section id="dentists" class="py-16 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+            Meet Our Dental Specialists
+          </h2>
+          <p
+            class="text-lg text-gray-600 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Our team of experienced dentists and specialists are dedicated to
+            providing you with the highest quality care.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dentist 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden"
+            data-aos="fade-up"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Dr. Sarah Johnson"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                Dr. Sarah Johnson
+              </h3>
+              <p class="text-blue-600 font-medium mb-3">General Dentist</p>
+              <p class="text-gray-600 mb-4">
+                With over 12 years of experience, Dr. Johnson specializes in
+                preventive dentistry and cosmetic procedures.
+              </p>
+              <div class="flex space-x-4">
+                <button
+                  onclick="openDentistModal('Dr. Sarah Johnson')"
+                  class="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <i class="fas fa-calendar-alt mr-1"></i> Book Now
+                </button>
+                <button
+                  onclick="openDentistProfile('Dr. Sarah Johnson')"
+                  class="text-gray-600 hover:text-gray-800 transition-colors"
+                >
+                  <i class="fas fa-user-md mr-1"></i> Profile
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dentist 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+              alt="Dr. Michael Chen"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                Dr. Michael Chen
+              </h3>
+              <p class="text-blue-600 font-medium mb-3">Orthodontist</p>
+              <p class="text-gray-600 mb-4">
+                Specializing in Invisalign and traditional braces, Dr. Chen
+                creates beautiful, functional smiles.
+              </p>
+              <div class="flex space-x-4">
+                <button
+                  onclick="openDentistModal('Dr. Michael Chen')"
+                  class="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <i class="fas fa-calendar-alt mr-1"></i> Book Now
+                </button>
+                <button
+                  onclick="openDentistProfile('Dr. Michael Chen')"
+                  class="text-gray-600 hover:text-gray-800 transition-colors"
+                >
+                  <i class="fas fa-user-md mr-1"></i> Profile
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dentist 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+              alt="Dr. Emily Rodriguez"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                Dr. Emily Rodriguez
+              </h3>
+              <p class="text-blue-600 font-medium mb-3">Pediatric Dentist</p>
+              <p class="text-gray-600 mb-4">
+                Dr. Rodriguez makes dental visits fun and educational for
+                children of all ages.
+              </p>
+              <div class="flex space-x-4">
+                <button
+                  onclick="openDentistModal('Dr. Emily Rodriguez')"
+                  class="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <i class="fas fa-calendar-alt mr-1"></i> Book Now
+                </button>
+                <button
+                  onclick="openDentistProfile('Dr. Emily Rodriguez')"
+                  class="text-gray-600 hover:text-gray-800 transition-colors"
+                >
+                  <i class="fas fa-user-md mr-1"></i> Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            onclick="openDentistsModal()"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors"
+          >
+            View All Dental Team
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+            Patient Testimonials
+          </h2>
+          <p
+            class="text-lg text-gray-600 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Hear what our patients have to say about their experiences at Modern
+            Dental Care.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-md testimonial-card"
+            data-aos="fade-up"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/43.jpg"
+                alt="Jennifer S."
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-800">Jennifer S.</h4>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "I was terrified of dentists after a bad experience, but Dr.
+              Johnson was so patient and gentle. My root canal was completely
+              painless!"
+            </p>
+            <div class="mt-4 text-sm text-gray-500">
+              <i class="fas fa-quote-left mr-1"></i> General Dentistry - June
+              2023
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-md testimonial-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Robert T."
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-800">Robert T.</h4>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "The Invisalign treatment with Dr. Chen transformed my smile. The
+              staff was always helpful with my many questions throughout the
+              process."
+            </p>
+            <div class="mt-4 text-sm text-gray-500">
+              <i class="fas fa-quote-left mr-1"></i> Orthodontics - April 2023
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-md testimonial-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/65.jpg"
+                alt="Lisa M."
+                class="w-12 h-12 rounded-full mr-4"
+              />
+              <div>
+                <h4 class="font-semibold text-gray-800">Lisa M.</h4>
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "My kids actually look forward to their dental visits thanks to
+              Dr. Rodriguez. The office is so kid-friendly and they make
+              everything fun."
+            </p>
+            <div class="mt-4 text-sm text-gray-500">
+              <i class="fas fa-quote-left mr-1"></i> Pediatric Dentistry - May
+              2023
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            onclick="openReviewsModal()"
+            class="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          >
+            Read More Patient Stories <i class="fas fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance & Payment Section -->
+    <section class="py-16 bg-blue-50 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-center md:justify-between">
+          <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+              Insurance & Payment Options
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">
+              We believe quality dental care should be accessible to everyone.
+              We accept most major insurance plans and offer flexible payment
+              options.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                <div>
+                  <h4 class="font-semibold text-gray-800">
+                    Insurance Accepted
+                  </h4>
+                  <p class="text-gray-600">
+                    We're in-network with most PPO dental insurance plans
+                    including Delta Dental, MetLife, Cigna, and more.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                <div>
+                  <h4 class="font-semibold text-gray-800">
+                    Flexible Financing
+                  </h4>
+                  <p class="text-gray-600">
+                    Options like CareCredit allow you to pay for treatment over
+                    time with low or no interest.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Discount Plans</h4>
+                  <p class="text-gray-600">
+                    Ask about our in-house membership plan for patients without
+                    insurance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+            <div
+              class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            >
+              <h3 class="text-xl font-semibold text-gray-800 mb-6">
+                Verify Your Insurance
+              </h3>
+              <form class="space-y-6" id="insuranceForm">
+                <div class="form-group">
+                  <label
+                    for="fullName"
+                    class="block text-gray-700 mb-2 font-medium"
+                    >Full Name *</label
+                  >
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    placeholder="Enter your full name"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-400"
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="dob" class="block text-gray-700 mb-2 font-medium"
+                    >Date of Birth *</label
+                  >
+                  <input
+                    type="date"
+                    id="dob"
+                    name="dateOfBirth"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    max="2099-12-31"
+                  />
+                </div>
+                <div class="form-group">
+                  <label
+                    for="provider"
+                    class="block text-gray-700 mb-2 font-medium"
+                    >Insurance Provider *</label
+                  >
+                  <select
+                    id="provider"
+                    name="insuranceProvider"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
+                  >
+                    <option value="" disabled selected>
+                      Select your insurance provider
+                    </option>
+                    <option value="delta">Delta Dental</option>
+                    <option value="metlife">MetLife</option>
+                    <option value="cigna">Cigna</option>
+                    <option value="aetna">Aetna</option>
+                    <option value="humana">Humana</option>
+                    <option value="united">UnitedHealthcare</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label
+                    for="memberId"
+                    class="block text-gray-700 mb-2 font-medium"
+                    >Member ID *</label
+                  >
+                  <input
+                    type="text"
+                    id="memberId"
+                    name="memberId"
+                    required
+                    placeholder="Enter your member ID"
+                    pattern="[A-Za-z0-9-]+"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-400"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="mt-8">
+                  <button
+                    type="submit"
+                    class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Verify Coverage
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+            Frequently Asked Questions
+          </h2>
+          <p
+            class="text-lg text-gray-600 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Get answers to common questions about dental care and our practice.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <!-- FAQ Item 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg"
+            data-aos="fade-up"
+          >
+            <button
+              class="faq-toggle w-full text-left p-6 bg-gradient-to-r from-blue-50 to-white hover:from-blue-100 hover:to-blue-50 transition-all flex justify-between items-center group"
+            >
+              <h3
+                class="font-semibold text-gray-800 text-lg group-hover:text-blue-600"
+              >
+                How often should I visit the dentist?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-blue-500 transition-transform duration-300 group-hover:text-blue-600"
+              ></i>
+            </button>
+            <div
+              class="faq-content hidden p-6 bg-white border-t border-blue-50"
+            >
+              <p class="text-gray-600 leading-relaxed">
+                Most dentists recommend a check-up and cleaning every six
+                months. However, some patients with specific conditions may need
+                to visit more frequently. During your first visit, we'll
+                recommend a schedule tailored to your oral health needs.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
+            <button
+              class="faq-toggle w-full text-left p-6 bg-gradient-to-r from-blue-50 to-white hover:from-blue-100 hover:to-blue-50 transition-all flex justify-between items-center group"
+            >
+              <h3
+                class="font-semibold text-gray-800 text-lg group-hover:text-blue-600"
+              >
+                Do you accept emergency appointments?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-blue-500 transition-transform duration-300 group-hover:text-blue-600"
+              ></i>
+            </button>
+            <div
+              class="faq-content hidden p-6 bg-white border-t border-blue-50"
+            >
+              <p class="text-gray-600 leading-relaxed">
+                Yes, we set aside time each day for emergency cases. If you're
+                experiencing severe pain, swelling, or have suffered dental
+                trauma, please call us immediately at
+                <a
+                  href="tel:+18005551234"
+                  class="text-blue-600 hover:text-blue-800 underline"
+                  >1-800-555-1234</a
+                >. We'll do our best to see you the same day.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <button
+              class="faq-toggle w-full text-left p-6 bg-gradient-to-r from-blue-50 to-white hover:from-blue-100 hover:to-blue-50 transition-all flex justify-between items-center group"
+            >
+              <h3
+                class="font-semibold text-gray-800 text-lg group-hover:text-blue-600"
+              >
+                What payment options do you accept?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-blue-500 transition-transform duration-300 group-hover:text-blue-600"
+              ></i>
+            </button>
+            <div
+              class="faq-content hidden p-6 bg-white border-t border-blue-50"
+            >
+              <p class="text-gray-600 leading-relaxed">
+                We accept most major credit cards, personal checks, cash, and
+                HSA/FSA cards. We're in-network with many dental insurance
+                providers and will file claims on your behalf. For extensive
+                treatments, we offer third-party financing options like
+                CareCredit with low monthly payments.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <button
+              class="faq-toggle w-full text-left p-6 bg-gradient-to-r from-blue-50 to-white hover:from-blue-100 hover:to-blue-50 transition-all flex justify-between items-center group"
+            >
+              <h3
+                class="font-semibold text-gray-800 text-lg group-hover:text-blue-600"
+              >
+                How can I overcome my fear of dentists?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-blue-500 transition-transform duration-300 group-hover:text-blue-600"
+              ></i>
+            </button>
+            <div
+              class="faq-content hidden p-6 bg-white border-t border-blue-50"
+            >
+              <p class="text-gray-600 leading-relaxed">
+                We specialize in treating anxious patients. Options include:
+              </p>
+              <ul class="list-none space-y-3 mt-4">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                  <span
+                    >Tell us about your concerns so we can adjust our
+                    approach</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                  <span
+                    >Use of gentle techniques and modern painless
+                    technology</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                  <span
+                    >Sedation options from nitrous oxide ("laughing gas") to
+                    oral sedation</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                  <span>Taking breaks during treatment when needed</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                  <span
+                    >Bringing headphones to listen to music during
+                    procedures</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <button
+              class="faq-toggle w-full text-left p-6 bg-gradient-to-r from-blue-50 to-white hover:from-blue-100 hover:to-blue-50 transition-all flex justify-between items-center group"
+            >
+              <h3
+                class="font-semibold text-gray-800 text-lg group-hover:text-blue-600"
+              >
+                What's the difference between a regular cleaning and deep
+                cleaning?
+              </h3>
+              <i
+                class="fas fa-chevron-down text-blue-500 transition-transform duration-300 group-hover:text-blue-600"
+              ></i>
+            </button>
+            <div
+              class="faq-content hidden p-6 bg-white border-t border-blue-50"
+            >
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h4 class="font-medium text-blue-800 mb-2">
+                    Regular Cleaning (Prophylaxis)
+                  </h4>
+                  <p class="text-gray-600">
+                    Preventive care for healthy gums, removing plaque and tartar
+                    above the gum line.
+                  </p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h4 class="font-medium text-blue-800 mb-2">Deep Cleaning</h4>
+                  <p class="text-gray-600">
+                    Therapeutic treatment for gum disease, cleaning below the
+                    gum line to remove bacteria and smooth root surfaces.
+                  </p>
+                </div>
+              </div>
+              <p class="text-gray-600 mt-4">
+                We'll recommend the appropriate cleaning based on your gum
+                health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            onclick="openFAQModal()"
+            class="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          >
+            View All FAQs <i class="fas fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 bg-gradient-to-b overflow-hidden from-gray-50 to-white"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+            Get in Touch
+          </h2>
+          <p
+            class="text-xl text-gray-600 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            We're here to help with all your dental care needs. Reach out to us
+            anytime.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <!-- Contact Card 1 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center transform hover:-translate-y-1"
+            data-aos="fade-up"
+          >
+            <div
+              class="bg-blue-100 p-4 rounded-full inline-block mb-6 hover:bg-blue-200 transition-colors"
+            >
+              <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Visit Us</h3>
+            <p class="text-gray-600 text-lg mb-4">
+              123 Dental Way<br />New York, NY 10001
+            </p>
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              class="inline-flex items-center px-6 py-3 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-all"
+            >
+              <span>View on Map</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Contact Card 2 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center transform hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="bg-blue-100 p-4 rounded-full inline-block mb-6 hover:bg-blue-200 transition-colors"
+            >
+              <i class="fas fa-phone-alt text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Call Us</h3>
+            <div class="space-y-3 mb-4">
+              <p class="text-gray-600 text-lg">
+                Main:
+                <a
+                  href="tel:+18005551234"
+                  class="text-blue-600 hover:text-blue-800 font-medium"
+                  >1-800-555-1234</a
+                >
+              </p>
+              <p class="text-gray-600 text-lg">
+                Emergency:
+                <a
+                  href="tel:+18005554321"
+                  class="text-blue-600 hover:text-blue-800 font-medium"
+                  >1-800-555-4321</a
+                >
+              </p>
+            </div>
+            <button
+              onclick="openModal()"
+              class="inline-flex items-center px-6 py-3 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-all"
+            >
+              <span>Schedule Call</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+
+          <!-- Contact Card 3 -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center transform hover:-translate-y-1"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="bg-blue-100 p-4 rounded-full inline-block mb-6 hover:bg-blue-200 transition-colors"
+            >
+              <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Email Us</h3>
+            <div class="space-y-3 mb-4">
+              <p class="text-gray-600 text-lg">
+                General:
+                <a
+                  href="mailto:info@moderndental.com"
+                  class="text-blue-600 hover:text-blue-800 font-medium"
+                  >info@moderndental.com</a
+                >
+              </p>
+              <p class="text-gray-600 text-lg">
+                Support:
+                <a
+                  href="mailto:support@moderndental.com"
+                  class="text-blue-600 hover:text-blue-800 font-medium"
+                  >support@moderndental.com</a
+                >
+              </p>
+            </div>
+            <button
+              onclick="openContactModal()"
+              class="inline-flex items-center px-6 py-3 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-all"
+            >
+              <span>Write to Us</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div data-aos="fade-right">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+              Office Hours
+            </h3>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <div class="space-y-6">
+                <div
+                  class="flex justify-between items-center border-b border-gray-100 pb-4 hover:bg-gray-50 p-2 rounded transition-colors"
+                >
+                  <span class="font-medium text-gray-700 text-lg"
+                    >Monday - Thursday</span
+                  >
+                  <span class="text-blue-600 font-medium"
+                    >8:00 AM - 7:00 PM</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-b border-gray-100 pb-4 hover:bg-gray-50 p-2 rounded transition-colors"
+                >
+                  <span class="font-medium text-gray-700 text-lg">Friday</span>
+                  <span class="text-blue-600 font-medium"
+                    >8:00 AM - 5:00 PM</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center border-b border-gray-100 pb-4 hover:bg-gray-50 p-2 rounded transition-colors"
+                >
+                  <span class="font-medium text-gray-700 text-lg"
+                    >Saturday</span
+                  >
+                  <span class="text-blue-600 font-medium"
+                    >9:00 AM - 3:00 PM</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center hover:bg-gray-50 p-2 rounded transition-colors"
+                >
+                  <span class="font-medium text-gray-700 text-lg">Sunday</span>
+                  <span class="text-red-500 font-medium">Emergency Only</span>
+                </div>
+              </div>
+              <div
+                class="mt-8 bg-yellow-50 p-6 rounded-xl border border-yellow-100"
+              >
+                <h4
+                  class="font-semibold text-gray-800 mb-3 flex items-center text-lg"
+                >
+                  <i class="fas fa-exclamation-circle text-yellow-500 mr-3"></i>
+                  Holiday Schedule
+                </h4>
+                <p class="text-gray-600">
+                  Our office observes major holidays. For emergencies during
+                  holidays, our on-call team is available 24/7.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+              Send Us a Message
+            </h3>
+            <form
+              id="contactForm"
+              class="bg-white p-8 rounded-xl shadow-lg space-y-6"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-gray-700 text-lg mb-2">Name *</label>
+                  <input
+                    type="text"
+                    required
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    placeholder="Your full name"
+                  />
+                </div>
+                <div>
+                  <label class="block text-gray-700 text-lg mb-2"
+                    >Email *</label
+                  >
+                  <input
+                    type="email"
+                    required
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 text-lg mb-2"
+                  >Phone Number</label
+                >
+                <input
+                  type="tel"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  placeholder="(123) 456-7890"
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 text-lg mb-2"
+                  >Subject *</label
+                >
+                <select
+                  required
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                >
+                  <option value="">Please select a subject</option>
+                  <option>Schedule Appointment</option>
+                  <option>Insurance & Billing</option>
+                  <option>Treatment Questions</option>
+                  <option>General Inquiry</option>
+                  <option>Feedback</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 text-lg mb-2"
+                  >Message *</label
+                >
+                <textarea
+                  rows="4"
+                  required
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                  placeholder="How can we help you?"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white text-lg font-medium px-8 py-4 rounded-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-200"
+              >
+                Send Message
+                <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">
+          Ready for a Healthier Smile?
+        </h2>
+        <p
+          class="text-xl mb-8 max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Schedule your appointment today and experience the Modern Dental Care
+          difference.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <button
+            onclick="openModal()"
+            class="bg-white hover:bg-gray-100 text-blue-600 px-8 py-3 rounded-lg text-lg font-medium transition-colors"
+          >
+            Book Online Now
+          </button>
+          <a
+            href="tel:+18005551234"
+            class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-8 py-3 rounded-lg text-lg font-medium text-center transition-colors"
+          >
+            <i class="fas fa-phone mr-2"></i> Call: 1-800-555-1234
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Modern Dental Care</h3>
+            <p class="text-gray-400 mb-4">
+              Providing exceptional dental care with the latest technology and
+              compassionate service.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#home"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#dentists"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Our Dentists</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Services</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >General Dentistry</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Cosmetic Dentistry</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Dental Implants</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Orthodontics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Oral Surgery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Pediatric Dentistry</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+            <address class="not-italic text-gray-400 space-y-2">
+              <p class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                <span>123 Dental Way<br />New York, NY 10001</span>
+              </p>
+              <p class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>
+                <a href="tel:+18005551234">1-800-555-1234</a>
+              </p>
+              <p class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>
+                <a href="mailto:info@moderndental.com">info@moderndental.com</a>
+              </p>
+              <p class="flex items-center">
+                <i class="fas fa-clock mr-3"></i>
+                <span
+                  >Mon-Thu: 8AM-7PM<br />Fri: 8AM-5PM<br />Sat: 9AM-3PM</span
+                >
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2023 Modern Dental Care. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition-colors"
+              >Accessibility</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Appointment Modal -->
+    <div
+      id="appointmentModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 overflow-y-auto"
+    >
+      <div class="flex items-center justify-center h-screen px-4 py-8">
+        <div
+          class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto"
+        >
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-2xl font-bold text-gray-800">
+                Book Your Appointment
+              </h3>
+              <button
+                onclick="closeModal()"
+                class="text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="flex mb-2 border-b">
+              <button
+                id="newPatientTab"
+                class="tab-button active px-4 py-2 font-medium text-blue-600 border-b-2 border-blue-600"
+              >
+                New Patient
+              </button>
+              <button
+                id="returningPatientTab"
+                class="tab-button px-4 py-2 font-medium text-gray-500 hover:text-gray-700"
+              >
+                Returning Patient
+              </button>
+            </div>
+
+            <form id="appointmentForm" class="space-y-2">
+              <div id="newPatientFields">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-gray-700 mb-2">Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-gray-700 mb-2"
+                      >Phone Number *</label
+                    >
+                    <input
+                      type="tel"
+                      required
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-gray-700 mb-2"
+                      >Email Address *</label
+                    >
+                    <input
+                      type="email"
+                      required
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-gray-700 mb-2"
+                      >Date of Birth</label
+                    >
+                    <input
+                      type="date"
+                      class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div id="returningPatientFields" class="hidden">
+                <div>
+                  <label class="block text-gray-700 mb-2"
+                    >Patient ID or Email *</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-2"
+                    >Date of Birth *</label
+                  >
+                  <input
+                    type="date"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2"
+                  >Preferred Dentist</label
+                >
+                <select
+                  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Any Available Dentist</option>
+                  <option>Dr. Sarah Johnson (General Dentist)</option>
+                  <option>Dr. Michael Chen (Orthodontist)</option>
+                  <option>Dr. Emily Rodriguez (Pediatric Dentist)</option>
+                  <option>Dr. James Wilson (Oral Surgeon)</option>
+                </select>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-gray-700 mb-2"
+                    >Preferred Date *</label
+                  >
+                  <input
+                    type="date"
+                    id="appointmentDate"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-2">Service Type *</label>
+                  <select
+                    id="serviceType"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Select Service</option>
+                    <option>General Check-up</option>
+                    <option>Teeth Cleaning</option>
+                    <option>Root Canal</option>
+                    <option>Dental Implants</option>
+                    <option>Orthodontics</option>
+                    <option>Cosmetic Dentistry</option>
+                    <option>Emergency Care</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2"
+                  >Available Time Slots *</label
+                >
+                <div
+                  id="timeSlots"
+                  class="grid grid-cols-3 sm:grid-cols-4 gap-3"
+                >
+                  <div
+                    class="time-slot border rounded-lg py-2 text-center cursor-pointer"
+                  >
+                    9:00 AM
+                  </div>
+                  <div
+                    class="time-slot border rounded-lg py-2 text-center cursor-pointer"
+                  >
+                    10:00 AM
+                  </div>
+                  <div
+                    class="time-slot border rounded-lg py-2 text-center cursor-pointer"
+                  >
+                    11:00 AM
+                  </div>
+                  <div
+                    class="time-slot border rounded-lg py-2 text-center cursor-pointer"
+                  >
+                    2:00 PM
+                  </div>
+                  <div
+                    class="time-slot border rounded-lg py-2 text-center cursor-pointer"
+                  >
+                    3:00 PM
+                  </div>
+                  <div
+                    class="time-slot border rounded-lg py-2 text-center cursor-pointer"
+                  >
+                    4:00 PM
+                  </div>
+                </div>
+                <input type="hidden" id="selectedTime" required />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2">Medical History</label>
+                <textarea
+                  rows="3"
+                  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  placeholder="Please mention any relevant medical conditions, allergies, or medications"
+                ></textarea>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2"
+                  >Insurance Information</label
+                >
+                <select
+                  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 mb-2"
+                >
+                  <option value="">Select Insurance Provider</option>
+                  <option>Delta Dental</option>
+                  <option>MetLife</option>
+                  <option>Cigna</option>
+                  <option>Aetna</option>
+                  <option>No Insurance</option>
+                </select>
+                <input
+                  type="text"
+                  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  placeholder="Member ID (if applicable)"
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2">Additional Notes</label>
+                <textarea
+                  rows="2"
+                  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  placeholder="Any specific concerns or requests?"
+                ></textarea>
+              </div>
+
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="consentCheckbox"
+                  required
+                  class="mt-1 mr-2"
+                />
+                <label for="consentCheckbox" class="text-sm text-gray-600">
+                  I agree to the
+                  <a href="#" class="text-blue-600 hover:underline"
+                    >terms and conditions</a
+                  >
+                  and
+                  <a href="#" class="text-blue-600 hover:underline"
+                    >privacy policy</a
+                  >, and consent to receiving appointment reminders via email
+                  and SMS.
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Confirm Appointment
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div
+      id="serviceModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 overflow-y-auto"
+    >
+      <div class="flex items-center justify-center h-screen px-4 py-8">
+        <div
+          class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto"
+        >
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3
+                id="serviceModalTitle"
+                class="text-2xl font-bold text-gray-800"
+              >
+                Service Details
+              </h3>
+              <button
+                onclick="closeServiceModal()"
+                class="text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <div id="serviceModalContent">
+              <!-- Content will be loaded dynamically -->
+            </div>
+
+            <div class="mt-8">
+              <button
+                onclick="openModal()"
+                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Book This Service
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dentist Profile Modal -->
+    <div
+      id="dentistModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 overflow-y-auto"
+    >
+      <div class="flex items-center justify-center min-h-screen px-4 py-8">
+        <div
+          class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto"
+        >
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h3
+                id="dentistModalTitle"
+                class="text-2xl font-bold text-gray-800"
+              >
+                Dentist Profile
+              </h3>
+              <button
+                onclick="closeDentistModal()"
+                class="text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <div
+              id="dentistModalContent"
+              class="flex flex-col md:flex-row gap-6"
+            >
+              <!-- Content will be loaded dynamically -->
+            </div>
+
+            <div class="mt-8">
+              <button
+                onclick="openModal()"
+                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Book with This Dentist
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div
+      id="confirmationModal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"
+    >
+      <div class="flex items-center justify-center min-h-screen px-4">
+        <div
+          class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6 text-center"
+        >
+          <div class="mb-6">
+            <div class="bg-green-100 p-3 rounded-full inline-block">
+              <i class="fas fa-check-circle text-green-600 text-4xl"></i>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">
+            Appointment Confirmed!
+          </h3>
+          <p class="text-gray-600 mb-6" id="confirmationDetails">
+            Your appointment has been successfully booked. We've sent a
+            confirmation to your email.
+          </p>
+          <div class="bg-gray-50 p-4 rounded-lg mb-6 text-left">
+            <h4 class="font-medium text-gray-800 mb-2">Appointment Details:</h4>
+            <p class="text-gray-600" id="appointmentDetailsText"></p>
+          </div>
+          <button
+            onclick="closeConfirmationModal()"
+            class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Initialize date picker
+      flatpickr("#appointmentDate", {
+        minDate: "today",
+        maxDate: new Date().fp_incr(60), // 60 days from now
+        disable: [
+          function (date) {
+            // Disable Sundays
+            return date.getDay() === 0;
+          },
+        ],
+      });
+
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Tab functionality for appointment modal
+      document
+        .getElementById("newPatientTab")
+        .addEventListener("click", function () {
+          document
+            .getElementById("newPatientFields")
+            .classList.remove("hidden");
+          document
+            .getElementById("returningPatientFields")
+            .classList.add("hidden");
+          this.classList.add("active", "text-blue-600", "border-blue-600");
+          this.classList.remove("text-gray-500");
+          document
+            .getElementById("returningPatientTab")
+            .classList.remove("active", "text-blue-600", "border-blue-600");
+          document
+            .getElementById("returningPatientTab")
+            .classList.add("text-gray-500");
+        });
+
+      document
+        .getElementById("returningPatientTab")
+        .addEventListener("click", function () {
+          document.getElementById("newPatientFields").classList.add("hidden");
+          document
+            .getElementById("returningPatientFields")
+            .classList.remove("hidden");
+          this.classList.add("active", "text-blue-600", "border-blue-600");
+          this.classList.remove("text-gray-500");
+          document
+            .getElementById("newPatientTab")
+            .classList.remove("active", "text-blue-600", "border-blue-600");
+          document
+            .getElementById("newPatientTab")
+            .classList.add("text-gray-500");
+        });
+
+      // Time slot selection
+      document.querySelectorAll(".time-slot").forEach((slot) => {
+        slot.addEventListener("click", function () {
+          document
+            .querySelectorAll(".time-slot")
+            .forEach((s) => s.classList.remove("selected"));
+          this.classList.add("selected");
+          document.getElementById("selectedTime").value = this.textContent;
+        });
+      });
+
+      // Modal Functions
+      function openModal() {
+        document.getElementById("appointmentModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        document.getElementById("appointmentModal").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      function openServiceModal(serviceName) {
+        // In a real implementation, this would fetch service details from a database
+        document.getElementById("serviceModalTitle").textContent = serviceName;
+
+        // Sample content - in reality this would come from your CMS or database
+        let serviceContent = "";
+        if (serviceName === "General Dentistry") {
+          serviceContent = `
+            <div class="space-y-4">
+              <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                   alt="General Dentistry" class="w-full h-48 object-cover rounded-lg mb-4">
+              <p class="text-gray-600">Our general dentistry services focus on maintaining your oral health through preventive care and treatment of common dental issues.</p>
+              
+              <h4 class="font-semibold text-gray-800 mt-6 mb-2">Services Include:</h4>
+              <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                <li>Comprehensive dental exams</li>
+                <li>Professional teeth cleaning</li>
+                <li>Digital X-rays</li>
+                <li>Dental fillings</li>
+                <li>Root canal therapy</li>
+                <li>Periodontal treatment</li>
+                <li>Oral cancer screening</li>
+              </ul>
+              
+              <h4 class="font-semibold text-gray-800 mt-6 mb-2">What to Expect:</h4>
+              <p class="text-gray-600">During your visit, we'll conduct a thorough examination of your teeth, gums, and mouth, discuss any concerns you have, and recommend a personalized treatment plan if needed.</p>
+              
+              <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-medium text-blue-800 mb-2 flex items-center">
+                  <i class="fas fa-info-circle mr-2"></i> Pricing Information
+                </h4>
+                <p class="text-gray-700">Basic Exam & Cleaning: $150-$200<br>Dental Fillings: $150-$400 per tooth</p>
+                <p class="text-sm text-gray-600 mt-2">*Prices may vary based on individual needs and insurance coverage.</p>
+              </div>
+            </div>
+          `;
+        } else if (serviceName === "Cosmetic Dentistry") {
+          serviceContent = `
+            <div class="space-y-4">
+              <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" 
+                   alt="Cosmetic Dentistry" class="w-full h-48 object-cover rounded-lg mb-4">
+              <p class="text-gray-600">Transform your smile with our cosmetic dentistry services designed to enhance the appearance of your teeth while maintaining optimal oral health.</p>
+              
+              <h4 class="font-semibold text-gray-800 mt-6 mb-2">Services Include:</h4>
+              <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                <li>Teeth whitening</li>
+                <li>Porcelain veneers</li>
+                <li>Dental bonding</li>
+                <li>Smile makeovers</li>
+                <li>Gum contouring</li>
+                <li>Invisalign clear aligners</li>
+              </ul>
+              
+              <h4 class="font-semibold text-gray-800 mt-6 mb-2">Before & After:</h4>
+              <p class="text-gray-600">We use digital smile design technology to show you a preview of your potential results before beginning treatment.</p>
+              
+              <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-medium text-blue-800 mb-2 flex items-center">
+                  <i class="fas fa-info-circle mr-2"></i> Pricing Information
+                </h4>
+                <p class="text-gray-700">Teeth Whitening: $300-$600<br>Porcelain Veneers: $800-$2,000 per tooth<br>Invisalign: $3,000-$8,000</p>
+                <p class="text-sm text-gray-600 mt-2">*We offer financing options for cosmetic procedures.</p>
+              </div>
+            </div>
+          `;
+        } else {
+          // Default content for other services
+          serviceContent = `
+            <div class="space-y-4">
+              <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                   alt="${serviceName}" class="w-full h-48 object-cover rounded-lg mb-4">
+              <p class="text-gray-600">Our ${serviceName} services are designed to provide the highest quality care using the latest dental technologies and techniques.</p>
+              
+              <h4 class="font-semibold text-gray-800 mt-6 mb-2">About This Service:</h4>
+              <p class="text-gray-600">Please contact our office for more detailed information about our ${serviceName} services. Our team would be happy to answer any questions you may have and schedule a consultation.</p>
+              
+              <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                <h4 class="font-medium text-blue-800 mb-2 flex items-center">
+                  <i class="fas fa-info-circle mr-2"></i> Get More Information
+                </h4>
+                <p class="text-gray-700">Call us at <a href="tel:+18005551234" class="text-blue-600">1-800-555-1234</a> or request a consultation using the button below.</p>
+              </div>
+            </div>
+          `;
+        }
+
+        document.getElementById("serviceModalContent").innerHTML =
+          serviceContent;
+        document.getElementById("serviceModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeServiceModal() {
+        document.getElementById("serviceModal").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      function openDentistModal(dentistName) {
+        // Set the dentist name in the modal title
+        document.getElementById("dentistModalTitle").textContent = dentistName;
+
+        // Sample content - in reality this would come from your CMS or database
+        let dentistContent = "";
+        if (dentistName === "Dr. Sarah Johnson") {
+          dentistContent = `
+            <div class="md:w-1/3">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                   alt="${dentistName}" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="md:w-2/3">
+              <h4 class="text-lg font-semibold text-gray-800 mb-2">General Dentist</h4>
+              <div class="flex items-center text-yellow-400 mb-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="text-gray-600 ml-2 text-sm">4.7 (128 reviews)</span>
+              </div>
+              
+              <p class="text-gray-600 mb-4">Dr. Johnson has over 12 years of experience in general and cosmetic dentistry. She earned her DDS from Columbia University and is committed to providing gentle, personalized care.</p>
+              
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Education</h5>
+                    <p class="text-gray-600 text-sm">Columbia University School of Dental Medicine</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <i class="fas fa-certificate text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Specialties</h5>
+                    <p class="text-gray-600 text-sm">Preventive Dentistry, Cosmetic Dentistry, Restorative Dentistry</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <i class="fas fa-calendar-alt text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Availability</h5>
+                    <p class="text-gray-600 text-sm">Monday-Thursday, 9AM-6PM</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <h5 class="font-medium text-gray-800 mb-2">Patient Reviews</h5>
+                <div class="space-y-3">
+                  <div class="bg-gray-50 p-3 rounded-lg">
+                    <div class="flex items-center mb-1">
+                      <div class="flex text-yellow-400 text-sm">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <span class="text-gray-500 text-sm ml-2">- Robert T.</span>
+                    </div>
+                    <p class="text-gray-600 text-sm">"Dr. Johnson is the best dentist I've ever had. She explains everything clearly and makes sure you're comfortable."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (dentistName === "Dr. Michael Chen") {
+          dentistContent = `
+            <div class="md:w-1/3">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                   alt="${dentistName}" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="md:w-2/3">
+              <h4 class="text-lg font-semibold text-gray-800 mb-2">Orthodontist</h4>
+              <div class="flex items-center text-yellow-400 mb-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="text-gray-600 ml-2 text-sm">5.0 (96 reviews)</span>
+              </div>
+              
+              <p class="text-gray-600 mb-4">Dr. Chen specializes in orthodontics for children, teens, and adults. He is a certified Invisalign provider and believes in creating beautiful, functional smiles.</p>
+              
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Education</h5>
+                    <p class="text-gray-600 text-sm">Harvard School of Dental Medicine, Orthodontic Residency</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <i class="fas fa-certificate text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Specialties</h5>
+                    <p class="text-gray-600 text-sm">Invisalign, Traditional Braces, Early Interceptive Treatment</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <i class="fas fa-calendar-alt text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Availability</h5>
+                    <p class="text-gray-600 text-sm">Tuesday-Friday, 8AM-5PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          // Default content for other dentists
+          dentistContent = `
+            <div class="md:w-1/3">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                   alt="${dentistName}" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="md:w-2/3">
+              <h4 class="text-lg font-semibold text-gray-800 mb-2">Pediatric Dentist</h4>
+              <div class="flex items-center text-yellow-400 mb-3">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="text-gray-600 ml-2 text-sm">4.9 (142 reviews)</span>
+              </div>
+              
+              <p class="text-gray-600 mb-4">Dr. Rodriguez specializes in dental care for infants, children, and adolescents, including those with special health care needs.</p>
+              
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Education</h5>
+                    <p class="text-gray-600 text-sm">University of Pennsylvania School of Dental Medicine</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <i class="fas fa-certificate text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Specialties</h5>
+                    <p class="text-gray-600 text-sm">Pediatric Dentistry, Behavior Management, Preventive Care</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <i class="fas fa-calendar-alt text-blue-600 mt-1 mr-3"></i>
+                  <div>
+                    <h5 class="font-medium text-gray-800">Availability</h5>
+                    <p class="text-gray-600 text-sm">Monday-Wednesday, Friday, 9AM-4PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        document.getElementById("dentistModalContent").innerHTML =
+          dentistContent;
+        document.getElementById("dentistModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDentistModal() {
+        document.getElementById("dentistModal").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      function openDentistProfile(dentistName) {
+        openDentistModal(dentistName);
+      }
+
+      function openDentistsModal() {
+        alert(
+          "In a complete implementation, this would show a modal with all dentists and their profiles."
+        );
+      }
+
+      function openReviewsModal() {
+        alert(
+          "In a complete implementation, this would show a modal with all patient reviews."
+        );
+      }
+
+      function openFAQModal() {
+        alert(
+          "In a complete implementation, this would show a modal with the full FAQ section."
+        );
+      }
+
+      function openContactModal() {
+        alert(
+          "In a complete implementation, this would show a contact form modal."
+        );
+      }
+
+      function showConfirmation(appointmentDetails) {
+        document.getElementById("appointmentDetailsText").innerHTML =
+          appointmentDetails;
+        document.getElementById("confirmationModal").classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeConfirmationModal() {
+        document.getElementById("confirmationModal").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+
+      // FAQ toggle functionality
+      document.querySelectorAll(".faq-toggle").forEach((button) => {
+        button.addEventListener("click", function () {
+          const content = this.nextElementSibling;
+          const icon = this.querySelector("i");
+
+          content.classList.toggle("hidden");
+          icon.classList.toggle("rotate-180");
+        });
+      });
+
+      // Appointment Form handling
+      document
+        .getElementById("appointmentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form values
+          const formData = new FormData(this);
+          const name = formData.get("fullName") || "Patient";
+          const date = document.getElementById("appointmentDate").value;
+          const time = document.getElementById("selectedTime").value;
+          const service = document.getElementById("serviceType").value;
+
+          // Create appointment details text
+          const appointmentDetails = `
+          <strong>Patient:</strong> ${name}<br>
+          <strong>Date:</strong> ${date}<br>
+          <strong>Time:</strong> ${time}<br>
+          <strong>Service:</strong> ${service}<br><br>
+          We've sent a confirmation to your email with preparation instructions for your appointment.
+        `;
+
+          // Show confirmation modal
+          showConfirmation(appointmentDetails);
+
+          // Close appointment modal
+          closeModal();
+
+          // Reset form
+          this.reset();
+        });
+
+      // Contact Form handling
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for your message! We will get back to you soon.");
+          this.reset();
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modals = [
+          "appointmentModal",
+          "serviceModal",
+          "dentistModal",
+          "confirmationModal",
+        ];
+        modals.forEach((modalId) => {
+          const modal = document.getElementById(modalId);
+          if (event.target === modal) {
+            if (modalId === "appointmentModal") closeModal();
+            if (modalId === "serviceModal") closeServiceModal();
+            if (modalId === "dentistModal") closeDentistModal();
+            if (modalId === "confirmationModal") closeConfirmationModal();
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

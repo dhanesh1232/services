@@ -5,7 +5,12 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ["randomuser.me", "images.unsplash.com", "images.pexels.com"],
+    domains: [
+      "randomuser.me",
+      "images.unsplash.com",
+      "images.pexels.com",
+      "res.cloudinary.com",
+    ],
   },
   onWarning: (warning) => {
     if (

@@ -5,23 +5,23 @@ import { motion } from "framer-motion";
 export const ServicesStats = () => {
   const stats = [
     {
-      value: "100+",
+      value: "50+",
       label: "Projects Delivered",
       icon: (
         <Icons.award className="text-3xl dark:text-indigo-400 text-indigo-600" />
       ),
-      description: "Successful projects across various industries",
+      description: "20+ websites built since 2024",
     },
     {
-      value: "3+",
-      label: "Years Experience",
+      value: "5 Days",
+      label: "Quick Delivery",
       icon: (
         <Icons.clock className="text-3xl dark:text-indigo-400 text-indigo-600" />
       ),
-      description: "Building modern web applications since 2022",
+      description: "Quick 5-day delivery for demo sites",
     },
     {
-      value: "95%",
+      value: "90%+",
       label: "Client Satisfaction",
       icon: (
         <Icons.heart className="text-3xl dark:text-indigo-400 text-indigo-600" />

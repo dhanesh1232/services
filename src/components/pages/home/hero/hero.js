@@ -94,16 +94,16 @@ export default function Hero() {
               className={`text-5xl sm:text-6xl lg:text-7xl tracking-tight text-gray-900 dark:text-white font-bold ${caveat.className}`}
             >
               <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,0,255,0.5)]">
-                We Build Websites & AI Tools
+                We Create Modern, High-Performance Websites
               </span>
               <br />
               <span className="text-4xl sm:text-5xl lg:text-6xl">
-                That Bring You Clients — Fast
+                That Attract Customers — Fast
               </span>
             </h1>
 
             <p className="mt-8 text-xl sm:text-2xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Trusted by 50+ businesses worldwide to boost revenue through{" "}
+              Trusted by 20+ businesses worldwide to boost revenue through{" "}
               <span className="text-blue-600 dark:text-blue-400 font-semibold">
                 Web Development
               </span>
