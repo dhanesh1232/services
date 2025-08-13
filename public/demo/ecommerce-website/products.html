@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEasy - Your One-Stop Online Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between"
+      >
+        <div class="flex items-center justify-between w-full md:w-auto">
+          <div class="flex items-center">
+            <i class="fas fa-shopping-bag text-2xl text-blue-600 mr-2"></i>
+            <span class="text-xl font-bold text-blue-600">ShopEasy</span>
+          </div>
+          <button id="mobile-menu-button" class="md:hidden text-gray-600">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+
+        <nav class="hidden md:flex space-x-8" id="main-nav">
+          <a
+            href="index.html"
+            class="text-gray-800 hover:text-blue-600 font-medium"
+            >Home</a
+          >
+          <a
+            href="products.html"
+            class="text-gray-800 hover:text-blue-600 font-medium"
+            >Shop</a
+          >
+          <a href="#about" class="text-gray-800 hover:text-blue-600 font-medium"
+            >About</a
+          >
+          <a
+            href="index.html/#contact"
+            class="text-gray-800 hover:text-blue-600 font-medium"
+            >Contact</a
+          >
+        </nav>
+
+        <div class="hidden md:flex items-center mt-4 md:mt-0 w-full md:w-auto">
+          <div class="relative flex-grow mx-4">
+            <input
+              type="text"
+              placeholder="Search products..."
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              class="absolute right-2 top-2 text-gray-500 hover:text-blue-600"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <button
+            id="cart-button"
+            class="relative p-2 text-gray-700 hover:text-blue-600"
+          >
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span
+              id="cart-count"
+              class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <div class="flex items-center mb-4">
+          <input
+            type="text"
+            placeholder="Search products..."
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button class="ml-2 p-2 text-gray-700 hover:text-blue-600">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <a href="#" class="block py-2 text-gray-800 hover:text-blue-600"
+          >Home</a
+        >
+        <a href="#products" class="block py-2 text-gray-800 hover:text-blue-600"
+          >Shop</a
+        >
+        <a href="#about" class="block py-2 text-gray-800 hover:text-blue-600"
+          >About</a
+        >
+        <a href="#contact" class="block py-2 text-gray-800 hover:text-blue-600"
+          >Contact</a
+        >
+        <button
+          id="mobile-cart-button"
+          class="block py-2 text-gray-800 hover:text-blue-600 text-left"
+        >
+          <i class="fas fa-shopping-cart mr-2"></i> Cart
+          <span
+            id="mobile-cart-count"
+            class="ml-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 inline-flex items-center justify-center"
+            >0</span
+          >
+        </button>
+      </div>
+    </header>
+
+    <!-- Featured Categories -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Shop by Category</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="bg-gray-100 rounded-lg p-6 text-center hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-laptop text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Electronics</h3>
+            <p class="text-sm text-gray-600">Latest gadgets</p>
+          </div>
+          <div
+            class="bg-gray-100 rounded-lg p-6 text-center hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-tshirt text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Fashion</h3>
+            <p class="text-sm text-gray-600">Trendy outfits</p>
+          </div>
+          <div
+            class="bg-gray-100 rounded-lg p-6 text-center hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-yellow-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-home text-yellow-600 text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Home</h3>
+            <p class="text-sm text-gray-600">Home essentials</p>
+          </div>
+          <div
+            class="bg-gray-100 rounded-lg p-6 text-center hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-red-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-dumbbell text-red-600 text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Fitness</h3>
+            <p class="text-sm text-gray-600">Workout gear</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">All Products</h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          id="product-grid"
+        >
+          <!-- Products will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <img
+              src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="About Us"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <h2 class="text-3xl font-bold mb-6">About ShopEasy</h2>
+            <p class="text-gray-700 mb-4">
+              Welcome to ShopEasy, your premier destination for online shopping.
+              Founded in 2023, we're committed to providing high-quality
+              products at affordable prices.
+            </p>
+            <p class="text-gray-700 mb-4">
+              Our mission is to make online shopping easy, convenient, and
+              enjoyable for everyone. With a wide range of products across
+              various categories, we aim to be your one-stop shop for all your
+              needs.
+            </p>
+            <p class="text-gray-700 mb-6">
+              We pride ourselves on excellent customer service, fast shipping,
+              and a seamless shopping experience. Our team works tirelessly to
+              ensure your satisfaction with every purchase.
+            </p>
+            <button
+              class="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-blue-600 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+        <p class="mb-6 max-w-2xl mx-auto">
+          Stay updated with our latest products, offers, and news. Subscribe to
+          our newsletter today!
+        </p>
+        <div class="flex flex-col sm:flex-row max-w-md mx-auto sm:max-w-xl">
+          <input
+            type="email"
+            placeholder="Your email address"
+            class="flex-grow px-4 py-3 rounded-lg sm:rounded-r-none mb-2 sm:mb-0 text-gray-900 focus:outline-none"
+          />
+          <button
+            class="bg-white text-blue-600 px-6 py-3 rounded-lg sm:rounded-l-none font-bold hover:bg-gray-100 transition duration-300"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <i class="fas fa-shopping-bag text-2xl text-blue-400 mr-2"></i>
+              <span class="text-xl font-bold text-blue-400">ShopEasy</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Your one-stop destination for all your shopping needs.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="#products" class="text-gray-400 hover:text-white"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="text-gray-400 hover:text-white"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html/#contact"
+                  class="text-gray-400 hover:text-white"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Customer Service</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >My Account</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Order Tracking</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white">Wishlist</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                <span>123 Shopping Street, Retail City, RC 12345</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span>+1 (555) 123-4567</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-2"></i>
+                <span>info@shopeasy.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2023 ShopEasy. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div
+      id="cart-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div
+        class="absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-lg overflow-y-auto"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Your Cart</h2>
+            <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+
+          <div id="cart-items" class="mb-6">
+            <!-- Cart items will be inserted here -->
+            <div id="empty-cart-message" class="text-center py-8">
+              <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+              <p class="text-gray-500">Your cart is empty</p>
+            </div>
+          </div>
+
+          <div id="cart-summary" class="border-t border-gray-200 pt-4 hidden">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Subtotal:</span>
+              <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">Shipping:</span>
+              <span>Free</span>
+            </div>
+            <div class="flex justify-between mb-4 text-lg font-bold">
+              <span>Total:</span>
+              <span id="cart-total">$0.00</span>
+            </div>
+            <button
+              id="checkout-button"
+              class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+            >
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div
+      id="checkout-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden"
+    >
+      <div
+        class="absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-lg overflow-y-auto"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Checkout</h2>
+            <button
+              id="close-checkout"
+              class="text-gray-500 hover:text-gray-700"
+            >
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+
+          <div id="checkout-items" class="mb-6">
+            <!-- Checkout items will be inserted here -->
+          </div>
+
+          <form id="payment-form" class="mb-6">
+            <h3 class="text-lg font-bold mb-4">Payment Information</h3>
+
+            <div class="mb-4">
+              <label for="card-name" class="block text-gray-700 mb-2"
+                >Name on Card</label
+              >
+              <input
+                type="text"
+                id="card-name"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="card-email" class="block text-gray-700 mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="card-email"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="card-number" class="block text-gray-700 mb-2"
+                >Card Number</label
+              >
+              <input
+                type="text"
+                id="card-number"
+                placeholder="1234 5678 9012 3456"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div>
+                <label for="card-expiry" class="block text-gray-700 mb-2"
+                  >Expiry Date</label
+                >
+                <input
+                  type="text"
+                  id="card-expiry"
+                  placeholder="MM/YY"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div>
+                <label for="card-cvv" class="block text-gray-700 mb-2"
+                  >CVV</label
+                >
+                <input
+                  type="text"
+                  id="card-cvv"
+                  placeholder="123"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+            >
+              Complete Payment
+            </button>
+          </form>
+
+          <div id="payment-success" class="hidden text-center py-8">
+            <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-4">
+              <i class="fas fa-check-circle text-4xl mb-3"></i>
+              <h3 class="text-xl font-bold mb-2">Payment Successful!</h3>
+              <p>
+                Thank you for your purchase. Your order has been placed
+                successfully.
+              </p>
+            </div>
+            <button
+              id="continue-shopping"
+              class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
+            >
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="manage.js"></script>
+  </body>
+</html>

@@ -50,7 +50,7 @@ export const services = [
   },
   {
     title: "E-Commerce Development",
-    href: "e-commerce-development",
+    href: "/demo/ecommerce-website/index.html",
     id: "e-commerce-development",
     description:
       "Full-featured online store solutions with secure payments and advanced product management.",
