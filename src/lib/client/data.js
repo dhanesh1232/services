@@ -158,7 +158,6 @@ export const testimonials = [
     company: "TechStart Inc.",
     description:
       "ECODrIx transformed our online presence with a stunning website that perfectly represents our brand. The attention to detail and communication throughout the project was exceptional. We saw a 150% increase in leads within the first month!",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     name: "Michael Chen",
@@ -166,7 +165,6 @@ export const testimonials = [
     company: "Global Corp",
     description:
       "The e-commerce solution delivered exceptional results, with a 40% increase in conversions. Their technical expertise and problem-solving skills are truly impressive. The team went above and beyond to meet our tight deadline.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     name: "David Wilson",
@@ -174,7 +172,6 @@ export const testimonials = [
     company: "Startup Ventures",
     description:
       "Reliable, professional, and delivered beyond our expectations. Will definitely work with them again for our future projects. The support after launch has been outstanding with 24/7 availability for critical issues.",
-    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   {
     name: "Emily Rodriguez",
@@ -182,7 +179,6 @@ export const testimonials = [
     company: "Digital Solutions",
     description:
       "The mobile app they developed has been downloaded over 500k times with 4.9-star ratings. Their clean code and documentation made future updates extremely easy for our team to handle.",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
     name: "James Peterson",
@@ -190,7 +186,6 @@ export const testimonials = [
     company: "Enterprise Systems",
     description:
       "We hired ECODrIx to modernize our legacy system and the results were phenomenal. 60% performance improvement and 80% reduction in server costs. Their architectural recommendations saved us thousands.",
-    avatar: "https://randomuser.me/api/portraits/men/81.jpg",
   },
   {
     name: "Olivia Smith",
@@ -198,6 +193,5 @@ export const testimonials = [
     company: "Brand Agency",
     description:
       "As a design-focused agency, we're extremely particular about our digital presence. ECODrIx not only met but exceeded our aesthetic expectations while delivering blazing fast performance.",
-    avatar: "https://randomuser.me/api/portraits/women/33.jpg",
   },
 ];

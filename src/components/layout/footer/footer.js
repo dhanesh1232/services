@@ -5,7 +5,7 @@ import { legal, services } from "@/lib/client/data";
 
 export const footerLinks = {
   services: [
-    ...services.map((each) => {
+    ...services.slice(0, 5).map((each) => {
       return {
         id: each.id,
         name: each.title,
