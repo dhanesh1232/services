@@ -517,7 +517,32 @@
         </div>
       </div>
     </div>
+    <div
+      class="fixed left-4 bottom-4 z-50 group sm:left-6 sm:bottom-6 md:left-8 md:bottom-8"
+    >
+      <!-- Animated waves -->
+      <div
+        class="absolute inset-0 rounded-full animate-ping bg-blue-400 opacity-25"
+      ></div>
+      <div
+        class="absolute inset-0 rounded-full animate-pulse bg-blue-500 opacity-25"
+      ></div>
 
+      <!-- Mobile icon button -->
+      <button
+        class="relative bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full shadow-xl transition-all duration-300 ease-in-out transform hover:scale-110 active:scale-95 flex items-center justify-center"
+      >
+        <i class="hidden sm:block fas fa-desktop text-2xl"></i>
+        <i class="sm:hidden fas fa-mobile-alt text-xl"></i>
+
+        <!-- Tooltip -->
+        <span
+          class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs sm:text-sm py-1 px-2 rounded transition-opacity duration-200 whitespace-nowrap pointer-events-none"
+        >
+          Demo
+        </span>
+      </button>
+    </div>
     <script src="manage.js"></script>
   </body>
 </html>
