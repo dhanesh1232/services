@@ -25,9 +25,6 @@ export const ServiceHeader = () => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
-  useEffect(() => {
-    const links = navLinks.map((each) => each.href);
-  });
 
   // Scroll effect with debounce
   useEffect(() => {
@@ -141,10 +138,14 @@ export const ServiceHeader = () => {
                   <Link
                     key={link.id}
                     href={link.href}
-                    className={`relative text-base font-medium px-2 py-1 transition-colors group ${
+                    className={`relative text-base font-medium px-2 py-1 transition-colors group underline-offset-2 ${
                       isActive
-                        ? "text-indigo-600 dark:text-indigo-400"
-                        : "text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                        ? pathname !== "/"
+                          ? "text-indigo-600 dark:text-indigo-400 underline"
+                          : "text-yellow-600 dark:text-orange-400 underline"
+                        : pathname !== "/"
+                        ? "text-gray-900 dark:text-gray-100 hover:text-indigo-600 hover:underline"
+                        : "text-yellow-500 dark:text-orange-300 hover:underline hover:text-yellow-600 dark:hover:text-orange-400"
                     }`}
                   >
                     {link.label}

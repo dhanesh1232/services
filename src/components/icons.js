@@ -21,6 +21,7 @@ import {
   Headphones,
   Heart,
   HelpCircle,
+  Infinity,
   Layout,
   LayoutTemplate,
   LifeBuoy,
@@ -41,6 +42,7 @@ import {
   Rocket,
   Search,
   Shield,
+  Sparkles,
   Target,
   TrendingUp,
   User,
@@ -60,7 +62,9 @@ import {
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
+  infinity: Infinity,
   phone: Phone,
+  chart: BarChart2,
   search: Search,
   whatsapp: BsWhatsapp,
   twitter: FaXTwitter,
@@ -127,6 +131,7 @@ export const Icons = {
   heart: Heart,
   quoteLeft: FaQuoteLeft,
   lifeBuoy: LifeBuoy,
+  sparkle: Sparkles,
 };
 
 export const RenderChannelIcons = ({ className, channels }) => {

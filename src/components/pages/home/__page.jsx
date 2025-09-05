@@ -1,7 +1,6 @@
 "use client";
 
 import Head from "next/head";
-import Hero from "@/components/pages/home/hero/hero";
 import { ServicesStats } from "@/components/pages/home/stats";
 import { ServiceSection } from "@/components/pages/home/services";
 import { ProcessSection } from "@/components/pages/home/process";
@@ -11,6 +10,7 @@ import { TestimonialsSection } from "@/components/pages/home/testimonials";
 import { FaqSection } from "@/components/pages/home/faq";
 import { useEffect } from "react";
 import { Why } from "@/components/pages/home/why";
+import Hero from "./hero/hero";
 
 export default function ServicesPage() {
   useEffect(() => {
