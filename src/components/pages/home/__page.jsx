@@ -11,6 +11,7 @@ import { FaqSection } from "@/components/pages/home/faq";
 import { useEffect } from "react";
 import { Why } from "@/components/pages/home/why";
 import Hero from "./hero/hero";
+import NightSkyHero from "./hero/hero3";
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -93,7 +94,7 @@ export default function ServicesPage() {
       </Head>
       <>
         {/* Hero Section */}
-        <Hero />
+        <NightSkyHero />
 
         {/* Stats Section */}
         <ServicesStats />

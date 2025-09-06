@@ -14,17 +14,10 @@ import { navLinks } from "@/lib/client/data";
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   const mobileMenuRef = useRef(null);
   const toggleButtonRef = useRef(null);
-
-  // Mount effect
-  useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
 
   // Scroll effect with debounce
   useEffect(() => {
@@ -77,27 +70,6 @@ export const ServiceHeader = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  if (!mounted) {
-    return (
-      <header className="w-full bg-transparent px-6 md:px-12 sticky top-0 z-50">
-        <div className="flex justify-between items-center max-w-7xl mx-auto h-16">
-          <div className="flex items-center space-x-6">
-            <Skeleton className="h-8 w-24 rounded animate-pulse" />
-            <div className="hidden md:flex space-x-6 lg:space-x-8">
-              {[...Array(5)].map((_, i) => (
-                <Skeleton key={i} className="h-6 w-16 rounded animate-pulse" />
-              ))}
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Skeleton className="h-8 w-8 rounded-full animate-pulse" />
-            <Skeleton className="md:hidden h-8 w-8 rounded-lg animate-pulse" />
-          </div>
-        </div>
-      </header>
-    );
-  }
-
   return (
     <AnimatePresence>
       <motion.header
@@ -142,10 +114,10 @@ export const ServiceHeader = () => {
                       isActive
                         ? pathname !== "/"
                           ? "text-indigo-600 dark:text-indigo-400 underline"
-                          : "text-yellow-600 dark:text-orange-400 underline"
+                          : "text-pink-700 dark:text-pink-400 underline"
                         : pathname !== "/"
                         ? "text-gray-900 dark:text-gray-100 hover:text-indigo-600 hover:underline"
-                        : "text-yellow-500 dark:text-orange-300 hover:underline hover:text-yellow-600 dark:hover:text-orange-400"
+                        : "text-pink-900 dark:text-pink-300 hover:underline hover:text-pink-600 dark:hover:text-pink-400"
                     }`}
                   >
                     {link.label}

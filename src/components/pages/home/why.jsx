@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { motion } from "framer-motion";
+import { LeftGlow, RandomStars } from "./stars";
 
 // Fallback icon in case verified icon is missing
 const VerifiedIcon = ({ className }) =>
@@ -32,35 +33,9 @@ export function Why() {
     },
   };
 
-  const item = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
-    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900">
-      {/* Premium background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(180,150,100,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(180,150,100,0.25),rgba(255,255,255,0))]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(180,150,100,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(180,150,100,0.2),rgba(255,255,255,0))]" />
-
-        {/* Decorative gold elements */}
-        <div className="absolute top-10 left-10 w-40 h-40 bg-yellow-400/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-yellow-400/5 rounded-full blur-3xl"></div>
-
-        {/* Luxury pattern overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiPjxwYXRoIGQ9Ik0wLDMwIGgzMCBNMzAsMCB2NjAgTTMwLDMwIGgzMCBNMzAsMzAgdjMwIE0zMCwzMCBoLTMwIE0zMCwzMCB2LTMwIi8+PC9nPjwvc3ZnPg==')]"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Premium section header */}
+    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-transparent">
+      <div className="max-w-7xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,11 +104,11 @@ export function Why() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
               {/* Animated border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-400 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
 
               <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative overflow-hidden">
                 {/* Subtle shine effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/0 via-yellow-400/10 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-pink-400/0 via-pink-400/10 to-pink-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12"></div>
 
                 <div className="flex items-start relative z-10">
                   {/* Icon with premium styling */}
@@ -163,7 +138,6 @@ export function Why() {
           ))}
         </motion.ul>
 
-        {/* Premium callout */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -181,6 +155,7 @@ export function Why() {
           </div>
         </motion.div>
       </div>
+      <RandomStars />
     </section>
   );
 }

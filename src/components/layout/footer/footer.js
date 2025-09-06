@@ -41,99 +41,93 @@ export const ServiceFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <>
-      <footer className="w-full border-t border-border bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 relative">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            {/* Brand Info */}
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                  ECODrIx
-                </span>
-              </div>
-              <p className="text-muted-foreground">
-                Professional web development services to help your business
-                thrive online.
-              </p>
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-blue-600 transition-colors"
-                    aria-label={social.name}
-                  >
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      {social.icon}
-                    </svg>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Links */}
-            {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category}>
-                <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                  {category}
-                </h4>
-                <ul className="space-y-2 flex flex-col">
-                  {links.map((link) => {
-                    return (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className={`text-gmuted-foreground hover:text-indigo-500 hover:underline dark:hover:blue-indigo-600 transition-colors`}
-                      >
-                        {link.name}
-                      </Link>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Copyright */}
-          <div className="pt-4 border-t border-border flex flex-col sm:flex-row justify-between items-center text-sm text-gmuted-foreground">
-            <p className="text-center sm:text-left">
-              &copy; {currentYear}{" "}
-              <strong className="font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent">
+    <footer className="w-full border-t border-border bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          {/* Brand Info */}
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
                 ECODrIx
-              </strong>{" "}
-              All rights reserved.
+              </span>
+            </div>
+            <p className="text-muted-foreground">
+              Professional web development services to help your business thrive
+              online.
             </p>
-            <div className="mt-4 sm:mt-0 flex space-x-6">
-              <Link
-                role="button"
-                href="privacy-policy"
-                className="hover:text-indigo-600 hover:underline hover:cursor-pointer dark:hover:text-blue-600 transition-colors"
-              >
-                Privacy
-              </Link>
-              <Link
-                role="button"
-                href="terms-and-conditions"
-                className="hover:text-indigo-600 hover:underline hover:cursor-pointer dark:hover:text-blue-600 transition-colors"
-              >
-                Terms
-              </Link>
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-indigo-600 dark:hover:text-blue-600 transition-colors"
+                  aria-label={social.name}
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    {social.icon}
+                  </svg>
+                </Link>
+              ))}
             </div>
           </div>
+
+          {/* Footer Links */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+                {category}
+              </h4>
+              <ul className="space-y-2 flex flex-col">
+                {links.map((link) => {
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={`text-gmuted-foreground hover:text-indigo-500 hover:underline dark:hover:blue-indigo-600 transition-colors`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="absolute inset-0 z-[-10]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]" />
+
+        {/* Copyright */}
+        <div className="pt-4 border-t border-border flex flex-col sm:flex-row justify-between items-center text-sm text-gmuted-foreground">
+          <p className="text-center sm:text-left">
+            &copy; {currentYear}{" "}
+            <strong className="font-bold bg-gradient-to-r from-purple-400 via-blue-500 to-green-500 bg-clip-text text-transparent">
+              ECODrIx
+            </strong>{" "}
+            All rights reserved.
+          </p>
+          <div className="mt-4 sm:mt-0 flex space-x-6">
+            <Link
+              role="button"
+              href="privacy-policy"
+              className="hover:text-indigo-600 hover:underline hover:cursor-pointer dark:hover:text-blue-600 transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              role="button"
+              href="terms-and-conditions"
+              className="hover:text-indigo-600 hover:underline hover:cursor-pointer dark:hover:text-blue-600 transition-colors"
+            >
+              Terms
+            </Link>
+          </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
