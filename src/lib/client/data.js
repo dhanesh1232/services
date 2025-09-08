@@ -137,11 +137,17 @@ export const services = [
   },
 ];
 
+export const contactInfo = [
+  "📞 Call us: +91 8143963821",
+  "📧 Email: contact@ecodrix.com",
+  "🕒 Business Hours: Mon-Sat 9AM-6PM",
+];
 export const navLinks = [
   { id: "home", label: "Home", href: "/" },
   { id: "services", label: "Services", href: "/services" },
   //{ id: "blog", label: "Blog", href: "/blog" },
   { id: "disclaimer", label: "Disclaimer", href: "/disclaimer" },
+  { id: "about", label: "About", href: "/about" },
   { id: "contact", label: "Contact", href: "/contact" },
 ];
 export const legal = [

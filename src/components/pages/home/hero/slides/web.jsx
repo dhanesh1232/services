@@ -60,7 +60,7 @@ export const Web = ({ className }) => {
                     cx={pt.x}
                     cy={pt.y}
                     r="1.5"
-                    fill="#6366f1"
+                    fill="#ec4899"
                     animate={{
                       scale: [1, 2.5],
                       opacity: [0.8, 0],
@@ -79,8 +79,8 @@ export const Web = ({ className }) => {
                   x={pt.x}
                   y={pt.y - 5}
                   textAnchor="middle"
-                  fill="#1e3a8a"
-                  fontSize="1.5"
+                  fill="#ec4899"
+                  fontSize="2.5"
                   className="font-medium opacity-40"
                 >
                   {services[idx]}
@@ -88,7 +88,7 @@ export const Web = ({ className }) => {
               </g>
             ))}
 
-            {/* Center brand */}
+            {/*             
             <text
               x="50"
               y="55"
@@ -98,7 +98,7 @@ export const Web = ({ className }) => {
               className="font-semibold"
             >
               ECODRIX
-            </text>
+            </text> */}
           </svg>
         </div>
       </div>

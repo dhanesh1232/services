@@ -27,6 +27,7 @@ import { StyledPhoneInput } from "@/components/ui/phoneInput";
 import { cn } from "@/lib/utils";
 import { Icons } from "../icons";
 import Link from "next/link";
+import { RandomStars, TopGlow } from "./home/stars";
 
 // Form validation schema
 const formSchema = z.object({
@@ -107,14 +108,19 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 md:px-12 bg-erix">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="contact"
+      className="py-20 px-4 relative sm:px-6 md:px-12 bg-erix"
+    >
+      <TopGlow />
+      <RandomStars />
+      <div className="max-w-7xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-12 items-start"
         >
           <div>
             <motion.h1
@@ -202,13 +208,13 @@ export const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-erix/70 rounded-xl p-8 border border-border shadow-sm hover:shadow-md transition-shadow"
+            className="bg-erix/70 rounded-xl z-20 p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
           >
-            <h3 className="text-xl font-bold text-foreground mb-6">
+            <h3 className="text-xl font-bold text-foreground mb-3">
               Send a Message
             </h3>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="space-y-2">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="name" className="flex items-center gap-1">
                   Name<span className="text-destructive">*</span>
                 </Label>
@@ -227,7 +233,7 @@ export const ContactSection = () => {
                   </p>
                 )}
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="email" className="flex items-center gap-1">
                   Email<span className="text-destructive">*</span>
                 </Label>
@@ -246,7 +252,7 @@ export const ContactSection = () => {
                   </p>
                 )}
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="phone">Phone</Label>
                 <Controller
                   name="phone"
@@ -271,7 +277,7 @@ export const ContactSection = () => {
                   </p>
                 )}
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="service" className="flex items-center gap-1">
                   Service Needed<span className="text-destructive">*</span>
                 </Label>
@@ -302,7 +308,7 @@ export const ContactSection = () => {
                 )}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <Label htmlFor="message" className="flex items-center gap-1">
                   Message<span className="text-destructive">*</span>
                 </Label>

@@ -1,9 +1,11 @@
 "use client";
 
 import { Star } from "lucide-react";
+import { useTheme } from "next-themes";
 import React from "react";
 
 export const RandomStars = ({ className }) => {
+  const { theme } = useTheme();
   const [starPositions, setStarPositions] = React.useState([]);
   React.useEffect(() => {
     // Generate random star positions
@@ -17,25 +19,27 @@ export const RandomStars = ({ className }) => {
     setStarPositions(stars);
   }, []);
   return (
-    <>
-      {/* Animated stars in the background */}
-      <div className={`absolute inset-0 ${className}`}>
-        {starPositions.map((star, i) => (
-          <Star
-            key={i}
-            className="absolute fill-yellow-500 animate-pulse"
-            style={{
-              left: `${star.x}%`,
-              top: `${star.y}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-              opacity: star.opacity,
-              animationDelay: `${star.delay}s`,
-            }}
-          />
-        ))}
-      </div>
-    </>
+    theme === "dark" && (
+      <>
+        {/* Animated stars in the background */}
+        <div className={`absolute inset-0 ${className}`}>
+          {starPositions.map((star, i) => (
+            <Star
+              key={i}
+              className="absolute fill-yellow-500 animate-pulse"
+              style={{
+                left: `${star.x}%`,
+                top: `${star.y}%`,
+                width: `${star.size}px`,
+                height: `${star.size}px`,
+                opacity: star.opacity,
+                animationDelay: `${star.delay}s`,
+              }}
+            />
+          ))}
+        </div>
+      </>
+    )
   );
 };
 

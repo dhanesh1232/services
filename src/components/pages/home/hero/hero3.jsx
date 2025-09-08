@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MoveRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { RandomStars, TopGlow } from "../stars";
+import { RandomStars } from "../stars";
 import { Web } from "./slides/web";
 
 export const message = encodeURIComponent(
@@ -18,9 +18,8 @@ const NightSkyHero = () => {
   }, []);
 
   return (
-    <div className="relative h-screen isolate px-6 pt-14 lg:px-8 dark:bg-slate-900 bg-indigo-50 overflow-hidden">
-      <TopGlow />
-      <RandomStars />
+    <div className="relative h-screen isolate px-6 pt-14 lg:px-8 bg-transparent overflow-hidden">
+      {isVisible && <RandomStars />}
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 z-20">
         <div className="text-center">
           {/* Animated title with gradient text */}
@@ -97,10 +96,10 @@ const NightSkyHero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-bounce delay-1000">
         <div className="w-6 h-10 border-2 border-gray-900 dark:border-gray-100 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"></div>
+          <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2" />
         </div>
       </div>
-      <Web className="absolute inset-0" />
+      {isVisible && <Web className="absolute inset-0" />}
     </div>
   );
 };

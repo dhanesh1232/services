@@ -4,10 +4,12 @@ import { services } from "@/lib/client/data";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import Link from "next/link";
+import { TopGlow } from "./home/stars";
 export default function ServicePage() {
   return (
-    <div className="min-h-full py-16 px-6 md:px-12 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-slate-900  dark:to-slate-950/95">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-full py-16 px-6 md:px-12 bg-transparent relative">
+      <TopGlow />
+      <div className="max-w-7xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
