@@ -19,7 +19,8 @@ export async function POST(request) {
     await dbConnect();
     const body = await request.json();
     const ip = getClientIp(request);
-    const { name, email, phone, message, service, metadata } = body;
+    const { name, email, phone, message, service, metadata, timeline, budget } =
+      body;
 
     // Basic validation
     if (!name || !email || !message || !service) {
@@ -38,6 +39,8 @@ export async function POST(request) {
       email,
       phone,
       message,
+      timeline,
+      budget,
       ipAddress: ip,
       service,
       userAgent,

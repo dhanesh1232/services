@@ -43,6 +43,8 @@ const formSchema = z.object({
     .min(100, "Message must be at least 100 characters")
     .max(1000, "Message must be less than 1000 characters"),
   service: z.string().min(1, "Please select a service"), // Make service required
+  budget: z.string().optional(),
+  timeline: z.string().optional(),
 });
 
 export const ContactSection = () => {
@@ -64,6 +66,8 @@ export const ContactSection = () => {
       phone: "",
       message: "",
       service: "",
+      budget: "",
+      timeline: "",
     },
   });
 
@@ -110,7 +114,7 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-20 px-4 relative sm:px-6 md:px-12 bg-erix"
+      className="py-24 px-4 relative sm:px-6 md:px-12 bg-erix"
     >
       <TopGlow />
       <RandomStars />
@@ -138,7 +142,8 @@ export const ContactSection = () => {
               className="text-lg text-muted-foreground mb-8"
             >
               Have a project in mind? Get in touch to discuss how I can help
-              bring your vision to life.
+              bring your vision to life. I specialize in creating custom web
+              solutions that drive results and exceed expectations.
             </motion.p>
 
             <div className="space-y-6">
@@ -161,6 +166,9 @@ export const ContactSection = () => {
                   >
                     contact@ecodrix.com
                   </Link>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Typically respond within 2-4 hours during business days
+                  </p>
                 </div>
               </motion.div>
 
@@ -178,10 +186,13 @@ export const ContactSection = () => {
                   <Link
                     target="_blank"
                     href="tel:+918143963821"
-                    className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                   >
                     +91 8143963821
                   </Link>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Mon-Fri: 9:00 AM - 6:00 PM IST
+                  </p>
                 </div>
               </motion.div>
 
@@ -199,21 +210,101 @@ export const ContactSection = () => {
                   <p className="text-muted-foreground">
                     Tirupati, Andhra Pradesh, India
                   </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Serving clients worldwide remotely
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex items-start"
+              >
+                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
+                  <Icons.clock className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-foreground mb-1">
+                    Response Time
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Within 24 hours for all inquiries
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Quick consultations available upon request
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+                className="flex items-start"
+              >
+                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
+                  <Icons.calendar className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                </div>
+                <div>
+                  <h3 className="font-medium text-foreground mb-1">
+                    Availability
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Currently accepting new projects
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Book a free 30-minute consultation
+                  </p>
                 </div>
               </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="mt-8 p-6 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-100 dark:border-indigo-800"
+            >
+              <h3 className="font-medium text-foreground mb-2">
+                What to expect:
+              </h3>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                <li className="flex items-start">
+                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                  <span>Initial response within 24 hours</span>
+                </li>
+                <li className="flex items-start">
+                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                  <span>Detailed project discussion</span>
+                </li>
+                <li className="flex items-start">
+                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                  <span>Transparent pricing and timeline</span>
+                </li>
+                <li className="flex items-start">
+                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                  <span>Regular updates throughout the project</span>
+                </li>
+              </ul>
+            </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-erix/70 rounded-xl z-20 p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
+            className="bg-transparent rounded-xl z-20 p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
           >
             <h3 className="text-xl font-bold text-foreground mb-3">
               Send a Message
             </h3>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+            <p className="text-muted-foreground mb-6">
+              Fill out the form below and I'll get back to you as soon as
+              possible.
+            </p>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="name" className="flex items-center gap-1">
                   Name<span className="text-destructive">*</span>
@@ -221,7 +312,7 @@ export const ContactSection = () => {
                 <Input
                   type="text"
                   id="name"
-                  placeholder="Your name"
+                  placeholder="Your full name"
                   {...register("name")}
                   className={`bg-erix ${
                     errors.name ? "border-destructive" : ""
@@ -253,10 +344,10 @@ export const ContactSection = () => {
                 )}
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="phone">Phone</Label>
+                <Label htmlFor="phone">Phone (Optional)</Label>
                 <Controller
                   name="phone"
-                  control={control} // Add control to your useForm hook if not already there
+                  control={control}
                   render={({ field }) => (
                     <StyledPhoneInput
                       id="phone"
@@ -295,6 +386,10 @@ export const ContactSection = () => {
                         </SelectItem>
                         <SelectItem value="ecommerce">E-commerce</SelectItem>
                         <SelectItem value="seo">SEO Optimization</SelectItem>
+                        <SelectItem value="mobile-app">
+                          Mobile App Development
+                        </SelectItem>
+                        <SelectItem value="ui-ux">UI/UX Design</SelectItem>
                         <SelectItem value="consulting">Consulting</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
@@ -308,14 +403,83 @@ export const ContactSection = () => {
                 )}
               </div>
 
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <Label htmlFor="budget">Project Budget (Optional)</Label>
+                  <Controller
+                    name="budget"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
+                        <SelectTrigger className="w-full focus:ring-2 bg-erix focus:ring-indigo-500">
+                          <SelectValue placeholder="Select budget range" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background">
+                          <SelectItem value="under-10k">
+                            Under ₹10,000
+                          </SelectItem>
+                          <SelectItem value="10k-50k">
+                            ₹10,000 - ₹50,000
+                          </SelectItem>
+                          <SelectItem value="50k-1l">
+                            ₹50,000 - ₹1,00,000
+                          </SelectItem>
+                          <SelectItem value="1l-5l">
+                            ₹1,00,000 - ₹5,00,000
+                          </SelectItem>
+                          <SelectItem value="over-5l">
+                            Over ₹5,00,000
+                          </SelectItem>
+                          <SelectItem value="not-sure">Not sure yet</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="timeline">Timeline (Optional)</Label>
+                  <Controller
+                    name="timeline"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                      >
+                        <SelectTrigger className="w-full focus:ring-2 bg-erix focus:ring-indigo-500">
+                          <SelectValue placeholder="Select timeline" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background">
+                          <SelectItem value="asap">ASAP</SelectItem>
+                          <SelectItem value="2-weeks">
+                            Within 2 weeks
+                          </SelectItem>
+                          <SelectItem value="1-month">
+                            Within 1 month
+                          </SelectItem>
+                          <SelectItem value="3-months">
+                            Within 3 months
+                          </SelectItem>
+                          <SelectItem value="flexible">Flexible</SelectItem>
+                          <SelectItem value="not-sure">Not sure yet</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                </div>
+              </div>
+
               <div className="space-y-1.5">
                 <Label htmlFor="message" className="flex items-center gap-1">
-                  Message<span className="text-destructive">*</span>
+                  Project Details<span className="text-destructive">*</span>
                 </Label>
                 <Textarea
                   id="message"
                   rows={5}
-                  placeholder="Tell me about your project (minimum 100 characters)..."
+                  placeholder="Tell me about your project goals, target audience, and any specific requirements (minimum 100 characters)..."
                   {...register("message")}
                   className={`bg-erix ${
                     errors.message ? "border-destructive" : ""
@@ -326,8 +490,10 @@ export const ContactSection = () => {
                     {errors.message.message}
                   </p>
                 ) : (
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {`Please provide as much detail as possible about your project needs, timeline, and budget.`}
+                  <p className="text-xs text-muted-foreground">
+                    Please provide as much detail as possible about your project
+                    needs, timeline, and budget. The more information you
+                    provide, the better I can understand your requirements.
                   </p>
                 )}
               </div>
@@ -407,8 +573,9 @@ export const ContactSection = () => {
                 Message Sent Successfully!
               </DialogTitle>
               <DialogDescription className="text-gray-600 dark:text-gray-300">
-                {`Thank you for reaching out. I'll get back to you within 24
-                hours.`}
+                Thank you for reaching out. I'll review your message and get
+                back to you within 24 hours. In the meantime, feel free to
+                explore more of my work or check out my blog for insights.
               </DialogDescription>
             </DialogHeader>
             <motion.button

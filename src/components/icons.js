@@ -4,6 +4,8 @@ import {
   Award,
   BarChart2,
   Bot,
+  Calendar,
+  Check,
   CheckCircle,
   ChevronDown,
   ChevronLeft,
@@ -132,6 +134,8 @@ export const Icons = {
   quoteLeft: FaQuoteLeft,
   lifeBuoy: LifeBuoy,
   sparkle: Sparkles,
+  calendar: Calendar,
+  check: Check,
 };
 
 export const RenderChannelIcons = ({ className, channels }) => {

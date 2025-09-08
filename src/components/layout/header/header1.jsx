@@ -111,7 +111,7 @@ export const ServiceHeader = () => {
             : "bg-transparent"
         }`}
       >
-        <Announcement />
+        {pathname === "/" && <Announcement />}
         <motion.div
           initial={false}
           animate={{

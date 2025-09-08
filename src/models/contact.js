@@ -25,6 +25,36 @@ const contactSchema = new mongoose.Schema({
     required: [true, "Message is required"],
     minlength: [100, "Message should be at least 100 characters"],
   },
+  budget: {
+    type: String,
+    enum: {
+      values: [
+        "under-10k",
+        "10k-50k",
+        "50k-1l",
+        "1l-5l",
+        "over-5l",
+        "not-sure",
+      ],
+      message: "Invalid budget range selected",
+    },
+    trim: true,
+  },
+  timeline: {
+    type: String,
+    enum: {
+      values: [
+        "asap",
+        "2-weeks",
+        "1-month",
+        "3-months",
+        "flexible",
+        "not-sure",
+      ],
+      message: "Invalid timeline selected",
+    },
+    trim: true,
+  },
   service: {
     type: String,
     required: [true, "Service is required"],
