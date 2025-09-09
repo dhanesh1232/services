@@ -62,11 +62,11 @@ const NightSkyHero = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Contact on WhatsApp"
-              className="rounded-md inline-flex items-center gap-2 bg-green-600 px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="rounded-md inline-flex items-center gap-2 bg-green-600 px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 transition-all duration-300 hover:shadow-lg group"
             >
               <Icons.whatsapp
                 aria-hidden="true"
-                className="w-4 sm:w-5 h-4 sm:h-5"
+                className="w-4 sm:w-5 h-4 sm:h-5 group-hover:scale-110 scale-95 transition-all duration-300 ease-in-out"
               />
               Get started
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 ml-1 text-yellow-500" />

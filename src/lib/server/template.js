@@ -41,5 +41,44 @@ export const templates = {
       </html>
     `,
     },
+    newsletter: {
+      subject: "📰 Welcome to ECODrIx Services Newsletter!",
+      html: ({ userName = "there" }) => `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body style="font-family: Arial, sans-serif; color: #333; padding: 20px; max-width: 600px; margin: auto;">
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 10px;">
+          <h1 style="color: #2f80ed; text-align: center;">Welcome to Our Newsletter!</h1>
+          <p>Hello <strong>${userName}</strong>,</p>
+          <p>Thank you for subscribing to the ECODrIx newsletter! We're thrilled to have you join our community.</p>
+
+          <p>You'll now receive regular updates about:</p>
+          <ul style="background: #fff; border-left: 4px solid #2f80ed; padding: 15px 35px; margin: 20px 0; border-radius: 5px;">
+            <li>Latest tech trends and insights</li>
+            <li>New service announcements</li>
+            <li>Tips and best practices</li>
+            <li>Special offers and promotions</li>
+          </ul>
+
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="https://services.ecodrix.com/services" target="_blank" style="background: #2f80ed; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+              Check Out Our Services
+            </a>
+          </div>
+
+          <footer style="border-top: 1px solid #ddd; margin-top: 30px; padding-top: 20px; font-size: 12px; text-align: center; color: #888;">
+            <p>You're receiving this because you subscribed to ECODrIx newsletter.</p>
+            <p>To unsubscribe, click <a href="{unsubscribe_url}" style="color: #2f80ed;">here</a></p>
+            <p>© ${new Date().getFullYear()} ECODrIx. All rights reserved.</p>
+          </footer>
+        </div>
+      </body>
+      </html>
+    `,
+    },
   },
 };

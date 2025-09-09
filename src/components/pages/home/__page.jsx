@@ -11,6 +11,7 @@ import { FaqSection } from "@/components/pages/home/faq";
 import { useEffect } from "react";
 import { Why } from "@/components/pages/home/why";
 import NightSkyHero from "./hero/hero3";
+import { CTA } from "./cta";
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -115,6 +116,9 @@ export default function ServicesPage() {
 
         {/* Testimonials Section */}
         <TestimonialsSection />
+
+        {/* CTA Section */}
+        <CTA />
 
         {/* FAQ Section */}
         <FaqSection />

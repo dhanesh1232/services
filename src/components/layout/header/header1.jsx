@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { contactInfo, navLinks } from "@/lib/client/data";
 import { MenuToggle } from "./menu-toggle";
-import Announcement from "./announcement";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { Separator } from "@radix-ui/react-select";
 import { Button } from "@/components/ui/button";
@@ -111,12 +110,11 @@ export const ServiceHeader = () => {
             : "bg-transparent"
         }`}
       >
-        {pathname === "/" && <Announcement />}
         <motion.div
           initial={false}
           animate={{
-            paddingTop: scrolled ? "0.75rem" : "1.25rem",
-            paddingBottom: scrolled ? "0.75rem" : "1.25rem",
+            paddingTop: scrolled ? "0.25rem" : "0.5rem",
+            paddingBottom: scrolled ? "0.25rem" : "0.5rem",
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="w-full relative"
@@ -148,7 +146,7 @@ export const ServiceHeader = () => {
                   <Link
                     key={link.id}
                     href={link.href}
-                    className={`relative text-base font-medium transition-colors group py-2 px-1 ${
+                    className={`relative text-base font-medium transition-colors group py-0.5 px-1 ${
                       isActive
                         ? pathname !== "/"
                           ? "text-indigo-600 dark:text-indigo-400"
@@ -255,7 +253,7 @@ export const ServiceHeader = () => {
                         {item.includes("Call") && (
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mr-2 text-indigo-500"
+                            className="h-4 w-4 mr-2 text-slate-900"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -271,7 +269,7 @@ export const ServiceHeader = () => {
                         {item.includes("Email") && (
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mr-2 text-indigo-500"
+                            className="h-4 w-4 mr-2 text-slate-900"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -287,7 +285,7 @@ export const ServiceHeader = () => {
                         {item.includes("Business") && (
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 mr-2 text-indigo-500"
+                            className="h-4 w-4 mr-2 text-slate-900"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"

@@ -45,9 +45,13 @@ export const Web = ({ className }) => {
               ref={pathRef}
               d="M5,50 A45,45 0 0,1 95,50"
               fill="none"
-              stroke="#1e3a8a"
+              stroke="currentColor"
               strokeWidth="0.7"
               strokeDasharray="2,2"
+              className="stroke-currentColor opacity-20"
+              style={{
+                filter: "drop-shadow(0 0 2px rgba(99, 102, 241, 0.2))",
+              }}
             />
 
             {/* Services mapped to dots + labels */}
