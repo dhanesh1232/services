@@ -28,6 +28,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "../icons";
 import Link from "next/link";
 import { RandomStars, TopGlow } from "./home/stars";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 // Form validation schema
 const formSchema = z.object({
@@ -114,7 +115,7 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-24 px-4 relative sm:px-6 md:px-12 bg-erix"
+      className="py-24 px-4 relative sm:px-6 md:px-12 bg-inherit"
     >
       <TopGlow />
       <RandomStars />
@@ -295,7 +296,7 @@ export const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-transparent rounded-xl z-20 p-6 border border-border shadow-sm hover:shadow-md transition-shadow"
+            className="bg-transparent rounded-xl z-20 p-6 border border-border shadow-inner transition-shadow"
           >
             <h3 className="text-xl font-bold text-foreground mb-3">
               Send a Message
@@ -306,7 +307,10 @@ export const ContactSection = () => {
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="space-y-1.5">
-                <Label htmlFor="name" className="flex items-center gap-1">
+                <Label
+                  htmlFor="name"
+                  className="flex items-center gap-1 cursor-pointer"
+                >
                   Name<span className="text-destructive">*</span>
                 </Label>
                 <Input
@@ -314,7 +318,7 @@ export const ContactSection = () => {
                   id="name"
                   placeholder="Your full name"
                   {...register("name")}
-                  className={`bg-erix ${
+                  className={`bg-inherit ${
                     errors.name ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
@@ -325,7 +329,10 @@ export const ContactSection = () => {
                 )}
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="email" className="flex items-center gap-1">
+                <Label
+                  htmlFor="email"
+                  className="flex items-center gap-1 cursor-pointer"
+                >
                   Email<span className="text-destructive">*</span>
                 </Label>
                 <Input
@@ -333,7 +340,7 @@ export const ContactSection = () => {
                   id="email"
                   placeholder="your.email@example.com"
                   {...register("email")}
-                  className={`bg-erix ${
+                  className={`bg-inherit ${
                     errors.email ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />
@@ -344,7 +351,40 @@ export const ContactSection = () => {
                 )}
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="phone">Phone (Optional)</Label>
+                <div className="flex items-center gap-1">
+                  <Label
+                    htmlFor="phone"
+                    className="flex items-center gap-1 cursor-pointer"
+                  >
+                    Phone (
+                    <span className="inline-flex items-center justify-start gap-2 text-xs text-muted-foreground">
+                      <Icons.whatsapp /> WhatsApp
+                    </span>
+                    )<span className="text-destructive">*</span>
+                  </Label>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <button
+                        role="button"
+                        type="button"
+                        aria-label="About Whatsapp"
+                        onClick={(e) => {
+                          e.preventDefault();
+                        }}
+                      >
+                        <Icons.info
+                          className="text-xs text-muted-foreground"
+                          size={14}
+                        />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent arrow classNAme="text-gray-400">
+                      You'll receive project updates, notifications, and
+                      communication through WhatsApp for seamless coordination
+                      and faster responses
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 <Controller
                   name="phone"
                   control={control}
@@ -354,7 +394,7 @@ export const ContactSection = () => {
                       placeholder="+91 9876543210"
                       value={field.value}
                       onChange={field.onChange}
-                      className={`bg-erix ${
+                      className={`bg-inherit ${
                         errors.phone
                           ? "border-destructive focus-within:ring-destructive"
                           : ""
@@ -369,15 +409,22 @@ export const ContactSection = () => {
                 )}
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="service" className="flex items-center gap-1">
+                <Label
+                  htmlFor="service"
+                  className="flex items-center gap-1 cursor-pointer"
+                >
                   Service Needed<span className="text-destructive">*</span>
                 </Label>
                 <Controller
                   name="service"
                   control={control}
                   render={({ field }) => (
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className="w-full focus:ring-2 bg-erix focus:ring-indigo-500">
+                    <Select
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      id="service"
+                    >
+                      <SelectTrigger className="w-full focus:ring-2 bg-inherit focus:ring-indigo-500">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent className="bg-background">
@@ -405,7 +452,9 @@ export const ContactSection = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <Label htmlFor="budget">Project Budget (Optional)</Label>
+                  <Label htmlFor="budget" className="cursor-pointer">
+                    Project Budget (Optional)
+                  </Label>
                   <Controller
                     name="budget"
                     control={control}
@@ -414,7 +463,7 @@ export const ContactSection = () => {
                         onValueChange={field.onChange}
                         value={field.value}
                       >
-                        <SelectTrigger className="w-full focus:ring-2 bg-erix focus:ring-indigo-500">
+                        <SelectTrigger className="w-full focus:ring-2 bg-inherit focus:ring-indigo-500">
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
                         <SelectContent className="bg-background">
@@ -440,7 +489,9 @@ export const ContactSection = () => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="timeline">Timeline (Optional)</Label>
+                  <Label htmlFor="timeline" className="cursor-pointer">
+                    Timeline (Optional)
+                  </Label>
                   <Controller
                     name="timeline"
                     control={control}
@@ -449,7 +500,7 @@ export const ContactSection = () => {
                         onValueChange={field.onChange}
                         value={field.value}
                       >
-                        <SelectTrigger className="w-full focus:ring-2 bg-erix focus:ring-indigo-500">
+                        <SelectTrigger className="w-full focus:ring-2 bg-inherit focus:ring-indigo-500">
                           <SelectValue placeholder="Select timeline" />
                         </SelectTrigger>
                         <SelectContent className="bg-background">
@@ -473,7 +524,10 @@ export const ContactSection = () => {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="message" className="flex items-center gap-1">
+                <Label
+                  htmlFor="message"
+                  className="flex items-center gap-1 cursor-pointer"
+                >
                   Project Details<span className="text-destructive">*</span>
                 </Label>
                 <Textarea
@@ -481,7 +535,7 @@ export const ContactSection = () => {
                   rows={5}
                   placeholder="Tell me about your project goals, target audience, and any specific requirements (minimum 100 characters)..."
                   {...register("message")}
-                  className={`bg-erix ${
+                  className={`bg-inherit ${
                     errors.message ? "border-destructive" : ""
                   } focus:ring-2 focus:ring-indigo-500`}
                 />

@@ -7,6 +7,7 @@ import CookieConsent from "@/components/layout/overlay/cookies";
 import FloatButton from "@/components/layout/overlay/floa-button";
 import TopButton from "@/components/layout/overlay/top-button";
 import { TopGlow } from "@/components/pages/home/stars";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import WebWidgetLoader from "@/components/widget/compo";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -22,9 +23,9 @@ export default function ServicesLayout({ children }) {
   return isMount ? (
     <>
       {pathname !== "/not-found" ? (
-        <>
+        <TooltipProvider>
           <ServiceHeader />
-          <main className="flex-1 relative dark:bg-slate-900 bg-indigo-50">
+          <main className="flex-1 relative dark:bg-gray-950 bg-indigo-50">
             {children}
             <NewsletterSection />
             <TopGlow />
@@ -34,7 +35,7 @@ export default function ServicesLayout({ children }) {
           <CookieConsent />
           <FloatButton />
           {/*<WebWidgetLoader botId="ECODrIx_test_botId" />*/}
-        </>
+        </TooltipProvider>
       ) : (
         <main className="flex-1 relative">{children}</main>
       )}

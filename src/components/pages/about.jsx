@@ -40,18 +40,18 @@ export default function About() {
           }}
         />
       </Head>
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-transparent">
         <div className="max-w-6xl w-full bg-transparent mx-auto">
           {/* Hero Section with Gradient */}
           <section className="text-center mb-20">
-            <div className="bg-gradient-to-r from-indigo-900 to-blue-800 dark:from-slate-800 dark:to-indigo-900 rounded-2xl p-12 text-white shadow-xl transform hover:scale-[1.02] transition-transform">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+            <div className="bg-gradient-to-r from-indigo-900 to-blue-800 dark:from-slate-800 dark:to-indigo-900 rounded-xl p-4 md:p-7 lg:p-12 text-white shadow-xl transform hover:scale-[1.02] transition-transform">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
                 Transforming Businesses Through{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-300">
                   Digital Innovation
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-slate-100 max-w-4xl mx-auto leading-relaxed">
                 We combine strategic thinking with technical excellence to
                 deliver solutions that drive measurable growth and sustainable
                 competitive advantage.
@@ -76,14 +76,14 @@ export default function About() {
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { number: "100+", label: "Projects Completed" },
-                  { number: "95%", label: "Client Retention" },
-                  { number: "12", label: "Industry Awards" },
+                  { number: "5+", label: "Projects Completed" },
+                  { number: "90%", label: "Client Retention" },
+                  { number: "5 Day", label: "Quick Delivery" },
                   { number: "24/7", label: "Support Available" },
                 ].map((stat, index) => (
                   <div
                     key={index}
-                    className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-shadow"
+                    className="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-shadow"
                   >
                     <div className="text-4xl font-bold bg-gradient-to-r from-emerald-500 to-teal-400 bg-clip-text text-transparent mb-2">
                       {stat.number}
@@ -96,11 +96,11 @@ export default function About() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-indigo-900 dark:to-slate-900 rounded-xl p-8 text-white shadow-xl">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-indigo-900 dark:to-slate-900 rounded-xl p-4 md:p-6 lg:p-8 text-white shadow-xl">
               <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
                 Our Core Services
               </h3>
-              <ul className="space-y-4">
+              <ul className="space-y-2 md:space-y-4">
                 {[
                   "Custom Web Development",
                   "E-Commerce Solutions",
@@ -109,7 +109,7 @@ export default function About() {
                   "Chatbot & AI Integration",
                   "Conversion Rate Optimization",
                   "Brand Strategy",
-                  "Data Analytics",
+                  "Manage Website With Whatsapp",
                 ].map((service, index) => (
                   <li key={index} className="flex items-start group">
                     <Icons.checkCircle className="text-emerald-400 group-hover:text-emerald-300 mt-1 mr-3 flex-shrink-0 transition-colors" />
@@ -156,9 +156,9 @@ export default function About() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-indigo-900 dark:to-slate-800 p-8 rounded-xl shadow-lg text-white hover:transform hover:scale-105 transition-all duration-300"
+                  className="group bg-gradient-to-br from-slate-900 to-slate-800 dark:from-indigo-900 dark:to-slate-800 md:p-6 p-4 lg:p-8 rounded-xl shadow-lg text-white hover:transform transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-600 to-teal-500 rounded-full flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 group-hover:scale-105 transition-all ease-in-out duration-150 bg-gradient-to-br from-emerald-600 to-teal-500 rounded-full flex items-center justify-center mb-6">
                     {item.icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
@@ -209,9 +209,11 @@ export default function About() {
               ].map((value, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-br ${value.gradient} p-6 rounded-xl flex flex-col shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300`}
+                  className={`bg-gradient-to-br ${value.gradient} p-4 md:p-6 rounded-xl flex flex-col shadow-lg hover:shadow-2xl transform group transition-all duration-300`}
                 >
-                  <div className="mb-4 text-white">{value.icon}</div>
+                  <div className="mb-4 text-white group-hover:scale-105 flex items-center justify-center w-10 h-10 bg-transparent shadow-md rounded-full">
+                    {value.icon}
+                  </div>
                   <h3 className="text-lg font-bold mb-2 text-white">
                     {value.title}
                   </h3>
@@ -222,7 +224,7 @@ export default function About() {
           </section>
 
           {/* Team Culture Section */}
-          <section className="mb-20 bg-gradient-to-br from-slate-900 to-indigo-900 dark:from-slate-800 dark:to-indigo-900 rounded-2xl p-12 text-white shadow-xl">
+          <section className="mb-20 bg-gradient-to-br from-slate-900 to-indigo-900 dark:from-slate-800 dark:to-indigo-900 rounded-xl p-4 md:p-8 lg:p-10 text-white shadow-xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-300">
@@ -233,7 +235,7 @@ export default function About() {
                   where creativity meets discipline. We celebrate diversity of
                   thought and maintain rigorous quality standards.
                 </p>
-                <div className="space-y-6">
+                <div className="space-y-3">
                   {[
                     {
                       title: "Continuous Training",
@@ -262,11 +264,11 @@ export default function About() {
                   ))}
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-900 dark:to-indigo-900 p-8 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-900 dark:to-indigo-900 p-4 md:p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-300">
                   Technologies
                 </h3>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-6">
                   {[
                     "React",
                     "Shopify",
@@ -290,7 +292,7 @@ export default function About() {
           </section>
 
           {/* CTA Section */}
-          <section className="text-center bg-gradient-to-r from-indigo-900 via-slate-900 to-emerald-900 rounded-2xl p-12 text-white shadow-xl">
+          <section className="text-center bg-gradient-to-r from-indigo-900 via-slate-900 to-emerald-900 rounded-xl p-12 text-white shadow-xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-300">
               Ready to Accelerate Your Growth?
             </h2>
@@ -304,9 +306,10 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contact on WhatsApp"
-                className="bg-gradient-to-r from-emerald-500 to-teal-400 text-white hover:from-emerald-600 hover:to-teal-500 font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-gradient-to-r inline-flex items-center gap-2 justify-center from-emerald-500 to-teal-400 text-white hover:from-emerald-600 hover:to-teal-500 font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                Schedule Consultation
+                <Icons.whatsapp />
+                Schedule
               </Link>
             </div>
           </section>

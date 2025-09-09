@@ -1,6 +1,6 @@
 "use client";
 
-import { Star } from "lucide-react";
+import { Icons } from "@/components/icons";
 import { useTheme } from "next-themes";
 import React from "react";
 
@@ -24,7 +24,7 @@ export const RandomStars = ({ className }) => {
         {/* Animated stars in the background */}
         <div className={`absolute inset-0 ${className}`}>
           {starPositions.map((star, i) => (
-            <Star
+            <Icons.sparkle
               key={i}
               className="absolute fill-yellow-500 animate-pulse"
               style={{

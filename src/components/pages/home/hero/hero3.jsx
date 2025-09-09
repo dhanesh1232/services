@@ -38,7 +38,7 @@ const NightSkyHero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen pt-6 md:pt-10 isolate px-6 lg:px-8 bg-white dark:bg-gray-950 overflow-hidden">
+    <div className="relative min-h-screen pt-6 md:pt-10 isolate px-6 lg:px-8 bg-transparent overflow-hidden">
       {isVisible && <RandomStars />}
       <div className="mx-auto max-w-2xl py-12 sm:py-24 lg:py-32 z-20">
         <div className="text-center">

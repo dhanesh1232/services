@@ -25,6 +25,7 @@ import {
   Heart,
   HelpCircle,
   Infinity,
+  Info,
   Layout,
   LayoutTemplate,
   LifeBuoy,
@@ -46,6 +47,7 @@ import {
   Search,
   Shield,
   Sparkles,
+  Star,
   Target,
   TrendingUp,
   User,
@@ -65,6 +67,8 @@ import {
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
+  star: Star,
+  info: Info,
   infinity: Infinity,
   phone: Phone,
   chart: BarChart2,
