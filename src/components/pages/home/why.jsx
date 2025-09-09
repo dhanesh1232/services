@@ -1,6 +1,6 @@
 import { Icons } from "@/components/icons";
 import { motion } from "framer-motion";
-import { LeftGlow, RandomStars } from "./stars";
+import { RandomStars } from "./stars";
 
 // Fallback icon in case verified icon is missing
 const VerifiedIcon = ({ className }) =>
@@ -37,8 +37,8 @@ export function Why() {
     <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-transparent">
       <div className="max-w-7xl mx-auto relative">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
           className="text-center mb-20"
@@ -139,7 +139,7 @@ export function Why() {
         </motion.ul>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}

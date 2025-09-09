@@ -27,7 +27,7 @@ export const ServiceSection = () => {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 5 },
     visible: {
       opacity: 1,
       y: 0,
@@ -48,7 +48,7 @@ export const ServiceSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Premium section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-20"
@@ -133,7 +133,7 @@ export const ServiceSection = () => {
                         width={400}
                         height={300}
                         className="w-full h-48 object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                        priority={true}
+                        priority
                         quality={90}
                         placeholder="blur"
                         blurDataURL={service.image}

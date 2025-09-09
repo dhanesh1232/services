@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { Metal } from "next/font/google";
 import {
   FaReact,
   FaNodeJs,
@@ -95,7 +94,7 @@ export const TechStackSection = () => {
   };
 
   const item = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -111,9 +110,9 @@ export const TechStackSection = () => {
       <RandomStars />
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 5 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -150,7 +149,7 @@ export const TechStackSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"></div>
               <div className="absolute -inset-1 bg-gradient-to-r from-pink-400/0 via-pink-400/10 to-pink-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12 rounded-2xl"></div>
 
-              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative">
+              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-md hover:shadow-lg hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-6 group-hover:text-yellow-700 dark:group-hover:text-yellow-400 transition-colors duration-300">
                   {category.name}
                 </h3>
@@ -161,9 +160,8 @@ export const TechStackSection = () => {
                       variants={item}
                       className="group/tech relative"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-pink-400/0 to-indigo-600/0 group-hover/tech:from-pink-400/5 group-hover/tech:to-pink-600/5 rounded-xl transition-colors duration-300"></div>
-                      <div className="flex flex-col items-center p-4 rounded-xl bg-white dark:bg-slate-700/50 shadow-lg group-hover/tech:shadow-yellow-500/20 transition-all duration-300 relative">
-                        <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 w-12 h-12 rounded-xl flex items-center justify-center mb-3 shadow-inner group-hover/tech:shadow-yellow-500/30 group-hover/tech:scale-110 transition-all duration-300">
+                      <div className="flex flex-col items-center p-4 rounded-xl bg-white dark:bg-slate-700/50 shadow-md transition-all duration-300 relative">
+                        <div className="bg-gradient-to-br from-pink-500/10 to-pink-600/10 w-12 h-12 rounded-xl flex items-center justify-center mb-3 shadow-inner group-hover/tech:shadow-yellow-500/30 group-hover/tech:scale-110 transition-all duration-300">
                           <tech.icon
                             className="w-6 h-6"
                             style={{ color: tech.color }}
@@ -182,9 +180,9 @@ export const TechStackSection = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.3 }}
           viewport={{ once: true }}
           className="mt-20 text-center"
         >

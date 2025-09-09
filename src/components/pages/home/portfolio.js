@@ -24,9 +24,9 @@ export const PortfolioSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Premium section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
@@ -58,30 +58,19 @@ export const PortfolioSection = () => {
         >
           {portfolioItems.map((item, index) => (
             <motion.div key={index} variants={item} className="group relative">
-              {/* Shine effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-
-              {/* Animated border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-
-              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 overflow-hidden relative">
-                {/* Subtle shine effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/0 via-yellow-400/10 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12 z-0"></div>
-
+              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl border border-gray-200/50 dark:border-slate-700/50 shadow-md hover:shadow-lg hover:shadow-yellow-500/10 transition-all duration-500 overflow-hidden relative">
                 {/* Image container */}
                 <div className="aspect-video overflow-hidden relative">
                   <Image
                     width={800}
                     height={500}
                     src={item.image}
+                    priority
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     placeholder="blur"
                     blurDataURL={item.blurData}
                   />
-
-                  {/* Premium overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-80"></div>
                 </div>
 
                 {/* Content */}

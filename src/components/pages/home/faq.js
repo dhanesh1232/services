@@ -29,7 +29,7 @@ export const FaqSection = () => {
 
   return (
     <section
-      className="py-24 px-6 md:px-12 relative overflow-hidden bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900"
+      className="py-24 px-6 md:px-12 relative overflow-hidden bg-transparent"
       id="faq"
     >
       <RandomStars />
@@ -89,7 +89,7 @@ export const FaqSection = () => {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ staggerChildren: 0.05 }}
-                  className="space-y-4"
+                  className="space-y-2"
                 >
                   {category.items.map((faq, i) => (
                     <motion.div
@@ -99,7 +99,7 @@ export const FaqSection = () => {
                         visible: { opacity: 1, y: 0 },
                       }}
                       transition={{ duration: 0.3 }}
-                      className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300"
+                      className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-lg border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300"
                     >
                       <button
                         onClick={() => toggle(faq.id)}

@@ -64,9 +64,9 @@ export const TestimonialsSection = () => {
     <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-transparent">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -88,7 +88,7 @@ export const TestimonialsSection = () => {
             {feedbacks.map((testimonial, index) => (
               <div key={index} className="w-full flex-shrink-0 px-2">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 5 }}
                   animate={{
                     opacity: currentIndex === index ? 1 : 0.7,
                     y: 0,

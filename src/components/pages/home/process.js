@@ -248,7 +248,7 @@ export const ProcessSection = () => {
   };
 
   const item = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     show: {
       y: 0,
       opacity: 1,
@@ -269,7 +269,7 @@ export const ProcessSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Premium section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}

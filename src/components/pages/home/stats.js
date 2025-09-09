@@ -15,8 +15,8 @@ export const ServicesStats = () => {
     <section className="relative min-h-screen isolate px-6 pt-14 lg:px-8 bg-transparent overflow-hidden">
       <div className="mx-auto max-w-7xl py-32">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
@@ -36,7 +36,7 @@ export const ServicesStats = () => {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               className="group relative"
@@ -71,8 +71,8 @@ export const ServicesStats = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           className="mt-20 text-center"
         >
