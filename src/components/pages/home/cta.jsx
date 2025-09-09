@@ -56,7 +56,7 @@ export const CTA = () => {
 
               {/* Animated background on hover */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-gradient-to-r from-emerald-600/50 to-emerald-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
                 animate={{
                   x: isHovered ? [0, 10, -10, 0] : 0,

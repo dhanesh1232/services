@@ -322,13 +322,13 @@ export const ProcessSection = () => {
                     variants={item}
                     className="w-full flex-shrink-0 px-2 z-20"
                   >
-                    <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 overflow-hidden flex flex-col h-full relative group">
+                    <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 overflow-hidden flex flex-col h-full relative group">
                       {/* Shine effect */}
                       <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/0 via-yellow-400/10 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12"></div>
 
                       <div className="p-8 relative flex-1 flex flex-col z-10">
                         <div className="flex items-start gap-4">
-                          <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner dark:shadow-yellow-500/20 border border-yellow-500/10 group-hover:scale-110 transition-transform duration-500">
+                          <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner dark:shadow-yellow-500/20 border border-yellow-500/10 group-hover:scale-110 transition-transform duration-500">
                             {step.icon}
                           </div>
                           <div>
@@ -450,15 +450,15 @@ export const ProcessSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
                 {/* Animated border */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
 
-                <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative overflow-hidden h-full">
+                <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative overflow-hidden h-full">
                   {/* Subtle shine effect */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/0 via-yellow-400/10 to-yellow-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12"></div>
 
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start gap-4">
-                      <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner dark:shadow-yellow-500/20 border border-yellow-500/10 group-hover:scale-110 transition-transform duration-500">
+                      <div className="bg-gradient-to-br from-yellow-500/10 to-yellow-600/10 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner dark:shadow-yellow-500/20 border border-yellow-500/10 group-hover:scale-110 transition-transform duration-500">
                         {step.icon}
                       </div>
                       <div>
@@ -500,7 +500,7 @@ export const ProcessSection = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-2xl border border-yellow-500/20 shadow-lg backdrop-blur-sm">
+          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-full border border-yellow-500/20 shadow-lg backdrop-blur-sm">
             <span className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
             <span className="text-md font-medium text-yellow-700 dark:text-yellow-400">
               Client collaboration and reviews at each phase ensure perfection

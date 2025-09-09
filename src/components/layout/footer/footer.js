@@ -41,8 +41,8 @@ export const ServiceFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-border bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 z-10">
+    <footer className="w-full border-t border-border bg-gray-100 dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 relative">
+      <div className="max-w-full mx-auto px-6 md:px-12 py-6 z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Info */}
           <div className="space-y-4">

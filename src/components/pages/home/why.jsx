@@ -98,7 +98,7 @@ export function Why() {
             <motion.li
               key={index}
               variants={item}
-              className="group relative rounded-2xl overflow-hidden"
+              className="group relative rounded-xl shadow-md overflow-hidden"
             >
               {/* Shine effect overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
@@ -145,7 +145,7 @@ export function Why() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-2xl border border-yellow-500/20 shadow-lg backdrop-blur-sm">
+          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-full border border-yellow-500/20 shadow-lg backdrop-blur-sm">
             <span className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
             <span className="text-base font-medium text-yellow-700 dark:text-yellow-400">
               Businesses with premium websites grow{" "}

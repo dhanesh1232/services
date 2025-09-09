@@ -41,7 +41,7 @@ export const ServicesStats = () => {
               transition={{ delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="relative p-6 bg-white/10 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-gray-200/20 dark:border-gray-700/30 overflow-hidden">
+              <div className="relative p-6 bg-white/10 dark:bg-slate-800/50 shadow-md backdrop-blur-xl rounded-2xl border border-gray-200/20 dark:border-gray-700/30 overflow-hidden">
                 {/* Hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

@@ -1,6 +1,5 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { MoveRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { RandomStars } from "../stars";
@@ -235,7 +234,7 @@ const PremiumButton = ({ isMobile, isVisible }) => {
         relative border-2 border-gold-400/50 
         hover:border-gold-400 bg-transparent 
         hover:bg-gold-500/10 text-gold-200 
-        hover:text-white transition-all duration-300
+        transition-all duration-300
         text-sm sm:text-base lg:text-lg
         h-10 sm:h-12 lg:h-14
         px-4 sm:px-6 lg:px-8
@@ -248,7 +247,7 @@ const PremiumButton = ({ isMobile, isVisible }) => {
           href="/services"
           className="font-medium flex items-center justify-center gap-2 whitespace-nowrap"
         >
-          <span className="text-white">Explore Services</span>
+          <span className="text-foreground">Explore Services</span>
           <Icons.chevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-yellow-500 transition-transform group-hover:translate-x-1" />
         </Link>
       </Button>

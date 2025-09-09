@@ -105,7 +105,7 @@ export const PortfolioSection = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-2xl border border-yellow-500/20 shadow-lg backdrop-blur-sm mb-8">
+          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-full border border-yellow-500/20 shadow-lg backdrop-blur-sm mb-8">
             <span className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
             <span className="text-md font-medium text-yellow-700 dark:text-yellow-400">
               Ready to create something extraordinary together?

@@ -25,7 +25,7 @@ export default function ServicesLayout({ children }) {
       {pathname !== "/not-found" ? (
         <TooltipProvider>
           <ServiceHeader />
-          <main className="flex-1 relative dark:bg-gray-950 bg-indigo-50">
+          <main className="flex-1 relative dark:from-slate-950 dark:to-slate-900 bg-gradient-to-b from-indigo-50 to-white">
             {children}
             <NewsletterSection />
             <TopGlow />

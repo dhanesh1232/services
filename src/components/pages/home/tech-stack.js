@@ -143,13 +143,13 @@ export const TechStackSection = () => {
               whileInView="visible"
               variants={container}
               viewport={{ once: true, margin: "-100px" }}
-              className="group relative overflow-hidden"
+              className="group relative shadow-md rounded-xl overflow-hidden"
             >
               {/* Premium card effects */}
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-400/0 via-pink-400/10 to-pink-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-pink-400/0 via-pink-400/10 to-pink-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12 rounded-xl" />
 
-              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-md hover:shadow-lg hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative">
+              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-xl border border-gray-200/50 dark:border-slate-700/50 shadow-md hover:shadow-lg hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-6 group-hover:text-yellow-700 dark:group-hover:text-yellow-400 transition-colors duration-300">
                   {category.name}
                 </h3>
@@ -186,7 +186,7 @@ export const TechStackSection = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-yellow-500/10 px-8 py-4 rounded-2xl border border-yellow-500/20 shadow-lg backdrop-blur-sm">
+          <div className="inline-flex items-center gap-4 bg-yellow-500/10 px-8 py-4 rounded-full border border-yellow-500/20 shadow-lg backdrop-blur-sm">
             <span className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
             <span className="text-md font-medium text-yellow-700 dark:text-yellow-400">
               Continuously evolving our tech stack to stay ahead of industry
