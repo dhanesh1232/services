@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icons } from "@/components/icons";
 
 const TopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -51,17 +52,17 @@ const TopButton = () => {
     <AnimatePresence>
       {visible && (
         <motion.button
-          initial={{ opacity: 0, y: 20, scale: 0.8 }}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.8 }}
+          exit={{ opacity: 0, y: 20, scale: 0.95 }}
           onClick={scrollToTop}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
-          className="fixed z-50 bottom-8 p-0 m-0 right-8 md:w-12 w-10 h-10 md:h-12 bg-gradient-to-b from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center group backdrop-blur-sm bg-opacity-90 dark:bg-opacity-95 border border-slate-700/30 dark:border-slate-600/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
+          className="fixed z-50 bottom-8 p-0 m-0 focus:ring-0 outline-none ring-0 active:ring-0 active:outline-none right-8 md:w-12 w-10 h-10 md:h-12 bg-gradient-to-b from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out flex group items-center justify-center group backdrop-blur-sm bg-opacity-90 dark:bg-opacity-95 border border-slate-700/30 dark:border-slate-600/30 focus:outline-none"
           aria-label="Scroll to top"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          whileFocus={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          whileFocus={{ scale: 1.05 }}
         >
           {/* Circular progress background */}
           <svg
@@ -97,7 +98,7 @@ const TopButton = () => {
           {/* Arrow icon with tooltip */}
           <div className="relative flex flex-col items-center">
             <motion.div
-              className="w-3.5 h-3.5 md:w-5 md:h-5 text-white"
+              className="w-3.5 h-3.5 md:w-5 md:h-5 text-center flex items-center justify-center"
               animate={{
                 y: isHovered ? [0] : [0, -2, 0],
               }}
@@ -107,18 +108,7 @@ const TopButton = () => {
                 ease: "easeInOut",
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-full h-full"
-              >
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
+              <Icons.chevronsUp className="text-gray-400 group-hover:text-white dark:text-gray-600" />
             </motion.div>
           </div>
         </motion.button>
