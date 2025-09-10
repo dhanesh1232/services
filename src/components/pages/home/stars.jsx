@@ -44,65 +44,77 @@ export const RandomStars = ({ className }) => {
 };
 
 export const TopGlow = ({ className }) => {
+  const { theme } = useTheme();
   return (
-    <>
-      {/* Enhanced gradient elements with animation */}
-      <div
-        className={`absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80 ${className}`}
-      >
+    theme === "dark" && (
+      <>
+        {/* Enhanced gradient elements with animation */}
         <div
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] animate-pulse-slow"
-          style={{ animationDuration: "8s" }}
-        />
-      </div>
-    </>
+          className={`absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80 ${className}`}
+        >
+          <div
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem] animate-pulse-slow"
+            style={{ animationDuration: "8s" }}
+          />
+        </div>
+      </>
+    )
   );
 };
 
 export const LeftGlow = ({ className }) => {
+  const { theme } = useTheme();
   return (
-    <>
-      {/* Left gradient with animation */}
-      <div
-        className={`absolute top-1/2 -translate-y-1/2 left-0 transform-gpu overflow-hidden blur-3xl ${className}`}
-      >
+    theme === "dark" && (
+      <>
+        {/* Left gradient with animation */}
         <div
-          className="relative aspect-[678/1155] h-[15rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:h-[24rem] animate-pulse-slow"
-          style={{ animationDuration: "10s", animationDelay: "1s" }}
-        />
-      </div>
-    </>
+          className={`absolute top-1/2 -translate-y-1/2 left-0 transform-gpu overflow-hidden blur-3xl ${className}`}
+        >
+          <div
+            className="relative aspect-[678/1155] h-[15rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:h-[24rem] animate-pulse-slow"
+            style={{ animationDuration: "10s", animationDelay: "1s" }}
+          />
+        </div>
+      </>
+    )
   );
 };
 
 export const RightGlow = ({ className }) => {
+  const { theme } = useTheme();
   return (
-    <>
-      {/* Right gradient with animation */}
-      <div
-        className={`absolute top-1/2 -translate-y-1/2 right-0 transform-gpu overflow-hidden blur-3xl ${className}`}
-      >
+    theme === "dark" && (
+      <>
+        {/* Right gradient with animation */}
         <div
-          className="relative aspect-[678/1155] h-[20rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:h-[36rem] animate-pulse-slow"
-          style={{ animationDuration: "10s", animationDelay: "1s" }}
-        />
-      </div>
-    </>
+          className={`absolute top-1/2 -translate-y-1/2 right-0 transform-gpu overflow-hidden blur-3xl ${className}`}
+        >
+          <div
+            className="relative aspect-[678/1155] h-[20rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:h-[36rem] animate-pulse-slow"
+            style={{ animationDuration: "10s", animationDelay: "1s" }}
+          />
+        </div>
+      </>
+    )
   );
 };
 
 export const BottomGlow = ({ className }) => {
+  const { theme } = useTheme();
   return (
-    <>
-      {/* Bottom gradient with animation */}
-      <div
-        className={`absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] ${className}`}
-      >
+    theme === "dark" && (
+      <>
+        {/* Bottom gradient with animation */}
         <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] animate-pulse-slow"
-          style={{ animationDuration: "10s", animationDelay: "1s" }}
-        />
-      </div>
-    </>
+          className={`absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] ${className}`}
+        >
+          <div
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem] animate-pulse-slow"
+            style={{ animationDuration: "10s", animationDelay: "1s" }}
+          />
+        </div>
+      </>
+    )
   );
 };

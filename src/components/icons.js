@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronsDown,
+  ChevronsRight,
   ChevronsUp,
   ChevronUp,
   Clock,
@@ -67,6 +68,7 @@ import {
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
+  chevronsRight: ChevronsRight,
   star: Star,
   info: Info,
   infinity: Infinity,

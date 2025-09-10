@@ -85,7 +85,7 @@ const NightSkyHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="bg-white dark:bg-gray-900/80 backdrop-blur-xl rounded-xl border border-gray-200 dark:border-gray-800 p-2 lg:p-4 shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
+                className="bg-white dark:bg-gray-900/80 backdrop-blur-xl rounded-lg border border-gray-200 dark:border-gray-800 p-2 lg:p-4 shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden"
               >
                 {/* Luxury shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/5 to-white/0 dark:from-gray-800/0 dark:via-gray-800/5 dark:to-gray-800/0 pointer-events-none"></div>
@@ -164,7 +164,7 @@ const NightSkyHero = () => {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-20"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-20"
         >
           <div className="flex flex-col items-center">
             <span className="text-sm text-gray-500 dark:text-gray-400 mb-2 font-light tracking-widest">

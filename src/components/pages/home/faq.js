@@ -173,9 +173,9 @@ export const FaqSection = () => {
           <div className="mt-6">
             <Link
               href="/contact"
-              className="inline-flex group gap-2 items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-lg transition duration-300"
+              className="inline-flex group gap-2 items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-full transition duration-300"
             >
-              Contact our team
+              Contact Us
               <svg
                 className="w-4 h-4 group-hover:translate-x-2 ease-in-out duration-200 transform"
                 fill="none"
