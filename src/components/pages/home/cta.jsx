@@ -4,6 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const message =
+  "Hi! I'm interested in a free consultation for my business. Could you help me understand your services better?";
+
 export const CTA = () => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -51,7 +54,7 @@ export const CTA = () => {
             className="relative overflow-hidden group px-8 py-6 text-lg font-medium rounded-full"
             size="lg"
           >
-            <Link href="/contact">
+            <Link href={`https://wa.me/918790063821?text=${message}`}>
               <span className="relative z-10">Get Free Consultation</span>
 
               {/* Animated background on hover */}

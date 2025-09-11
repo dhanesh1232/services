@@ -25,6 +25,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        newBackground: "hsl(var(--scrollbar-color-bg))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         erix: "hsl(var(--background-slate))",

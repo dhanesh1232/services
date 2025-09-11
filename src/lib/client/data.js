@@ -1,3 +1,4 @@
+import { Icons } from "@/components/icons";
 import {
   Code2,
   ShoppingCart,
@@ -5,12 +6,16 @@ import {
   Megaphone,
   MessageSquare,
   Settings,
+  BarChart,
+  Palette,
+  MapPin,
+  TrendingUp,
 } from "lucide-react";
 import { FaTooth } from "react-icons/fa";
 
 export const services = [
   {
-    title: "Web Development",
+    title: "Custom Website",
     href: "custom-web-development",
     id: "custom-web-development",
     description:
@@ -28,43 +33,21 @@ export const services = [
     icon: ({ className }) => <Code2 className={className} />,
   },
   {
-    title: "Dental Website Demo",
-    href: "/demo/dental-website-demo/index.html",
-    id: "dental-website-demo",
+    title: "WhatsApp CMS Manager (Beta)",
+    id: "whatsapp-cms-manager",
+    href: "whatsapp-cms-manager",
     description:
-      "Specialized website solutions tailored for dental practices to showcase services and attract new patients.",
+      "Manage your website content directly from WhatsApp. Beta users get **50% OFF**.",
     features: [
-      "Online appointment booking",
-      "Patient testimonials",
-      "Service catalog",
-      "Before/after gallery",
-      "Staff profiles",
-      "Treatment information",
-      "Contact forms",
+      "WhatsApp-based CMS",
+      "Add & update blogs, products, pages",
+      "AI content suggestions",
+      "Secure & simple workflow",
+      "Multi-user access",
+      "50% OFF for Beta access",
     ],
-    image:
-      "https://res.cloudinary.com/ddqz4s18g/image/upload/v1755084499/Screenshot_2025-08-13_165721_agebz1.png",
-    icon: ({ className }) => (
-      <FaTooth className={className} size={24} color="white" />
-    ),
-  },
-  {
-    title: "E-Commerce Development",
-    href: "/demo/ecommerce-website/index.html",
-    id: "e-commerce-development",
-    description:
-      "Full-featured online store solutions with secure payments and advanced product management.",
-    features: [
-      "Custom store design",
-      "Secure payment gateway integration",
-      "Inventory & product management",
-      "Custom cart & checkout",
-      "Multi-language & multi-currency support",
-      "SEO-optimized product pages",
-      "CMS",
-    ],
-    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-    icon: ({ className }) => <ShoppingCart className={className} />,
+    image: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg",
+    icon: ({ className }) => <Icons.whatsapp className={className} />,
   },
   {
     title: "SEO Optimization",
@@ -119,6 +102,45 @@ export const services = [
     icon: ({ className }) => <MessageSquare className={className} />,
   },
   {
+    title: "E-Commerce Development",
+    href: "/demo/ecommerce-website/index.html",
+    id: "e-commerce-development",
+    description:
+      "Full-featured online store solutions with secure payments and advanced product management.",
+    features: [
+      "Custom store design",
+      "Secure payment gateway integration",
+      "Inventory & product management",
+      "Custom cart & checkout",
+      "Multi-language & multi-currency support",
+      "SEO-optimized product pages",
+      "CMS",
+    ],
+    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
+    icon: ({ className }) => <ShoppingCart className={className} />,
+  },
+  // {
+  //   title: "Dental Website",
+  //   href: "/demo/dental-website-demo/index.html",
+  //   id: "dental-website-demo",
+  //   description:
+  //     "Specialized website solutions tailored for dental practices to showcase services and attract new patients.",
+  //   features: [
+  //     "Online appointment booking",
+  //     "Patient testimonials",
+  //     "Service catalog",
+  //     "Before/after gallery",
+  //     "Staff profiles",
+  //     "Treatment information",
+  //     "Contact forms",
+  //   ],
+  //   image:
+  //     "https://res.cloudinary.com/ddqz4s18g/image/upload/v1755084499/Screenshot_2025-08-13_165721_agebz1.png",
+  //   icon: ({ className }) => (
+  //     <FaTooth className={className} size={24} color="white" />
+  //   ),
+  // },
+  {
     title: "Website Maintenance",
     id: "website-maintenance-support",
     href: "website-maintenance-support",
@@ -134,6 +156,140 @@ export const services = [
     ],
     image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
     icon: ({ className }) => <Settings className={className} />,
+  },
+  // --- NEW SERVICES ADDED ---
+  {
+    title: "Google & Meta Ads",
+    id: "google-meta-ads",
+    href: "google-meta-ads",
+    description:
+      "Run high-converting campaigns on Google & Meta to attract more customers and maximize ROI.",
+    features: [
+      "Google Search & Display campaigns",
+      "Meta Ads (Facebook & Instagram)",
+      "Retargeting strategies",
+      "Conversion tracking",
+      "A/B testing",
+      "Detailed reporting",
+    ],
+    image: "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg",
+    icon: ({ className }) => <BarChart className={className} />,
+  },
+  {
+    title: "Logo & Graphic Design",
+    id: "logo-graphic-design",
+    href: "logo-graphic-design",
+    description:
+      "Creative branding and design solutions to help your business stand out visually.",
+    features: [
+      "Professional logo design",
+      "Business cards & stationery",
+      "Social media graphics",
+      "Brand guidelines",
+      "Custom illustrations",
+      "Marketing collateral",
+    ],
+    image: "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg",
+    icon: ({ className }) => <Palette className={className} />,
+  },
+  {
+    title: "Google My Business Setup",
+    id: "gmb-setup",
+    href: "gmb-setup",
+    description:
+      "Set up and verify your Google My Business profile to boost local visibility.",
+    features: [
+      "Business profile creation",
+      "Category & service listing",
+      "Location pin setup",
+      "Photos & branding upload",
+      "Basic SEO optimization",
+      "Verification support",
+    ],
+    image: "https://images.pexels.com/photos/756744/pexels-photo-756744.jpeg",
+    icon: ({ className }) => <MapPin className={className} />,
+  },
+  {
+    title: "Google My Business Optimization",
+    id: "gmb-optimization",
+    href: "gmb-optimization",
+    description:
+      "Optimize your GMB listing for higher rankings in local searches and maps.",
+    features: [
+      "Review & rating strategy",
+      "Keyword-rich descriptions",
+      "Geo-tagged photos",
+      "Posts & updates management",
+      "Competitor analysis",
+      "Performance insights",
+    ],
+    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    icon: ({ className }) => <TrendingUp className={className} />,
+  },
+];
+export const options = services.map((each) => ({
+  value: each.id,
+  label: each.title,
+}));
+
+export const otherOptions = [
+  { value: "consulting", label: "Consulting" },
+  { value: "others", label: "Others" },
+];
+
+export const serviceOptions = [...options, ...otherOptions];
+
+export const budgetRanges = [
+  {
+    label: "Under ₹10,000",
+    value: "under-10k",
+  },
+  {
+    label: "₹10,000 - ₹50,000",
+    value: "10k-50k",
+  },
+  {
+    label: "₹50,000 - ₹1,00,000",
+    value: "50k-1l",
+  },
+  {
+    label: "₹1,00,000 - ₹5,00,000",
+    value: "1l-5l",
+  },
+  {
+    label: "Over ₹5,00,000",
+    value: "over-5l",
+  },
+  {
+    label: "Not sure yet",
+    value: "not-sure",
+  },
+];
+
+export const timeLine = [
+  {
+    label: "ASAP",
+    value: "asap",
+  },
+  {
+    label: "Within 2 weeks",
+    value: "2-weeks",
+  },
+  {
+    label: "Within 1 month",
+    value: "1-month",
+  },
+  {
+    label: "Within 3 months",
+    value: "3-months",
+  },
+  {
+    label: "Flexible",
+    value: "flexible",
+  },
+  {
+    label: "Not sure yet",
+    value: "not-sure",
   },
 ];
 
@@ -159,45 +315,45 @@ export const legal = [
 // Testimonials data
 export const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Rajesh Patel",
+    role: "Managing Director",
+    company: "TechVision Solutions",
+    description:
+      "ECODrIx delivered an outstanding e-commerce platform for our business in Mumbai. Their expertise in creating a seamless user experience resulted in a 65% increase in our online sales. The team's commitment to quality and timely delivery was exceptional.",
+  },
+  {
+    name: "Emma Thompson",
+    role: "Operations Director",
+    company: "London Digital Hub",
+    description:
+      "Working with ECODrIx from the UK was a breeze despite the time difference. They developed our company website with remarkable attention to detail and integrated advanced analytics that helped us achieve a 90% increase in qualified leads.",
+  },
+  {
+    name: "Priya Sharma",
     role: "CEO",
-    company: "TechStart Inc.",
+    company: "Innovate Bangalore",
     description:
-      "ECODrIx transformed our online presence with a stunning website that perfectly represents our brand. The attention to detail and communication throughout the project was exceptional. We saw a 150% increase in leads within the first month!",
+      "ECODrIx transformed our startup's digital presence completely. Their team's understanding of the Indian market and technical expertise helped us create a mobile-responsive platform that saw 200% growth in user engagement within three months.",
   },
   {
-    name: "Michael Chen",
-    role: "Marketing Director",
-    company: "Global Corp",
+    name: "Lars Nielsen",
+    role: "Marketing Head",
+    company: "Nordic Tech Solutions",
     description:
-      "The e-commerce solution delivered exceptional results, with a 40% increase in conversions. Their technical expertise and problem-solving skills are truly impressive. The team went above and beyond to meet our tight deadline.",
+      "From Denmark, we were initially hesitant about offshore development, but ECODrIx proved to be an excellent choice. They built our B2B platform with exceptional security features and intuitive design, resulting in a 45% reduction in customer onboarding time.",
   },
   {
-    name: "David Wilson",
-    role: "Founder",
-    company: "Startup Ventures",
+    name: "Amit Verma",
+    role: "Director",
+    company: "Digital Dynamics Delhi",
     description:
-      "Reliable, professional, and delivered beyond our expectations. Will definitely work with them again for our future projects. The support after launch has been outstanding with 24/7 availability for critical issues.",
+      "The chatbot solution implemented by ECODrIx has revolutionized our customer service. We've seen a 70% reduction in response time and significantly improved customer satisfaction. Their technical support has been outstanding.",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Product Manager",
-    company: "Digital Solutions",
+    name: "Sarah Williams",
+    role: "Head of Digital",
+    company: "Manchester Marketing Co.",
     description:
-      "The mobile app they developed has been downloaded over 500k times with 4.9-star ratings. Their clean code and documentation made future updates extremely easy for our team to handle.",
-  },
-  {
-    name: "James Peterson",
-    role: "CTO",
-    company: "Enterprise Systems",
-    description:
-      "We hired ECODrIx to modernize our legacy system and the results were phenomenal. 60% performance improvement and 80% reduction in server costs. Their architectural recommendations saved us thousands.",
-  },
-  {
-    name: "Olivia Smith",
-    role: "Creative Director",
-    company: "Brand Agency",
-    description:
-      "As a design-focused agency, we're extremely particular about our digital presence. ECODrIx not only met but exceeded our aesthetic expectations while delivering blazing fast performance.",
+      "ECODrIx's SEO optimization services have been transformative for our agency. Within six months, our client websites saw an average increase of 80% in organic traffic. Their data-driven approach and regular reporting kept us informed throughout the process.",
   },
 ];

@@ -98,7 +98,7 @@ export const TestimonialsSection = () => {
                   className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-300"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <Avatar className="border-2 border-indigo-500/20">
+                    <Avatar className="border-2 border-indigo-500/20 shadow-inner">
                       <AvatarImage
                         src={testimonial.avatar}
                         alt={testimonial.name}
@@ -207,7 +207,7 @@ export const TestimonialsSection = () => {
               className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
-                <Avatar className="border-2 border-indigo-500/20">
+                <Avatar className="border-2 border-indigo-500/20 shadow-inner">
                   <AvatarImage
                     src={testimonial.avatar}
                     alt={testimonial.name}

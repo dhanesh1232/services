@@ -201,7 +201,6 @@ const PremiumButton = ({ isMobile, isVisible }) => {
         className={`
         relative bg-gradient-to-r from-green-600 to-green-500 
         hover:from-green-700 hover:to-green-600 
-        shadow-xl hover:shadow-green-500/40 
         transition-all duration-300
         text-sm sm:text-base lg:text-lg
         h-10 sm:h-12 lg:h-14
@@ -238,7 +237,7 @@ const PremiumButton = ({ isMobile, isVisible }) => {
         text-sm sm:text-base lg:text-lg
         h-10 sm:h-12 lg:h-14
         px-4 sm:px-6 lg:px-8
-        hover:shadow-lg rounded-full 
+        rounded-full 
         overflow-hidden group
         w-full sm:w-auto
       `}
@@ -248,7 +247,7 @@ const PremiumButton = ({ isMobile, isVisible }) => {
           className="font-medium flex items-center justify-center gap-2 whitespace-nowrap"
         >
           <span className="text-foreground">Explore Services</span>
-          <Icons.chevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-yellow-500 transition-transform group-hover:translate-x-1" />
+          <Icons.chevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-foreground group-hover:text-yellow-500 transition-transform group-hover:translate-x-1" />
         </Link>
       </Button>
     </motion.div>

@@ -1,4 +1,5 @@
 import {
+  AlertCircle,
   AlignRight,
   ArrowRight,
   Award,
@@ -46,6 +47,7 @@ import {
   RefreshCcw,
   Rocket,
   Search,
+  Send,
   Shield,
   Sparkles,
   Star,
@@ -68,6 +70,9 @@ import {
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
+  messageCircle: MessageCircle,
+  alertCircle: AlertCircle,
+  send: Send,
   chevronsRight: ChevronsRight,
   star: Star,
   info: Info,

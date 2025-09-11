@@ -19,6 +19,7 @@ export async function metadata() {
       "digital services",
       "business transformation",
       "professional solutions",
+      "whatsapp cms manager",
     ],
     openGraph: {
       images: [

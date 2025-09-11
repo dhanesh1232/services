@@ -1,28 +1,35 @@
 "use client";
 import { Icons } from "@/components/icons";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { LeftGlow, RandomStars } from "./stars";
+import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const FaqSection = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggle = (i) => {
-    setActiveIndex(i === activeIndex ? null : i);
-  };
+  const [activeCategory, setActiveCategory] = useState("general");
+  const [activeItems, setActiveItems] = useState([]);
 
   const faqCategories = [
     {
       name: "General",
+      value: "general",
       items: faqs.filter((faq) => !faq.category || faq.category === "general"),
     },
     {
       name: "Process",
+      value: "process",
       items: faqs.filter((faq) => faq.category === "process"),
     },
     {
       name: "Technical",
+      value: "technical",
       items: faqs.filter((faq) => faq.category === "technical"),
     },
   ];
@@ -52,37 +59,52 @@ export const FaqSection = () => {
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap sticky top-16 z-10 gap-2 justify-center mb-8">
+          <div className="flex flex-wrap sticky top-16 z-10 gap-2 justify-center mb-8 bg-background/80 backdrop-blur-md py-2 rounded-lg">
             {faqCategories.map((category, i) => (
               <button
                 key={i}
                 onClick={() => {
-                  const firstItemIndex = faqs.findIndex(
-                    (f) => f.category === category.name.toLowerCase()
-                  );
-                  if (firstItemIndex !== -1) {
-                    document.getElementById(`category-${i}`)?.scrollIntoView({
+                  setActiveCategory(category.value);
+                  document
+                    .getElementById(`category-${category.value}`)
+                    ?.scrollIntoView({
                       behavior: "smooth",
+                      block: "start",
                     });
-                  }
                 }}
-                className="px-4 py-2 text-sm font-medium rounded-full bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/10 transition-colors border border-gray-200 dark:border-slate-700/50"
+                className={cn(
+                  "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300",
+                  activeCategory === category.value
+                    ? "bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30"
+                    : "bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/10 border border-gray-200 dark:border-slate-700/50"
+                )}
               >
                 {category.name}
               </button>
             ))}
           </div>
 
-          <div className="space-y-8">
+          <Accordion
+            type="multiple"
+            value={activeItems}
+            onValueChange={setActiveItems}
+            className="space-y-8"
+          >
             {faqCategories.map((category, catIndex) => (
               <div
                 key={catIndex}
-                id={`category-${catIndex}`}
-                className="scroll-mt-16"
+                id={`category-${category.value}`}
+                className="scroll-mt-24"
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-6 pb-2 border-b border-gray-200 dark:border-slate-700/50">
+                <motion.h3
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="text-xl font-semibold text-gray-900 dark:text-slate-200 mb-6 pb-2 border-b border-gray-200 dark:border-slate-700/50"
+                >
                   {category.name}
-                </h3>
+                </motion.h3>
 
                 <motion.div
                   initial="hidden"
@@ -92,69 +114,48 @@ export const FaqSection = () => {
                   className="space-y-2"
                 >
                   {category.items.map((faq, i) => (
-                    <motion.div
+                    <AccordionItem
                       key={i}
-                      variants={{
-                        hidden: { opacity: 0, y: 10 },
-                        visible: { opacity: 1, y: 0 },
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-lg border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300"
+                      value={faq.id}
+                      className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-lg border border-gray-200 dark:border-slate-700/50 overflow-hidden hover:shadow-md transition-all duration-300 data-[state=open]:border-indigo-500/50"
                     >
-                      <button
-                        onClick={() => toggle(faq.id)}
-                        className={`w-full text-left flex items-center justify-between p-6 focus:outline-none ${
-                          activeIndex === faq.id
-                            ? "border-b border-gray-200 dark:border-slate-700/50"
-                            : ""
-                        }`}
-                        aria-expanded={activeIndex === faq.id}
-                      >
-                        <span className="text-base font-medium text-gray-900 dark:text-slate-200">
-                          {faq.question}
-                        </span>
-                        <Icons.chevronDown
-                          className={`w-5 h-5 text-indigo-600 dark:text-indigo-400 transition-transform duration-200 ${
-                            activeIndex === faq.id ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
+                      <AccordionTrigger className="group flex w-full items-center justify-between p-6 text-left focus:outline-none border-0">
+                        {faq.question}
+                      </AccordionTrigger>
 
-                      <AnimatePresence initial={false}>
-                        {activeIndex === faq.id && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="px-6 pb-6 text-gray-600 dark:text-slate-400 space-y-3"
-                          >
-                            {faq.answer.split("\n").map((paragraph, pIndex) => (
-                              <p key={pIndex}>{paragraph}</p>
-                            ))}
+                      <AccordionContent className="overflow-hidden text-gray-600 dark:text-slate-400 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="px-6 pb-6 space-y-3"
+                        >
+                          {faq.answer.split("\n").map((paragraph, pIndex) => (
+                            <p key={pIndex}>{paragraph}</p>
+                          ))}
 
-                            {faq.link && (
-                              <div className="pt-2">
-                                <a
-                                  href={faq.link.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium"
-                                >
-                                  {faq.link.text}
-                                  <Icons.external className="ml-1.5 w-4 h-4" />
-                                </a>
-                              </div>
-                            )}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
+                          {faq.link && (
+                            <div className="pt-2">
+                              <a
+                                href={faq.link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm font-medium transition-colors"
+                              >
+                                {faq.link.text}
+                                <Icons.external className="ml-1.5 w-4 h-4" />
+                              </a>
+                            </div>
+                          )}
+                        </motion.div>
+                      </AccordionContent>
+                    </AccordionItem>
                   ))}
                 </motion.div>
               </div>
             ))}
-          </div>
+          </Accordion>
         </div>
 
         <motion.div
@@ -173,7 +174,7 @@ export const FaqSection = () => {
           <div className="mt-6">
             <Link
               href="/contact"
-              className="inline-flex group gap-2 items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-full transition duration-300"
+              className="inline-flex group gap-2 items-center justify-center bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25"
             >
               Contact Us
               <svg

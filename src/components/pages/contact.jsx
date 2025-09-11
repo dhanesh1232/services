@@ -29,6 +29,7 @@ import { Icons } from "../icons";
 import Link from "next/link";
 import { RandomStars, TopGlow } from "./home/stars";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { budgetRanges, serviceOptions, timeLine } from "@/lib/client/data";
 
 // Form validation schema
 const formSchema = z.object({
@@ -115,11 +116,18 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-24 px-4 relative sm:px-6 md:px-12 bg-inherit"
+      className="py-24 px-4 relative sm:px-6 md:px-12 bg-inherit overflow-hidden"
     >
       <TopGlow />
       <RandomStars />
-      <div className="max-w-7xl mx-auto z-10">
+
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto z-10 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,6 +136,18 @@ export const ContactSection = () => {
           className="grid md:grid-cols-2 gap-12 items-start"
         >
           <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-500/10 px-4 py-2 rounded-full mb-6 border border-indigo-200 dark:border-indigo-500/20"
+            >
+              <Icons.sparkle className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                Get in Touch
+              </span>
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -148,146 +168,97 @@ export const ContactSection = () => {
             </motion.p>
 
             <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex items-start"
-              >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
-                  <Icons.mail className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">Email</h3>
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferer"
-                    href="mailto:contact@ecodrix.com"
-                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  >
-                    contact@ecodrix.com
-                  </Link>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Typically respond within 2-4 hours during business days
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex items-start"
-              >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
-                  <Icons.phone className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">Phone</h3>
-                  <Link
-                    target="_blank"
-                    href="tel:+918143963821"
-                    className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                  >
-                    +91 8143963821
-                  </Link>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Mon-Fri: 9:00 AM - 6:00 PM IST
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex items-start"
-              >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
-                  <Icons.mapPin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">Location</h3>
-                  <p className="text-muted-foreground">
-                    Tirupati, Andhra Pradesh, India
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Serving clients worldwide remotely
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 }}
-                className="flex items-start"
-              >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
-                  <Icons.clock className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">
-                    Response Time
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Within 24 hours for all inquiries
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Quick consultations available upon request
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 }}
-                className="flex items-start"
-              >
-                <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
-                  <Icons.calendar className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-foreground mb-1">
-                    Availability
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Currently accepting new projects
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Book a free 30-minute consultation
-                  </p>
-                </div>
-              </motion.div>
+              {[
+                {
+                  icon: Icons.mail,
+                  title: "Email",
+                  content: "contact@ecodrix.com",
+                  description:
+                    "Typically respond within 2-4 hours during business days",
+                  link: "mailto:contact@ecodrix.com",
+                },
+                {
+                  icon: Icons.phone,
+                  title: "Phone",
+                  content: "+91 8143963821",
+                  description: "Mon-Fri: 9:00 AM - 6:00 PM IST",
+                  link: "tel:+918143963821",
+                },
+                {
+                  icon: Icons.mapPin,
+                  title: "Location",
+                  content: "Tirupati, Andhra Pradesh, India",
+                  description: "Serving clients worldwide remotely",
+                },
+                {
+                  icon: Icons.clock,
+                  title: "Response Time",
+                  content: "Within 24 hours for all inquiries",
+                  description: "Quick consultations available upon request",
+                },
+                {
+                  icon: Icons.calendar,
+                  title: "Availability",
+                  content: "Currently accepting new projects",
+                  description: "Book a free 30-minute consultation",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="flex items-start p-4 rounded-xl bg-white/50 dark:bg-slate-800/30 backdrop-blur-sm border border-gray-100 dark:border-slate-700/50 hover:border-indigo-200 dark:hover:border-indigo-500/30 transition-colors duration-300"
+                >
+                  <div className="flex-shrink-0 bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-lg mr-4">
+                    <item.icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground mb-1">
+                      {item.title}
+                    </h3>
+                    {item.link ? (
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferer"
+                        href={item.link}
+                        className="text-muted-foreground hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                      >
+                        {item.content}
+                      </Link>
+                    ) : (
+                      <p className="text-muted-foreground">{item.content}</p>
+                    )}
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="mt-8 p-6 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-100 dark:border-indigo-800"
+              className="mt-8 p-6 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800 backdrop-blur-sm"
             >
-              <h3 className="font-medium text-foreground mb-2">
+              <h3 className="font-medium text-foreground mb-3 flex items-center gap-2">
+                <Icons.info className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 What to expect:
               </h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li className="flex items-start">
-                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  <span>Initial response within 24 hours</span>
-                </li>
-                <li className="flex items-start">
-                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  <span>Detailed project discussion</span>
-                </li>
-                <li className="flex items-start">
-                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  <span>Transparent pricing and timeline</span>
-                </li>
-                <li className="flex items-start">
-                  <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  <span>Regular updates throughout the project</span>
-                </li>
+              <ul className="text-sm text-muted-foreground space-y-2">
+                {[
+                  "Initial response within 24 hours",
+                  "Detailed project discussion",
+                  "Transparent pricing and timeline",
+                  "Regular updates throughout the project",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <Icons.check className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </div>
@@ -296,332 +267,335 @@ export const ContactSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-transparent rounded-xl z-20 p-6 border border-border shadow-inner transition-shadow"
+            className="bg-inherit backdrop-blur-md rounded-2xl p-8 border border-gray-200 dark:border-slate-700/50 shadow-lg z-20 relative overflow-hidden"
           >
-            <h3 className="text-xl font-bold text-foreground mb-3">
-              Send a Message
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Fill out the form below and I'll get back to you as soon as
-              possible.
-            </p>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="space-y-1.5">
-                <Label
-                  htmlFor="name"
-                  className="flex items-center gap-1 cursor-pointer"
-                >
-                  Name<span className="text-destructive">*</span>
-                </Label>
-                <Input
-                  type="text"
-                  id="name"
-                  placeholder="Your full name"
-                  {...register("name")}
-                  className={`bg-inherit ${
-                    errors.name ? "border-destructive" : ""
-                  } focus:ring-2 focus:ring-indigo-500`}
-                />
-                {errors.name && (
-                  <p className="text-sm text-destructive">
-                    {errors.name.message}
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                  <Icons.messageCircle className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">
+                    Send a Message
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Fill out the form below and I'll get back to you soon.
                   </p>
-                )}
+                </div>
               </div>
-              <div className="space-y-1.5">
-                <Label
-                  htmlFor="email"
-                  className="flex items-center gap-1 cursor-pointer"
-                >
-                  Email<span className="text-destructive">*</span>
-                </Label>
-                <Input
-                  type="email"
-                  id="email"
-                  placeholder="your.email@example.com"
-                  {...register("email")}
-                  className={`bg-inherit ${
-                    errors.email ? "border-destructive" : ""
-                  } focus:ring-2 focus:ring-indigo-500`}
-                />
-                {errors.email && (
-                  <p className="text-sm text-destructive">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1">
+
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <div className="space-y-1.5">
                   <Label
-                    htmlFor="phone"
-                    className="flex items-center gap-1 cursor-pointer"
+                    htmlFor="name"
+                    className="flex items-center gap-1 cursor-pointer text-foreground font-medium"
                   >
-                    Phone (
-                    <span className="inline-flex items-center justify-start gap-2 text-xs text-muted-foreground">
-                      <Icons.whatsapp /> WhatsApp
-                    </span>
-                    )<span className="text-destructive">*</span>
+                    Name<span className="text-destructive">*</span>
                   </Label>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <button
-                        role="button"
-                        type="button"
-                        aria-label="About Whatsapp"
-                        onClick={(e) => {
-                          e.preventDefault();
-                        }}
-                      >
-                        <Icons.info
-                          className="text-xs text-muted-foreground"
-                          size={14}
-                        />
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent arrow classNAme="text-gray-400">
-                      You'll receive project updates, notifications, and
-                      communication through WhatsApp for seamless coordination
-                      and faster responses
-                    </TooltipContent>
-                  </Tooltip>
+                  <Input
+                    type="text"
+                    id="name"
+                    placeholder="Your full name"
+                    {...register("name")}
+                    className={`bg-inherit ${
+                      errors.name
+                        ? "border-destructive"
+                        : "border-gray-200 dark:border-slate-700"
+                    } focus:ring-2 focus:ring-indigo-500 transition-colors duration-200`}
+                  />
+                  {errors.name && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.name.message}
+                    </p>
+                  )}
                 </div>
-                <Controller
-                  name="phone"
-                  control={control}
-                  render={({ field }) => (
-                    <StyledPhoneInput
-                      id="phone"
-                      placeholder="+91 9876543210"
-                      value={field.value}
-                      onChange={field.onChange}
-                      className={`bg-inherit ${
-                        errors.phone
-                          ? "border-destructive focus-within:ring-destructive"
-                          : ""
-                      }`}
+
+                <div className="space-y-1.5">
+                  <Label
+                    htmlFor="email"
+                    className="flex items-center gap-1 cursor-pointer text-foreground font-medium"
+                  >
+                    Email<span className="text-destructive">*</span>
+                  </Label>
+                  <Input
+                    type="email"
+                    id="email"
+                    placeholder="your.email@example.com"
+                    {...register("email")}
+                    className={`bg-inherit ${
+                      errors.email
+                        ? "border-destructive"
+                        : "border-gray-200 dark:border-slate-700"
+                    } focus:ring-2 focus:ring-indigo-500 transition-colors duration-200`}
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="flex items-center gap-1">
+                    <Label
+                      htmlFor="phone"
+                      className="flex items-center gap-1 cursor-pointer text-foreground font-medium"
+                    >
+                      Phone (
+                      <span className="inline-flex items-center justify-start gap-1 text-xs text-muted-foreground">
+                        <Icons.whatsapp className="w-3 h-3" /> WhatsApp
+                      </span>
+                      )<span className="text-destructive">*</span>
+                    </Label>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <button
+                          role="button"
+                          type="button"
+                          aria-label="About Whatsapp"
+                          onClick={(e) => {
+                            e.preventDefault();
+                          }}
+                        >
+                          <Icons.info
+                            className="text-xs text-muted-foreground"
+                            size={14}
+                          />
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent className="text-gray-400 max-w-xs text-sm p-3">
+                        You'll receive project updates, notifications, and
+                        communication through WhatsApp for seamless coordination
+                        and faster responses
+                      </TooltipContent>
+                    </Tooltip>
+                  </div>
+                  <Controller
+                    name="phone"
+                    control={control}
+                    render={({ field }) => (
+                      <StyledPhoneInput
+                        id="phone"
+                        placeholder="+91 9876543210"
+                        value={field.value}
+                        onChange={field.onChange}
+                        className={`bg-inherit ${
+                          errors.phone
+                            ? "border-destructive focus-within:ring-destructive"
+                            : "border-gray-200 dark:border-slate-700"
+                        } transition-colors duration-200`}
+                      />
+                    )}
+                  />
+                  {errors.phone && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label
+                    htmlFor="service"
+                    className="flex items-center gap-1 cursor-pointer text-foreground font-medium"
+                  >
+                    Service Needed<span className="text-destructive">*</span>
+                  </Label>
+                  <Controller
+                    name="service"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        onValueChange={field.onChange}
+                        value={field.value}
+                        id="service"
+                      >
+                        <SelectTrigger className="w-full focus:ring-2 bg-inherit border-gray-200 dark:border-slate-700 focus:ring-indigo-500 transition-colors duration-200">
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700">
+                          {serviceOptions.map((each) => (
+                            <SelectItem key={each.value} value={each.value}>
+                              {each.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {errors.service && (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.service.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <Label
+                      htmlFor="budget"
+                      className="cursor-pointer text-foreground font-medium"
+                    >
+                      Project Budget (Optional)
+                    </Label>
+                    <Controller
+                      name="budget"
+                      control={control}
+                      render={({ field }) => (
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <SelectTrigger className="w-full focus:ring-2 bg-inherit border-gray-200 dark:border-slate-700 focus:ring-indigo-500 transition-colors duration-200">
+                            <SelectValue placeholder="Select budget" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700">
+                            {budgetRanges.map((each) => (
+                              <SelectItem value={each.value} key={each.value}>
+                                {each.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      )}
                     />
-                  )}
-                />
-                {errors.phone && (
-                  <p className="text-sm text-destructive">
-                    {errors.phone.message}
-                  </p>
-                )}
-              </div>
-              <div className="space-y-1.5">
-                <Label
-                  htmlFor="service"
-                  className="flex items-center gap-1 cursor-pointer"
-                >
-                  Service Needed<span className="text-destructive">*</span>
-                </Label>
-                <Controller
-                  name="service"
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      onValueChange={field.onChange}
-                      value={field.value}
-                      id="service"
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label
+                      htmlFor="timeline"
+                      className="cursor-pointer text-foreground font-medium"
                     >
-                      <SelectTrigger className="w-full focus:ring-2 bg-inherit focus:ring-indigo-500">
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-background">
-                        <SelectItem value="web-development">
-                          Web Development
-                        </SelectItem>
-                        <SelectItem value="ecommerce">E-commerce</SelectItem>
-                        <SelectItem value="seo">SEO Optimization</SelectItem>
-                        <SelectItem value="mobile-app">
-                          Mobile App Development
-                        </SelectItem>
-                        <SelectItem value="ui-ux">UI/UX Design</SelectItem>
-                        <SelectItem value="consulting">Consulting</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
+                      Timeline (Optional)
+                    </Label>
+                    <Controller
+                      name="timeline"
+                      control={control}
+                      render={({ field }) => (
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <SelectTrigger className="w-full focus:ring-2 bg-inherit border-gray-200 dark:border-slate-700 focus:ring-indigo-500 transition-colors duration-200">
+                            <SelectValue placeholder="Select timeline" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700">
+                            {timeLine.map((each) => (
+                              <SelectItem key={each.value} value={each.value}>
+                                {each.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      )}
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label
+                    htmlFor="message"
+                    className="flex items-center gap-1 cursor-pointer text-foreground font-medium"
+                  >
+                    Project Details<span className="text-destructive">*</span>
+                  </Label>
+                  <Textarea
+                    id="message"
+                    rows={5}
+                    placeholder="Tell me about your project goals, target audience, and any specific requirements (minimum 100 characters)..."
+                    {...register("message")}
+                    className={`bg-inherit ${
+                      errors.message
+                        ? "border-destructive"
+                        : "border-gray-200 dark:border-slate-700"
+                    } focus:ring-2 focus:ring-indigo-500 transition-colors duration-200`}
+                  />
+                  {errors.message ? (
+                    <p className="text-sm text-destructive mt-1">
+                      {errors.message.message}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Please provide as much detail as possible about your
+                      project needs, timeline, and budget.
+                    </p>
                   )}
-                />
-                {errors.service && (
-                  <p className="text-sm text-destructive">
-                    {errors.service.message}
-                  </p>
+                </div>
+
+                {serverError && (
+                  <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-300 rounded-md flex items-center gap-2">
+                    <Icons.alertCircle className="w-4 h-4" />
+                    {serverError}
+                  </div>
                 )}
-              </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="budget" className="cursor-pointer">
-                    Project Budget (Optional)
-                  </Label>
-                  <Controller
-                    name="budget"
-                    control={control}
-                    render={({ field }) => (
-                      <Select
-                        onValueChange={field.onChange}
-                        value={field.value}
-                      >
-                        <SelectTrigger className="w-full focus:ring-2 bg-inherit focus:ring-indigo-500">
-                          <SelectValue placeholder="Select budget range" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background">
-                          <SelectItem value="under-10k">
-                            Under ₹10,000
-                          </SelectItem>
-                          <SelectItem value="10k-50k">
-                            ₹10,000 - ₹50,000
-                          </SelectItem>
-                          <SelectItem value="50k-1l">
-                            ₹50,000 - ₹1,00,000
-                          </SelectItem>
-                          <SelectItem value="1l-5l">
-                            ₹1,00,000 - ₹5,00,000
-                          </SelectItem>
-                          <SelectItem value="over-5l">
-                            Over ₹5,00,000
-                          </SelectItem>
-                          <SelectItem value="not-sure">Not sure yet</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    )}
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <Label htmlFor="timeline" className="cursor-pointer">
-                    Timeline (Optional)
-                  </Label>
-                  <Controller
-                    name="timeline"
-                    control={control}
-                    render={({ field }) => (
-                      <Select
-                        onValueChange={field.onChange}
-                        value={field.value}
-                      >
-                        <SelectTrigger className="w-full focus:ring-2 bg-inherit focus:ring-indigo-500">
-                          <SelectValue placeholder="Select timeline" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background">
-                          <SelectItem value="asap">ASAP</SelectItem>
-                          <SelectItem value="2-weeks">
-                            Within 2 weeks
-                          </SelectItem>
-                          <SelectItem value="1-month">
-                            Within 1 month
-                          </SelectItem>
-                          <SelectItem value="3-months">
-                            Within 3 months
-                          </SelectItem>
-                          <SelectItem value="flexible">Flexible</SelectItem>
-                          <SelectItem value="not-sure">Not sure yet</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    )}
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <Label
-                  htmlFor="message"
-                  className="flex items-center gap-1 cursor-pointer"
+                <motion.button
+                  type="submit"
+                  disabled={!isValid || isSubmitting || !isDirty}
+                  whileHover={!isValid || !isDirty ? {} : { scale: 1.02 }}
+                  whileTap={!isValid || !isDirty ? {} : { scale: 0.98 }}
+                  className={cn(
+                    "w-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:from-indigo-700 hover:to-blue-700",
+                    (!isValid || isSubmitting || !isDirty) &&
+                      "opacity-70 cursor-not-allowed hover:from-indigo-600 hover:to-blue-600"
+                  )}
                 >
-                  Project Details<span className="text-destructive">*</span>
-                </Label>
-                <Textarea
-                  id="message"
-                  rows={5}
-                  placeholder="Tell me about your project goals, target audience, and any specific requirements (minimum 100 characters)..."
-                  {...register("message")}
-                  className={`bg-inherit ${
-                    errors.message ? "border-destructive" : ""
-                  } focus:ring-2 focus:ring-indigo-500`}
-                />
-                {errors.message ? (
-                  <p className="text-sm text-destructive">
-                    {errors.message.message}
-                  </p>
-                ) : (
-                  <p className="text-xs text-muted-foreground">
-                    Please provide as much detail as possible about your project
-                    needs, timeline, and budget. The more information you
-                    provide, the better I can understand your requirements.
-                  </p>
-                )}
-              </div>
-
-              {serverError && (
-                <div className="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-300 rounded-md">
-                  {serverError}
-                </div>
-              )}
-
-              <motion.button
-                type="submit"
-                disabled={!isValid || isSubmitting || !isDirty}
-                whileHover={!isValid || !isDirty ? {} : { scale: 1.02 }}
-                whileTap={!isValid || !isDirty ? {} : { scale: 0.98 }}
-                className={cn(
-                  "w-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md",
-                  (!isValid || isSubmitting || !isDirty) &&
-                    "opacity-70 cursor-not-allowed",
-                  isValid &&
-                    isDirty &&
-                    !isSubmitting &&
-                    "hover:from-indigo-700 hover:to-blue-700"
-                )}
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg
-                      className="animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Sending...
-                  </span>
-                ) : (
-                  "Send Message"
-                )}
-              </motion.button>
-            </form>
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      Send Message <Icons.send className="w-4 h-4" />
+                    </span>
+                  )}
+                </motion.button>
+              </form>
+            </div>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Success Dialog */}
       <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
-        <DialogContent className="border-0 p-0 max-w-md">
+        <DialogContent className="border-0 p-0 max-w-md overflow-hidden">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl text-center"
+            className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl text-center relative"
           >
+            <div className="absolute -top-10 -right-10 w-28 h-28 bg-indigo-500/10 rounded-full blur-xl"></div>
+
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200 }}
               className="flex justify-center mb-4"
             >
-              <Icons.checkCircle className="w-16 h-16 text-green-500" />
+              <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                <Icons.checkCircle className="w-12 h-12 text-green-500" />
+              </div>
             </motion.div>
+
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 Message Sent Successfully!
@@ -632,11 +606,12 @@ export const ContactSection = () => {
                 explore more of my work or check out my blog for insights.
               </DialogDescription>
             </DialogHeader>
+
             <motion.button
               onClick={() => setShowSuccessDialog(false)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+              className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors w-full"
             >
               Close
             </motion.button>

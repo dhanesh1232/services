@@ -192,9 +192,12 @@ export const ServiceSection = () => {
             size="lg"
             variant="outline"
             asChild
-            className="group relative overflow-hidden"
+            className="group relative overflow-hidden rounded-full"
           >
-            <Link href="/services" className="relative overflow-hidden">
+            <Link
+              href="/services"
+              className="relative overflow-hidden rounded-full"
+            >
               <span className="relative z-10 font-semibold group-hover:text-white transition-colors duration-300">
                 Discover All Services
               </span>

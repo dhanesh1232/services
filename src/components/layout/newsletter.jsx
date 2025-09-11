@@ -139,7 +139,7 @@ export const NewsletterSection = () => {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full bg-white dark:bg-slate-800 py-6 pl-12 pr-4 rounded-full border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full bg-inherit py-6 pl-12 pr-4 rounded-full border border-gray-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

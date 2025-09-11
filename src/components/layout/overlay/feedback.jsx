@@ -14,9 +14,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Send, Loader2, Star } from "lucide-react";
+import { ArrowRight, Send, Loader2, Star, X } from "lucide-react";
 import { toast } from "sonner";
 import { collectUserMetadata } from "@/lib/client/metadata";
+import { Icons } from "@/components/icons";
 
 export function FeedbackDialog() {
   const [open, setOpen] = useState(false);
@@ -125,11 +126,11 @@ export function FeedbackDialog() {
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+    <Dialog open={open} onOpenChange={setOpen} className="bg-newBackground">
+      <DialogTrigger asChild className="rounded-full">
         <Button
           variant="outline"
-          className="hover:bg-indigo-50 dark:hover:bg-indigo-950 group inline-flex cursor-pointer hover:text-indigo-500 transition-all duration-300"
+          className="hover:bg-indigo-50 rounded-full dark:hover:bg-indigo-950 group inline-flex cursor-pointer hover:text-indigo-500 transition-all duration-300"
           size="lg"
         >
           <span className="flex items-center gap-2">
@@ -140,7 +141,7 @@ export function FeedbackDialog() {
           </span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] bg-gray-100 dark:bg-slate-900 p-6">
+      <DialogContent className="sm:max-w-[500px] bg-inherit p-6" showClose>
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
             Share Your Feedback

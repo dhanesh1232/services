@@ -43,8 +43,6 @@ export const PortfolioSection = () => {
           "Responsive design for all devices",
         ],
         color: "yellow-500",
-        demoLink: "#",
-        codeLink: "#",
       },
       {
         title: "Analytics Dashboard",
@@ -63,8 +61,6 @@ export const PortfolioSection = () => {
           "Predictive analytics and trend forecasting",
         ],
         color: "blue-500",
-        demoLink: "#",
-        codeLink: "#",
       },
       {
         title: "Corporate Website",
@@ -83,7 +79,6 @@ export const PortfolioSection = () => {
           "Contact forms with spam protection",
         ],
         color: "blue-500",
-        demoLink: "#",
       },
       {
         title: "Mobile Banking App",
@@ -108,7 +103,6 @@ export const PortfolioSection = () => {
           "Push notifications for transactions",
         ],
         color: "pink-500",
-        demoLink: "#",
       },
       {
         title: "SaaS Platform",
@@ -134,8 +128,6 @@ export const PortfolioSection = () => {
           "White-label customization options",
         ],
         color: "orange-500",
-        demoLink: "#",
-        codeLink: "#",
       },
       {
         title: "Portfolio Website",
@@ -154,8 +146,6 @@ export const PortfolioSection = () => {
           "Performance optimized for fast loading",
         ],
         color: "purple-500",
-        demoLink: "#",
-        codeLink: "#",
       },
       { isPlaceholder: true },
     ],
