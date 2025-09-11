@@ -103,10 +103,10 @@ export const ServiceHeader = () => {
         className={`w-full fixed top-0 z-50 transition-all duration-300 ${
           scrolled
             ? mobileMenuOpen
-              ? "bg-newBackground backdrop-blur-md"
+              ? "bg-white dark:bg-slate-900 md:bg-newBackground backdrop-blur-md"
               : "bg-newBackground/80 backdrop-blur-md border-b border-border/40"
             : mobileMenuOpen
-            ? "bg-newBackground backdrop-blur-md shadow-lg"
+            ? "bg-white dark:bg-slate-900 md:bg-newBackground backdrop-blur-md shadow-lg"
             : "bg-transparent"
         }`}
       >
@@ -189,7 +189,7 @@ export const ServiceHeader = () => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="md:hidden w-full overflow-hidden absolute bg-newBackground/95 backdrop-blur-lg border-t border-border/30 shadow-xl"
+                className="md:hidden w-full overflow-hidden absolute bg-white dark:bg-slate-900 border-t border-border/30 shadow-xl"
               >
                 <nav
                   className="pt-4 pb-6 space-y-1 px-4"
