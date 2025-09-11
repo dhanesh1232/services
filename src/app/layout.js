@@ -27,6 +27,10 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
+        <meta
+          name="facebook-domain-verification"
+          content="tzm40ou2etty073d0g68u6ydepfogy"
+        />
       </head>
       <body
         className={`${inter.className} overflow-x-hidden overflow-y-auto min-h-full`}
