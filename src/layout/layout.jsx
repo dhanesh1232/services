@@ -2,9 +2,8 @@
 import { ServiceFooter } from "@/components/layout/footer/footer";
 import { ServiceHeader } from "@/components/layout/header/header1";
 import { GlobalLoader } from "@/components/layout/loader";
-import { NewsletterSection } from "@/components/layout/newsletter";
 import CookieConsent from "@/components/layout/overlay/cookies";
-import FloatButton from "@/components/layout/overlay/floa-button";
+import FloatButton from "@/components/layout/overlay/float-button";
 import TopButton from "@/components/layout/overlay/top-button";
 import { TopGlow } from "@/components/pages/home/stars";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,16 +24,15 @@ export default function ServicesLayout({ children }) {
       {pathname !== "/not-found" ? (
         <TooltipProvider>
           <ServiceHeader />
-          <main className="flex-1 relative dark:from-slate-950 dark:to-slate-900 bg-gradient-to-b from-indigo-50 to-white">
+          <main className="flex-1 relative dark:from-slate-950 dark:to-slate-900 bg-gradient-to-b from-white to-white">
             {children}
-            <NewsletterSection />
-            <TopGlow />
+            <TopGlow className="-z-10" />
           </main>
-          <TopButton />
           <ServiceFooter />
+          <TopButton />
           <CookieConsent />
           <FloatButton />
-          {/*<WebWidgetLoader botId="ECODrIx_test_botId" />*/}
+          <WebWidgetLoader botId="ECODrIx_test_botId" />
         </TooltipProvider>
       ) : (
         <main className="flex-1 relative">{children}</main>

@@ -8,10 +8,17 @@ import { TechStackSection } from "@/components/pages/home/tech-stack";
 import { PortfolioSection } from "@/components/pages/home/portfolio";
 import { TestimonialsSection } from "@/components/pages/home/testimonials";
 import { FaqSection } from "@/components/pages/home/faq";
-import { useEffect } from "react";
 import { Why } from "@/components/pages/home/why";
 import NightSkyHero from "./hero/hero3";
 import { CTA } from "./cta";
+import dynamic from "next/dynamic";
+// import { WaterBubbleEffect } from "@/components/layout/float-ripple";
+import { useRef, useEffect } from "react";
+const WaterBubbleEffect = dynamic(() =>
+  import("@/components/layout/float-ripple").then(
+    (mod) => mod.WaterBubbleEffect
+  )
+);
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -93,36 +100,47 @@ export default function ServicesPage() {
         />
       </Head>
       <>
-        {/* Hero Section */}
-        <NightSkyHero />
+        <WaterBubbleEffect />
 
-        {/* Stats Section */}
-        <ServicesStats />
+        <div className={`sticky top-0 w-full left-0`}>
+          {/* Hero Section */}
+          <NightSkyHero />
+        </div>
 
-        {/*why section */}
-        <Why />
-
-        {/* Services Section */}
-        <ServiceSection />
-
-        {/* Process Section */}
-        <ProcessSection />
-
-        {/* Portfolio Section */}
-        <PortfolioSection />
-
-        {/* Tech Stack Section */}
-        <TechStackSection />
-
-        {/* Testimonials Section */}
-        <TestimonialsSection />
-
-        {/* CTA Section */}
-        <CTA />
-
-        {/* FAQ Section */}
-        <FaqSection />
+        <AnimatedSection>
+          {/* Stats Section */}
+          <ServicesStats />
+          {/*why section */}
+          <Why />
+          {/* Services Section */}
+          <ServiceSection />
+          {/* Process Section */}
+          <ProcessSection />
+          {/* Portfolio Section */}
+          <PortfolioSection />
+          {/* Tech Stack Section */}
+          <TechStackSection />
+          {/* Testimonials Section */}
+          <TestimonialsSection />
+          {/* CTA Section */}
+          <CTA />
+          {/* FAQ Section */}
+          <FaqSection />
+        </AnimatedSection>
       </>
     </>
   );
 }
+
+const AnimatedSection = ({ children }) => {
+  const sectionRef = useRef();
+
+  return (
+    <div
+      ref={sectionRef}
+      className={`h-full w-full shadow-2xl dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 bg-gradient-to-b from-white via-white to-white z-0 relative mx-auto transition-all duration-300`}
+    >
+      {children}
+    </div>
+  );
+};

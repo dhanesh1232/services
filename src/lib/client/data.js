@@ -309,6 +309,7 @@ export const navLinks = [
 export const legal = [
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms of Service", href: "/terms-and-conditions" },
+  { name: "Cookies Policy", href: "/cookie-policy" },
   { name: "Disclaimer", href: "/disclaimer" },
 ];
 

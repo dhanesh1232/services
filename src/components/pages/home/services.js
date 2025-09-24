@@ -76,7 +76,7 @@ export const ServiceSection = () => {
           whileInView="visible"
           variants={container}
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
           {services.slice(0, 4).map((service, index) => (
             <motion.div

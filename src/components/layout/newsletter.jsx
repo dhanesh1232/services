@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Check, Mail, MoveRight, Rocket } from "lucide-react";
 import { collectUserMetadata } from "@/lib/client/metadata";
 
-export const NewsletterSection = () => {
+export const NewsletterSection = ({ className = "" }) => {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -48,7 +48,9 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="relative bg-transparent py-20 px-6 md:px-12 lg:px-24 text-center overflow-hidden">
+    <section
+      className={`relative py-20 ${className} px-6 md:px-12 lg:px-24 text-center overflow-hidden`}
+    >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20">
         <div className="absolute top-10 left-10 w-20 h-20 bg-blue-400 rounded-full blur-2xl"></div>

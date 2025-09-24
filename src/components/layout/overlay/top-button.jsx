@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { ChevronUp } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const TopButton = () => {
   const [visible, setVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const { theme } = useTheme();
   const scrollTimeout = useRef(null);
 
   const toggleVisible = useCallback(() => {
@@ -45,19 +47,36 @@ const TopButton = () => {
   const strokeDashoffset =
     circumference - (scrollProgress / 100) * circumference;
 
+  // Color variables based on theme
+  const themeColors = {
+    light: {
+      background: "rgba(255, 255, 255, 0.95)",
+      backgroundHover: "rgba(255, 255, 255, 0.98)",
+      border: "rgba(0, 0, 0, 0.1)",
+      borderHover: "rgba(0, 0, 0, 0.2)",
+      text: "rgba(0, 0, 0, 0.9)",
+      ringBackground: "rgba(0, 0, 0, 0.08)",
+      glow: "rgba(59, 130, 246, 0.3)",
+      shadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
+    },
+    dark: {
+      background: "rgba(15, 23, 42, 0.95)",
+      backgroundHover: "rgba(30, 41, 59, 0.98)",
+      border: "rgba(255, 255, 255, 0.15)",
+      borderHover: "rgba(255, 255, 255, 0.25)",
+      text: "rgba(255, 255, 255, 0.95)",
+      ringBackground: "rgba(255, 255, 255, 0.1)",
+      glow: "rgba(59, 130, 246, 0.4)",
+      shadow: "0 10px 25px rgba(0, 0, 0, 0.35)",
+    },
+  };
+
+  const colors = theme === "dark" ? themeColors.dark : themeColors.light;
+
   if (!visible) return null;
 
   return (
     <div className="fixed bottom-6 right-1/2 translate-x-1/2 z-50">
-      {/* Glowing background effect */}
-      <div
-        className={`absolute inset-0 rounded-full transition-all duration-500 ${
-          isHovered
-            ? "bg-gradient-to-r from-blue-500/30 to-purple-600/30 scale-125 blur-md"
-            : "bg-gradient-to-r from-blue-500/0 to-purple-600/0 scale-100"
-        }`}
-      />
-
       {/* Main button */}
       <button
         onClick={scrollToTop}
@@ -69,10 +88,16 @@ const TopButton = () => {
           focus:outline-none focus:ring-2 focus:ring-blue-500/50
           ${
             isHovered
-              ? "bg-white/20 border-white/30 shadow-2xl transform scale-110"
-              : "bg-white/10 border-white/20 shadow-lg hover:shadow-xl"
+              ? `border-[${colors.borderHover}] shadow-2xl transform scale-110`
+              : `border-[${colors.border}] shadow-lg hover:shadow-xl`
           }
         `}
+        style={{
+          backgroundColor: isHovered
+            ? colors.backgroundHover
+            : colors.background,
+          boxShadow: isHovered ? colors.shadow : `0 4px 15px rgba(0,0,0,0.25)`,
+        }}
         aria-label="Scroll to top"
       >
         {/* Progress ring */}
@@ -87,7 +112,7 @@ const TopButton = () => {
             cy="30"
             r={radius}
             fill="none"
-            stroke="rgba(255,255,255,0.1)"
+            stroke={colors.ringBackground}
             strokeWidth="2"
           />
           {/* Progress ring */}
@@ -103,7 +128,7 @@ const TopButton = () => {
             strokeDashoffset={strokeDashoffset}
             className="transition-all duration-300 ease-out"
             style={{
-              filter: "drop-shadow(0 0 4px rgba(59, 130, 246, 0.5))",
+              filter: `drop-shadow(0 0 4px ${colors.glow})`,
             }}
           />
           <defs>
@@ -119,24 +144,14 @@ const TopButton = () => {
         <div className="flex items-center justify-center w-full h-full">
           <ChevronUp
             className={`
-              transition-all duration-300 text-white/90
+              transition-all duration-300
               ${isHovered ? "w-6 h-6 transform -translate-y-0.5" : "w-5 h-5"}
             `}
             style={{
-              filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))",
+              color: colors.text,
+              filter: `drop-shadow(0 0 8px rgba(255,255,255,0.2))`,
               animation: isHovered ? "none" : "bounce 2s infinite",
             }}
-          />
-        </div>
-
-        {/* Ripple effect on click */}
-        <div className="absolute inset-0 rounded-full overflow-hidden">
-          <div
-            className={`
-              absolute inset-0 bg-white/20 rounded-full transform scale-0
-              group-active:scale-100 group-active:opacity-100
-              transition-all duration-200 ease-out opacity-0
-            `}
           />
         </div>
       </button>

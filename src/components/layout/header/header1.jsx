@@ -113,8 +113,8 @@ export const ServiceHeader = () => {
         <motion.div
           initial={false}
           animate={{
-            paddingTop: scrolled ? "0.25rem" : "0.5rem",
-            paddingBottom: scrolled ? "0.25rem" : "0.5rem",
+            paddingTop: scrolled ? "0.5rem" : "1.5rem",
+            paddingBottom: scrolled ? "0.5rem" : "1.5rem",
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="w-full relative"
@@ -148,18 +148,14 @@ export const ServiceHeader = () => {
                     href={link.href}
                     className={`relative text-base font-medium transition-colors group py-0.5 px-1 ${
                       isActive
-                        ? pathname !== "/"
-                          ? "text-indigo-600 dark:text-indigo-400"
-                          : "text-pink-700 dark:text-pink-400"
-                        : pathname !== "/"
-                        ? "text-gray-900 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400"
-                        : "text-pink-900 dark:text-pink-300 hover:text-pink-600 dark:hover:text-pink-400"
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-gray-900 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400"
                     }`}
                     aria-current={isActive ? "page" : undefined}
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 ${
+                      className={`absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ${
                         isActive ? "w-full" : "group-hover:w-full"
                       }`}
                     />

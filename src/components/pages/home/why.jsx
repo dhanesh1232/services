@@ -106,7 +106,7 @@ export function Why() {
               {/* Animated border */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-400 to-pink-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
 
-              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl p-8 rounded-2xl border border-gray-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 relative overflow-hidden">
+              <div className="bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl md:p-6 p-4 lg:p-8 hover:shadow-xl hover:shadow-yellow-500/10 transition-all duration-500 relative overflow-hidden">
                 {/* Subtle shine effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-pink-400/0 via-pink-400/10 to-pink-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -rotate-12"></div>
 

@@ -12,15 +12,15 @@ const StatIcon = ({ icon: Icon, className }) => {
 
 export const ServicesStats = () => {
   return (
-    <section className="relative min-h-screen isolate px-6 pt-14 lg:px-8 bg-transparent overflow-hidden">
-      <div className="mx-auto max-w-7xl py-32">
+    <section className="relative min-h-full isolate px-6 pt-14 lg:px-8 bg-transparent overflow-hidden">
+      <div className="mx-auto max-w-7xl py-12">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
             Our Digital{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
               Impact

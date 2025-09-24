@@ -228,12 +228,7 @@ export const PortfolioSection = () => {
           >
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-5 md:px-6 lg:px-8 h-full flex flex-col justify-center">
               {activeIndex === 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-center mb-4 md:mb-6"
-                >
+                <div className="text-center mb-4 md:mb-6">
                   <div className="inline-flex items-center gap-2 bg-yellow-500/10 px-3 py-1 md:px-4 md:py-2 rounded-full border border-yellow-500/20 mb-3">
                     <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-yellow-500 rounded-full animate-pulse" />
                     <span className="text-xs md:text-sm font-medium text-yellow-700 dark:text-yellow-400 uppercase tracking-wider">
@@ -264,7 +259,7 @@ export const PortfolioSection = () => {
                       <Icons.chevronsRight />
                     </motion.span>
                   </div>
-                </motion.div>
+                </div>
               )}
 
               {!isPlaceholder &&
@@ -332,7 +327,7 @@ export const PortfolioSection = () => {
                                 animate={{
                                   width: `${
                                     (activeIndex /
-                                      (portfolioItems.length - 1)) *
+                                      (portfolioItems.length - 2)) *
                                     100
                                   }%`,
                                 }}
@@ -377,7 +372,7 @@ export const PortfolioSection = () => {
                                 animate={{
                                   width: `${
                                     (activeIndex /
-                                      (portfolioItems.length - 1)) *
+                                      (portfolioItems.length - 2)) *
                                     100
                                   }%`,
                                 }}

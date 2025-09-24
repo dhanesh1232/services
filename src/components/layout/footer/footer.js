@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { legal, services } from "@/lib/client/data";
+import { NewsletterSection } from "@/components/layout/newsletter";
+import { Separator } from "@/components/ui/separator";
 
 export const footerLinks = {
   services: [
@@ -41,7 +43,9 @@ export const ServiceFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-border bg-gray-100 dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 relative">
+    <footer className="w-full border-t border-border dark:from-slate-950 dark:to-slate-900 bg-gradient-to-b from-white to-white relative">
+      <NewsletterSection className="bg-inherit" />
+      <Separator />
       <div className="max-w-full mx-auto px-6 md:px-12 py-6 z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Info */}
