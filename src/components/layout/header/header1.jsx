@@ -9,8 +9,8 @@ import Image from "next/image";
 import { contactInfo, navLinks } from "@/lib/client/data";
 import { MenuToggle } from "./menu-toggle";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
-import { Separator } from "@radix-ui/react-select";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export const ServiceHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -188,7 +188,7 @@ export const ServiceHeader = () => {
                 className="md:hidden w-full overflow-hidden absolute bg-white dark:bg-slate-900 border-t border-border/30 shadow-xl"
               >
                 <nav
-                  className="pt-4 pb-6 space-y-1 px-4"
+                  className="pt-4 pb-2 space-y-1 px-4"
                   aria-label="Mobile navigation"
                 >
                   {navLinks.map((link, index) => {
@@ -216,7 +216,7 @@ export const ServiceHeader = () => {
                     );
                   })}
                 </nav>
-                <Separator />
+                <Separator className="my-2 border border-border" />
                 <div className="px-4 pb-6">
                   <h3 className="text-sm font-medium text-foreground/70 px-4 mb-3 flex items-center">
                     <svg

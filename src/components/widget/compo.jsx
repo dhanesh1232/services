@@ -6,10 +6,12 @@ import { useEffect } from "react";
 export default function WebWidgetLoader({ botId }) {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = //"https://app.ecodrix.com/api/widget";
+    const url = //"https://app.ecodrix.com/api/widget";
       process.env.NODE_ENV === "production"
         ? "https://app.ecodrix.com/api/widget"
         : "http://localhost:3000/api/widget";
+    script.src = `${url}?botId=${botId}&position=right`;
+    script.crossOrigin = "anonymous";
     script.setAttribute("data-bot-id", botId);
     script.async = true;
     document.body.appendChild(script);
