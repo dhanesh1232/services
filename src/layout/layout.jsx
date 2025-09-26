@@ -10,6 +10,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import WebWidgetLoader from "@/components/widget/compo";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { BotWidget } from "./test";
 
 export default function ServicesLayout({ children }) {
   const pathname = usePathname();
@@ -32,7 +33,8 @@ export default function ServicesLayout({ children }) {
           <TopButton />
           <CookieConsent />
           <FloatButton />
-          <WebWidgetLoader botId="ECODrIx_test_botId" />
+          {/* <WebWidgetLoader botId="ECODrIx_test_botId" /> */}
+          <BotWidget />
         </TooltipProvider>
       ) : (
         <main className="flex-1 relative">{children}</main>
