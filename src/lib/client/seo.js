@@ -248,24 +248,41 @@ export function pagesOrganizationJsonLd(overrides = {}) {
 }
 
 export function blogPostingJsonLd(post) {
-  // console.log("Generating JSON-LD for post:", post);
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.metaDescription,
-    image: post.featuredImage?.url,
+    image: {
+      "@type": "ImageObject",
+      url:
+        post.featuredImage?.url ||
+        "https://services.ecodrix.com/placeholder.jpg",
+    },
     datePublished: post.publishDate,
-    dateModified: post.updatedAt,
-    author: { "@type": "Person", name: post.author?.name },
+    dateModified: post.updatedAt || post.publishDate,
+    author: {
+      "@type": "Person",
+      name: post.author?.name || "Dhanesh M",
+      url: "https://dhanesh-portfolio-tan.vercel.app",
+      sameAs: [
+        "https://www.linkedin.com/in/dhanesh-mekalthuru-5baa9323b/",
+        "https://github.com/dhanesh1232",
+        "https://www.instagram.com/erix.__.dhanesh/",
+      ],
+    },
     publisher: {
       "@type": "Organization",
       name: "ECODrIx Services",
+      url: "https://services.ecodrix.com",
       logo: {
         "@type": "ImageObject",
         url: "https://services.ecodrix.com/logo.png",
       },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": post.url },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://services.ecodrix.com/blog/${post.url}`,
+    },
   });
 }
