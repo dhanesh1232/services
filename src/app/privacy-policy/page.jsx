@@ -1,5 +1,5 @@
 import PrivacyPolicy from "@/components/pages/privacy-policy";
-import { metadataForPath } from "@/lib/client/seo";
+import { metadataForPath, pagesOrganizationJsonLd } from "@/lib/client/seo";
 
 export async function metadata() {
   return metadataForPath("/privacy-policy", {
@@ -38,6 +38,17 @@ export async function metadata() {
   });
 }
 
-export default function PrivacyPolicyPage() {
-  return <PrivacyPolicy />;
+export default function Page() {
+  const jsonLd = pagesOrganizationJsonLd();
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd.replace(/</g, "\\u003c"),
+        }}
+      />
+      <PrivacyPolicy />
+    </>
+  );
 }

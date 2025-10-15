@@ -3,24 +3,40 @@
 import { allBlogs } from "@/lib/client/blog";
 import { legal, navLinks } from "@/lib/client/data";
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_API_URL || "https://services.ecodrix.com";
+
 export async function GET() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://services.ecodrix.com";
+  try {
+    // Static pages
+    const routes = navLinks.map((each) => ({
+      loc: `${baseUrl}${each.href}`,
+      lastmod: new Date().toISOString(),
+    }));
+    const legalLinks = legal.map((each) => ({
+      loc: `${baseUrl}${each.href}`,
+      lastmod: new Date().toISOString(),
+    }));
 
-  const routes = navLinks.map((each) => each.href);
-  const legalLinks = legal.map((each) => each.href);
-  const blogs = await allBlogs();
-  const blogRoutes = blogs.map((each) => `/blog/${each.slug}`);
-  const allRoutes = [...routes, ...blogRoutes, ...legalLinks, "/about"];
+    const blogs = await allBlogs(baseUrl);
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    const blogRoutes = blogs
+      .filter((blog) => blog.publishDate)
+      .map((blog) => ({
+        loc: `${baseUrl}/blog/${blog.slug}`,
+        lastmod: new Date(blog.publishDate).toISOString(),
+      }));
+
+    const allRoutes = [...routes, ...blogRoutes, ...legalLinks];
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${allRoutes
           .map(
             (route) => `
           <url>
-            <loc>${baseUrl}${route}</loc>
-            <lastmod>${new Date().toISOString()}</lastmod>
+            <loc>${route.loc}</loc>
+            <lastmod>${route.lastmod}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
           </url>`
@@ -28,9 +44,13 @@ export async function GET() {
           .join("")}
       </urlset>`;
 
-  return new Response(sitemap, {
-    headers: {
-      "Content-Type": "application/xml",
-    },
-  });
+    return new Response(sitemap, {
+      headers: {
+        "Content-Type": "application/xml",
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    return new Response("Failed to generate sitemap", { status: 500 });
+  }
 }

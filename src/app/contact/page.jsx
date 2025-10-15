@@ -1,5 +1,5 @@
 import { ContactSection } from "@/components/pages/contact";
-import { metadataForPath } from "@/lib/client/seo";
+import { metadataForPath, pagesOrganizationJsonLd } from "@/lib/client/seo";
 
 export async function metadata() {
   return metadataForPath("/contact", {
@@ -39,5 +39,16 @@ export async function metadata() {
 }
 
 export default function Page() {
-  return <ContactSection />;
+  const jsonLd = pagesOrganizationJsonLd();
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd.replace(/</g, "\\u003c"),
+        }}
+      />
+      <ContactSection />
+    </>
+  );
 }

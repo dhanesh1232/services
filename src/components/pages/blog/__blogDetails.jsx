@@ -289,7 +289,7 @@ export function BlogDetailsPage({ post }) {
 
         {/* Featured Image */}
         {post.featuredImage?.url && (
-          <div className="relative w-full h-64 sm:h-80 lg:h-96 mb-12 rounded-2xl overflow-hidden shadow-2xl border border-border">
+          <div className="relative w-full h-64 sm:h-80 lg:h-96 mb-12 rounded-lg overflow-hidden shadow-lg border border-border">
             <Image
               src={post.featuredImage.url}
               alt={post.featuredImage.altText || post.title}

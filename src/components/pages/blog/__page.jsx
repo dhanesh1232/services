@@ -28,7 +28,7 @@ export function BlogPage() {
           throw new Error("Failed to fetch blogs");
         }
         const data = await res.json();
-        console.log(data.data);
+        console.log(data.data, data);
 
         setBlogs(data.data || []);
       } catch (err) {
@@ -69,7 +69,7 @@ export function BlogPage() {
             placeholder="Search articles..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="bg-background"
+            className="bg-inherit"
           />
           <Button variant="primary" size="icon">
             <Search className="w-4 h-4" />

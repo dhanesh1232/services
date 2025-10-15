@@ -1,5 +1,5 @@
 import Disclaimer from "@/components/pages/disclaimer";
-import { metadataForPath } from "@/lib/client/seo";
+import { metadataForPath, pagesOrganizationJsonLd } from "@/lib/client/seo";
 
 export async function metadata() {
   return metadataForPath("/disclaimer", {
@@ -31,5 +31,16 @@ export async function metadata() {
 }
 
 export default function DisclaimerPage() {
-  return <Disclaimer />;
+  const jsonLd = pagesOrganizationJsonLd();
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd.replace(/</g, "\\u003c"),
+        }}
+      />
+      <Disclaimer />
+    </>
+  );
 }

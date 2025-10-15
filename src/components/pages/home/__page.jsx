@@ -102,45 +102,28 @@ export default function ServicesPage() {
       <>
         <WaterBubbleEffect />
 
-        <div className={`sticky top-0 w-full left-0`}>
-          {/* Hero Section */}
-          <NightSkyHero />
-        </div>
+        {/* Hero Section */}
+        <NightSkyHero />
 
-        <AnimatedSection>
-          {/* Stats Section */}
-          <ServicesStats />
-          {/*why section */}
-          <Why />
-          {/* Services Section */}
-          <ServiceSection />
-          {/* Process Section */}
-          <ProcessSection />
-          {/* Portfolio Section */}
-          <PortfolioSection />
-          {/* Tech Stack Section */}
-          <TechStackSection />
-          {/* Testimonials Section */}
-          <TestimonialsSection />
-          {/* CTA Section */}
-          <CTA />
-          {/* FAQ Section */}
-          <FaqSection />
-        </AnimatedSection>
+        {/* Stats Section */}
+        <ServicesStats />
+        {/*why section */}
+        <Why />
+        {/* Services Section */}
+        <ServiceSection />
+        {/* Process Section */}
+        <ProcessSection />
+        {/* Portfolio Section */}
+        <PortfolioSection />
+        {/* Tech Stack Section */}
+        <TechStackSection />
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+        {/* CTA Section */}
+        <CTA />
+        {/* FAQ Section */}
+        <FaqSection />
       </>
     </>
   );
 }
-
-const AnimatedSection = ({ children }) => {
-  const sectionRef = useRef();
-
-  return (
-    <div
-      ref={sectionRef}
-      className={`h-full w-full shadow-2xl dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 bg-gradient-to-b from-white via-white to-white z-0 relative mx-auto transition-all duration-300`}
-    >
-      {children}
-    </div>
-  );
-};

@@ -71,13 +71,6 @@ export async function generateMetadata({ params }) {
         description: post.metaDescription || post.excerpt || post.title,
         images: [post.coverImage || "/og-blog.jpg"],
       },
-      other: [
-        {
-          tagName: "script",
-          attributes: { type: "application/ld+json" },
-          children: blogPostingJsonLd(post),
-        },
-      ],
     });
     // console.log(meta);
     return meta;
@@ -132,7 +125,7 @@ export default async function BlogSlugPage({ params }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+            __html: jsonLd.replace(/</g, "\\u003c"),
           }}
         />
         <BlogDetailsPage post={post} />

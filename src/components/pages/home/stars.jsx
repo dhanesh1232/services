@@ -161,17 +161,6 @@ export const CircleSvgTop = ({ className = "" }) => {
       {/* Transparent base rect */}
       <rect width="100%" height="100%" fill="transparent" />
 
-      {/* Bottom-left gradient circle */}
-      <g filter="url(#softBlur)" style={{ mixBlendMode: "screen" }}>
-        <circle
-          cx="170"
-          cy="560"
-          r="360"
-          fill="url(#gradBottomLeft)"
-          opacity="0.95"
-        />
-      </g>
-
       {/* Top-right gradient circle */}
       <g filter="url(#softBlur)" style={{ mixBlendMode: "screen" }}>
         <circle

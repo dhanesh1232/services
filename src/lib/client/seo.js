@@ -1,7 +1,7 @@
 import { keywords } from "./keywords";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://services.ecodrix.com";
+  process.env.NEXT_PUBLIC_API_URL || "https://services.ecodrix.com";
 const SITE_NAME = "ECODrIx";
 export const defaultMeta = {
   metadataBase: new URL(SITE_URL),
@@ -223,7 +223,7 @@ export function metadataForPath(path, config = {}) {
  * - Make sure all fields like URLs, images, dates, and author names are correctly populated from your backend.
  */
 
-export function organizationJsonLd(overrides = {}) {
+export function pagesOrganizationJsonLd(overrides = {}) {
   const base = {
     "@context": "https://schema.org",
     "@type": "Organization",

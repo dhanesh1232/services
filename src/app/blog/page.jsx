@@ -1,6 +1,5 @@
 import { BlogPage } from "@/components/pages/blog/__page";
-import { metadataForPath } from "@/lib/client/seo";
-import Head from "next/head";
+import { metadataForPath, pagesOrganizationJsonLd } from "@/lib/client/seo";
 
 export async function metadata() {
   return metadataForPath("/blog", {
@@ -35,38 +34,16 @@ export async function metadata() {
 }
 
 export default function Page() {
+  const jsonLd = pagesOrganizationJsonLd();
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "ECODrIx Services",
-              description:
-                "Digital innovation and web development services provider specializing in custom solutions",
-              url: "https://services.ecodrix.com",
-              logo: "https://services.ecodrix.com/logo.png",
-              foundingDate: "2022",
-              sameAs: [
-                "https://twitter.com/ecodrix",
-                "https://www.linkedin.com/company/ecodrix",
-              ],
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "India",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+91-8790063821",
-                contactType: "customer service",
-              },
-            }),
-          }}
-        />
-      </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd.replace(/</g, "\\u003c"),
+        }}
+      />
+
       <BlogPage />
     </>
   );

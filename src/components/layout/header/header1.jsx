@@ -104,7 +104,7 @@ export const ServiceHeader = () => {
           scrolled
             ? mobileMenuOpen
               ? "bg-white dark:bg-slate-900 md:bg-newBackground backdrop-blur-md"
-              : "bg-newBackground/80 backdrop-blur-md border-b border-border/40"
+              : "bg-newBackground/80 backdrop-blur-md"
             : mobileMenuOpen
             ? "bg-white dark:bg-slate-900 md:bg-newBackground backdrop-blur-md shadow-lg"
             : "bg-transparent"
@@ -113,8 +113,8 @@ export const ServiceHeader = () => {
         <motion.div
           initial={false}
           animate={{
-            paddingTop: scrolled ? "0.5rem" : "1.5rem",
-            paddingBottom: scrolled ? "0.5rem" : "1.5rem",
+            paddingTop: scrolled ? "0.5rem" : "1.25rem",
+            paddingBottom: scrolled ? "0.5rem" : "1.25rem",
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="w-full relative"
