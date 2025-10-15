@@ -8,7 +8,7 @@ export const defaultMeta = {
   title: {
     default: "ECODrIx – Website Development & SEO Services",
     template:
-      "%s | ECODrIx – Services | AI Automation & Web development & CRM SaaS Platform",
+      "%s | ECODrIx – Services – AI Automation & Web development & CRM SaaS Platform",
   },
   description:
     "Build fast, modern, and SEO-friendly websites with ECODrix. Affordable development services for businesses and startups.",
@@ -66,6 +66,7 @@ export const defaultMeta = {
 function getSafe(obj, prop, fallback = undefined) {
   return obj && prop in obj ? obj[prop] : fallback;
 }
+
 export function generateMetadata(config = {}) {
   // Safely extract all properties with fallbacks
   const title = getSafe(config, "title", defaultMeta.title.default);
@@ -138,6 +139,52 @@ export function generateMetadata(config = {}) {
   };
 }
 
+/**
+ * 🌐 ECODrIx Metadata Configuration & Generator
+ * ----------------------------------------------
+ * This module defines and dynamically generates metadata
+ * for SEO, social sharing, and web crawlers across all pages.
+ *
+ * ✦ Purpose:
+ * Centralizes and automates the generation of page-level meta tags
+ * (title, description, keywords, OpenGraph, Twitter, robots, etc.)
+ * using defaults and optional overrides.
+ *
+ * ✦ Features:
+ * - Provides a single source of truth for all meta information.
+ * - Auto-merges defaults with page-specific metadata.
+ * - Ensures Open Graph, Twitter, and robots directives remain consistent.
+ * - Safely handles missing fields and maintains valid structure.
+ * - Includes helper methods for canonical URL and structured SEO tagging.
+ *
+ * ⚙️ Functions:
+ * 1. `generateMetadata(config = {})`
+ *    → Merges custom config with global defaults to produce complete metadata.
+ *
+ * 2. `metadataForPath(path, config = {})`
+ *    → Extends `generateMetadata` to include path-based canonical URLs and OG links.
+ *
+ * 🧩 Usage:
+ * ```js
+ * import { metadataForPath } from "@/lib/metadata";
+ *
+ * export const metadata = metadataForPath("/blog/my-post", {
+ *   title: "Custom Page Title",
+ *   description: "A short summary for SEO and previews.",
+ * });
+ * ```
+ *
+ * 🧠 Notes:
+ * - `SITE_URL` and environment variables are used to ensure canonical consistency.
+ * - The `getSafe()` helper prevents runtime errors when optional fields are missing.
+ * - Designed to integrate seamlessly with Next.js `app/` metadata API.
+ *
+ * @module metadata
+ * @fileoverview Handles global and dynamic SEO metadata generation.
+ * @author
+ * ECODrIx Technologies Pvt. Ltd.
+ */
+
 export function metadataForPath(path, config = {}) {
   return generateMetadata({
     alternates: {
@@ -147,5 +194,78 @@ export function metadataForPath(path, config = {}) {
       url: `${SITE_URL}${path}`,
     },
     ...config,
+  });
+}
+
+/**
+ * Generates JSON-LD structured data for SEO purposes.
+ *
+ * 1️⃣ organizationJsonLd(overrides)
+ *    - Purpose: Provides structured data describing the organization, which helps search engines
+ *      understand the company, its branding, contact information, and social profiles.
+ *    - Parameters:
+ *        overrides (object): Optional. Allows you to overwrite or add fields to the default organization data.
+ *    - Returns: A JSON string containing Organization schema markup.
+ *    - Example Usage:
+ *        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: organizationJsonLd() }} />
+ *
+ * 2️⃣ blogPostingJsonLd(post)
+ *    - Purpose: Generates structured data for individual blog posts, helping search engines
+ *      recognize content details for rich results (like featured snippets).
+ *    - Parameters:
+ *        post (object): The blog post object containing title, metaDescription, publishDate, updatedAt, author, featuredImage, and URL.
+ *    - Returns: A JSON string containing BlogPosting schema markup.
+ *    - Example Usage:
+ *        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: blogPostingJsonLd(post) }} />
+ *
+ * Notes:
+ * - Both functions output JSON-LD as a string, ready to be inserted in <script type="application/ld+json">.
+ * - Make sure all fields like URLs, images, dates, and author names are correctly populated from your backend.
+ */
+
+export function organizationJsonLd(overrides = {}) {
+  const base = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ECODrIx Services",
+    description:
+      "Digital innovation and web development services provider specializing in custom solutions",
+    url: "https://services.ecodrix.com",
+    logo: "https://services.ecodrix.com/logo.png",
+    foundingDate: "2022",
+    sameAs: [
+      "https://twitter.com/ecodrix",
+      "https://www.linkedin.com/company/ecodrix",
+    ],
+    address: { "@type": "PostalAddress", addressCountry: "India" },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+91-8790063821",
+      contactType: "customer service",
+    },
+  };
+  return JSON.stringify({ ...base, ...overrides });
+}
+
+export function blogPostingJsonLd(post) {
+  // console.log("Generating JSON-LD for post:", post);
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.metaDescription,
+    image: post.featuredImage?.url,
+    datePublished: post.publishDate,
+    dateModified: post.updatedAt,
+    author: { "@type": "Person", name: post.author?.name },
+    publisher: {
+      "@type": "Organization",
+      name: "ECODrIx Services",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://services.ecodrix.com/logo.png",
+      },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": post.url },
   });
 }

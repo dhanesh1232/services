@@ -1,5 +1,6 @@
 import About from "@/components/pages/about";
 import { metadataForPath } from "@/lib/client/seo";
+import Head from "next/head";
 
 export async function metadata() {
   return metadataForPath("/about", {
@@ -34,5 +35,39 @@ export async function metadata() {
 }
 
 export default function AboutPage() {
-  return <About />;
+  return (
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "ECODrIx Services",
+              description:
+                "Digital innovation and web development services provider specializing in custom solutions",
+              url: "https://services.ecodrix.com",
+              logo: "https://services.ecodrix.com/logo.png",
+              foundingDate: "2022",
+              sameAs: [
+                "https://twitter.com/ecodrix",
+                "https://www.linkedin.com/company/ecodrix",
+              ],
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "India",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-8790063821",
+                contactType: "customer service",
+              },
+            }),
+          }}
+        />
+      </Head>
+      <About />
+    </>
+  );
 }
