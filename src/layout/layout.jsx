@@ -7,16 +7,15 @@ import FloatButton from "@/components/layout/overlay/float-button";
 import TopButton from "@/components/layout/overlay/top-button";
 import { TopGlow } from "@/components/pages/home/stars";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import WebWidgetLoader from "@/components/widget/compo";
+import { BotWidget } from "@/components/widget/compo";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { BotWidget } from "./test";
+import * as React from "react";
 
 export default function ServicesLayout({ children }) {
   const pathname = usePathname();
-  const [isMount, setIsMount] = useState(false);
+  const [isMount, setIsMount] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setIsMount(true);
     return () => setIsMount(false);
   }, []);
@@ -33,7 +32,6 @@ export default function ServicesLayout({ children }) {
           <TopButton />
           <CookieConsent />
           <FloatButton />
-          {/* <WebWidgetLoader botId="ECODrIx_test_botId" /> */}
           <BotWidget />
         </TooltipProvider>
       ) : (
