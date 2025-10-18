@@ -80,6 +80,7 @@ export function BlogDetailsPage({ post }) {
   const [content, setContent] = React.useState("");
   const [isCopied, setIsCopied] = React.useState(false);
   const [headings, setHeadings] = React.useState([]);
+  const [likes, setLikes] = React.useState(post.likes);
   const [isLiked, setIsLiked] = React.useState(false);
   const [showCommentForm, setShowCommentForm] = React.useState(false);
   const [commentData, setCommentData] = React.useState({ name: "", body: "" });
@@ -102,28 +103,29 @@ export function BlogDetailsPage({ post }) {
     getVisitorDetails();
   }, [getVisitorDetails]);
 
-  React.useEffect(() => {
-    console.log(visitorId, metadata);
+  const fetchVisitor = React.useCallback(async () => {
+    const visitorId = getVisitorId();
+    const metadata = collectUserMetadata();
     if (!visitorId || !metadata) return;
-    const fetchvisitor = async () => {
-      try {
-        await fetch(`/api/blogs/${post.slug}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            visitorId,
-            type: "view",
-            metadata,
-          }),
-        });
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
-    fetchvisitor();
+    try {
+      await fetch(`/api/blogs/${post.slug}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          visitorId,
+          type: "view",
+          metadata,
+        }),
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
   }, []);
+  React.useEffect(() => {
+    fetchVisitor();
+  }, [fetchVisitor]);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -285,6 +287,7 @@ export function BlogDetailsPage({ post }) {
         throw new Error(data.message);
       }
       setIsLiked(data.data?.liked || false);
+      setLikes(data.data?.liked ? likes + 1 : likes - 1);
       toast.success(
         `Successfully ${data.data.liked ? "liked" : "unliked"} this post`
       );
@@ -450,12 +453,16 @@ export function BlogDetailsPage({ post }) {
                   )}
 
                   <span className="hidden lg:block text-sm font-medium">
-                    {post.likes || 0}
+                    {likes || 0}
                   </span>
                 </Button>
 
                 {/* Comment Button */}
-                <Button size="sm" variant="outline">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => setShowCommentForm(true)}
+                >
                   <MessageCircle className="h-5 w-5" />
                   <span className="hidden lg:block text-sm font-medium">
                     {post.comments?.length || 0}
@@ -536,8 +543,14 @@ export function BlogDetailsPage({ post }) {
                   <span>{post.views || 0} views</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <ThumbsUp className="h-4 w-4" />
-                  <span>{post.likes || 0} likes</span>
+                  <Button size="iconSm" variant="ghost" onClick={handleLike}>
+                    {isLiked ? (
+                      <BsHeartFill className="h-3 w-3 text-red-500" />
+                    ) : (
+                      <BsHeart className="h-3 w-3 text-foreground" />
+                    )}
+                  </Button>
+                  <span>{likes || 0} likes</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MessageCircle className="h-4 w-4" />
