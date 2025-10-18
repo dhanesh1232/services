@@ -21,6 +21,7 @@ const buttonVariants = cva(
         success:
           "bg-success text-success-foreground shadow-sm hover:bg-success/80 text-white",
         ghost: "hover:bg-accent hover:text-accent-foreground",
+        ecod: "hover:border border-border",
         link: "text-primary underline-offset-4 hover:underline",
         "outline-success":
           "border border-green-700 dark:border-green-500 text-green-600 dark:text-green-500 hover:text-green-600 hover:bg-green-600/10 transition-all ease-in-out duration-150",

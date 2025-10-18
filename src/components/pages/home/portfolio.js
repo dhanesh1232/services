@@ -42,7 +42,8 @@ export const PortfolioSection = () => {
           "Order tracking and history",
           "Responsive design for all devices",
         ],
-        color: "yellow-500",
+        bg: "bg-yellow-500",
+        text: "text-yellow-500",
       },
       {
         title: "Analytics Dashboard",
@@ -60,7 +61,8 @@ export const PortfolioSection = () => {
           "Role-based access control",
           "Predictive analytics and trend forecasting",
         ],
-        color: "blue-500",
+        bg: "bg-blue-500",
+        text: "text-blue-500",
       },
       {
         title: "Corporate Website",
@@ -78,7 +80,8 @@ export const PortfolioSection = () => {
           "Blog and news section",
           "Contact forms with spam protection",
         ],
-        color: "blue-500",
+        bg: "bg-indigo-500",
+        text: "text-indigo-500",
       },
       {
         title: "Mobile Banking App",
@@ -102,7 +105,8 @@ export const PortfolioSection = () => {
           "Budgeting and financial planning tools",
           "Push notifications for transactions",
         ],
-        color: "pink-500",
+        bg: "bg-green-500",
+        text: "text-green-500",
       },
       {
         title: "SaaS Platform",
@@ -127,7 +131,8 @@ export const PortfolioSection = () => {
           "Usage analytics and reporting",
           "White-label customization options",
         ],
-        color: "orange-500",
+        bg: "bg-orange-500",
+        text: "text-orange-500",
       },
       {
         title: "Portfolio Website",
@@ -145,7 +150,8 @@ export const PortfolioSection = () => {
           "Contact form with validation",
           "Performance optimized for fast loading",
         ],
-        color: "purple-500",
+        bg: "bg-purple-500",
+        text: "text-purple-500",
       },
       { isPlaceholder: true },
     ],
@@ -246,7 +252,7 @@ export const PortfolioSection = () => {
                     A curated collection of premium projects crafted with
                     precision, innovation, and exceptional attention to detail
                   </p>
-                  <div className="inline-flex items-center gap-2 text-muted-foreground">
+                  <span className="inline-flex items-center gap-2 text-muted-foreground">
                     explore more
                     <motion.span
                       animate={{ x: [0, 4, 0] }}
@@ -255,10 +261,11 @@ export const PortfolioSection = () => {
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
+                      className="inline-flex justify-center items-center"
                     >
-                      <Icons.chevronsRight />
+                      <Icons.chevronsRight className="h-4 w-4 mt-1" />
                     </motion.span>
-                  </div>
+                  </span>
                 </div>
               )}
 
@@ -276,7 +283,7 @@ export const PortfolioSection = () => {
                         }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="w-full max-w-md"
+                        className="w-full max-w-full sm:max-w-lg md:max-w-md"
                       >
                         <div className="overflow-hidden relative rounded-xl md:rounded-2xl shadow-lg md:shadow-xl group">
                           <div
@@ -322,7 +329,7 @@ export const PortfolioSection = () => {
                           <div className="mt-3 flex items-center justify-center">
                             <div className="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                               <motion.div
-                                className={`h-full rounded-full bg-${portfolioItems[activeIndex].color}`}
+                                className={`h-full rounded-full ${portfolioItems[activeIndex].bg}`}
                                 initial={{ width: "0%" }}
                                 animate={{
                                   width: `${
@@ -336,7 +343,7 @@ export const PortfolioSection = () => {
                             </div>
                             <span className="text-xs inline-flex items-center text-gray-500 dark:text-gray-400 ml-2">
                               <span
-                                className={`text-${portfolioItems[activeIndex].color}`}
+                                className={`${portfolioItems[activeIndex].text}`}
                               >
                                 {activeIndex}
                               </span>
@@ -347,7 +354,7 @@ export const PortfolioSection = () => {
                       </motion.div>
                     </div>
 
-                    <div className="w-full md:w-1/2 order-2 md:order-2 flex flex-col justify-center">
+                    <div className="w-full max-w-full sm:max-w-lg md:w-1/2 order-2 md:order-2 flex flex-col justify-center">
                       <motion.div
                         key={`content-${activeIndex}`}
                         initial={{
@@ -367,7 +374,7 @@ export const PortfolioSection = () => {
                           <div className="mb-4 flex items-center">
                             <div className="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
                               <motion.div
-                                className={`h-full bg-${portfolioItems[activeIndex].color} rounded-full`}
+                                className={`h-full ${portfolioItems[activeIndex].bg} rounded-full`}
                                 initial={{ width: "0%" }}
                                 animate={{
                                   width: `${
@@ -381,7 +388,7 @@ export const PortfolioSection = () => {
                             </div>
                             <span className="text-xs inline-flex items-center text-gray-500 dark:text-gray-400 whitespace-nowrap">
                               <span
-                                className={`text-${portfolioItems[activeIndex].color}`}
+                                className={`${portfolioItems[activeIndex].text}`}
                               >
                                 {activeIndex}
                               </span>

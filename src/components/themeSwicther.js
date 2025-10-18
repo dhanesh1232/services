@@ -21,7 +21,7 @@ export default function ThemeSwitcher() {
 
   return (
     <Button
-      variant="ghost"
+      variant="ecod"
       className="rounded-full"
       size="icon"
       onClick={toggleTheme}
