@@ -28,7 +28,7 @@ export function BlogPage() {
           throw new Error("Failed to fetch blogs");
         }
         const data = await res.json();
-        console.log(data.data, data);
+        // console.log(data.data, data);
 
         setBlogs(data.data || []);
       } catch (err) {

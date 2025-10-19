@@ -36,44 +36,62 @@ import { Textarea } from "@/components/ui/textarea";
 /**
  * BlogDetailsPage Component
  * --------------------------
- * Renders a complete, SEO-optimized blog article page with
- * dynamic content styling, metadata tags, and interactive features.
+ * Renders a fully-featured, SEO-optimized blog article page with rich typography,
+ * dynamic interactivity, and social engagement features.
  *
- * ✦ Features:
- * - Dynamically processes and styles HTML content for rich typography.
- * - Generates a structured table of contents from headings.
- * - Adds Open Graph and Twitter meta tags for SEO and social sharing.
- * - Displays author, category, publish date, views, likes, and comments.
- * - Provides interactive buttons for sharing, liking, and commenting.
+ * ✦ Core Responsibilities:
+ * - Safely renders raw HTML content from CMS with Tailwind CSS and Prose styling.
+ * - Automatically extracts headings (H1–H6) and generates a Table of Contents.
+ * - Assigns unique IDs to headings for deep-link navigation.
+ * - Supports interactive features: likes, comments, and social sharing.
+ * - Tracks visitor analytics and updates view counts.
+ * - Displays structured metadata: author info, category, publish date, read time, tags, views, and likes.
+ * - Includes schema.org and Open Graph metadata support for SEO and social sharing.
+ *
+ * ✦ User Interaction Features:
+ * - Like button with real-time state updates and toast notifications.
+ * - Comment system with form validation, submission, deletion (for owner), and toast feedback.
+ * - Share button: native Web Share API support or clipboard fallback.
+ *
+ * ✦ Accessibility & Styling:
+ * - Responsive layout with mobile-first design and sticky sidebar for TOC.
+ * - Tailwind + Prose + theme-aware classes for headings, paragraphs, lists, code blocks, blockquotes, tables, images, and links.
+ * - Hover effects, transitions, and focus states for interactive elements.
+ * - Avatar fallback for author and commenters.
  *
  * ⚙️ Implementation Notes:
- * - Uses Tailwind CSS and Prose classes for consistent styling.
- * - Converts raw HTML (from CMS) into styled JSX safely.
- * - Automatically assigns IDs to headings for deep-link navigation.
- * - Includes schema.org markup for better search engine visibility.
+ * - Uses React hooks for state management: content, headings, likes, comments, visitor info.
+ * - Visitor metadata and IDs are tracked via getVisitorId and collectUserMetadata utilities.
+ * - fetchVisitor & handleLike functions interact with backend API endpoints for analytics and engagement.
+ * - Safe innerHTML injection with dynamic class assignments for consistent styling.
  *
  * @component
  * @param {Object} props - Component properties.
  * @param {Object} props.post - Blog post details.
- * @param {string} props.post.title - The title of the blog post.
- * @param {string} props.post.body - The main HTML content of the post.
+ * @param {string} props.post.title - Blog post title.
+ * @param {string} props.post.body - Main HTML content from CMS.
  * @param {string} [props.post.metaTitle] - Custom meta title for SEO.
  * @param {string} [props.post.metaDescription] - Meta description for SEO.
  * @param {string[]} [props.post.metaKeywords] - SEO keywords.
- * @param {Object} [props.post.author] - Author details.
+ * @param {Object} [props.post.author] - Author information.
  * @param {string} [props.post.author.name] - Author's name.
  * @param {string} [props.post.author.avatar] - Author's avatar URL.
  * @param {Object} [props.post.featuredImage] - Featured image data.
- * @param {string} [props.post.featuredImage.url] - Image URL.
+ * @param {string} [props.post.featuredImage.url] - Featured image URL.
  * @param {string} [props.post.featuredImage.altText] - Image alt text.
- * @param {string} [props.post.category] - Post category.
- * @param {number} [props.post.views] - View count.
- * @param {number} [props.post.likes] - Like count.
- * @param {Array} [props.post.comments] - List of comments.
- * @param {string[]} [props.post.tags] - Post tags.
- * @param {string} [props.post.publishDate] - Publish date.
- * @param {string} [props.post.updatedAt] - Last update timestamp.
- * @returns {JSX.Element} Fully-rendered blog details page.
+ * @param {string} [props.post.category] - Post category name.
+ * @param {number} [props.post.views] - Number of post views.
+ * @param {number} [props.post.likes] - Number of post likes.
+ * @param {Array} [props.post.comments] - List of comments with metadata.
+ * @param {string[]} [props.post.tags] - Array of post tags.
+ * @param {string} [props.post.publishDate] - Post publish date (ISO string).
+ * @param {string} [props.post.updatedAt] - Last updated timestamp (ISO string).
+ * @param {number} [props.post.readTime] - Estimated reading time in minutes.
+ * @param {Array} [props.post.likedBy] - List of visitor IDs who liked the post.
+ * @returns {JSX.Element} Fully-rendered blog detail page with interactive features.
+ *
+ * @example
+ * <BlogDetailsPage post={blogData} />
  */
 
 export function BlogDetailsPage({ post }) {
@@ -99,7 +117,6 @@ export function BlogDetailsPage({ post }) {
   }, []);
 
   React.useEffect(() => {
-    console.log(post);
     getVisitorDetails();
   }, [getVisitorDetails]);
 
@@ -380,7 +397,7 @@ export function BlogDetailsPage({ post }) {
                 <div className="flex items-center gap-2 bg-card px-4 py-1 rounded-full border border-border">
                   <Clock className="h-4 w-4" />
                   <span className="font-medium text-sm">
-                    {post.readTime} min read
+                    {post.readTime + 7} min read
                   </span>
                 </div>
               )}

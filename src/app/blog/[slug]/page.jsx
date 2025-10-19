@@ -2,6 +2,7 @@
 
 import { BlogDetailsPage } from "@/components/pages/blog/__blogDetails";
 import { blogPostingJsonLd, metadataForPath } from "@/lib/client/seo";
+import { DynamicRender } from "./dynamicFetch";
 
 const URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -93,50 +94,6 @@ export async function generateMetadata({ params }) {
  * @param {string} params.slug - The blog post slug
  * @returns {JSX.Element} Blog details page or error message
  */
-export default async function BlogSlugPage({ params }) {
-  const { slug } = params;
-  const apiUrl = `${URL}/api/blogs/${slug}`;
-
-  try {
-    const res = await fetch(apiUrl, { cache: "no-store" });
-    const data = await res.json();
-
-    if (!res.ok) {
-      return (
-        <div className="text-center py-20 text-muted-foreground">
-          Failed to fetch article.
-        </div>
-      );
-    }
-
-    const post = data.data;
-
-    if (!post || !post.isPublished) {
-      return (
-        <div className="text-center py-20 text-muted-foreground">
-          Article not found or unpublished.
-        </div>
-      );
-    }
-    const jsonLd = blogPostingJsonLd(post);
-
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLd.replace(/</g, "\\u003c"),
-          }}
-        />
-        <BlogDetailsPage post={post} />
-      </>
-    );
-  } catch (error) {
-    console.error("Blog fetch failed:", error);
-    return (
-      <div className="text-center py-20 text-muted-foreground">
-        Unexpected error occurred while fetching the article.
-      </div>
-    );
-  }
+export default function BlogSlugPage() {
+  return <DynamicRender />;
 }
