@@ -57,6 +57,14 @@ export function DynamicRender() {
   const slug = params.slug;
   const [post, setPost] = React.useState(null);
   const [loading, setLoading] = React.useState(API_STATE.IDLE);
+  const [isMount, setIsMount] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMount(true);
+    return () => {
+      setIsMount(false);
+    };
+  }, []);
 
   const fetchPost = React.useCallback(async () => {
     try {
@@ -76,7 +84,7 @@ export function DynamicRender() {
     fetchPost();
   }, [fetchPost]);
 
-  if (loading === API_STATE.LOADING) {
+  if ((loading === API_STATE.LOADING && !post) || !isMount) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <div className="animate-pulse space-y-4 w-full max-w-3xl p-4">
