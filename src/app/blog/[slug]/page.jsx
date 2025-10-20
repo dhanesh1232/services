@@ -1,7 +1,6 @@
 // src/app/blog/[slug]/page.jsx
 
-import { BlogDetailsPage } from "@/components/pages/blog/__blogDetails";
-import { blogPostingJsonLd, metadataForPath } from "@/lib/client/seo";
+import { metadataForPath } from "@/lib/client/seo";
 import { DynamicRender } from "./dynamicFetch";
 
 const URL = process.env.NEXT_PUBLIC_API_URL;
@@ -94,6 +93,7 @@ export async function generateMetadata({ params }) {
  * @param {string} params.slug - The blog post slug
  * @returns {JSX.Element} Blog details page or error message
  */
-export default function BlogSlugPage() {
-  return <DynamicRender />;
+export default async function BlogSlugPage({ params }) {
+  const { slug } = params;
+  return <DynamicRender slug={slug} />;
 }

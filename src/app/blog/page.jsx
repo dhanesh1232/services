@@ -14,11 +14,15 @@ export async function metadata() {
       "industry news",
       "Ecodrix updates",
       "tech trends",
+      "technology trends",
       "innovation in technology",
       "business technology",
       "digital transformation",
     ],
     openGraph: {
+      title: "Blog",
+      description:
+        "Stay updated with the latest trends, insights, and news in technology through the Ecodrix Services blog. Explore articles on software development, IT solutions, and industry innovations to help you stay ahead in the tech world.",
       images: [
         {
           url: "/og-blog.jpg",

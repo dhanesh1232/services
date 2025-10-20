@@ -2,20 +2,13 @@
 
 import { services } from "@/lib/client/data";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  CheckCircle,
-  Star,
-  ArrowUpRight,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import { TopGlow, RandomStars } from "./home/stars";
 
 export default function ServicePage() {
   return (
-    <div className="min-h-full py-16 px-6 md:px-12 bg-transparent relative overflow-hidden">
+    <div className="min-h-full pt-20 pb-12 px-6 md:px-12 bg-inherit relative overflow-hidden">
       <TopGlow />
       <RandomStars />
 

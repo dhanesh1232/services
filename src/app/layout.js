@@ -8,15 +8,7 @@ import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  ...defaultMeta,
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: "/site.webmanifest",
-};
+export const metadata = defaultMeta;
 
 export default function RootLayout({ children }) {
   return (

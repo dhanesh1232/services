@@ -51,10 +51,8 @@ const API_STATE = {
  * <DynamicRender />
  */
 
-export function DynamicRender() {
-  const params = useParams();
+export function DynamicRender({ slug }) {
   const router = useRouter();
-  const slug = params.slug;
   const [post, setPost] = React.useState(null);
   const [loading, setLoading] = React.useState(API_STATE.IDLE);
   const [isMount, setIsMount] = React.useState(false);

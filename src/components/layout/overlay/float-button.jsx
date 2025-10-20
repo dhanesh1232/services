@@ -5,11 +5,27 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Icons } from "@/components/icons";
 
-const FloatButton = () => {
-  const message = encodeURIComponent(
-    "Hi, I'm interested in your web development services. I need a website. Please share more details or a free demo."
-  );
+// Web Development Services
+const webDevMessage = encodeURIComponent(
+  "Hi, I'm interested in your web development services. I need a custom website built for my business. Please share more details or a free demo."
+);
 
+// SEO & Digital Marketing Services
+const seoMessage = encodeURIComponent(
+  "Hi, I'm looking to improve my website's search engine ranking and online visibility. Can you provide SEO services or a free consultation?"
+);
+
+// AI & Automation Solutions
+const aiAutomationMessage = encodeURIComponent(
+  "Hi, I'm interested in AI-powered solutions for automating my business workflows, chatbots, or CRM integration. Please share more details or a free demo."
+);
+
+// Full-Service Message
+const fullServiceMessage = encodeURIComponent(
+  "Hi, I'm looking for comprehensive web solutions including website development, SEO, AI automation, and chatbots. Can you share details or a free demo?"
+);
+
+const FloatButton = () => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
@@ -18,7 +34,7 @@ const FloatButton = () => {
       className="fixed bottom-6 left-4 sm:bottom-8 sm:left-8 z-50"
     >
       <Link
-        href={`https://wa.me/918790063821?text=${message}`}
+        href={`https://wa.me/918143963821?text=${fullServiceMessage}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact on WhatsApp"

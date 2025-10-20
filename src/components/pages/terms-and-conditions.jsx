@@ -65,7 +65,7 @@ export default function TermsAndConditions() {
   ];
 
   return (
-    <div className="bg-erix px-4 sm:px-6 lg:px-8 py-20">
+    <div className="bg-inherit px-4 sm:px-6 lg:px-8 py-20">
       <div className="flex max-w-7xl mx-auto flex-col lg:flex-row gap-8">
         {/* Table of Contents */}
         <div className="lg:w-1/4 lg:block hidden lg:sticky lg:self-start lg:top-16 h-fit bg-slate-100 dark:bg-gray-800 p-4 rounded-lg">

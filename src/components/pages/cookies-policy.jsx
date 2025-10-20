@@ -294,7 +294,7 @@ export function CookiesPage() {
     },
   ];
   return (
-    <div className="bg-erix px-4 sm:px-6 lg:px-8 py-20 z-10">
+    <div className="bg-inherit px-4 sm:px-6 lg:px-8 py-20 z-10">
       <div className="flex max-w-7xl mx-auto flex-col lg:flex-row gap-8">
         {/* Table of Contents */}
         <div className="lg:w-1/4 hidden lg:block sticky top-16 h-fit bg-slate-100 dark:bg-gray-800 p-6 rounded-lg">
