@@ -32,8 +32,8 @@ export function BlogCard({ post, className }) {
         <div className="sm:hidden flex flex-row w-full max-h-[200px]">
           <div className="relative w-1/3 h-full overflow-hidden">
             <Image
-              src={post.featuredImage?.url || "services/public/800x400.svg"}
-              alt={post.featuredImage?.altText || post.title}
+              src={post?.featuredImage?.url || "/600x400.svg"}
+              alt={post?.featuredImage?.altText || post.title}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -80,7 +80,7 @@ export function BlogCard({ post, className }) {
         <div className="hidden sm:block flex-1">
           <div className="relative w-full h-56 overflow-hidden">
             <Image
-              src={post.featuredImage?.url || "services/public/800x400.svg"}
+              src={post.featuredImage?.url || "/800x400.svg"}
               alt={post.featuredImage?.altText || post.title}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               fill

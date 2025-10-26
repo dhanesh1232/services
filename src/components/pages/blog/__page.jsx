@@ -14,26 +14,26 @@ export function BlogPage() {
   const [searching, setSearching] = React.useState(false);
   const [focused, setFocused] = React.useState(false);
 
-  React.useEffect(() => {
-    const fetchblogs = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch("/api/blogs", {
-          method: "GET",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-        });
-        if (!res.ok) throw new Error("Failed to fetch blogs");
-        const data = await res.json();
-        setBlogs(data.data || []);
-      } catch (err) {
-        console.log(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchblogs();
+  const fetchblogs = React.useCallback(async () => {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/blogs", {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error("Failed to fetch blogs");
+      const data = await res.json();
+      setBlogs(data.data || []);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+  React.useEffect(() => {
+    fetchblogs();
+  }, [fetchblogs]);
 
   const filteredPosts = blogs.filter((post) =>
     post.title.toLowerCase().includes(search.toLowerCase())

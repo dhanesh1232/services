@@ -6,7 +6,9 @@ export async function GET(req) {
   await dbConnect();
   try {
     const blogs = await Blog.find().lean();
-    return SuccessHandles.Ok("Blogs fetched successfully", blogs);
+    const data = blogs.filter((b) => b.status === "published");
+    console.log(data);
+    return SuccessHandles.Ok("Blogs fetched successfully", data);
   } catch (err) {
     console.log(err.message);
     return ErrorHandles.InternalServer(err.message || "Internal Server Error");
