@@ -17,7 +17,7 @@ export function BlogPage() {
   const fetchblogs = React.useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/blogs", {
+      const res = await fetch("https://api.ecodrix.com/api/services/blogs", {
         method: "GET",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
