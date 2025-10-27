@@ -11,7 +11,6 @@ import {
   MapPin,
   TrendingUp,
 } from "lucide-react";
-import { FaTooth } from "react-icons/fa";
 
 export const services = [
   {
@@ -36,8 +35,7 @@ export const services = [
     title: "WhatsApp CMS Manager (Beta)",
     id: "whatsapp-cms-manager",
     href: "whatsapp-cms-manager",
-    description:
-      "Manage your website content directly from WhatsApp. Beta users get **50% OFF**.",
+    description: "Manage your website content directly from WhatsApp. Beta users get **50% OFF**.",
     features: [
       "WhatsApp-based CMS",
       "Add & update blogs, products, pages",
@@ -53,8 +51,7 @@ export const services = [
     title: "SEO Optimization",
     id: "seo-optimization",
     href: "seo-optimization",
-    description:
-      "Boost your search engine rankings with proven optimization techniques.",
+    description: "Boost your search engine rankings with proven optimization techniques.",
     features: [
       "Keyword research & strategy",
       "On-page SEO optimization",
@@ -63,16 +60,14 @@ export const services = [
       "Content optimization",
       "Performance tracking",
     ],
-    image:
-      "https://images.pexels.com/photos/38544/imac-apple-mockup-app-38544.jpeg",
+    image: "https://images.pexels.com/photos/38544/imac-apple-mockup-app-38544.jpeg",
     icon: ({ className }) => <Search className={className} />,
   },
   {
     title: "Advertising",
     id: "advertising",
     href: "advertising",
-    description:
-      "Reach the right audience and grow your brand with targeted marketing campaigns.",
+    description: "Reach the right audience and grow your brand with targeted marketing campaigns.",
     features: [
       "Social media marketing",
       "Google Ads & Meta Ads campaigns",
@@ -144,8 +139,7 @@ export const services = [
     title: "Website Maintenance",
     id: "website-maintenance-support",
     href: "website-maintenance-support",
-    description:
-      "Keep your site updated, secure, and running smoothly with regular maintenance.",
+    description: "Keep your site updated, secure, and running smoothly with regular maintenance.",
     features: [
       "Security updates & patching",
       "Performance monitoring",
@@ -179,8 +173,7 @@ export const services = [
     title: "Logo & Graphic Design",
     id: "logo-graphic-design",
     href: "logo-graphic-design",
-    description:
-      "Creative branding and design solutions to help your business stand out visually.",
+    description: "Creative branding and design solutions to help your business stand out visually.",
     features: [
       "Professional logo design",
       "Business cards & stationery",
@@ -196,8 +189,7 @@ export const services = [
     title: "Google My Business Setup",
     id: "gmb-setup",
     href: "gmb-setup",
-    description:
-      "Set up and verify your Google My Business profile to boost local visibility.",
+    description: "Set up and verify your Google My Business profile to boost local visibility.",
     features: [
       "Business profile creation",
       "Category & service listing",
@@ -213,8 +205,7 @@ export const services = [
     title: "Google My Business Optimization",
     id: "gmb-optimization",
     href: "gmb-optimization",
-    description:
-      "Optimize your GMB listing for higher rankings in local searches and maps.",
+    description: "Optimize your GMB listing for higher rankings in local searches and maps.",
     features: [
       "Review & rating strategy",
       "Keyword-rich descriptions",

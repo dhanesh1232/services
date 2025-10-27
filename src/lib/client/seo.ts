@@ -1,14 +1,12 @@
 import { keywords } from "./keywords";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "https://services.ecodrix.com";
+const SITE_URL = process.env.NEXT_PUBLIC_API_URL || "https://services.ecodrix.com";
 const SITE_NAME = "ECODrIx";
 export const defaultMeta = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "ECODrIx – Website Development & SEO Services",
-    template:
-      "%s | ECODrIx – Services – AI Automation & Web development & CRM SaaS Platform",
+    template: "%s | ECODrIx – Services – AI Automation & Web development & CRM SaaS Platform",
   },
   description:
     "Build fast, modern, and SEO-friendly websites with ECODrix. Affordable development services for businesses and startups.",
@@ -78,8 +76,7 @@ export function generateMetadata(config = {}) {
   const robots = getSafe(config, "robots", {});
 
   // Handle title (string or object)
-  const titleString =
-    typeof title === "object" ? getSafe(title, "default", "") : String(title);
+  const titleString = typeof title === "object" ? getSafe(title, "default", "") : String(title);
   const fullTitle = `${titleString} | ${SITE_NAME}`;
 
   // Handle keywords
@@ -106,8 +103,7 @@ export function generateMetadata(config = {}) {
   return {
     ...defaultMeta,
     title: {
-      default:
-        typeof title === "object" ? getSafe(title, "default", "") : title,
+      default: typeof title === "object" ? getSafe(title, "default", "") : title,
       template: getSafe(defaultMeta.title, "template", `%s | ${SITE_NAME}`),
     },
     description: description,
@@ -233,10 +229,7 @@ export function pagesOrganizationJsonLd(overrides = {}) {
     url: "https://services.ecodrix.com",
     logo: "https://services.ecodrix.com/logo.png",
     foundingDate: "2022",
-    sameAs: [
-      "https://twitter.com/ecodrix",
-      "https://www.linkedin.com/company/ecodrix",
-    ],
+    sameAs: ["https://twitter.com/ecodrix", "https://www.linkedin.com/company/ecodrix"],
     address: { "@type": "PostalAddress", addressCountry: "India" },
     contactPoint: {
       "@type": "ContactPoint",
@@ -255,9 +248,7 @@ export function blogPostingJsonLd(post) {
     description: post.metaDescription,
     image: {
       "@type": "ImageObject",
-      url:
-        post.featuredImage?.url ||
-        "https://services.ecodrix.com/placeholder.jpg",
+      url: post.featuredImage?.url || "https://services.ecodrix.com/placeholder.jpg",
     },
     datePublished: post.publishDate,
     dateModified: post.updatedAt || post.publishDate,

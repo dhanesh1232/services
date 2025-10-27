@@ -5,10 +5,7 @@ const newsletterSchema = new mongoose.Schema({
     required: [true, "Email is required"],
     trim: true,
     lowercase: true,
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Please fill a valid email address",
-    ],
+    match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/, "Please fill a valid email address"],
   },
   createdAt: {
     type: Date,

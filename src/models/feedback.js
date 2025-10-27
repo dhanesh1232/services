@@ -15,10 +15,7 @@ const feedbackSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
       unique: true,
-      match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Please fill a valid email address",
-      ],
+      match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/, "Please fill a valid email address"],
       index: true,
     },
     company: {
@@ -72,5 +69,4 @@ feedbackSchema.pre("save", function (next) {
   next();
 });
 
-export const Feedback =
-  mongoose.models.Feedback || mongoose.model("Feedback", feedbackSchema);
+export const Feedback = mongoose.models.Feedback || mongoose.model("Feedback", feedbackSchema);

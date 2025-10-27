@@ -51,8 +51,10 @@ const API_STATE = {
  * <DynamicRender />
  */
 
-export function DynamicRender({ slug }) {
+export function DynamicRender() {
   const router = useRouter();
+  const params = useParams();
+  const { slug } = params;
   const [post, setPost] = React.useState(null);
   const [loading, setLoading] = React.useState(API_STATE.IDLE);
   const [isMount, setIsMount] = React.useState(false);
@@ -99,9 +101,7 @@ export function DynamicRender({ slug }) {
   if (loading === API_STATE.ERROR) {
     return (
       <div className="flex flex-col justify-center items-center min-h-screen gap-4 text-center">
-        <h2 className="text-2xl font-bold text-foreground">
-          Oops! Something went wrong
-        </h2>
+        <h2 className="text-2xl font-bold text-foreground">Oops! Something went wrong</h2>
         <p className="text-muted-foreground">
           We couldn't fetch the blog post. Try again or go back.
         </p>

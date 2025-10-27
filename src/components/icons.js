@@ -26,7 +26,7 @@ import {
   Headphones,
   Heart,
   HelpCircle,
-  Infinity,
+  Infinity as InfinityIcon,
   Info,
   Layout,
   LayoutTemplate,
@@ -60,13 +60,7 @@ import {
   Zap,
 } from "lucide-react";
 import { BsLinkedin, BsTelegram, BsWhatsapp } from "react-icons/bs";
-import {
-  FaDiscord,
-  FaFacebook,
-  FaGithub,
-  FaInstagram,
-  FaSlack,
-} from "react-icons/fa";
+import { FaDiscord, FaFacebook, FaGithub, FaInstagram, FaSlack } from "react-icons/fa";
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
@@ -77,7 +71,7 @@ export const Icons = {
   chevronsRight: ChevronsRight,
   star: Star,
   info: Info,
-  infinity: Infinity,
+  infinity: InfinityIcon,
   phone: Phone,
   chart: BarChart2,
   search: Search,
@@ -143,7 +137,6 @@ export const Icons = {
   verified: Verified,
   award: Award,
   headPhones: Headphones,
-  headPhones: Headphones, // Add this line to support both cases
   heart: Heart,
   quoteLeft: FaQuoteLeft,
   lifeBuoy: LifeBuoy,
@@ -231,12 +224,7 @@ export const MenuIcon = () => (
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M4 6h16M4 12h16m-7 6h7"
-    />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
   </svg>
 );
 export const CloseIcon = () => (
@@ -247,11 +235,6 @@ export const CloseIcon = () => (
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M6 18L18 6M6 6l12 12"
-    />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
   </svg>
 );

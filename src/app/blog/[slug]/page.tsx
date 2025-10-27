@@ -40,13 +40,7 @@ export async function generateMetadata({ params }) {
       description: post.metaDescription || post.title,
       keywords: post.keywords?.length
         ? post.keywords
-        : [
-            post.title,
-            "Ecodrix blog",
-            "technology insights",
-            "software development",
-            "IT trends",
-          ],
+        : [post.title, "Ecodrix blog", "technology insights", "software development", "IT trends"],
       openGraph: {
         title: post.title,
         description: post.metaDescription || post.title,
@@ -93,7 +87,6 @@ export async function generateMetadata({ params }) {
  * @param {string} params.slug - The blog post slug
  * @returns {JSX.Element} Blog details page or error message
  */
-export default async function BlogSlugPage({ params }) {
-  const { slug } = params;
-  return <DynamicRender slug={slug} />;
+export default async function BlogSlugPage() {
+  return <DynamicRender />;
 }

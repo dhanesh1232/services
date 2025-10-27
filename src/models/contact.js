@@ -11,10 +11,7 @@ const contactSchema = new mongoose.Schema({
     required: [true, "Email is required"],
     trim: true,
     lowercase: true,
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Please fill a valid email address",
-    ],
+    match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/, "Please fill a valid email address"],
   },
   phone: {
     type: String,
@@ -28,14 +25,7 @@ const contactSchema = new mongoose.Schema({
   budget: {
     type: String,
     enum: {
-      values: [
-        "under-10k",
-        "10k-50k",
-        "50k-1l",
-        "1l-5l",
-        "over-5l",
-        "not-sure",
-      ],
+      values: ["under-10k", "10k-50k", "50k-1l", "1l-5l", "over-5l", "not-sure"],
       message: "Invalid budget range selected",
     },
     trim: true,
@@ -43,14 +33,7 @@ const contactSchema = new mongoose.Schema({
   timeline: {
     type: String,
     enum: {
-      values: [
-        "asap",
-        "2-weeks",
-        "1-month",
-        "3-months",
-        "flexible",
-        "not-sure",
-      ],
+      values: ["asap", "2-weeks", "1-month", "3-months", "flexible", "not-sure"],
       message: "Invalid timeline selected",
     },
     trim: true,
@@ -69,5 +52,4 @@ const contactSchema = new mongoose.Schema({
 });
 
 export const ServiceContact =
-  mongoose.models.ServiceContact ||
-  mongoose.model("ServiceContact", contactSchema);
+  mongoose.models.ServiceContact || mongoose.model("ServiceContact", contactSchema);
