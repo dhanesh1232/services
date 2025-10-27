@@ -178,22 +178,6 @@ export const TechStackSection = () => {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-flex items-center gap-4 bg-yellow-500/10 px-8 py-4 rounded-full border border-yellow-500/20 shadow-lg backdrop-blur-sm">
-            <span className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
-            <span className="text-md font-medium text-yellow-700 dark:text-yellow-400">
-              Continuously evolving our tech stack to stay ahead of industry
-              trends
-            </span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

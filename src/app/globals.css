@@ -266,3 +266,49 @@ body::-webkit-scrollbar {
     box-shadow: 0em -2.6em 0em 0em rgba(59, 130, 246, 0.2), 1.8em -1.8em 0 0em rgba(59, 130, 246, 0.2), 2.5em 0em 0 0em rgba(59, 130, 246, 0.2), 1.75em 1.75em 0 0em rgba(59, 130, 246, 0.2), 0em 2.5em 0 0em rgba(59, 130, 246, 0.2), -1.8em 1.8em 0 0em rgba(59, 130, 246, 0.5), -2.6em 0em 0 0em rgba(59, 130, 246, 0.7), -1.8em -1.8em 0 0em #3b82f6;
   }
 }
+
+@layer components {
+  .compact-list {
+    @apply list-decimal ml-5 space-y-2;
+  }
+
+  .compact-list li>p {
+    display: inline;
+    margin: 0;
+  }
+
+  .compact-list li strong {
+    display: inline;
+  }
+}
+
+.compact-list {
+  list-style: decimal;
+  /* keep numbers */
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 1.25rem;
+  margin-left: 8px;
+  /* spacing for marker + text */
+}
+
+.compact-list li {
+  margin: 0 0 0.75rem 0;
+  line-height: 1.6;
+}
+
+
+/* Make the <p> inside the li behave inline so it doesn't force a break */
+.compact-list li>p {
+  display: inline;
+  /* key: prevents the <p> from creating a block break */
+  margin: 0;
+  line-height: inherit;
+}
+
+/* style the native marker (modern browsers) */
+.compact-list li::marker {
+  font-weight: 700;
+  color: #e2e8f0;
+  /* tweak to taste */
+}

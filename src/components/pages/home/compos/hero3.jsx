@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { CircleSvgTop, RandomStars } from "../stars";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMediaQuery } from "@/hooks/mediaQuery";
+import { GlowLine } from "./glow";
 
 export const message = encodeURIComponent(
   "Hi, I'm interested in your premium digital services. Please share more details about your exclusive offerings."
@@ -29,7 +30,7 @@ const NightSkyHero = () => {
   }, []);
 
   return (
-    <div className="relative h-screen pt-6 md:pt-10 isolate px-6 lg:px-8 bg-transparent overflow-hidden z-0">
+    <section className="relative h-screen pt-6 md:pt-10 isolate px-6 lg:px-8 bg-transparent overflow-hidden z-0">
       {isVisible && <RandomStars />}
       <CircleSvgTop className="absolute inset-0 z-0 pointer-events-none" />
 
@@ -38,7 +39,7 @@ const NightSkyHero = () => {
           <div>
             {/* Animated title with gradient text */}
             <h1
-              className={`text-4xl font-bold tracking-tight text-foreground sm:text-6xl transition-all duration-1000 ease-out ${
+              className={`text-4xl sm:text-5xl font-bold tracking-tight text-foreground transition-all duration-1000 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -68,35 +69,44 @@ const NightSkyHero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      {!scroll && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 2,
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-20"
-        >
-          <div className="flex flex-col items-center">
-            <span className="text-sm text-gray-500 dark:text-gray-400 mb-2 font-light tracking-widest">
-              EXPLORE FURTHER
-            </span>
-            <div className="w-8 h-12 rounded-full border border-gray-300 dark:border-gray-700 flex justify-center p-1 backdrop-blur-sm">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <Icons.chevronsDown className="w-4 h-4 text-gray-400 dark:text-gray-600" />
-              </motion.div>
+      <AnimatePresence>
+        {/* Scroll indicator */}
+        {!scroll && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 2,
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-20"
+          >
+            <div className="flex flex-col items-center">
+              <span className="text-sm text-gray-500 dark:text-gray-400 mb-2 font-light tracking-widest">
+                EXPLORE FURTHER
+              </span>
+              <div className="w-8 h-12 rounded-full border border-gray-300 dark:border-gray-700 flex justify-center p-1 backdrop-blur-sm">
+                <motion.div
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <Icons.chevronsDown className="w-4 h-4 text-gray-400 dark:text-gray-600" />
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
-    </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <GlowLine
+        orientation="horizontal"
+        position={isMobile ? "45%" : "50%"}
+        color={isMobile ? "blue" : "red"}
+        className="z-20"
+      />
+    </section>
   );
 };
 

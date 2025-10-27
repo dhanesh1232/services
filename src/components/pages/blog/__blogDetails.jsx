@@ -117,6 +117,7 @@ export function BlogDetailsPage({ post }) {
   }, []);
 
   React.useEffect(() => {
+    console.log(post.body);
     getVisitorDetails();
   }, [getVisitorDetails]);
 
@@ -169,11 +170,11 @@ export function BlogDetailsPage({ post }) {
           // Apply your styles
           switch (tag) {
             case "h1":
-              el.className = "text-5xl font-bold mb-2 text-foreground";
+              el.className = "text-4xl font-bold mb-2 text-foreground";
               break;
             case "h2":
               el.className =
-                "text-3xl font-bold mb-6 text-foreground mt-10 pb-2 border-b border-border";
+                "text-2xl font-bold mb-6 text-foreground mt-10 pb-2 border-b border-border";
               break;
             case "h3":
               el.className = "text-2xl font-semibold mb-4 text-foreground mt-8";
@@ -182,10 +183,10 @@ export function BlogDetailsPage({ post }) {
               el.className = "text-xl font-semibold mb-3 text-foreground mt-6";
               break;
             case "h5":
-              el.className = "text-lg font-medium mb-2 text-foreground mt-4";
+              el.className = "text-xl font-medium mb-2 text-foreground mt-4";
               break;
             case "h6":
-              el.className = "text-base font-medium mb-2 text-foreground mt-4";
+              el.className = "text-xl font-medium mb-2 text-foreground mt-4";
               break;
           }
         });
@@ -193,7 +194,8 @@ export function BlogDetailsPage({ post }) {
 
       // Enhanced styling with theme support
       container.querySelectorAll("p").forEach((p) => {
-        p.className = "text-base text-foreground/80 mb-0 leading-relaxed";
+        p.className =
+          "text-[15px] md:text-base text-foreground/70 mb-0 leading-relaxed";
       });
 
       // Links with theme support
@@ -208,15 +210,15 @@ export function BlogDetailsPage({ post }) {
       });
 
       container.querySelectorAll("ol").forEach((ol) => {
-        ol.className = "list-decimal list-inside mb-0 space-y-2 ml-4";
+        ol.className = "list-style-none mb-0 space-y-2 ml-4";
       });
 
       container.querySelectorAll("li").forEach((li) => {
-        li.className = "text-lg text-foreground/80 leading-relaxed mb-0";
+        li.classList.add(".compact-list");
       });
 
       container.querySelectorAll("strong").forEach((s) => {
-        s.className = "font-bold text-muted-foreground";
+        s.className = "font-bold text-base text-foreground";
       });
 
       // Code blocks with theme support
@@ -462,7 +464,14 @@ export function BlogDetailsPage({ post }) {
                 </Button>
 
                 {/* Like Button */}
-                <Button size="sm" variant="outline" onClick={handleLike}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  type="button"
+                  role="like-button"
+                  aria-label="Like Button"
+                  onClick={handleLike}
+                >
                   {isLiked ? (
                     <BsHeartFill className="h-5 w-5 text-red-500" />
                   ) : (
@@ -559,8 +568,16 @@ export function BlogDetailsPage({ post }) {
                   <Eye className="h-4 w-4" />
                   <span>{post.views || 0} views</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Button size="iconSm" variant="ghost" onClick={handleLike}>
+                <div className="flex items-center gap-1.5">
+                  <Button
+                    size="iconSm"
+                    variant="ghost"
+                    className="hover:bg-transparent hover:focus-visible:bg-transparent"
+                    onClick={handleLike}
+                    aria-label="Like Button"
+                    type="button"
+                    role="like-button"
+                  >
                     {isLiked ? (
                       <BsHeartFill className="h-3 w-3 text-red-500" />
                     ) : (
@@ -569,8 +586,18 @@ export function BlogDetailsPage({ post }) {
                   </Button>
                   <span>{likes || 0} likes</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MessageCircle className="h-4 w-4" />
+                <div className="flex items-center gap-1.5">
+                  <Button
+                    aria-label="Comment Button"
+                    type="button"
+                    role="comment-button"
+                    size="iconSm"
+                    variant="ghost"
+                    className="hover:bg-transparent hover:focus-visible:bg-transparent"
+                    onClick={() => setShowCommentForm(true)}
+                  >
+                    <MessageCircle className="h-4 w-4 text-foreground" />
+                  </Button>
                   <span>{post.comments?.length || 0} comments</span>
                 </div>
               </div>

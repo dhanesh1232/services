@@ -1,276 +1,202 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { Avatar, AvatarFallback, AvatarImage } from "../../ui/avatar";
-import { FeedbackDialog } from "../../layout/overlay/feedback";
+import * as React from "react";
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { FeedbackDialog } from "@/components/layout/overlay/feedback";
 import { testimonials } from "@/lib/client/data";
 import { Icons } from "@/components/icons";
 import { RandomStars, RightGlow } from "./stars";
+import { useResponsiveCarousel } from "@/hooks/slide-breakpoints";
 
 export const TestimonialsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselRef = useRef(null);
-  const intervalRef = useRef(null);
-  const [feedbacks, setFeedbacks] = useState(testimonials);
+  const carouselRef = React.useRef(null);
+  const plugin = React.useRef(
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: true,
+    })
+  );
+  const [feedbacks] = React.useState(testimonials);
+  const { slidesPerView } = useResponsiveCarousel({
+    xxs: 1,
+    xs: 1,
+    sm: 2,
+    md: 2,
+    lg: 3,
+    xl: 4,
+  });
 
-  /*useEffect(() => {
-    const fetchFeedback = async () => {
-      const res = await fetch("/api/feedback", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      const newFeedbacks = data?.data?.feedback || [];
-      console.log(newFeedbacks);
-      setFeedbacks((prev) => {
-        const merged = [...prev, ...newFeedbacks];
-        const unique = merged.filter(
-          (item, index, self) =>
-            index === self.findIndex((t) => t.id === item.id)
-        );
-        return unique;
-      });
-    };
-    fetchFeedback();
-  }, []);*/
+  const StarRating = ({ rating = 5 }) => (
+    <div className="flex text-amber-400">
+      {[...Array(5)].map((_, i) => (
+        <Icons.star
+          key={i}
+          className={`w-4 h-4 ${
+            i < rating ? "fill-current" : "text-amber-400/30"
+          }`}
+        />
+      ))}
+    </div>
+  );
 
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % feedbacks.length);
-    }, 5000);
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
-  const goToSlide = (index) => {
-    clearInterval(intervalRef.current);
-    setCurrentIndex(index);
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % feedbacks.length);
-    }, 5000);
-  };
-
-  const goToPrev = () => {
-    goToSlide((currentIndex - 1 + feedbacks.length) % feedbacks.length);
-  };
-
-  const goToNext = () => {
-    goToSlide((currentIndex + 1) % feedbacks.length);
-  };
+  React.useEffect(() => {
+    console.log(carouselRef, carouselRef.current);
+  });
 
   return (
     <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-transparent">
       <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-800 dark:from-indigo-400 dark:to-indigo-600 bg-clip-text text-transparent mb-4">
+          <Badge
+            variant="secondary"
+            className="mb-4 bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 border-indigo-500/20 hover:bg-indigo-500/30"
+          >
+            <Icons.heart className="w-3 h-3 mr-1" />
+            Trusted by Companies Worldwide
+          </Badge>
+
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 dark:from-indigo-400 dark:via-purple-400 dark:to-indigo-600 bg-clip-text text-transparent mb-4">
             Client Testimonials
           </h2>
-          <p className="text-lg text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
-            What our clients say about working with us
+          <p className="text-xl text-gray-600 dark:text-slate-400 max-w-3xl mx-auto">
+            Discover what our clients say about working with us and the impact
+            we've made together
           </p>
         </motion.div>
 
-        {/* Mobile Carousel */}
-        <div className="md:hidden relative">
-          <div
+        <div className="relative">
+          <Carousel
             ref={carouselRef}
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            plugins={[plugin.current]}
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+              slidesToScroll: 1,
+            }}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
-            {feedbacks.map((testimonial, index) => (
-              <div key={index} className="w-full flex-shrink-0 px-2">
-                <motion.div
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{
-                    opacity: currentIndex === index ? 1 : 0.7,
-                    y: 0,
-                    scale: currentIndex === index ? 1 : 0.95,
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-300"
+            <CarouselContent className="-ml-4 gap-0">
+              {feedbacks.map((testimonial, index) => (
+                <CarouselItem
+                  key={index}
+                  index={index}
+                  className={`${
+                    slidesPerView >= 4
+                      ? "basis-1/4"
+                      : slidesPerView === 3
+                      ? "basis-1/3"
+                      : slidesPerView === 2
+                      ? "basis-1/2"
+                      : slidesPerView === 1
+                      ? "basis-full"
+                      : "basis-full"
+                  }`}
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <Avatar className="border-2 border-indigo-500/20 shadow-inner">
-                      <AvatarImage
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                      />
-                      <AvatarFallback>
-                        {testimonial.name.split(" ")[0][0]}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h4 className="font-bold text-gray-900 dark:text-slate-200">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-slate-400">
-                        {testimonial.role} · {testimonial.company}
-                      </p>
-                    </div>
-                  </div>
+                  <Card
+                    animation
+                    index={index}
+                    className="group overflow-hidden relative h-full bg-gradient-to-br from-gray-50/80 to-white/80 dark:from-slate-800/50 dark:to-slate-900/50 backdrop-blur-xl border border-gray-200/50 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/10"
+                  >
+                    <CardContent className="p-4 overflow-hidden">
+                      {/* Quote Icon */}
+                      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-10 transition-opacity ease-in-out duration-300">
+                        <Icons.quote className="w-14 h-14 text-indigo-600 dark:text-indigo-400" />
+                      </div>
 
-                  <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-inner dark:shadow-indigo-500/30">
-                    <Icons.quoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
-                  </div>
+                      {/* Header with Avatar */}
+                      <div className="flex items-start gap-4 mb-6">
+                        <Avatar className="w-12 h-12 border-2 border-indigo-500/20 shadow-lg group-hover:shadow-indigo-500/20 transition-shadow duration-500">
+                          <AvatarImage
+                            src={testimonial.avatar}
+                            alt={testimonial.name}
+                          />
+                          <AvatarFallback className="bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                            {testimonial.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-bold text-gray-900 dark:text-slate-200 truncate">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-slate-400 truncate">
+                            {testimonial.role}
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-slate-500 truncate">
+                            {testimonial.company}
+                          </p>
+                        </div>
+                      </div>
 
-                  <p className="text-gray-600 dark:text-slate-400 mb-6">
-                    {testimonial.description}
-                  </p>
+                      {/* Rating */}
+                      <div className="mb-4">
+                        <StarRating rating={testimonial.rating} />
+                      </div>
 
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            ))}
-          </div>
+                      {/* Testimonial Text */}
+                      <CardDescription>
+                        <blockquote className="text-muted-foreground leading-relaxed line-clamp-4">
+                          {testimonial.description}
+                        </blockquote>
+                      </CardDescription>
 
-          <button
-            onClick={goToPrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-indigo-500/20 border border-gray-200 dark:border-slate-700/50 z-10"
-            aria-label="Previous testimonial"
-          >
-            <FiChevronLeft className="w-5 h-5 text-gray-900 dark:text-slate-200" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-indigo-500/20 border border-gray-200 dark:border-slate-700/50 z-10"
-            aria-label="Next testimonial"
-          >
-            <FiChevronRight className="w-5 h-5 text-gray-900 dark:text-slate-200" />
-          </button>
-
-          <div className="flex justify-center mt-6 space-x-2">
-            {feedbacks.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  currentIndex === index
-                    ? "bg-indigo-600 dark:bg-indigo-500 w-6"
-                    : "bg-gray-300 dark:bg-slate-700"
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+                      {/* Hover Effect Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/5 group-hover:via-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500 rounded-lg -m-2" />
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {/* Navigation Arrows */}
+            <CarouselPrevious className="left-0 -translate-x-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300" />
+            <CarouselNext className="right-0 translate-x-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300" />
+          </Carousel>
         </div>
 
-        {/* Desktop Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-              },
-            },
-          }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {feedbacks.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                show: {
-                  y: 0,
-                  opacity: 1,
-                  transition: {
-                    duration: 0.5,
-                    ease: "easeOut",
-                  },
-                },
-              }}
-              className="bg-gray-50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-slate-700/50 hover:border-indigo-500/50 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <Avatar className="border-2 border-indigo-500/20 shadow-inner">
-                  <AvatarImage
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                  />
-                  <AvatarFallback>
-                    {testimonial.name.split(" ")[0][0]}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <h4 className="font-bold text-gray-900 dark:text-slate-200">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-slate-400">
-                    {testimonial.role} · {testimonial.company}
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-indigo-100 dark:bg-indigo-500/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-inner dark:shadow-indigo-500/30">
-                <Icons.quoteLeft className="text-indigo-600 dark:text-indigo-400 text-xl" />
-              </div>
-
-              <p className="text-gray-600 dark:text-slate-400 mb-6">
-                {testimonial.description}
-              </p>
-
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
+        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mt-6"
         >
-          <div className="inline-flex mt-4 items-center gap-3 bg-indigo-100 dark:bg-indigo-500/10 px-4 py-1.5 md:py-2 rounded-full border border-indigo-200 dark:border-indigo-500/20">
-            <span className="w-2.5 h-2.5 bg-indigo-600 dark:bg-indigo-500 rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
-              Trusted by companies worldwide
-            </span>
+          <div className="inline-flex flex-col sm:flex-row items-center gap-6 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/5 dark:to-purple-500/5 px-8 py-6 rounded-lg border border-indigo-500/20">
+            <div className="text-left gap-0">
+              <h3 className="font-semibold text-foreground">
+                Share Your Experience
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Help us improve by sharing your valuable feedback
+              </p>
+            </div>
+            <FeedbackDialog />
           </div>
         </motion.div>
-        <div className="w-full flex flex-col items-center justify-center my-5">
-          <p className="text-center text-gray-600 dark:text-slate-400 my-2">
-            Please share your valuable feedback with us
-          </p>
-          <FeedbackDialog />
-        </div>
       </div>
+
+      {/* Background Elements */}
       <RandomStars />
       <RightGlow />
     </section>

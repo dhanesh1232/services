@@ -1,94 +1,23 @@
 "use client";
-import { Icons } from "@/components/icons";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
+import { Icons } from "@/components/icons";
 import { RandomStars, RightGlow } from "./stars";
-const StatIcon = ({ icon: Icon, className }) => {
-  return Icon ? (
-    <Icon className={className} />
-  ) : (
-    <div className={`${className} bg-purple-500/20 rounded-full`} />
-  );
-};
-
-export const ServicesStats = () => {
-  return (
-    <section className="relative min-h-full isolate px-6 pt-14 lg:px-8 bg-transparent overflow-hidden">
-      <div className="mx-auto max-w-7xl py-12">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Our Digital{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
-              Impact
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Transforming visions into digital reality with measurable results
-            and exceptional service delivery.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative"
-            >
-              <div className="relative p-6 bg-white/10 dark:bg-slate-800/50 shadow-md backdrop-blur-xl rounded-2xl border border-gray-200/20 dark:border-gray-700/30 overflow-hidden">
-                {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative z-10">
-                  <div className="mb-4 inline-flex p-3 bg-purple-500/20 rounded-xl">
-                    <StatIcon
-                      icon={stat.icon}
-                      className="w-6 h-6 text-purple-500"
-                    />
-                  </div>
-
-                  <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 mb-2">
-                    {stat.value}
-                  </h3>
-
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    {stat.label}
-                  </h4>
-
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {stat.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-purple-500/10 border border-purple-500/20">
-            <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-purple-700 dark:text-purple-400">
-              Trusted by innovative brands worldwide
-            </span>
-          </div>
-        </motion.div>
-      </div>
-      <RandomStars />
-      <RightGlow />
-    </section>
-  );
-};
+import { useResponsiveCarousel } from "@/hooks/slide-breakpoints";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const stats = [
   {
@@ -115,4 +44,140 @@ const stats = [
     icon: Icons.headPhones,
     description: "Round-the-clock expert assistance",
   },
+  {
+    value: "100%",
+    label: "Code Quality",
+    icon: Icons.award,
+    description: "Maintainable and robust code standards",
+  },
+  {
+    value: "5K+",
+    label: "Commits",
+    icon: Icons.clock,
+    description: "Continuous development iteration",
+  },
 ];
+
+const StatIcon = ({ icon: Icon, className }) => (
+  <div className="mb-4 inline-flex p-3 bg-purple-500/20 rounded-xl">
+    {Icon ? (
+      <Icon className={className} />
+    ) : (
+      <div className={`${className} bg-purple-500/20 rounded-full`} />
+    )}
+  </div>
+);
+
+export function ServicesStats() {
+  const slideRef = useRef(null);
+  const { slidesPerView } = useResponsiveCarousel({
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
+    xl: 4,
+  });
+
+  const plugin = useRef(
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: true,
+    })
+  );
+
+  return (
+    <section className="relative isolate overflow-hidden bg-inherit text-inherit px-6 pt-14 lg:px-8">
+      {/* Background elements */}
+      <RandomStars />
+      <RightGlow />
+
+      <div className="mx-auto max-w-7xl py-12 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <h2 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-6xl">
+            Our Digital{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Impact
+            </span>
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-400">
+            Transforming visions into digital reality with measurable results
+            and exceptional service delivery.
+          </p>
+        </motion.div>
+
+        {/* STATS SECTION - Single Row Layout */}
+        <div className="w-full">
+          <Carousel
+            plugins={[plugin.current]}
+            opts={{
+              align: "start",
+              loop: true,
+              slidesToScroll: 1,
+            }}
+            className={`w-full gap-6 transition-all duration-500`}
+            aria-hidden="true"
+            ref={slideRef}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent className="-ml-4 gap-0">
+              {stats.map((stat, index) => (
+                <CarouselItem
+                  key={stat.label}
+                  index={index}
+                  className={`${
+                    slidesPerView >= 4
+                      ? "basis-1/4"
+                      : slidesPerView === 3
+                      ? "basis-1/3"
+                      : slidesPerView === 2
+                      ? "basis-1/2"
+                      : slidesPerView === 1
+                      ? "basis-full"
+                      : "basis-full"
+                  }`}
+                >
+                  <Card
+                    index={index}
+                    animation
+                    key={stat.label}
+                    className="relative group overflow-hidden rounded-2xl border border-gray-700/30 bg-slate-800/50 shadow-xl backdrop-blur-xl"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                    <CardContent className="relative z-10 pt-6 text-center">
+                      <StatIcon
+                        icon={stat.icon}
+                        className="h-6 w-6 text-purple-400"
+                      />
+
+                      <h3 className="mb-2 text-4xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        {stat.value}
+                      </h3>
+
+                      <CardTitle className="mb-2 text-lg font-medium text-foreground">
+                        {stat.label}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-muted-foreground">
+                        {stat.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 -translate-x-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300" />
+            <CarouselNext className="right-0 translate-x-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300" />
+          </Carousel>
+        </div>
+      </div>
+    </section>
+  );
+}

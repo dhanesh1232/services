@@ -70,6 +70,7 @@ import {
 import { FaQuoteLeft, FaXTwitter } from "react-icons/fa6";
 import { MdCampaign } from "react-icons/md";
 export const Icons = {
+  quote: FaQuoteLeft,
   messageCircle: MessageCircle,
   alertCircle: AlertCircle,
   send: Send,

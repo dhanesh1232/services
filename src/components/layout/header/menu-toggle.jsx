@@ -23,7 +23,7 @@ export const MenuToggle = React.forwardRef(
       <motion.button
         ref={ref} // Forward the ref to the button element
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="text-gray-700 md:hidden dark:text-gray-50 cursor-pointer outline-none focus:ring-0 focus:outline-none ring-0 transform transition-all duration-300 hover:text-yellow-600"
+        className="text-gray-700 md:hidden dark:text-gray-50 cursor-pointer rounded-sm outline-none hover:bg-muted/30 p-1 focus:ring-0 focus:outline-none ring-0 transform transition-all ease-in-out duration-300 hover:text-yellow-600"
         whileTap={{ scale: 0.9 }}
         aria-label="Toggle menu"
         aria-expanded={isMenuOpen}

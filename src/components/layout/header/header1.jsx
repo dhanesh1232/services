@@ -243,7 +243,7 @@ export const ServiceHeader = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 + index * 0.1 }}
-                        className="flex items-center px-4 py-2.5 text-sm rounded-lg bg-accent/50 text-foreground/80"
+                        className="flex items-center px-4 py-2.5 text-sm rounded-lg bg-muted/30 text-foreground/80"
                       >
                         {/* Add appropriate icons for each contact method */}
                         {item.includes("Call") && (

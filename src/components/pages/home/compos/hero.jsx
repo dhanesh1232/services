@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Playfair_Display } from "next/font/google";
 import { useMediaQuery } from "@/hooks/mediaQuery";
+import { GlowLine } from "./glow";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -59,7 +60,8 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden min-h-screen flex items-center transition-all duration-1000 ease-in-out"
+      id="hero-section"
+      className="relative overflow-hidden h-full flex items-center transition-all duration-1000 ease-in-out"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${FEATURES[activeFeature].bgImage})`,
         backgroundSize: "cover",
@@ -371,11 +373,12 @@ export default function Hero() {
         </motion.div>
       )}
 
-      {/* Decorative corner elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 border-t-2 border-l-2 border-gold-400/30 pointer-events-none"></div>
-      <div className="absolute top-10 right-10 w-20 h-20 border-t-2 border-r-2 border-gold-400/30 pointer-events-none"></div>
-      <div className="absolute bottom-10 left-10 w-20 h-20 border-b-2 border-l-2 border-gold-400/30 pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-20 h-20 border-b-2 border-r-2 border-gold-400/30 pointer-events-none"></div>
+      <GlowLine
+        orientation="horizontal"
+        position="50%"
+        color="blue"
+        className="z-20"
+      />
     </section>
   );
 }

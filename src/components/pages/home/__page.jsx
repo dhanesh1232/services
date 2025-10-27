@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import { ServicesStats } from "@/components/pages/home/stats";
 import { ServiceSection } from "@/components/pages/home/services";
 import { ProcessSection } from "@/components/pages/home/process";
@@ -9,19 +8,12 @@ import { PortfolioSection } from "@/components/pages/home/portfolio";
 import { TestimonialsSection } from "@/components/pages/home/testimonials";
 import { FaqSection } from "@/components/pages/home/faq";
 import { Why } from "@/components/pages/home/why";
-import NightSkyHero from "./hero/hero3";
+import NightSkyHero from "./compos/hero3";
 import { CTA } from "./cta";
-import dynamic from "next/dynamic";
-// import { WaterBubbleEffect } from "@/components/layout/float-ripple";
-import { useRef, useEffect } from "react";
-const WaterBubbleEffect = dynamic(() =>
-  import("@/components/layout/float-ripple").then(
-    (mod) => mod.WaterBubbleEffect
-  )
-);
+import * as React from "react";
 
 export default function ServicesPage() {
-  useEffect(() => {
+  React.useEffect(() => {
     // Prevent initial scroll jump
     if (history.scrollRestoration) {
       history.scrollRestoration = "manual";
@@ -68,7 +60,7 @@ export default function ServicesPage() {
             },
             sameAs: [
               "https://www.facebook.com/ecodrix",
-              "https://www.instagram.com/ecodrix__360",
+              "https://www.instagram.com/ecodrix.__.studio",
               "https://www.linkedin.com/company/ecodrix",
             ],
             description:
@@ -98,7 +90,6 @@ export default function ServicesPage() {
         }}
       />
       <>
-        <WaterBubbleEffect />
         {/* Hero Section */}
         <NightSkyHero />
         {/* Stats Section */}

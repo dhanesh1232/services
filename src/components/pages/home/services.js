@@ -181,13 +181,6 @@ export const ServiceSection = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center mt-20 gap-10"
         >
-          <div className="inline-flex items-center gap-4 bg-yellow-500/10 dark:bg-yellow-500/10 px-8 py-4 rounded-full border border-yellow-500/20 shadow-lg backdrop-blur-sm">
-            <span className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
-            <span className="text-base font-semibold text-yellow-700 dark:text-yellow-400">
-              Trusted by discerning clients and premium brands worldwide
-            </span>
-          </div>
-
           <Button
             size="lg"
             variant="outline"
