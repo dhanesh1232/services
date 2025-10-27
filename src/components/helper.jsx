@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+
 export function BodyContent(body) {
   const [content, setContent] = React.useState("");
 
@@ -18,8 +19,7 @@ export function BodyContent(body) {
       });
 
       container.querySelectorAll("h2").forEach((h2) => {
-        h2.className =
-          "text-3xl font-bold mb-6 text-foreground mt-10 pb-2 border-b border-border";
+        h2.className = "text-3xl font-bold mb-6 text-foreground mt-10 pb-2 border-b border-border";
       });
 
       container.querySelectorAll("h3").forEach((h3) => {
@@ -62,8 +62,7 @@ export function BodyContent(body) {
         if (code.parentElement?.tagName === "PRE") {
           code.className = "block text-sm font-mono";
         } else {
-          code.className =
-            "bg-muted px-2 py-1 rounded text-sm font-mono text-foreground border";
+          code.className = "bg-muted px-2 py-1 rounded text-sm font-mono text-foreground border";
         }
       });
 
