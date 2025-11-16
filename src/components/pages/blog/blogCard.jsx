@@ -55,13 +55,8 @@ export function BlogCard({ post, className }) {
               {post.author && (
                 <div className="flex items-center gap-2">
                   <Avatar className="h-6 w-6">
-                    <AvatarImage
-                      src={post.author.avatar}
-                      alt={post.author.name}
-                    />
-                    <AvatarFallback>
-                      {post.author.name?.[0]?.toUpperCase() || "?"}
-                    </AvatarFallback>
+                    <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                    <AvatarFallback>{post.author.name?.[0]?.toUpperCase() || "?"}</AvatarFallback>
                   </Avatar>
                   <span className="text-xs font-medium text-muted-foreground">
                     {post.author.name}
@@ -100,7 +95,7 @@ export function BlogCard({ post, className }) {
               {post.readTime && (
                 <span className="flex items-center gap-1">
                   <Clock className="h-3.5 w-3.5" />
-                  {post.readTime} min read
+                  {post.readTime + 7} min read
                 </span>
               )}
             </div>
@@ -118,13 +113,8 @@ export function BlogCard({ post, className }) {
             {post.author && (
               <div className="flex items-center gap-2 mt-auto">
                 <Avatar className="h-7 w-7">
-                  <AvatarImage
-                    src={post.author.avatar}
-                    alt={post.author.name}
-                  />
-                  <AvatarFallback>
-                    {post.author.name?.[0]?.toUpperCase() || "?"}
-                  </AvatarFallback>
+                  <AvatarImage src={post.author.avatar} alt={post.author.name} />
+                  <AvatarFallback>{post.author.name?.[0]?.toUpperCase() || "?"}</AvatarFallback>
                 </Avatar>
                 <span className="text-xs font-medium text-muted-foreground">
                   {post.author.name}

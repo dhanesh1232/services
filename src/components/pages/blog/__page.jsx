@@ -17,7 +17,7 @@ export function BlogPage() {
   const fetchblogs = React.useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://api.ecodrix.com/api/services/blogs", {
+      const res = await fetch("/api/blogs", {
         method: "GET",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -61,10 +61,9 @@ export function BlogPage() {
             Future GenAI Blog | AI-Powered Web Dev, SEO & Automation Insights
           </h1>
           <p className="text-muted-foreground text-base">
-            Explore hands-on tutorials, advanced web development techniques, SEO
-            strategies, AI tools, and automation hacks to elevate your projects,
-            boost performance, and stay ahead in the ever-evolving digital
-            landscape.
+            Explore hands-on tutorials, advanced web development techniques, SEO strategies, AI
+            tools, and automation hacks to elevate your projects, boost performance, and stay ahead
+            in the ever-evolving digital landscape.
           </p>
         </div>
 
