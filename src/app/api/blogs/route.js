@@ -1,8 +1,18 @@
+/**
+ * src/app/api/blogs
+ */
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+import { unstable_noStore as noStore } from "next/cache";
+
 import dbConnect from "@/lib/db";
 import { ErrorHandles, SuccessHandles } from "@/lib/response";
 import { Blog } from "@/models/dynamicModels";
 
 export async function GET() {
+  noStore();
   await dbConnect();
   try {
     const blogs = await Blog.find().lean();

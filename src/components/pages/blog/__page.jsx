@@ -7,6 +7,33 @@ import { Search } from "lucide-react";
 import { BlogCard } from "./blogCard";
 import { GlobalLoader } from "@/components/layout/loader";
 
+const loadBlogs = {
+  internal: {
+    api: "/api/blogs",
+    body: {
+      method: "GET",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+    },
+  },
+  external: {
+    api: "https://api.ecodrix.com/api/services/blogs",
+    body: {
+      method: "GET",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+    },
+  },
+};
+
+async function fetchBody(source) {
+  const src = loadBlogs?.[source];
+  const res = await fetch(src?.api, src.body);
+  return res;
+}
+
 export function BlogPage() {
   const [search, setSearch] = React.useState("");
   const [blogs, setBlogs] = React.useState([]);
@@ -17,11 +44,7 @@ export function BlogPage() {
   const fetchblogs = React.useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/blogs", {
-        method: "GET",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-      });
+      const res = await fetchBody("internal");
       if (!res.ok) throw new Error("Failed to fetch blogs");
       const data = await res.json();
       setBlogs(data.data || []);
