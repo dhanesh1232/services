@@ -22,18 +22,22 @@ export default function ServicesLayout({ children }) {
   return isMount ? (
     <>
       {pathname !== "/not-found" ? (
-        <TooltipProvider>
-          <ServiceHeader />
-          <main className="flex-1 relative dark:from-slate-950 dark:to-slate-900 bg-gradient-to-b from-white to-white">
-            {children}
-            <TopGlow className="-z-10" />
-          </main>
-          <ServiceFooter />
-          <TopButton />
-          <CookieConsent />
-          <FloatButton />
-          <BotWidget />
-        </TooltipProvider>
+        pathname.includes("/services/demo") ? (
+          <main className="flex-1 relative bg-background h-screen w-full">{children}</main>
+        ) : (
+          <TooltipProvider>
+            <ServiceHeader />
+            <main className="flex-1 relative dark:from-slate-950 dark:to-slate-900 bg-gradient-to-b from-white to-white">
+              {children}
+              <TopGlow className="-z-10" />
+            </main>
+            <ServiceFooter />
+            <TopButton />
+            <CookieConsent />
+            <FloatButton />
+            <BotWidget />
+          </TooltipProvider>
+        )
       ) : (
         <main className="flex-1 relative">{children}</main>
       )}
